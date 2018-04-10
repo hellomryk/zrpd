@@ -1,0 +1,172 @@
+.w{
+    width:1160px;
+    margin:0 auto;
+    min-width:1200px;
+}
+.fl{
+    float:left;
+}
+.fr{
+    float:right;
+}
+.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover{
+    color:#1aa08b;
+}
+.nav-a a.active{
+    color:#1aa08b;
+}
+.nav-a a:hover{
+    color:#1aa08b;
+}
+/* 首页 */
+.collapse .nav-land{
+    border:1px solid #1aa08b;
+    color:#1aa08b;
+}
+.collapse .nav-register{
+    border:1px solid #1aa08b;
+    background:#1aa08b;
+    color:#fff;
+    margin-left:20px;
+}
+.navbar{
+    border:none;
+}
+.nav{
+    border-bottom:1px solid #ccc;
+    box-shadow:0 0 10px #ccc;
+}
+.nav-lr{
+    margin-left:40px;
+}
+.home-banner{
+    width:100%;
+    height:400px;
+    background: url(../images/home-banner.png) no-repeat;
+    background-size:100% 100%;
+}
+.home-banh2{
+    padding-top:110px;
+    font-size:48px;
+    line-height:48px;
+    color:#fff;
+    text-align:center;
+    margin:0;
+}
+.home-banser{
+    width:590px;
+    margin:60px auto 0;
+}
+.home-batnl{
+    width:40px;
+    height:50px;
+    padding:0;
+    background:url(../images/home-batnl.png) no-repeat 12px 15px #fff;
+    border-right:none;
+}
+.home-banstxt{
+    height:50px;
+    border-left:none;
+}
+.home-batnr{
+    width:90px;
+    height:50px;
+    background: #1aa08b;
+    border:none;
+    font-size:16px;
+    color:#fff;
+}
+.home-batnr:hover{
+    color: #fff;
+    background-color: #1aa08b;
+    opacity: .9;
+}
+.home-preterite{
+    height:296px;
+    margin-top:80px;
+    box-shadow:0 0 5px #ccc;
+    margin-bottom:100px;
+}
+.home-pd{
+    width:386px;
+}
+.home-pdh3{
+    font-size:16px;
+    line-height:16px;
+    padding-top:30px;
+    text-align:center;
+    color:#5c5c5c;
+}
+.home-pdcont{
+    height:200px;
+    border-right:1px solid #ddd;
+    margin-top:20px;
+    padding:0 20px;
+}
+.home-pdcont span{
+    display: inline-block;
+    width:170px;
+    padding-left:10px;
+    font-size:14px;
+    line-height:24px;
+}
+.home-bornone{
+    border:none;
+}
+.home-footer{
+    padding-top:24px;
+    height:80px;
+    background:#2e2e2e;
+}
+.home-focont p{
+    text-align:center;
+    font-size:14px;
+    line-height:14px;
+    color:#ccc;
+    margin-bottom:8px;
+}
+
+/* 搜索结果 */
+.sear-datap {
+    line-height: 34px;
+    font-size: 14px;
+    margin:0;
+}
+.sear-datanum {
+    color: #1aa08b;
+    padding: 0 3px;
+}
+.sear-datanum2 {
+    color: #1aa08b;
+}
+.sear-data{
+    margin-top:70px;
+}
+.sear-data .btn {
+    background: #1aa08b;
+    color: #fff;
+}
+.sear-table{
+    padding:0 20px;
+    min-height:600px;
+}
+.table>thead>tr>th{
+    border-bottom:1px solid #ddd;
+}
+.table_border{
+    border:1px solid #ddd;
+}
+.sear-table{
+    margin-top:20px;
+}
+
+/* 词库 */
+.Thesaurus-banner {
+    width: 100%;
+    height: 400px;
+    background: url(../images/Thesaurus.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+
+

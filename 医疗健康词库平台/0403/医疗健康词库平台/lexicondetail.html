@@ -1,0 +1,1766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>详情页</title>
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/lexicondetail.css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+</head>
+<body>
+<div class="nav">
+    <nav class="navbar navbar-default w clearfix">
+        <div class="navbar-header fl">
+            <a class="navbar-brand" href="#">
+                <img alt="Brand" width="20" height="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAB+0lEQVR4AcyYg5LkUBhG+1X2PdZGaW3btm3btm3bHttWrPomd1r/2Jn/VJ02TpxcH4CQ/dsuazWgzbIdrm9dZVd4pBz4zx2igTaFHrhvjneVXNHCSqIlFEjiwMyyyOBilRgGSqLNF1jnwNQdIvAt48C3IlBmHCiLQHC2zoHDu6zG1iXn6+y62ScxY9AODO6w0pvAqf23oSE4joOfH6OxfMoRnoGUm+de8wykbFt6wZtA07QwtNOqKh3ZbS3Wzz2F+1c/QJY0UCJ/J3kXWJfv7VhxCRRV1jGw7XI+gcO7rEFFRvdYxydwcPsVsC0bQdKScngt4iUTD4Fy/8p7PoHzRu1DclwmgmiqgUXjD3oTKHbAt869qdJ7l98jNTEblPTkXMwetpvnftA0LLHb4X8kiY9Kx6Q+W7wJtG0HR7fdrtYz+x7iya0vkEtUULIzCjC21wY+W/GYXusRH5kGytWTLxgEEhePPwhKYb7EK3BQuxWwTBuUkd3X8goUn6fMHLyTT+DCsQdAEXNzSMeVPAJHdF2DmH8poCREp3uwm7HsGq9J9q69iuunX6EgrwQVObjpBt8z6rdPfvE8kiiyhsvHnomrQx6BxYUyYiNS8f75H1w4/ISepDZLoDhNJ9cdNUquhRsv+6EP9oNH7Iff2A9g8h8CLt1gH0Qf9NMQAFnO60BJFQe0AAAAAElFTkSuQmCC">
+            </a>
+        </div>
+        <div class="collapse navbar-collapse nav-lr fr" id="bs-example-navbar-collapse-3">
+            <button type="button" class="btn btn-default navbar-btn nav-land">登录</button>
+            <button type="button" class="btn btn-default navbar-btn nav-register">注册</button>
+        </div>
+        <div class="navbar-header nav-a fr">
+            <a class="navbar-brand active" href="#">首页</a>
+            <a class="navbar-brand" href="#">采集</a>
+            <a class="navbar-brand" href="#">挖词</a>
+            <a class="navbar-brand" href="#">标注</a>
+            <a class="navbar-brand" href="#">词库</a>
+        </div>
+    </nav>
+</div>
+<!-- 导航 -->
+<div class="lex-navigationbg">
+    <div class="lex-navigation">
+        <div class="lex-navigation-fa">
+            词库 > <font>词库详情</font>
+        </div>
+    </div>
+</div>
+<!-- 电商板块 -->
+<div class="lex-retailersbg">
+    <div class="lex-retailers clearfix">
+        <div class="lex-retailers-left">
+            <p>电商</p>
+            <span>更新时间:18.1.2</span>
+            <cite></cite>
+        </div>
+        <div class="lex-retailers-cen">
+            <div class="lex-retailers-cen-sale1">
+                <span></span>
+                <var>词量:</var>
+                <cite>2344565</cite>
+                个
+            </div>
+            <div class="lex-retailers-cen-sale2">
+                <span></span>
+                <var>销售:</var>
+                <cite>2344565</cite>
+                个
+            </div>
+        </div>
+        <div class="lex-retailers-right">
+            <form class="lex-retailers-right-form">
+                <input type="text" class="lex-retailers-right-form-insert" placeholder="搜索词库">
+                <input type="button" class="lex-retailers-right-form-search" value="查询">
+            </form>
+            <cite>词库查询</cite>
+            <span>电商</span>
+            <em></em>
+        </div>
+    </div>
+</div>
+<!-- 结果列表 -->
+<div class="lex-result-listbg">
+    <div class="lex-result-list">
+       <!--  提取所有高频词数据part -->
+       <div class="lex-result-list-high">
+        <!-- title按钮部分 -->
+           <div class="lex-result-list-high-title">
+               <span class="active">高频词汇列表</span>
+               <var>疑问词汇提取</var>
+           </div>
+          <!--  高频词汇列表box区域 -->
+          <div class="lex-result-list-high-box">
+              <div class="lex-result-list-high-box-top">
+                  <a href="javascript:;">提取所有高频词数据</a>
+              </div >
+              <!-- 有限公司内容板块 -->
+              <div class="lex-result-list-high-box-company clearfix">
+                  <div class="lex-result-company-pub lex-left">
+                      <div class="lex-result-company-pub-title clearfix">
+                          <span>有限公司[324555]</span>
+                          <a href="javascript:;">导出数据</a>
+                      </div>
+                      <div class="lex-result-company-pub-title-tablebg">
+                            <table class="lex-result-company-pub-title-table">
+                                  <tr>
+                                      <th>关键词</th>
+                                      <th>词量</th>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点德利西点德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                            </table>
+                      </div>
+                  </div>
+                  <div class="lex-result-company-pub lex-left">
+                      <div class="lex-result-company-pub-title clearfix">
+                          <span>有限公司[324555]</span>
+                          <a href="javascript:;">导出数据</a>
+                      </div>
+                      <div class="lex-result-company-pub-title-tablebg">
+                            <table class="lex-result-company-pub-title-table">
+                                  <tr>
+                                      <th>关键词</th>
+                                      <th>词量</th>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点德利西点德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                            </table>
+                      </div>
+                  </div>
+                  <div class="lex-result-company-pub lex-left">
+                      <div class="lex-result-company-pub-title clearfix">
+                          <span>有限公司[324555]</span>
+                          <a href="javascript:;">导出数据</a>
+                      </div>
+                      <div class="lex-result-company-pub-title-tablebg">
+                            <table class="lex-result-company-pub-title-table">
+                                  <tr>
+                                      <th>关键词</th>
+                                      <th>词量</th>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点德利西点德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                            </table>
+                      </div>
+                  </div>
+                  <!-- pub结束 -->
+              </div>
+          </div>
+          <!-- 疑问词汇提取box区域 -->
+          <div class="lex-result-list-question-box">
+
+          </div>
+       </div>
+       <!-- 更多数据 -->
+       <div class="lex-more-dashaed">
+           <p>更多数据</p>
+       </div>
+       <ul class="lex-more-ul clearfix">
+           <li>
+              <div class="lex-more-button-top">
+                <span>上海</span>
+                [3546]
+                <i></i>
+              </div> 
+              <div class="lex-more-box-bottom lex-more-box-bottom-show">
+                <!-- 开始 -->
+                  <div class="lex-result-company-pub lex-more-box-bottom-xia">
+                      <div class="lex-result-company-pub-title clearfix">
+                          <span>有限公司[324555]</span>
+                          <a href="javascript:;">导出数据</a>
+                      </div>
+                      <div class="lex-result-company-pub-title-tablebg">
+                            <table class="lex-result-company-pub-title-table">
+                                  <tr>
+                                      <th>关键词</th>
+                                      <th>词量</th>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点德利西点德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                            </table>
+                      </div>
+                  </div>
+<!-- 结束 -->
+              </div>
+           </li>
+                      <li>
+              <div class="lex-more-button-top">
+                <span>上海</span>
+                [3546]
+                <i></i>
+              </div> 
+              <div class="lex-more-box-bottom lex-more-box-bottom-show">
+                <!-- 开始 -->
+                  <div class="lex-result-company-pub lex-more-box-bottom-xia">
+                      <div class="lex-result-company-pub-title clearfix">
+                          <span>有限公司[324555]</span>
+                          <a href="javascript:;">导出数据</a>
+                      </div>
+                      <div class="lex-result-company-pub-title-tablebg">
+                            <table class="lex-result-company-pub-title-table">
+                                  <tr>
+                                      <th>关键词</th>
+                                      <th>词量</th>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点德利西点德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                            </table>
+                      </div>
+                  </div>
+<!-- 结束 -->
+              </div>
+           </li>
+                      <li>
+              <div class="lex-more-button-top">
+                <span>上海</span>
+                [3546]
+                <i></i>
+              </div> 
+              <div class="lex-more-box-bottom lex-more-box-bottom-show">
+                <!-- 开始 -->
+                  <div class="lex-result-company-pub lex-more-box-bottom-xia">
+                      <div class="lex-result-company-pub-title clearfix">
+                          <span>有限公司[324555]</span>
+                          <a href="javascript:;">导出数据</a>
+                      </div>
+                      <div class="lex-result-company-pub-title-tablebg">
+                            <table class="lex-result-company-pub-title-table">
+                                  <tr>
+                                      <th>关键词</th>
+                                      <th>词量</th>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点德利西点德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                            </table>
+                      </div>
+                  </div>
+<!-- 结束 -->
+              </div>
+           </li>
+                      <li>
+              <div class="lex-more-button-top">
+                <span>上海</span>
+                [3546]
+                <i></i>
+              </div> 
+              <div class="lex-more-box-bottom lex-more-box-bottom-show">
+                <!-- 开始 -->
+                  <div class="lex-result-company-pub lex-more-box-bottom-xia">
+                      <div class="lex-result-company-pub-title clearfix">
+                          <span>有限公司[324555]</span>
+                          <a href="javascript:;">导出数据</a>
+                      </div>
+                      <div class="lex-result-company-pub-title-tablebg">
+                            <table class="lex-result-company-pub-title-table">
+                                  <tr>
+                                      <th>关键词</th>
+                                      <th>词量</th>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点德利西点德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                            </table>
+                      </div>
+                  </div>
+<!-- 结束 -->
+              </div>
+           </li>
+                      <li>
+              <div class="lex-more-button-top">
+                <span>上海</span>
+                [3546]
+                <i></i>
+              </div> 
+              <div class="lex-more-box-bottom lex-more-box-bottom-show">
+                <!-- 开始 -->
+                  <div class="lex-result-company-pub lex-more-box-bottom-xia">
+                      <div class="lex-result-company-pub-title clearfix">
+                          <span>有限公司[324555]</span>
+                          <a href="javascript:;">导出数据</a>
+                      </div>
+                      <div class="lex-result-company-pub-title-tablebg">
+                            <table class="lex-result-company-pub-title-table">
+                                  <tr>
+                                      <th>关键词</th>
+                                      <th>词量</th>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点德利西点德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                            </table>
+                      </div>
+                  </div>
+<!-- 结束 -->
+              </div>
+           </li>
+                      <li>
+              <div class="lex-more-button-top">
+                <span>上海</span>
+                [3546]
+                <i></i>
+              </div> 
+              <div class="lex-more-box-bottom lex-more-box-bottom-show">
+                <!-- 开始 -->
+                  <div class="lex-result-company-pub lex-more-box-bottom-xia">
+                      <div class="lex-result-company-pub-title clearfix">
+                          <span>有限公司[324555]</span>
+                          <a href="javascript:;">导出数据</a>
+                      </div>
+                      <div class="lex-result-company-pub-title-tablebg">
+                            <table class="lex-result-company-pub-title-table">
+                                  <tr>
+                                      <th>关键词</th>
+                                      <th>词量</th>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点德利西点德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                            </table>
+                      </div>
+                  </div>
+<!-- 结束 -->
+              </div>
+           </li>
+                      <li>
+              <div class="lex-more-button-top">
+                <span>上海</span>
+                [3546]
+                <i></i>
+              </div> 
+              <div class="lex-more-box-bottom lex-more-box-bottom-show">
+                <!-- 开始 -->
+                  <div class="lex-result-company-pub lex-more-box-bottom-xia">
+                      <div class="lex-result-company-pub-title clearfix">
+                          <span>有限公司[324555]</span>
+                          <a href="javascript:;">导出数据</a>
+                      </div>
+                      <div class="lex-result-company-pub-title-tablebg">
+                            <table class="lex-result-company-pub-title-table">
+                                  <tr>
+                                      <th>关键词</th>
+                                      <th>词量</th>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点德利西点德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                            </table>
+                      </div>
+                  </div>
+<!-- 结束 -->
+              </div>
+           </li>
+                      <li>
+              <div class="lex-more-button-top">
+                <span>上海</span>
+                [3546]
+                <i></i>
+              </div> 
+              <div class="lex-more-box-bottom lex-more-box-bottom-show">
+                <!-- 开始 -->
+                  <div class="lex-result-company-pub lex-more-box-bottom-xia">
+                      <div class="lex-result-company-pub-title clearfix">
+                          <span>有限公司[324555]</span>
+                          <a href="javascript:;">导出数据</a>
+                      </div>
+                      <div class="lex-result-company-pub-title-tablebg">
+                            <table class="lex-result-company-pub-title-table">
+                                  <tr>
+                                      <th>关键词</th>
+                                      <th>词量</th>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点德利西点德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                            </table>
+                      </div>
+                  </div>
+<!-- 结束 -->
+              </div>
+           </li>
+                      <li>
+              <div class="lex-more-button-top">
+                <span>上海</span>
+                [3546]
+                <i></i>
+              </div> 
+              <div class="lex-more-box-bottom lex-more-box-bottom-show">
+                <!-- 开始 -->
+                  <div class="lex-result-company-pub lex-more-box-bottom-xia">
+                      <div class="lex-result-company-pub-title clearfix">
+                          <span>有限公司[324555]</span>
+                          <a href="javascript:;">导出数据</a>
+                      </div>
+                      <div class="lex-result-company-pub-title-tablebg">
+                            <table class="lex-result-company-pub-title-table">
+                                  <tr>
+                                      <th>关键词</th>
+                                      <th>词量</th>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点德利西点德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                            </table>
+                      </div>
+                  </div>
+<!-- 结束 -->
+              </div>
+           </li>
+                      <li>
+              <div class="lex-more-button-top">
+                <span>上海</span>
+                [3546]
+                <i></i>
+              </div> 
+              <div class="lex-more-box-bottom lex-more-box-bottom-show">
+                <!-- 开始 -->
+                  <div class="lex-result-company-pub lex-more-box-bottom-xia">
+                      <div class="lex-result-company-pub-title clearfix">
+                          <span>有限公司[324555]</span>
+                          <a href="javascript:;">导出数据</a>
+                      </div>
+                      <div class="lex-result-company-pub-title-tablebg">
+                            <table class="lex-result-company-pub-title-table">
+                                  <tr>
+                                      <th>关键词</th>
+                                      <th>词量</th>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点德利西点德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                            </table>
+                      </div>
+                  </div>
+<!-- 结束 -->
+              </div>
+           </li>
+                      <li>
+              <div class="lex-more-button-top">
+                <span>上海</span>
+                [3546]
+                <i></i>
+              </div> 
+              <div class="lex-more-box-bottom lex-more-box-bottom-show">
+                <!-- 开始 -->
+                  <div class="lex-result-company-pub lex-more-box-bottom-xia">
+                      <div class="lex-result-company-pub-title clearfix">
+                          <span>有限公司[324555]</span>
+                          <a href="javascript:;">导出数据</a>
+                      </div>
+                      <div class="lex-result-company-pub-title-tablebg">
+                            <table class="lex-result-company-pub-title-table">
+                                  <tr>
+                                      <th>关键词</th>
+                                      <th>词量</th>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点德利西点德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                            </table>
+                      </div>
+                  </div>
+<!-- 结束 -->
+              </div>
+           </li>
+                      <li>
+              <div class="lex-more-button-top">
+                <span>上海</span>
+                [3546]
+                <i></i>
+              </div> 
+              <div class="lex-more-box-bottom lex-more-box-bottom-show">
+                <!-- 开始 -->
+                  <div class="lex-result-company-pub lex-more-box-bottom-xia">
+                      <div class="lex-result-company-pub-title clearfix">
+                          <span>有限公司[324555]</span>
+                          <a href="javascript:;">导出数据</a>
+                      </div>
+                      <div class="lex-result-company-pub-title-tablebg">
+                            <table class="lex-result-company-pub-title-table">
+                                  <tr>
+                                      <th>关键词</th>
+                                      <th>词量</th>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点德利西点德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                            </table>
+                      </div>
+                  </div>
+<!-- 结束 -->
+              </div>
+           </li>
+                      <li>
+              <div class="lex-more-button-top">
+                <span>上海</span>
+                [3546]
+                <i></i>
+              </div> 
+              <div class="lex-more-box-bottom lex-more-box-bottom-show">
+                <!-- 开始 -->
+                  <div class="lex-result-company-pub lex-more-box-bottom-xia">
+                      <div class="lex-result-company-pub-title clearfix">
+                          <span>有限公司[324555]</span>
+                          <a href="javascript:;">导出数据</a>
+                      </div>
+                      <div class="lex-result-company-pub-title-tablebg">
+                            <table class="lex-result-company-pub-title-table">
+                                  <tr>
+                                      <th>关键词</th>
+                                      <th>词量</th>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点德利西点德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                            </table>
+                      </div>
+                  </div>
+<!-- 结束 -->
+              </div>
+           </li>
+                      <li>
+              <div class="lex-more-button-top">
+                <span>上海</span>
+                [3546]
+                <i></i>
+              </div> 
+              <div class="lex-more-box-bottom lex-more-box-bottom-show">
+                <!-- 开始 -->
+                  <div class="lex-result-company-pub lex-more-box-bottom-xia">
+                      <div class="lex-result-company-pub-title clearfix">
+                          <span>有限公司[324555]</span>
+                          <a href="javascript:;">导出数据</a>
+                      </div>
+                      <div class="lex-result-company-pub-title-tablebg">
+                            <table class="lex-result-company-pub-title-table">
+                                  <tr>
+                                      <th>关键词</th>
+                                      <th>词量</th>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点德利西点德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                            </table>
+                      </div>
+                  </div>
+<!-- 结束 -->
+              </div>
+           </li>
+                      <li>
+              <div class="lex-more-button-top">
+                <span>上海</span>
+                [3546]
+                <i></i>
+              </div> 
+              <div class="lex-more-box-bottom lex-more-box-bottom-show">
+                <!-- 开始 -->
+                  <div class="lex-result-company-pub lex-more-box-bottom-xia">
+                      <div class="lex-result-company-pub-title clearfix">
+                          <span>有限公司[324555]</span>
+                          <a href="javascript:;">导出数据</a>
+                      </div>
+                      <div class="lex-result-company-pub-title-tablebg">
+                            <table class="lex-result-company-pub-title-table">
+                                  <tr>
+                                      <th>关键词</th>
+                                      <th>词量</th>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点德利西点德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                            </table>
+                      </div>
+                  </div>
+<!-- 结束 -->
+              </div>
+           </li>
+                      <li>
+              <div class="lex-more-button-top">
+                <span>上海</span>
+                [3546]
+                <i></i>
+              </div> 
+              <div class="lex-more-box-bottom lex-more-box-bottom-show">
+                <!-- 开始 -->
+                  <div class="lex-result-company-pub lex-more-box-bottom-xia">
+                      <div class="lex-result-company-pub-title clearfix">
+                          <span>有限公司[324555]</span>
+                          <a href="javascript:;">导出数据</a>
+                      </div>
+                      <div class="lex-result-company-pub-title-tablebg">
+                            <table class="lex-result-company-pub-title-table">
+                                  <tr>
+                                      <th>关键词</th>
+                                      <th>词量</th>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点德利西点德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                            </table>
+                      </div>
+                  </div>
+<!-- 结束 -->
+              </div>
+           </li>
+                      <li>
+              <div class="lex-more-button-top">
+                <span>上海</span>
+                [3546]
+                <i></i>
+              </div> 
+              <div class="lex-more-box-bottom lex-more-box-bottom-show">
+                <!-- 开始 -->
+                  <div class="lex-result-company-pub lex-more-box-bottom-xia">
+                      <div class="lex-result-company-pub-title clearfix">
+                          <span>有限公司[324555]</span>
+                          <a href="javascript:;">导出数据</a>
+                      </div>
+                      <div class="lex-result-company-pub-title-tablebg">
+                            <table class="lex-result-company-pub-title-table">
+                                  <tr>
+                                      <th>关键词</th>
+                                      <th>词量</th>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点德利西点德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                            </table>
+                      </div>
+                  </div>
+<!-- 结束 -->
+              </div>
+           </li>
+                      <li>
+              <div class="lex-more-button-top">
+                <span>上海</span>
+                [3546]
+                <i></i>
+              </div> 
+              <div class="lex-more-box-bottom lex-more-box-bottom-show">
+                <!-- 开始 -->
+                  <div class="lex-result-company-pub lex-more-box-bottom-xia">
+                      <div class="lex-result-company-pub-title clearfix">
+                          <span>有限公司[324555]</span>
+                          <a href="javascript:;">导出数据</a>
+                      </div>
+                      <div class="lex-result-company-pub-title-tablebg">
+                            <table class="lex-result-company-pub-title-table">
+                                  <tr>
+                                      <th>关键词</th>
+                                      <th>词量</th>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点德利西点德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                            </table>
+                      </div>
+                  </div>
+<!-- 结束 -->
+              </div>
+           </li>
+                      <li>
+              <div class="lex-more-button-top">
+                <span>上海</span>
+                [3546]
+                <i></i>
+              </div> 
+              <div class="lex-more-box-bottom lex-more-box-bottom-show">
+                <!-- 开始 -->
+                  <div class="lex-result-company-pub lex-more-box-bottom-xia">
+                      <div class="lex-result-company-pub-title clearfix">
+                          <span>有限公司[324555]</span>
+                          <a href="javascript:;">导出数据</a>
+                      </div>
+                      <div class="lex-result-company-pub-title-tablebg">
+                            <table class="lex-result-company-pub-title-table">
+                                  <tr>
+                                      <th>关键词</th>
+                                      <th>词量</th>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点德利西点德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                            </table>
+                      </div>
+                  </div>
+<!-- 结束 -->
+              </div>
+           </li>
+                      <li>
+              <div class="lex-more-button-top">
+                <span>上海</span>
+                [3546]
+                <i></i>
+              </div> 
+              <div class="lex-more-box-bottom lex-more-box-bottom-show">
+                <!-- 开始 -->
+                  <div class="lex-result-company-pub lex-more-box-bottom-xia">
+                      <div class="lex-result-company-pub-title clearfix">
+                          <span>有限公司[324555]</span>
+                          <a href="javascript:;">导出数据</a>
+                      </div>
+                      <div class="lex-result-company-pub-title-tablebg">
+                            <table class="lex-result-company-pub-title-table">
+                                  <tr>
+                                      <th>关键词</th>
+                                      <th>词量</th>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点德利西点德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                            </table>
+                      </div>
+                  </div>
+<!-- 结束 -->
+              </div>
+           </li>
+                      <li>
+              <div class="lex-more-button-top">
+                <span>上海</span>
+                [3546]
+                <i></i>
+              </div> 
+              <div class="lex-more-box-bottom lex-more-box-bottom-show">
+                <!-- 开始 -->
+                  <div class="lex-result-company-pub lex-more-box-bottom-xia">
+                      <div class="lex-result-company-pub-title clearfix">
+                          <span>有限公司[324555]</span>
+                          <a href="javascript:;">导出数据</a>
+                      </div>
+                      <div class="lex-result-company-pub-title-tablebg">
+                            <table class="lex-result-company-pub-title-table">
+                                  <tr>
+                                      <th>关键词</th>
+                                      <th>词量</th>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点德利西点德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                            </table>
+                      </div>
+                  </div>
+<!-- 结束 -->
+              </div>
+           </li>
+                      <li>
+              <div class="lex-more-button-top">
+                <span>上海</span>
+                [3546]
+                <i></i>
+              </div> 
+              <div class="lex-more-box-bottom lex-more-box-bottom-show">
+                <!-- 开始 -->
+                  <div class="lex-result-company-pub lex-more-box-bottom-xia">
+                      <div class="lex-result-company-pub-title clearfix">
+                          <span>有限公司[324555]</span>
+                          <a href="javascript:;">导出数据</a>
+                      </div>
+                      <div class="lex-result-company-pub-title-tablebg">
+                            <table class="lex-result-company-pub-title-table">
+                                  <tr>
+                                      <th>关键词</th>
+                                      <th>词量</th>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点德利西点德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                            </table>
+                      </div>
+                  </div>
+<!-- 结束 -->
+              </div>
+           </li>
+                      <li>
+              <div class="lex-more-button-top">
+                <span>上海2</span>
+                [3546]
+                <i></i>
+              </div> 
+              <div class="lex-more-box-bottom lex-more-box-bottom-show">
+                <!-- 开始 -->
+                  <div class="lex-result-company-pub lex-more-box-bottom-xia">
+                      <div class="lex-result-company-pub-title clearfix">
+                          <span>有限公司[324555]</span>
+                          <a href="javascript:;">导出数据</a>
+                      </div>
+                      <div class="lex-result-company-pub-title-tablebg">
+                            <table class="lex-result-company-pub-title-table">
+                                  <tr>
+                                      <th>关键词</th>
+                                      <th>词量</th>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点德利西点德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                            </table>
+                      </div>
+                  </div>
+<!-- 结束 -->
+              </div>
+           </li>
+                      <li>
+              <div class="lex-more-button-top">
+                <span>上海</span>
+                [3546]
+                <i></i>
+              </div> 
+              <div class="lex-more-box-bottom lex-more-box-bottom-show">
+                <!-- 开始 -->
+                  <div class="lex-result-company-pub lex-more-box-bottom-xia">
+                      <div class="lex-result-company-pub-title clearfix">
+                          <span>有限公司[324555]</span>
+                          <a href="javascript:;">导出数据</a>
+                      </div>
+                      <div class="lex-result-company-pub-title-tablebg">
+                            <table class="lex-result-company-pub-title-table">
+                                  <tr>
+                                      <th>关键词</th>
+                                      <th>词量</th>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点德利西点德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                  <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                                   <tr>
+                                      <td>德利西点<font>有限公司</font></td>
+                                      <td>3443</td>
+                                  </tr>
+                            </table>
+                      </div>
+                  </div>
+<!-- 结束 -->
+              </div>
+           </li>
+           <!-- 第四行 -->
+            <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+                       <li>
+                <cite></cite>
+                <div class="lex-more-button-top">
+                <span class="lex-name-hide">上海</span>
+                <var>[3546]</var>
+                <i></i>
+                </div> 
+           </li>
+       </ul>
+       <!-- 详情页footer-start -->
+        <div class="lex-footer" id="lex-footer">
+            <p class="lex-footer-p"><span>电商</span>行业总共分析出<span>1000</span>个高频词，您可以通过下面的按钮展开所有高频词数据，或完整下载提取。</p>
+            <a href="javascript:;" class="lex-footer-ashowhigh">显示所有高频词</a>
+            <a href="javascript:;" class="lex-footer-adrawhigh">提取所有高频词数据</a>
+            <div clear="both" class="lex-footer-adrawlow"></div>
+        </div>
+        <div class="lex-footer lex-fixed">
+            <p class="lex-footer-p"><span>电商</span>行业总共分析出<span>1000</span>个高频词，您可以通过下面的按钮展开所有高频词数据，或完整下载提取。</p>
+            <a href="javascript:;" class="lex-footer-ashowhigh">显示所有高频词</a>
+            <a href="javascript:;" class="lex-footer-adrawhigh">提取所有高频词数据</a>
+            <div clear="both" class="lex-footer-adrawlow"></div>
+        </div>
+        <!-- 详情页footer-end -->
+    </div>
+</div>
+
+<footer class="home-footer">
+    <div class="w home-focont">
+        <p>TEL : 010-62353166 ADD : 北京市西城区北三环中路甲29号华尊大厦B座603-605室</p>
+        <p>Copyright © 2017 ZRPD. All Rights Reserved. 中润普达 版权所有 京ICP备14018646号-14</p>
+    </div>
+</footer>
+
+    <script type="text/javascript">
+        // 控制底部区域浮动起来
+        $(document).ready(function () {
+            $(window).scroll(function () {
+                var a = document.getElementById("lex-footer").offsetTop;
+                if (a >= $(window).scrollTop() && a < ($(window).scrollTop()+$(window).height())) {
+                    // alert("div在可视范围");
+                    $(".lex-fixed").hide();
+
+                } else {
+                    $(".lex-fixed").show();
+                }
+            });
+        });
+        // 控制弹框显示隐藏
+        $('.lex-more-button-top').click(function() {
+            $(".lex-more-box-bottom-show").hide();
+            $(this).parents("li").find(".lex-more-box-bottom-show").show();
+        })
+        $(document).mouseup(function(e){
+           var _con = $('.lex-more-box-bottom-show'); 
+           if(!_con.is(e.target) && _con.has(e.target).length === 0){ 
+           $(".lex-more-box-bottom-show").hide();
+          }
+        });
+    </script>
+</body>
+</html>
