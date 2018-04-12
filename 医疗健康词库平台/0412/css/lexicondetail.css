@@ -1,0 +1,673 @@
+.w{
+    width:1160px;
+    margin:0 auto;
+    min-width:1200px;
+}
+.fl{
+    float:left;
+}
+.fr{
+    float:right;
+}
+.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover{
+    color:#1a8af3;
+}
+.nav-a a.active{
+    color:#1a8af3;
+}
+.nav-a a:hover{
+    color:#1a8af3;
+}
+/* 首页 */
+.collapse .nav-land{
+    border:1px solid #1a8af3;
+    color:#1a8af3;
+}
+.collapse .nav-register{
+    border:1px solid #1a8af3;
+    background:#1a8af3;
+    color:#fff;
+    margin-left:20px;
+}
+.navbar{
+    border:none;
+}
+.nav{
+    border-bottom:1px solid #ccc;
+    box-shadow:0 0 10px #ccc;
+}
+.nav-lr{
+    margin-left:40px;
+}
+.home-banner{
+    width:100%;
+    height:400px;
+    background: url(../images/home-banner.png) no-repeat;
+    background-size:100% 100%;
+}
+.home-banh2{
+    padding-top:110px;
+    font-size:48px;
+    line-height:48px;
+    color:#fff;
+    text-align:center;
+    margin:0;
+}
+.home-banser{
+    width:590px;
+    margin:60px auto 0;
+}
+.home-batnl{
+    width:40px;
+    height:50px;
+    padding:0;
+    background:url(../images/home-batnl.png) no-repeat 12px 15px #fff;
+    border-right:none;
+}
+.home-banstxt{
+    height:50px;
+    border-left:none;
+}
+.home-batnr{
+    width:90px;
+    height:50px;
+    background: #1a8af3;
+    border:none;
+    font-size:16px;
+    color:#fff;
+}
+.home-batnr:hover{
+    color: #fff;
+    background-color: #1a8af3;
+    opacity: .9;
+}
+.home-preterite{
+    height:296px;
+    margin-top:80px;
+    box-shadow:0 0 5px #ccc;
+    margin-bottom:100px;
+}
+.home-pd{
+    width:386px;
+}
+.home-pdh3{
+    font-size:16px;
+    line-height:16px;
+    padding-top:30px;
+    text-align:center;
+    color:#5c5c5c;
+}
+.home-pdcont{
+    height:200px;
+    border-right:1px solid #ddd;
+    margin-top:20px;
+    padding:0 20px;
+}
+.home-pdcont span{
+    display: inline-block;
+    width:170px;
+    padding-left:10px;
+    font-size:14px;
+    line-height:24px;
+}
+.home-bornone{
+    border:none;
+}
+.home-footer{
+    padding-top:24px;
+    height:80px;
+    background:#2e2e2e;
+}
+.home-focont p{
+    text-align:center;
+    font-size:14px;
+    line-height:14px;
+    color:#ccc;
+    margin-bottom:8px;
+}
+
+/* 搜索结果 */
+.sear-datap {
+    line-height: 34px;
+    font-size: 14px;
+    margin:0;
+}
+.sear-datanum {
+    color: #1a8af3;
+    padding: 0 3px;
+}
+.sear-datanum2 {
+    color: #1a8af3;
+}
+.sear-data{
+    margin-top:70px;
+}
+.sear-data .btn {
+    background: #1a8af3;
+    color: #fff;
+}
+.sear-table{
+    padding:0 20px;
+    min-height:600px;
+}
+.table>thead>tr>th{
+    border-bottom:1px solid #ddd;
+}
+.table_border{
+    border:1px solid #ddd;
+}
+.sear-table{
+    margin-top:20px;
+}
+
+/* 词库 */
+.Thesaurus-banner {
+    width: 100%;
+    height: 400px;
+    background: url(../images/Thesaurus.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+
+
+
+.w{
+	min-width:1160px;
+}
+.lex-navigationbg{
+	width: 100%;
+}
+.lex-navigation{
+	width:1160px;
+	margin:0 auto;
+}
+.lex-navigation-fa{
+	font-size:14px;
+	color:#5c5c5c;
+	line-height:53px; 
+}
+.lex-navigation-fa font{
+	color:#1a8af3;
+}
+body{
+	background: #f6f6f6;
+}
+p{
+	margin-bottom: 0px;
+}
+cite,var,em{
+	font-style: normal;
+}
+a{
+	text-decoration: none!important;
+}
+li{
+	list-style: none;
+}
+.lex-left{
+	float: left;
+}
+/*电商板块*/
+.lex-retailersbg{
+	width:100%;
+}
+.lex-retailers{
+	width:1160px;
+	margin: 0 auto;
+	height: 150px;
+	background: #fff;
+	box-shadow:1px 1px 5px #ddd;
+}
+.lex-retailers-left{
+	position: relative;
+	float: left;
+}
+.lex-retailers-cen{
+	float: left;
+	width: 329px;
+	border-left: 1px dashed #dddddd;
+	border-right: 1px dashed #dddddd;
+	height: 100%;
+}
+.lex-retailers-right{
+	position: relative;
+	float: left;
+}
+.lex-retailers-left p{
+	font-size:24px;
+	color:#1a8af3;
+	line-height:40px; 
+	width:249px;
+	text-align:center;
+	padding-top: 40px;
+	font-weight: bold;
+}
+.lex-retailers-left span{
+	font-size:14px;
+	color:#999999;
+	line-height:40px; 
+	width:249px;
+	display: block;
+	text-align:center;
+}
+.lex-retailers-left cite{
+	position: absolute;
+	width:5px;
+	height:11px;
+	left: 0px;
+	top:70px;
+	background: url(../images/banyuan-left.png) no-repeat 0 0;
+}
+.lex-retailers-cen-sale1 span{
+	width:15px;
+	height:15px;
+	display: inline-block;
+	margin-right: 14px;
+	margin-bottom: -3px;
+	margin-left: 51px;
+	background: url(../images/lex-retailers-cen-sale1.png) no-repeat 0 0;
+}
+.lex-retailers-cen-sale1{
+	font-size:14px;
+	color:#5c5c5c;
+	line-height:52px; 
+	padding-top: 23px;
+}
+.lex-retailers-cen-sale1 cite{
+	color:#1a8af3;
+}
+.lex-retailers-cen-sale2 span{
+	width:19px;
+	height:15px;
+	display: inline-block;
+	margin-right: 10px;
+	margin-bottom: -3px;
+	margin-left: 51px;
+	background: url(../images/lex-retailers-cen-sale2.png) no-repeat 0 0;
+}
+.lex-retailers-cen-sale2{
+	font-size:14px;
+	color:#5c5c5c;
+	line-height:52px; 
+}
+.lex-retailers-cen-sale2 cite{
+	color:#1a8af3;
+}
+.lex-retailers-right {
+	font-size:14px;
+	color:#5c5c5c;
+	line-height:52px; 
+	width:580px;
+}
+.lex-retailers-right-form {
+	float:right;
+}
+.lex-retailers-right-form {
+	float:right;
+	margin-right: 86px;
+	margin-top: 59px;
+}
+.lex-retailers-right cite{
+	float:right;
+	margin-right:15px; 
+	margin-top:59px;
+}
+.lex-retailers-right span{
+	float:right;
+	margin-right:5px;
+	color:#1a8af3;
+	margin-top:59px;
+}
+.lex-retailers-right em{
+	position: absolute;
+	width:5px;
+	height:11px;
+	right: -2px;
+	top:70px;
+	background: url(../images/banyuan-left.png) no-repeat 0 0;
+	transform: rotate(180deg);
+}
+.lex-retailers-right-form-search{
+	display: inline-block;
+	width: 70px;
+	height:32px;
+	background: #1a8af3;
+	border:none;
+	color:#fff;
+	line-height:32px; 
+	padding: 0;
+	margin-left: -15px;
+	position: relative;
+	z-index: 100;
+}
+.lex-retailers-right-form-insert{
+	display: inline-block;
+	width: 235px;
+	height:32px;
+	border:1px solid #dddddd;
+	line-height:32px; 
+	text-indent: 38px;
+	background: url(../images/lex-retailers-fangdajing.png) no-repeat 14px 8px;
+}
+/*结果列表*/
+.lex-result-listbg{
+	width:100%;
+	margin-top: 19px;
+}
+.lex-result-list{
+	width:1160px;
+	margin:0 auto;
+	box-shadow: 1px 1px 5px #ddd;
+	background:#fff;
+}
+.lex-result-list-high-title{
+	width: 100%;
+	height:55px;
+	background:#eeeeee;
+	font-size: 16px;
+	color:#5c5c5c;
+	line-height: 55px;
+}
+.lex-result-list-high-title span {
+	display:inline-block;
+	width:150px;
+	height:55px;
+	font-weight: bold;
+	text-align: center;
+	cursor:pointer;
+}
+.lex-result-list-high-title var {
+	display:inline-block;
+	width:150px;
+	height:55px;
+	font-weight: bold;
+	text-align: center;
+	cursor:pointer;
+}
+.lex-result-list-high-title .active {
+	color:#1a8af3;
+	background: #fff;
+}
+/*高频词box区域*/
+.lex-result-list-high-box-top{
+	width:1120px;
+	height: 96px;
+	margin:0 auto;
+	border-bottom: 1px dashed #ddd;
+}
+.lex-result-list-high-box-top a{
+	width:174px;
+	height: 40px;
+	margin:30px auto 0;
+	background: #efac29;
+	display: block;
+	text-align: center;
+	font-size:16px;
+	line-height:40px;
+	color:#fff;
+}
+/*有限公司内容板块*/
+.lex-result-company-pub{
+	width:360px;
+}
+.lex-result-company-pub-title span{
+    color:#1a8af3;
+    font-size:16px;
+    line-height:32px; 
+    float: left;
+    margin-top:32px;
+}
+.lex-result-company-pub-title a{
+	width:100px;
+	height: 32px;
+	color:#fff;
+	background: #1a8af3;
+	line-height: 32px;
+	display: inline-block;
+	text-align: center;
+	font-size:16px;
+	float: right;
+	margin-top:32px;
+}
+.lex-result-list-high-box-company{
+	width:1120px;
+	margin:0 auto;
+}
+/*有限公司内容table板块*/
+.lex-result-company-pub-title-tablebg{
+	width: 360px;	
+}
+.lex-result-company-pub-title-table{
+	width:100%;	
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+.lex-result-company-pub-title-table tr th{
+	background:#f6f6f6;
+	font-size:14px;
+	color:#5c5c5c;
+	line-height:48px;
+}
+.lex-result-company-pub-title-table tr th:nth-child(1){
+	text-indent:23px;
+}
+.lex-result-company-pub-title-table tr td:nth-child(1){
+	text-indent:23px;
+}
+.lex-result-company-pub-title-table tr{
+	border:1px solid #dddddd;
+}
+
+.lex-result-company-pub-title-table tr td{
+	font-size:14px;
+	color:#5c5c5c;
+	line-height:48px;
+	max-width:67px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space:nowrap;
+}
+.lex-result-company-pub-title-table tr td font{
+	color:#1a8af3;
+}
+.lex-left{
+	margin-left: 20px;
+}
+.lex-left:nth-child(1){
+	margin-left: 0px;
+}
+/*更所数据区域*/
+.lex-more-dashaed{
+	width:1120px;
+	height: 41px;
+	margin:0 auto;
+	border-bottom: 1px dashed #ddd;	
+	position:relative;
+}
+.lex-more-dashaed p{
+	width:102px;
+	height:16px;
+	text-align: center;
+	margin:0 auto;
+	background: #fff;
+	font-size: 14px;
+	color:#999;
+	line-height: 16px;
+	position: absolute;
+	left:47%;
+	bottom:-8px;
+}
+.lex-more-button-top{
+	font-size:14px;
+	color:#1a8af3;
+	line-height: 30px;
+	float:left;
+	padding-left:5px;
+	padding-right: 5px;
+	height: 40px;
+	width: 156px;
+	overflow: hidden;
+	margin-left: 19px;
+/*	margin-top: 12px;*/
+}
+.lex-more-button-top i{
+	display:inline-block;
+	/*background:#fff url(../images/lex-trangle.png) no-repeat 5px 21px;*/
+	width:40px;
+	height:30px;
+	margin-left: -4px;
+	z-index:2;
+	position:relative;
+	background:#fff;
+}
+.lex-more-button-top var{
+	display:inline-block;
+	background:#fff;
+		z-index:2;
+	position:relative;
+}
+.lex-more-button-top span{
+	font-size:14px;
+	color:#1a8af3;
+	line-height: 30px;
+	z-index:2;
+	position:relative;
+}
+.lex-more-ul>li{
+	width:371px;
+	position:relative;
+	float: left;
+	height:48px;
+	border:1px solid #ddd;
+	border-left:none;
+	border-top:none;
+}
+.lex-more-ul>li:nth-child(3n+1){
+	border-left:1px solid #ddd;
+}
+/*.lex-more-ul>li:nth-last-child(2){
+	border-bottom:none;
+}
+.lex-more-ul>li:nth-last-child(1){
+	border-bottom:none;
+}*/
+.lex-more-ul{
+	width:1117px;
+	margin:35px auto;
+	border-top:1px solid #ddd;
+}
+.lex-more-box-bottom{
+	width:400px;
+	box-shadow:1px 1px 5px #ddd;
+	background: #fff;
+	position: absolute;
+	left:0px;
+	top:30px;
+	z-index:9;
+}
+.lex-more-box-bottom-xia{
+	margin-left:20px;
+}
+.lex-more-box-bottom-show{
+	display:none;
+}
+.lex-more-ul>li>cite{
+	width:75px;
+	height:42px;
+	position:absolute;
+	z-index:1;
+	background: url(../images/lexlibg.png) repeat-x 0 0;
+	left:26px;
+	top:18px;
+}
+.lex-name-hide{
+	opacity:0;
+}
+.lex-footer{
+	border-top:1px solid #dddddd;
+}
+.lex-footer-p{
+	width:1160px;
+	text-align: center;
+	font-size:16px;
+	color:#5c5c5c;
+	line-height: 66px;
+}
+.lex-footer-p>span{
+	color:#1a8af3;
+}
+.lex-footer-ashowhigh{
+	font-size:16px;
+	color:#fff;
+	line-height: 40px;
+	background: #efac29;
+	padding:0 15px;
+	float: left;
+	margin-left:400px;
+}
+.lex-footer-adrawhigh{
+	font-size:16px;
+	color:#fff;
+	line-height: 40px;
+	background: #efac29;
+	padding:0 15px;
+	float: left;
+	margin-left:40px;
+}
+.lex-footer-adrawhigh:hover{
+	color:#fff;
+}
+.lex-footer-adrawlow{
+	height:65px;
+}
+.lex-footer-ashowhigh:hover{
+	color:#fff;
+}
+.lex-fixed {
+	position: fixed;
+	bottom:0;
+	left:19.5%;
+	background:#fff;
+	z-index:10;
+	box-shadow: 0 -2px 5px #eee;
+}
+/*图标链接处样式start*/
+.lex-more-button-top-iconslink{
+	float:right; 
+	width:174px;
+	margin-top: 12px;
+	margin-right: 13px;
+}
+.lex-more-button-top-iconslink a{
+	width:20px;
+	height:20px;
+	float:left; 
+	margin-left:5px;
+}
+.lex-more-button-top-iconslink a:nth-child(1){
+	background:url(../images/icolink-baidu1.png) no-repeat 0 0;
+	margin-left: 0px;
+}
+.lex-more-button-top-iconslink a:nth-child(2){
+	background:url(../images/icolink-baidu2.png) no-repeat 0 0;
+}
+.lex-more-button-top-iconslink a:nth-child(3){
+	background:url(../images/icolink-baidu3.png) no-repeat 0 0;
+}
+.lex-more-button-top-iconslink a:nth-child(4){
+	background:url(../images/icolink-baidu4.png) no-repeat 0 0;
+}
+.lex-more-button-top-iconslink a:nth-child(5){
+	background:url(../images/icolink-baidu5.png) no-repeat 0 0;
+}
+.lex-more-button-top-iconslink a:nth-child(6){
+	background:url(../images/icolink-baidu6.png) no-repeat 0 0;
+}.lex-more-button-top-iconslink a:nth-child(7){
+	background:url(../images/icolink-baidu7.png) no-repeat 0 0;
+}
+/*图标链接处样式end*/
+.lex-retailers-left-searchres {
+	height:149px;
+	border-left:1px dashed #ddd;
+	border-right:1px dashed #ddd;
+}
