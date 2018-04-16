@@ -1,3 +1,4 @@
+body,html{font-family:"微软雅黑"}
 .collection-banner{
     background: url(../images/collection-banner.png) no-repeat;
 }
@@ -265,6 +266,7 @@ ul{
 	position: fixed;
 	left:0;
 	bottom: 0;
+	z-index: 111;
 }
 .acquisition-asknow{
 	width:1160px;
@@ -300,4 +302,45 @@ a{
 }
 .acquisition-footer{
 	margin-bottom:120px;
+}
+/* 新加采集页面css */
+.home-banh2{
+	color:#222;
+}
+.home-banh5{
+	width:1126px;
+	line-height:28px;
+	text-align:center;
+	color:#222;
+	font-size:16px;
+	margin:78px auto 0;
+}
+.home-banh5newadd-bot{
+	margin:35px auto 0;
+}
+.acquisitiontopbg{
+	background:#fff;
+}
+.home-banh2newadd-bot a{
+	display:block;
+	width:220px;
+	height:66px;
+	background:#fff;
+	line-height:66px;
+	text-align:center;
+	color:#111;
+	font-size:24px;
+	font-weight:bold;
+	margin:20px auto 0;
+}
+.home-banh5newadd-bot{
+	color:#fff;
+}
+.collection-banner-bottom{
+	width:100%;
+	height:266px;
+	background:url(../images/home-banh5newadd-botbg.png) no-repeat 0 0;
+}
+.collection-banner .home-banh2newadd-bot{
+	padding-top:60px;
 }

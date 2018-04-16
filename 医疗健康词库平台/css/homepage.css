@@ -29,18 +29,17 @@ body{
 }
 .homepage-bannerbg{
 	width:100%;
-	background:#1aa08b;
+	background:#1a8af3;
 }
 .homepage-banner{
 	width:1160px;
 	height: 600px;
 	margin:0 auto;
-	background: url(../images/homepage-banner.png) no-repeat 0 0;
 }
 .homepage-banner h1{
 	font-size: 50px;
 	line-height: 102px;
-	color:#fff;
+	color:#222;
 	width: 1160px;
 	text-align:center;
 	padding-top: 183px;
@@ -48,7 +47,7 @@ body{
 .homepage-banner h2{
 	font-size: 26px;
 	line-height: 102px;
-	color:#fff;
+	color:#222;
 	width: 1160px;
 	text-align:center;
 }
@@ -173,6 +172,7 @@ body{
 	color:#999;
 	width: 385px;
 	text-align: right;
+	margin-top: 15px;
 }
 /*第二块*/
 .hg-Acquisitionrobotbox-part2{
@@ -204,6 +204,7 @@ body{
 	width: 385px;
 	text-align:left;
 	margin-left:140px;
+	margin-top: 15px;
 }
 .hg-Acquisitionrobotbox-part3 span{
 	background: url(../images/hg-Acquisitionrobotbox-part3.png) no-repeat 0 0;
@@ -342,7 +343,7 @@ body{
 	padding-top: 35px;
 }
 .bot-annotatedrobot-part1:hover h2{
-	color:#1aa08b;
+	color:#1a8af3;
 }
 .bot-annotatedrobot-part1 h5{
 	font-size:14px;
@@ -386,10 +387,11 @@ body{
 /*	margin-left:380px;*/
 }
 .bot-annotatedrobot-part2:hover h2{
-	color:#1aa08b;
+	color:#1a8af3;
 }
 .bot-annotatedrobot-part2 h5{
 	font-size:14px;
+	
 	line-height:25px;
 	color:#999;
 	width: 380px;
@@ -429,7 +431,7 @@ body{
 	display: block;
 	width:416px;
 	height:416px;
-	border:1px solid #ddd;
+	/* border:1px solid #ddd; */
 	margin-left:100px;
 	float: left;
 }
@@ -438,7 +440,7 @@ body{
 	width:416px;
 	height:416px;
 	margin-left:152px;
-	border:1px solid #ddd;
+	/* border:1px solid #ddd; */
 	float: left;
 }
 .knowledgerobotbox{
@@ -448,9 +450,11 @@ body{
 	position:absolute;
 	left:0;
 	top:41px;
+	border:1px solid #ddd;
 }
 .knowledgerobotbox:hover{
-	box-shadow: 1px 1px 5px #ddd;
+/* 	box-shadow: 1px 1px 5px #ddd; */
+	border:1px solid #1a8af3;
 }
 .knowledgerobotbox span{
 	display:block;
@@ -497,4 +501,44 @@ body{
 }
 .knowledgerobotbox3:hover span{
 	background:url(../images/knowledgerobotbox33.png) no-repeat 0 0;
+}
+/* 新加样式 */
+.homepage-bannerbg{
+	background:url(../images/homepage-banner.png) no-repeat 0 0;
+}
+.hg-Acquisitionrobotbox-part2newaddcreateword{
+	width:451px;
+}
+.hg-Acquisitionrobotbox-createword{
+	width:1099px;
+	height:182px;
+	background:#f6f6f6;
+}
+.hg-Acquisitionrobotbox-part2newaddcreateword{
+	margin-left:40px;
+}
+.hg-Acquisitionrobotbox-part2newaddcreateword span{
+	width:120px;
+	height:120px;
+	margin-top:30px;
+	background:url(../images/creatwordrobot1.png) no-repeat 0 0;
+	margin-right:34px;
+}
+.hg-Acquisitionrobotbox-part2newaddcreateword h3{
+	width:295px;
+	margin-top:45px;
+}
+.hg-Acquisitionrobotbox-part4creatword{
+	margin-left:116px;
+}
+.hg-Acquisitionrobotbox-part4creatword span{
+	width:120px;
+	height:120px;
+	background:url(../images/creatwordrobot2.png) no-repeat 0 0;
+}
+.hg-Acquisitionrobotbox-part2newaddcreateword:hover span{
+	background:url(../images/creatwordrobot1.png) no-repeat 0 0;
+}
+.hg-Acquisitionrobotbox-part4creatword:hover span{
+	background:url(../images/creatwordrobot2.png) no-repeat 0 0;
 }
