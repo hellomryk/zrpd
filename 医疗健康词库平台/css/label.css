@@ -1,0 +1,111 @@
+.label-banner {
+	width:100%;
+	height:400px;
+	background:url(../images/labelbanner.png) no-repeat 0 0;
+}
+.label-banner h2{
+	width:1160px;
+	text-align: center;
+	font-size:50px;
+	color:#222;
+	line-height:400px;
+	margin:0 auto;
+}
+body{
+	font-family:Microsoft YaHei!important;
+}
+h1,h2,h3,h4,h5{
+	margin:0;
+	padding:0;
+}
+li{
+	list-style: none;
+}
+.label-ul{
+	width:1160px;
+	margin:0 auto;
+	padding-top:69px;
+	padding-bottom: 70px;
+}
+.label-ul li{
+	width:351px;
+	height:391px;
+	float: left;
+	margin-left: 14px;
+}
+.label-ul-h2 {
+	width:132px;
+	height:132px;
+	margin:0px auto;
+	padding-top:45px;
+}
+.label-ul-h2 img{
+	width:120px;
+	height:120px;
+}
+.label-ul-h3{
+	font-size:16px;
+	color:#5c5c5c;
+	line-height:66px;
+	width: 351px;
+	text-align: center;
+	margin-top: 35px;
+	font-weight:bold;
+}
+.label-ul-h4{
+	font-size:14px;
+	color:#999999;
+	line-height:25px;
+	font-style: normal;
+	font-weight: normal;
+	padding:0 23px;
+}
+.label-ul li:hover{
+	box-shadow:1px 1px 5px #ddd;
+}
+.label-ul li:hover h3{
+	color:#1a8af3;
+}
+/*第二部分列表*/
+.label-olbg {
+	width:100%;
+	background:#f6f6f6;
+}
+.label-ol{
+	width:1160px;
+	margin:0 auto;
+	overflow: hidden;
+	padding-top:70px;
+	padding-bottom: 30px;
+}
+.label-ol li{
+	float:left;
+	width:350px;
+	height:150px;
+	background:#fff;
+	margin-left:27px;
+	margin-bottom: 40px;
+}
+.label-ol li:nth-child(1){
+	margin-left:15px;
+}
+.label-ol li:nth-child(3n+1){
+	margin-left:15px;
+}
+.label-ol li:hover{
+	box-shadow: 1px 1px 5px #ddd;
+}
+.label-ol-h5{
+	font-size:16px;
+	color:#5c5c5c;
+	line-height:46px;
+	margin-top: 15px;
+	padding:0 36px;
+	font-weight: bold;
+}
+.label-ol-p{
+	font-size:14px;
+	color:#999;
+	line-height:24px;
+	padding:0 36px;
+}

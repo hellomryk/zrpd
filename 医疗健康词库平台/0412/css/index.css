@@ -36,8 +36,8 @@ address,cite,code,em,th {font-weight:normal; font-style:normal;}
     margin-left:20px;
 }
 .collapse button:hover{
-    border:1px solid #1aa08b;
-    background:#1aa08b;
+    border:1px solid #1a8af3;
+    background:#1a8af3;
     color:#fff;
 }
 .navbar{
