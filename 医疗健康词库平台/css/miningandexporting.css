@@ -1,0 +1,215 @@
+body{
+	font-family:Microsoft YaHei!important;
+}
+h1,h2,h3,h4,h5{
+	margin:0;
+	padding:0;
+}
+li{
+	list-style: none;
+}
+.miningandexportingbg{
+	width:100%;
+	height:654px;
+	background:url(../images/miningandexportingbg.png) no-repeat 0 0;
+}
+.miningandexporting{
+	width:1160px;
+	margin:0 auto;
+}
+.miningandexporting>h2{
+	font-size:24px;
+	color:#222;
+	line-height:99px;
+/*	font-weight: bold;*/
+}
+.miningandexporting>h2::after{
+	content:"同时挖掘多个关键词，一键导出多个关键词数据列表";
+	font-size:12px;
+	color:#222;
+	line-height:99px;
+	font-weight:normal;
+	margin-left:16px;
+}
+.miningandexporting-left-span{
+	font-size:14px;
+	color:#222;
+	line-height:37px;
+	float: left;
+}
+.miningandexporting-left-span cite{
+	font-size:14px;
+	color:#222;
+	line-height:37px;
+	font-style: normal;
+}
+.miningandexporting-left-clean{
+	font-size:14px;
+	color:#e1331c;
+	line-height:37px;
+	float:right;
+}
+.miningandexporting-left-clean:hover{
+	font-size:14px;
+	color:#e1331c;
+	line-height:37px;
+	float:right;
+	text-decoration: none;
+}
+.miningandexporting-left{
+	width:212px;
+	height:520px;
+	background:#f6f6f6;
+	float:left;
+}
+.miningandexporting-left-top{
+	width:188px;
+	margin:0 auto;
+}
+.miningandexporting-left-input{
+	width:186px;
+	height:428px;
+	border:1px solid #ddd;
+	display: block;
+	margin:0 auto;
+}
+.miningandexporting-left-a-bottom{
+	width:120px;
+	height:30px;
+	background:#1a8af3;
+	font-size:14px;
+	color:#ffffff;
+	line-height:30px;
+	text-align: center;
+	margin:12px auto 0;
+	display: block;
+}
+.miningandexporting-left-a-bottom:hover{
+	text-decoration: none;
+	color:#ffffff;
+}
+/*右侧部分*/
+.miningandexporting-right{
+	float:right;
+	width:928px;
+	height:520px;
+	background:rgba(255,255,255,0.8);
+	position:relative;
+}
+.miningandexporting-right-div{
+	width:658px;
+	height:245px;
+	border:1px solid #ddd;
+	margin-left:217px;
+	margin-top:80px;
+}
+.miningandexporting-right-div h3{
+	font-size:14px;
+	color:#5c5c5c;
+	line-height:54px;
+	margin-top: 9px;
+	margin-left:54px;
+}
+.miningandexporting-right-div h4{
+	font-size:14px;
+	color:#999999;
+	line-height:23px;
+	padding-left:66px;
+	width:560px;
+}
+.miningandexporting-right-div>h4::before{
+	content:"";
+	width:13px;
+	height:13px;
+	display:inline-block;
+	padding-left: 20px;
+/*	padding-right: 20px*/
+	background:url(../images/miningandexporting-star.png) no-repeat 0 0;
+}
+.miningandexporting-right-div h5{
+	font-size:14px;
+	color:#999999;
+	line-height:23px;
+	padding-left:66px;
+	width:560px;
+	margin-top: 33px;
+}
+.miningandexporting-right-div>h5::before{
+	content:"";
+	width:13px;
+	height:13px;
+	display:inline-block;
+	padding-left: 20px;
+	background:url(../images/miningandexporting-star.png) no-repeat 0 0;
+}
+.miningandexporting-right-people{
+	position: absolute;
+	left:52px;
+	top:223px;
+	width:195px;
+	height:261px;
+	background:url(../images/miningandexporting-people.png) no-repeat 0 0;
+}
+/*底部挖词示例部分*/
+.miningandexporting-bottombg{
+	width:100%;
+	background:#f6f6f6;
+}
+.miningandexporting-bottom{
+	width:1161px;
+	height:330px;
+	background:#fff;
+	box-shadow: 1px 1px 5px #ddd;
+	margin:0 auto;
+}
+.miningandexporting-bottom>h2{
+	font-size:14px;
+	color:#5c5c5c;
+	line-height:23px;
+	width:1137px;
+	line-height: 44px;
+	border-bottom: 1px solid #ddd;
+	margin:0 auto;
+	padding-top:10px;
+}
+.miningandexporting-bottom-list-pub>span{
+	font-size:12px;
+	color:#999;
+	line-height:72px;
+	display:block;
+	width:100%;
+	text-align: center;
+}
+.miningandexporting-bottom-list-pub>span>cite{
+	font-size:12px;
+	color:#5c5c5c;
+	line-height:72px;
+	font-style: normal;
+}
+.miningandexporting-bottom-list-part1{
+	width:158px;
+	margin-left:25px;
+}
+.miningandexporting-bottom-list-part2{
+	width:275px;
+}
+.miningandexporting-bottom-list-part3{
+	width:189px;
+}
+.miningandexporting-bottom-list-part4{
+	width:175px;
+}
+.miningandexporting-bottom-list-part3 img{
+	margin-left:70px;
+}
+.miningandexporting-bottom-list-jiantou{
+	width:100px;
+	height: 218px;
+	background:url(../images/miningandexporting-bottom-list-imgjiantou.png) no-repeat 45px 149px;
+}
+.fl{
+	float: left;
+}
+.clearheight{
+	height:40px;
+}
