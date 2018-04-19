@@ -2318,8 +2318,8 @@ a,a:hover, a:visited, a:link, a:active{
 /*.btm-btm {
 
 }*/
-.d18px {
-	width:1000px;
+.d18px-bottom {
+	width:847px;
 	margin:0 auto;
 	line-height: 30px;
 	white-space:unset;
@@ -2328,4 +2328,7 @@ a,a:hover, a:visited, a:link, a:active{
 }
 .btm-btm{
 white-space:unset;
+}
+.h-ctn-box .ctn-txt a {
+    color: #9E9E9E;
 }
