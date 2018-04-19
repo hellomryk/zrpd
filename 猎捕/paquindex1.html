@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
 <meta http-equiv="expires" content="0">
 <meta content="telephone=no" name="format-detection">
-<title>微蓝畅享</title>
+<title>猎捕平台</title>
 <link rel="canonical" href="http://www.wlcxbj.com">
 </head>
 <body>
@@ -20,8 +20,7 @@
 <link rel="stylesheet" href="css/media.css">
 <link rel="stylesheet" href="css/media2x.css">
 <link rel="stylesheet" href="css/media3x.css">
-<script src="js/jquery.min.js"></script>
-<script src="js/head-nav.js"></script>
+
 <style type="text/css">
 /*	.d20px {
 		font-size: 30px;
@@ -41,6 +40,14 @@
 	width:900px;
 	text-align: center;
 	margin:0 auto;
+}
+.swiper-slide-textbox2 .d20px {
+    line-height: 187%;
+    margin-bottom: .49rem;
+    text-align: left;
+}
+.swiper-slide>img {
+	height:769px;
 }
 
 </style>
@@ -77,10 +84,12 @@
 				<span class="on pfc"><a href="/index-en">EN</a></span>
 			</div>
 			<div class="head-w-box-language">
-				<select onchange="window.location.href=this.options[selectedIndex].value" name="select">
+<!-- 				<select onchange="window.location.href=this.options[selectedIndex].value" name="select">
 					<option class="pfc" value="/index" selected="selected">中文</option>
 					<option class="pfc" value="/index-en">英文</option>
-				</select>
+				</select> -->
+				<a href="javascript:;" class="signin">登陆</a>
+				<a href="javascript:;" class="register">注册</a>
 			</div>
 
 			<div class="head-w-box-nav">
@@ -98,6 +107,7 @@
 					<!--<li><a href="">申请运营</a></li>-->
 					<li><a href="/joinus" class="pfc clicka">行业追踪</a></li>
 					<li class=" head-list-li"><a href="/aboutus" class="pfc clicka">个性定制</a></li>
+					<li class=" head-list-li"><a href="/aboutus" class="pfc clicka">关于我们</a></li>
 					<!--<li><a href="">新闻咨询</a></li>-->
 				</ul>
 			</div>
@@ -130,7 +140,7 @@
 			      	</div>
 			      </div> -->
 			      <div class="swiper-slide" data-swiper-slide-index="1" style="width: 1903px;">
-			      	<img class="img2x2" src="images/home-banner-2.jpg">
+			      	<img class="img2x2" src="images/newaddwaci-center3.png">
 			      	<div class="swiper-slide-textbox swiper-slide-textbox2">
 			      		<div class="d48px fzq">互联网热点实时智能捕捉系统</div>
 			      		<!-- <div class="d20px fzx">互联网热点&nbsp;&nbsp;一网打尽&nbsp;&nbsp;实时捕捉&nbsp;&nbsp;分钟级呈现</div> -->
@@ -445,4 +455,92 @@ $("#myDiv4").popover({
       },
     });
 	</script>
-</body></html>
+
+
+
+
+<!-- 登陆按钮 -->
+<!-- 登陆区 -->
+<div class="form-inline-fixedbg form-inline-fixedsignin">
+		<div class="form-inline-fixed">
+			<div class="newform-group-shutdown">x</div>
+			<form class="form-horizontal">
+			  <div class="form-group">
+			    <label for="inputEmail3" class="col-sm-2 control-label">账号</label>
+			    <div class="col-sm-10">
+			      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
+			    <div class="col-sm-10">
+			      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <div class="col-sm-offset-2 col-sm-10">
+			      <div class="checkbox">
+			        <label>
+			          <input type="checkbox"> 记住密码
+			        </label>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <div class="col-sm-offset-2 col-sm-10">
+<!-- 			      <button type="submit" class="btn btn-default">登陆</button>
+			      <button type="submit" class="btn btn-default">注册</button> -->
+			      	<input type="submit" name="登陆" class="btn btn-default" value="登陆">
+			       <input type="submit" name="注册" class="btn btn-default" value="注册">
+			    </div>
+			  </div>
+			</form>
+		</div>
+	</div>
+<!-- 注册区 -->
+	<div class="form-inline-fixedbg form-inline-fixedregester">
+		<div class="form-inline-fixed">
+			<div class="newform-group-shutdown">x</div>
+			<form class="form-horizontal">
+			  <div class="form-group">
+			    <label for="inputEmail3" class="col-sm-2 col-sm-2label control-label">账号</label>
+			    <div class="col-sm-10 col-sm-10div">
+			      <input type="email" class="form-control" id="inputEmail3" placeholder="账号">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="inputPassword3" class="col-sm-2 col-sm-2label control-label">密码</label>
+			    <div class="col-sm-10 col-sm-10div">
+			      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="inputPassword3" class="col-sm-2 col-sm-2label control-label">确认密码</label>
+			    <div class="col-sm-10 col-sm-10div">
+			      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <div class="col-sm-offset-2 col-sm-10">
+			      <div class="checkbox">
+			        <label>
+			     <!--      <input type="checkbox"> 记住密码 -->
+			        </label>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <div class="col-sm-offset-2 col-sm-10">
+<!-- 			      <button type="submit" class="btn btn-default">登陆</button>
+			      <button type="submit" class="btn btn-default">注册</button> -->
+			      <input type="submit" name="登陆" class="btn btn-default" value="登陆">
+			       <input type="submit" name="注册" class="btn btn-default" value="注册">
+			    </div>
+			  </div>
+			</form>
+		</div>
+	</div>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/head-nav.js"></script>
+	</body>
+</html>

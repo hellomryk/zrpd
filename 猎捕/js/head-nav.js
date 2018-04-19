@@ -29,3 +29,20 @@ $(document).ready(function(){
         }
     });
 });
+
+// 新加点击出现登陆弹框
+$(".newform-group-shutdown").click(function() {
+    $(".form-inline-fixedbg").hide();
+});
+$(".form-inline-fixedbg").click(function() {
+    $(this).hide();
+});
+$(".form-inline-fixed").click(function(event) {
+    event.stopPropagation();
+});
+$(".signin").click(function() {
+    $(".form-inline-fixedsignin").show();
+});
+$(".register").click(function() {
+    $(".form-inline-fixedregester").show();
+})

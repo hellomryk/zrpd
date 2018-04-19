@@ -2232,3 +2232,85 @@ a,a:hover, a:visited, a:link, a:active{
 .head-w-box-nav-ul>li>a{
 	display:block!important;
 }
+/*加个关于我们*/
+.head-w-box-nav-ul>li {
+    float: left;
+    width: 16%;
+    text-align: center;
+}
+/*弹出框样式*/
+.form-inline-fixedbg{
+	position:fixed;
+	background:rgba(0,0,0,0.6);
+	left:0;
+	top:0;
+	bottom:0;
+	right:0;
+	z-index:999;
+}
+.form-inline-fixed{
+	width:422px;
+	z-index:1000;
+	height:300px;
+	position:fixed;
+	background:#fff;
+	left:50%;
+	top:50%;
+	margin-left:-211px;
+	margin-top:-150px;
+	padding:40px 20px 20px;
+} 
+.form-groupt{
+	margin:10px;
+} 
+ .btn-tan{
+	margin-top:50px;
+	width:78px;
+	display:inline-block;
+	height:35px;
+} 
+.form-inline-fixed{
+	position:relative;
+}
+.newform-group-shutdown{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 1px;
+    right: -12px;
+    font-size: 23px;
+    line-height: 22px;
+    cursor:pointer;
+}
+/*登录注册按钮*/
+.head-w-box-language>a {
+	font-family: "PingFang_Medium";
+	float:left;
+	width:65px;
+	height:40px;
+	text-align: center;
+	line-height: 40px;
+	border-radius:3px;
+	border:1px solid #ddd;
+	margin-right: 10px;
+	font-size:20px;
+	box-shadow: 1px 1px 5px #ddd;
+}
+.head-w-box-language>a:hover{
+	box-shadow: 1px 1px 5px ##337ab7;
+	background:#337ab7;
+	color: #fff;
+}
+.form-inline-fixedbg{
+	display:none;
+}
+@media(min-width:768px) {
+	.col-sm-10div{
+ 	width: 75.333333%;
+	}
+}
+@media(min-width:768px) {
+	.col-sm-2label {
+		width: 21.666667%;
+	}
+}
