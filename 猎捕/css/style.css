@@ -2314,3 +2314,18 @@ a,a:hover, a:visited, a:link, a:active{
 		width: 21.666667%;
 	}
 }
+/*修改底部样式*/
+/*.btm-btm {
+
+}*/
+.d18px {
+	width:1000px;
+	margin:0 auto;
+	line-height: 30px;
+	white-space:unset;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.btm-btm{
+white-space:unset;
+}
