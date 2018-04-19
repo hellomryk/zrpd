@@ -2218,7 +2218,7 @@ a,a:hover, a:visited, a:link, a:active{
 	color:#000000;
     font-size:12px;
     text-align:center;
-    align:center;
+    text-align:center;
 }
 .feedback-success-dialog-msg p
 {
@@ -2227,4 +2227,8 @@ a,a:hover, a:visited, a:link, a:active{
 .d18px1-a{
 	display:inline-block;
 	color: #fff;
+}
+/*实施猎捕*/
+.head-w-box-nav-ul>li>a{
+	display:block!important;
 }
