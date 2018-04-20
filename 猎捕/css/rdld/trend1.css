@@ -15,3 +15,29 @@ body,html{height:100%}dd,dt{margin:0;padding:0;_position:relative}body{font:13px
 a{
 	display:unset!important;
 }
+.section.content {
+     padding-bottom: 0px; 
+}
+section.content {
+    padding-bottom: 0px;
+}
+.more-link{
+	display:none;
+}
+/* µÇÂ½ºóµÄÍ¼Æ¬ */
+.head-w-box-language-log-img{
+	display:inline-block;
+	width:40px;
+	height:40px;
+	border-radius:50%;
+}
+.head-w-box-language-log{
+	float: right;
+    font-size: 24px;
+    line-height: 100%;
+  /*   margin: 52px 5.2% 52px 0; */
+    margin: 45px 5.2% 52px -55px;
+}    
+.head-w-box-language{
+	display:none;
+}
