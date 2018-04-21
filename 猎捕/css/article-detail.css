@@ -1,0 +1,62 @@
+.time-scroll{
+	width: 57px;
+    float: left;
+}
+.name-scroll{
+	float: left;
+    width: 115px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    overflow: hidden;
+    line-height: 20px;
+    font-size:12px;
+    white-space:nowrap;
+}
+.name-scroll>a{
+	color:#1a8af3;
+}
+.art-word-scroll-box {
+    width: 775px;
+    overflow: hidden;
+    height: 20px;
+    margin-top: 172px;
+}
+.art-word-scroll-ul{
+	width:2800px;
+	position:relative;
+	line-height: 20px;
+}
+/*词云区*/
+.canvas-ciyun-right{
+	width:;
+	height:300px;
+	float:right;
+}
+.kw-trend-newadd{
+	    margin-left: 10px;
+    width: 390px;
+    height: 390px;
+    background: url(../images/welcome/chart-leida.png?v=51af1e7273) no-repeat center center;
+    position: relative;
+    float: left;
+}
+#j-home-radarRotate {
+	width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#my_favorite_latin_words {
+	    position: relative;
+    top: 35px;
+    left: 35px;
+}
+div.jqcloud span.w5 {
+    font-size: 190%;
+}
+div.jqcloud span {
+    padding: 0;
+    cursor: pointer;
+}
