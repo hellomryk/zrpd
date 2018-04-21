@@ -2325,10 +2325,28 @@ a,a:hover, a:visited, a:link, a:active{
 	white-space:unset;
 	padding-top: 20px;
 	padding-bottom: 20px;
+	font-size:14px;
 }
 .btm-btm{
 white-space:unset;
 }
 .h-ctn-box .ctn-txt a {
     color: #9E9E9E;
+}
+/* 登陆后的图片 */
+.head-w-box-language-log-img{
+	display:inline-block;
+	width:40px;
+	height:40px;
+	border-radius:50%;
+	background-size:100% 100%;
+}
+.head-w-box-language-log{
+	float: right;
+    font-size: 24px;
+    line-height: 100%;
+    margin: 52px 5.2% 52px 0;
+}    
+.head-w-box-language{
+	display:none;
 }
