@@ -1,0 +1,144 @@
+
+
+$('#btn-En').click(function(){
+	var btnspan = $('#btn-En span') 
+	if(btnspan.hasClass('icon-corner-x')){
+		btnspan.removeClass('icon-corner-x')
+		btnspan.addClass('icon-corner-s1')
+	}else{
+		
+		btnspan.removeClass('icon-corner-s1')
+		btnspan.addClass('icon-corner-x')
+	}
+}) 
+ 
+
+
+							
+$(".tw-input-list").bind("input propertychange",function(){  
+	var value=$(this).val();  
+	if(value){  
+	    	$('#suffix-floor').collapse('show')  
+	}else{  
+	    	$('#suffix-floor').collapse('hide') 
+	    }  
+});
+
+  
+
+$(document).click(function(e){ 
+	$('#suffix-floor').collapse('hide'); 
+});
+
+
+
+
+// SideNavbar begin
+
+
+
+
+
+////////浏览器视口的高度
+function windowHeight() {
+    var myHeight = 0;
+    if (typeof (window.innerHeight) == 'number') {
+        //Non-IE
+        myHeight = window.innerHeight;
+    } else if (document.documentElement && (document.documentElement.clientHeight)) {
+        //IE 6+ in 'standards compliant mode'
+        myHeight = document.documentElement.clientHeight;
+    } else if (document.body && (document.body.clientHeight)) {
+        //IE 4 compatible
+        myHeight = document.body.clientHeight;
+    }
+    return myHeight;
+}
+
+/////////浏览器视口的宽度
+function windowWidth() {
+    var myWidth = 0;
+    if (typeof (window.innerWidth) == 'number') {
+        //Non-IE
+        myWidth = window.innerWidth;
+    } else if (document.documentElement && (document.documentElement.clientWidth)) {
+        //IE 6+ in 'standards compliant mode'
+        myWidth = document.documentElement.clientWidth;
+    } else if (document.body && (document.body.clientWidth)) {
+        //IE 4 compatible
+        myWidth = document.body.clientWidth;
+    }
+    return myWidth;
+}
+
+
+var winHeight = windowHeight()
+var winWidth = windowWidth()
+
+
+window.onresize = function () {
+    var winHeight = windowHeight()
+    var winWidth = windowWidth()
+    $(".SideNavbar").css({ 'height': winHeight})
+    $(".bg-nav").css({ 'width': winWidth, 'height': winHeight})
+
+}
+
+
+
+$(".js-menu").click(function () {
+    var winHeight = windowHeight()
+    var winWidth = windowWidth()
+
+    if (!$(".js-menu").hasClass('on')) {
+
+        $(".js-menu").addClass('on')
+        $(".SideNavbar").css({ 'left': '0', 'height': winHeight })
+        $(".bg-nav").css({ 'display': 'block', 'width': winWidth, 'height': winHeight })
+        $(".nb-listhd").removeClass('on')
+
+    } else {
+        $(".js-menu").removeClass('on')
+        $(".SideNavbar").css({ 'left': '-130px' })
+        $(".bg-nav").css({ 'display': 'none' })
+        $(".nb-listcont").css({ 'visibility': 'hidden' }).removeClass('on');
+        $(".nb-listhd").removeClass('on')
+    }
+})
+
+
+$(".nb-listhd").click(function () { 
+
+    var istheleader = $(this).siblings('.nb-listcont');
+    $(".nb-listhd").removeClass('on')
+
+    if (!istheleader.hasClass('on')) { 
+        $(this).addClass('on')
+        $(".nb-listcont").css({ 'visibility': 'hidden' }).removeClass('on');
+        istheleader.css({ 'visibility': 'visible' }).addClass('on')
+
+    } else {
+        $(this).removeClass('on')
+        istheleader.css({ 'visibility': 'hidden' }).removeClass('on') 
+
+    }
+
+})
+
+$(".bg-nav").click(function () { 
+
+    if ($(".js-menu").hasClass('on')) {
+         
+        $(".js-menu").removeClass('on')
+        $(".SideNavbar").css({ 'left': '-130px' })
+        $(".bg-nav").css({ 'display': 'none' })
+        $(".nb-listcont").css({ 'visibility': 'hidden' }).removeClass('on');
+        $(".nb-listhd").removeClass('on')
+    }
+
+})
+
+   
+
+// SideNavbar end
+

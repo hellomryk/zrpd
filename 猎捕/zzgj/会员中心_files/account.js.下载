@@ -1,0 +1,524 @@
+﻿var countdown = 150;
+var myIntervalnum = 120;
+var t;
+var t2;
+var t3;
+
+//充值
+$('#btnChongzhi').on('click', function () {
+    var num = $("#txtAcmount").val();
+    if (num!="") {
+        if (isNaN(num) == true) {
+            layer.alert("充值金额错误，请输入正确的金额");
+            //$("#txtAcmount").val('');
+            return false;
+        }
+        if (parseFloat(num)<1) {
+            layer.alert("充值金额最低1元，请输入正确的金额");
+           //$("#txtAcmount").val('');
+            return false;
+        }
+    } else {
+        num= $("#divAcmount .btn.active.z-mr2").text().replace('元', '');
+    }
+    OnPay(num,'充值');
+});
+
+
+
+function OnPay(num,type) {
+    //生成支付码
+    var param = {};
+    param.momey = num;
+    param.ordertype = type;
+    $.ajax({
+        url: "/ToolMember/Member/GetPayCode",
+        data: param,
+        type: "get",
+        dataType: "json",
+        success: function (result) {
+            if (result.type== 1) {
+                var data = result.resultdata;
+                var strVar = "";
+                strVar += "<!DOCTYPE html>\n";
+                strVar += "<html>\n";
+                strVar += "<head>\n";
+                strVar += "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>\n";
+                strVar += "<link rel=\"stylesheet\" type=\"text/css\" href=\"//csstools.chinaz.com/common/styles/common.css\">\n";
+                strVar += "<link href=\"//csstools.chinaz.com/ciku/styles/ciku-layer.css?v=201802\" rel=\"stylesheet\"/>\n";
+                strVar += "<title><\/title>\n";
+                strVar += "<meta charset=\"utf-8\"/>\n";
+                strVar += "<\/head>\n";
+                strVar += "<body>\n";
+                strVar += "<br/>\n";
+                strVar += "<div class=\"po-cont z-tc\">\n";
+                strVar += "	<div class=\"po-pwarn\">\n";
+                strVar += "		<p class=\"fz24 z-orange z-mb0\">\n";
+                strVar += "			订单提交成功，请尽快付款！\n";
+                strVar += "		<\/p>\n";
+                strVar += "	<\/div>\n";
+                strVar += "	<div class=\"tagrise-list\">\n";
+                strVar += "		<div class=\"tag-list\">\n";
+                strVar += "			<p style=\"text-align: center\">\n";
+                strVar += "				<span class=\"z-orange fz20\">充值" + data.acmount + "元<\/span>\n";
+                strVar += "			<\/p>\n";
+              
+                strVar += "			<div class=\"qrcode z-auto\">\n";
+                strVar += "				<img src=\"" + data.url + "\">\n";
+                strVar += "			<\/div>\n";
+                strVar += "			<p class=\"fz12 z-gray z-ptb2\">\n";
+                strVar += "			<\/p>\n";
+                strVar += "			<p class=\"fz16\">\n";
+                strVar += "                    支持微信、支付宝、建行扫码支付<a href=\"http://my.chinaz.com/ToolMember/Member/Account?code=cz\" target=\"_blank\" class=\"fz12 z-gray zhuanzhang11\">(公司转账支付)</a>\n";
+                strVar += "				<br>\n";
+                strVar += "			<\/p>\n";
+                strVar += "			<p class=\"fz12 z-gray z-ptb2\">\n";
+                strVar += "				距离二维码过期还剩<strong id=\"SucessId\" style=\"color: red\">120<\/strong>秒\n";
+                strVar += "			<\/p>\n";
+                strVar += "		<\/div>\n";
+                strVar += "	<\/div>\n";
+                strVar += "<\/div>\n";
+                strVar += "<\/body>\n";
+                strVar += "<\/html>\n";
+                layer.open({
+                    title: "账户充值",
+                    type: 1,
+                    content: strVar,
+                    area: ['418px', '418px'],
+                    cancel: function (index, layero) {
+                        var param = {};
+                        param.orderno = data.payno;
+                        param.ordertype = type;
+                        param.dataType = "json";
+                        $.ajax({
+                            url: "/ToolMember/Member/GetPayResult",
+                            data: param,
+                            type: "get",
+                            dataType: "json",
+                            success: function (data) {
+                                if (data.type == 1) {
+                                } else {
+                                    layer.confirm('当前订单未支付，是否关闭该订单？',
+                                        {
+                                            btn: ['确认', '取消'] //按钮
+                                        },
+                                        function () {
+                                            clearInterval(t3);
+                                            clearTimeout(t);
+                                            layer.closeAll();
+                                        },
+                                        function () {
+                                            layer.closeAll('dialog');
+                                            return false;
+                                        });
+                                }
+                            }
+                        });
+                        return false;
+                    }
+                });
+                countdown = 150;
+                settime(data.payno, type);
+                myIntervalnum = 120;
+                t3=setInterval("myInterval3()", 1000);
+            } else {
+                layer.alert(result.message);
+                return false;
+            }
+        }
+    });
+}
+
+
+function myInterval3() {
+    myIntervalnum = myIntervalnum - 1;
+    if (myIntervalnum == 0) {
+        $("#SucessId").html(myIntervalnum);
+        clearInterval(t3);
+        clearTimeout(t);
+        layer.closeAll();
+    } else {
+        $("#SucessId").html(myIntervalnum);
+    }
+}
+
+
+
+function settime(payno, type) {
+    if (countdown == 0) {
+        return;
+    } else {
+        GetPayResult(payno, type);
+        countdown = countdown - 5;
+        if (countdown<0) {
+            countdown = 0;
+        }
+    }
+    t = setTimeout(function () { settime(payno, type); }, 5000);
+}
+
+function GetPayResult(payno, type) {
+    var param = {};
+    param.orderno = payno;
+    param.ordertype = type;
+    param.dataType = "json";
+    $.ajax({
+        url: "/ToolMember/Member/GetPayResult",
+        data: param,
+        type: "get",
+        dataType: "json",
+        success: function (data) { 
+            if (data.type == 1) {
+                clearTimeout(t);
+                clearInterval(t3);
+                countdown = 0;
+                layer.msg('支付成功', { icon: 1 });
+                setTimeout(function () { layer.closeAll(); }, 3000);
+                setTimeout(function () { parent.location.reload(); }, 3000);
+                
+            } else {
+                if (countdown == 0) {
+                    clearTimeout(t);
+                    clearInterval(t3);
+                    countdown = 0;
+                    layer.msg('支付失败', { icon: 2 });
+                    setTimeout(function () { layer.closeAll(); }, 3000);
+                    //setTimeout(function () { parent.location.reload(); }, 3000);
+
+                }
+            }
+        }
+    });
+}
+
+//升级VIP
+$('#btnVipUpgrade').on('click', function () {
+    var param = {};
+    $.ajax({
+        url: "/ToolMember/Member/VipUpgrade",
+        data: param,
+        type: "get",
+        dataType: "json",
+        success: function (data) {
+            if (data.type == 1) {
+                var strVar = "";
+                var data2 = data.resultdata;
+                if (data2.type==0) {
+                    strVar += "<!DOCTYPE html>\n";
+                    strVar += "<html>\n";
+                    strVar += "<head>\n";
+                    strVar += "    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>\n";
+                    strVar += "    <link rel=\"stylesheet\" type=\"text/css\" href=\"//csstools.chinaz.com/common/styles/common.css\">\n";
+                    strVar += "    <link rel=\"stylesheet\" type=\"text/css\" href=\"//csstools.chinaz.com/ciku/styles/ciku-layer.css?v=201802\">\n";
+                    strVar += "    <title><\/title>\n";
+                    strVar += "	<meta charset=\"utf-8\" />\n";
+                    strVar += "<\/head>\n";
+                    strVar += "<body>\n";
+                    strVar += "<div class=\"pop-publish\">\n";
+                    strVar += "	<br/>\n";
+                    strVar += "	<div class=\"po-cont z-tc\">\n"; 
+                    strVar += "		<div class=\"po-pwarn\">\n";
+                    strVar += "			<p class=\"fz24 z-orange z-mb0\" >\n";
+                    strVar += "				站长工具VIP会员特惠购买\n";
+                    strVar += "			<\/p>\n";
+                    strVar += "			<p class=\"fz14 z-gray36\" >\n";
+                    strVar += "				原价：" + data2.VIPOriginalPrice + "元/年\n";
+                    strVar += "			<\/p>\n";
+                    strVar += "			<p class=\"fz24 z-mt0\" >\n";
+                    strVar += "				<span class=\"z-pr4\">现仅需：<i class=\"z-red\">" + data2.VIPPresentPrice + "<\/i>元/年<\/span>\n";
+                    if (data2.GiveAcmount>0) {
+                        strVar += "<span class=\"fz14\">赠送<i class=\"z-red\">" + data2.GiveAcmount + "<\/i>元<\/span>\n";
+                    }
+                    strVar += "			<\/p>\n";
+                    strVar += "		<\/div>\n";
+                    strVar += "		<div class=\"po-account\">\n";
+                    strVar += "			<a href=\"javascript:\" class=\"tx-img\"><img src=\"" + data2.AvatarSrc + "\" onerror=\"javascript:this.src = '" + data2.GetErrorImg + "';\"><\/a>\n";
+                    strVar += "			<p class=\"z-mb0\">\n";
+                    strVar += "				<span class=\"z-mr4\">用户名：" + data2.UserName + "<\/span><span>账户余额：" + data2.Balance + "元<\/span>\n";
+                    strVar += "			<\/p>\n";
+                    strVar += "			<p class=\"fz24 z-red z-mt0 z-pt2\">\n";
+                    strVar += "				应充值：" + data2.chognzhi + "元\n";
+                    strVar += "			<\/p>\n";
+                    strVar += "		<\/div>\n";
+
+                    strVar += "			<div>\n";
+                    strVar += "				<img src=\"" + data2.qcodeurl + "\" style=\"border:1px solid #ddd;width:170px;height:170px;padding:10px;\">\n";
+                    strVar += "			<\/div>\n";
+                    strVar += "			<p class=\"fz12 z-gray z-ptb2\">\n";
+                    strVar += "			<\/p>\n";
+                    strVar += "			<p class=\"fz14\">\n";
+                    strVar += "                    支持微信、支付宝、建行扫码支付<a href=\"http://my.chinaz.com/ToolMember/Member/Account?code=cz\" target=\"_blank\" class=\"fz12 z-gray zhuanzhang11\">(公司转账支付)</a>\n";
+                    strVar += "				<br>\n";
+                    strVar += "			<\/p>\n";
+                    strVar += "			<p class=\"fz10 z-gray z-ptb2\">\n";
+                    strVar += "				距离二维码过期还剩<strong id=\"SucessId\" style=\"color: red\">120<\/strong>秒\n";
+                    strVar += "			<\/p>\n";
+
+
+                    
+                    strVar += "	<\/div>\n";
+                    strVar += "<\/div>\n";
+                    strVar += "<\/body>\n";
+                    strVar += "<\/html>\n";
+                    strVar += "\n";
+                    countdown = 150;
+                    settime(data2.orderno, "VIP升级");
+                    myIntervalnum = 120;
+                    t3 = setInterval("myInterval3()", 1000);
+                    layer.open({
+                        title: "账户升级",
+                        type: 1,
+                        content: strVar,
+                        area: ['560px', '540px'],
+                        cancel: function(index, layero) {
+                            clearInterval(t3);
+                            clearTimeout(t);
+                            layer.closeAll();
+                        }
+                    });
+                } else {
+                    strVar += "<!DOCTYPE html>\n";
+                    strVar += "<html>\n";
+                    strVar += "<head>\n";
+                    strVar += "    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n";
+                    strVar += "    <link rel=\"stylesheet\" type=\"text/css\" href=\"//csstools.chinaz.com/common/styles/common.css\">\n";
+                    strVar += "    <link rel=\"stylesheet\" type=\"text/css\" href=\"//csstools.chinaz.com/ciku/styles/ciku-layer.css?v=201802\">\n";
+                    strVar += "    <title><\/title>\n";
+                    strVar += "    <meta charset=\"utf-8\" />\n";
+                    strVar += "<\/head>\n";
+                    strVar += "<body>\n";
+                 
+                    strVar += "    <div class=\"po-cont z-tc\">\n";
+                    strVar += "<br/>\n";
+                    strVar += "        <div class=\"po-pwarn\">\n";
+                    strVar += "            <p class=\"fz24 z-orange z-mb0\" >站长工具VIP会员特惠购买<\/p>\n";
+                    strVar += "            <p class=\"fz14 z-gray36\" >原价：" + data2.VIPOriginalPrice + "元/年<\/p>\n";
+                    strVar += "            <p class=\"fz24 z-mt0\" ><span class=\"z-pr4\">现仅需：<i class=\"z-red\">" + data2.VIPPresentPrice + "<\/i>元/年<\/span>\n";
+                    if (data2.GiveAcmount > 0) {
+                        strVar += "<span class=\"fz14\">赠送 <i class=\"z-red\">" + data2.GiveAcmount + "<\/i>元<\/span>\n";
+
+                    }
+                    strVar += "<\/p>\n";
+                    strVar += "        <\/div>\n";
+                    strVar += "        <div class=\"po-account\" style=\"padding-top: 17px;\">\n";
+                    strVar += "            <a href=\"javascript:\" class=\"tx-img\">\n";
+                    strVar += "                <img src=\"" + data2.AvatarSrc + "\" onerror=\"javascript:this.src = '" + data2.GetErrorImg + "';\">\n";
+                    strVar += "            <\/a>\n";
+                    strVar += "            <p  style=\"padding-top:0px;padding-bottom:0px;\"class=\"z-mb0 z-pt2\"><span class=\"z-mr4\">用户名：" + data2.UserName + "<\/span><\/p>\n";
+                    strVar += "            <p style=\"padding-top:0px;padding-bottom:0px;\" class=\"z-mb0 z-pt2\"><span class=\"z-mr4\">账户余额：" + data2.Balance + "元<\/span><\/p>\n";
+                    strVar += "            <p style=\"padding-top:0px;padding-bottom:0px;\" class=\"z-mb0 z-pt2\"><span class=\"z-mr4\">扣款：<i class=\"z-red\">-" + data2.VIPPresentPrice + "元<\/i><\/span><span>剩余：<i class=\"z-green\">" + data2.shengyu + "元<\/i><\/span><\/p>\n";
+                    strVar += "        <\/div>\n";
+                    strVar += "    <\/div>\n";
+                    strVar += "    <div class=\"fotwrap z-tc radius clearfix z-mb5\">\n";
+                    strVar += "        <a href=\"javascript:\"  class=\"btn05 z-mr4 z-plr5 w90 fz18\" onclick=\"OnPurchase('" + data2.orderno + "','VIP升级')\">确定购买<\/a>\n";
+                    //strVar += "        <a href=\"javascript:\" style=\"height:46px;color:white\" class=\"btn05 z-mr4 z-plr5 z-ptb2 w90 fz24\" onclick=\"OnPurchase('" + data2.orderno + "','VIP升级')\">确定购买<\/a>\n";
+
+                    strVar += "    <\/div>\n";
+                    strVar += "<\/body>\n";
+                    strVar += "<\/html>\n";
+
+                    layer.open({
+                        title: "账户升级",
+                        type: 1,
+                        content: strVar,
+                        area: ['450px', '380px']
+                        
+                    });
+                    
+                }
+               
+              
+
+            } else {
+                layer.alert(data.message);
+            }
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+        //alert(XMLHttpRequest.status);
+        //alert(XMLHttpRequest.readyState);
+        alert(errorThrown);
+    }
+
+    });
+});
+//充值
+function OnRecharge(num,type) {
+    //layer.closeAll();
+    OnPay(num, type);
+}
+//扣款
+function OnPurchase(payno, type) {
+    var param = {};
+    param.payno = payno;
+    param.paytype = type;
+    param.dataType = "json";
+    $.ajax({
+        url: "/ToolMember/Member/ByMemberCard",
+        data: param,
+        type: "post",
+        dataType: "json",
+        success: function (data) {
+            if (data.type == 1) {
+                layer.msg('支付成功', { icon: 1 });
+                setTimeout(function () { layer.closeAll(); }, 3000);
+                setTimeout(function () { parent.location.reload(); }, 3000);
+
+            } else {
+                layer.msg(data.message, { icon: 2 });
+                setTimeout(function () { layer.closeAll(); }, 3000);
+            }
+        }
+    });
+
+}
+
+//续费
+$('#btnVipDelay').on('click', function () {
+    var param = {};
+    $.ajax({
+        url: "/ToolMember/Member/VipDelay",
+        data: param,
+        type: "get",
+        dataType: "json",
+        success: function (data) {
+            if (data.type == 1) {
+                var strVar = "";
+                var data2 = data.resultdata;
+                if (data2.type == 0) {
+                    strVar += "<!DOCTYPE html>\n";
+                    strVar += "<html>\n";
+                    strVar += "<head>\n";
+                    strVar += "    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>\n";
+                    strVar += "    <link rel=\"stylesheet\" type=\"text/css\" href=\"//csstools.chinaz.com/common/styles/common.css\">\n";
+                    strVar += "    <link rel=\"stylesheet\" type=\"text/css\" href=\"//csstools.chinaz.com/ciku/styles/ciku-layer.css?v=201802\">\n";
+                    strVar += "    <title><\/title>\n";
+                    strVar += "	<meta charset=\"utf-8\" />\n";
+                    strVar += "<\/head>\n";
+                    strVar += "<body>\n";
+                    strVar += "<div class=\"pop-publish\">\n";
+                    strVar += "	<br/>\n";
+                    strVar += "	<div class=\"po-cont z-tc\">\n";
+                    strVar += "		<div class=\"po-pwarn\" >\n";
+                    strVar += "			<p class=\"fz24 z-orange z-mb0\" >\n";
+                    strVar += "				VIP会员续费\n";
+                    strVar += "			<\/p>\n";
+                    strVar += "			<p class=\"fz14 clearfix z-plr5\" style=\"padding-top:0px;\">\n";
+                    strVar += "				<span class=\"z-fl z-pl1\">续费年限选择：<\/span><span class=\"z-fr z-gray\">原价:" + data2.VIPOriginalPrice + "元/年<\/span>\n";
+                    strVar += "			<\/p>\n";
+                    strVar += "			<div class=\"z-mt0 clearfix z-plr5\">\n";
+                    strVar += "				<div class=\"z-fl\">\n";
+                    strVar += "					<label class=\"z-pr2\">1年<\/label>\n";
+                    strVar += "				<\/div>\n";
+                    strVar += "				<span class=\"z-fr\">费用：<i class=\"z-red\">" + data2.VIPPresentPrice + "<\/i>元<\/span>\n";
+                    strVar += "			<\/div>\n";
+                    strVar += "			<p class=\"z-gray fz14\" >\n";
+                    strVar += "				VIP有效期：" + data2.beginDate + "至" + data2.endDate + "\n";
+                    strVar += "			<\/p>\n";
+                    strVar += "		<\/div>\n";
+                    strVar += "		<div class=\"po-account\">\n";
+                    strVar += "			<a href=\"javascript:\" class=\"tx-img\"><img src=\"" + data2.AvatarSrc + "\" onerror=\"javascript:this.src = '" + data2.GetErrorImg + "';\"><\/a>\n";
+                    strVar += "			<p class=\"z-mb0\">\n";
+                    strVar += "				<span class=\"z-mr4\">用户名：" + data2.UserName + "<\/span><span>账户余额：" + data2.Balance + "元<\/span>\n";
+                    strVar += "			<\/p>\n";
+                    strVar += "			<p class=\"fz24 z-red z-mt0 z-pt2\">\n";
+                    strVar += "				应充值：" + data2.chognzhi + "元\n";
+                    strVar += "			<\/p>\n";
+                    strVar += "		<\/div>\n";
+                    strVar += "			<div>\n";
+                    strVar += "				<img src=\"" + data2.qcodeurl + "\" style=\"border:1px solid #ddd;width:170px;height:170px;padding:10px;\">\n";
+                    strVar += "			<\/div>\n";
+                    strVar += "			<p class=\"fz12 z-gray z-ptb2\">\n";
+                    strVar += "			<\/p>\n";
+                    strVar += "			<p class=\"fz14\">\n";
+                    strVar += "                    支持微信、支付宝、建行扫码支付<a href=\"http://my.chinaz.com/ToolMember/Member/Account?code=cz\" target=\"_blank\" class=\"fz12 z-gray zhuanzhang11\">(公司转账支付)</a>\n";
+                    strVar += "				<br>\n";
+                    strVar += "			<\/p>\n";
+                    strVar += "			<p class=\"fz10 z-gray z-ptb2\">\n";
+                    strVar += "				距离二维码过期还剩<strong id=\"SucessId\" style=\"color: red\">120<\/strong>秒\n";
+                    strVar += "			<\/p>\n";
+                    strVar += "	<\/div>\n";
+                    strVar += "<\/div>\n";
+                    strVar += "<\/body>\n";
+                    strVar += "<\/html>\n";
+                    
+                    countdown = 150;
+                    settime(data2.orderno, "VIP续费");
+                    myIntervalnum = 120;
+                    t3 = setInterval("myInterval3()", 1000);
+                    layer.open({
+                        title: "账户续费",
+                        type: 1,
+                        content: strVar,
+                        area: ['560px', '570px'],
+                        cancel: function (index, layero) {
+                            clearInterval(t3);
+                            clearTimeout(t);
+                            layer.closeAll();
+                        }
+                    });
+                } else {
+                    strVar += "<!DOCTYPE html>\n";
+                    strVar += "<html>\n";
+                    strVar += "<head>\n";
+                    strVar += "    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>\n";
+                    strVar += "    <link rel=\"stylesheet\" type=\"text/css\" href=\"//csstools.chinaz.com/common/styles/common.css\">\n";
+                    strVar += "    <link rel=\"stylesheet\" type=\"text/css\" href=\"//csstools.chinaz.com/ciku/styles/ciku-layer.css?v=201802\">\n";
+                    strVar += "    <title><\/title>\n";
+                    strVar += "	<meta charset=\"utf-8\" />\n";
+                    strVar += "<\/head>\n";
+                    strVar += "<body>\n";
+                    strVar += "<div class=\"pop-publish\">\n";
+                    strVar += "    <div class=\"po-head\">\n";
+                    strVar += "        <div class=\"h-close w30\"><\/div>\n";
+                    strVar += "    <\/div>\n";
+                    strVar += "    <div class=\"po-cont z-tc\">\n";
+                    strVar += "        <div class=\"po-pwarn\">\n";
+                    strVar += "            <p class=\"fz24 z-orange z-mb0\" >VIP会员续费确认<\/p>\n";
+                    strVar += "            <p class=\"fz14 clearfix z-plr5\" ><span class=\"z-fl z-pl1\">续费年限选择：<\/span><span class=\"z-fr z-gray\">原价:" + data2.VIPOriginalPrice + "元/年<\/span><\/p>\n";
+                    strVar += "            <div class=\"z-mt0 clearfix z-plr5\">\n";
+                    strVar += "                <div class=\"z-fl\"><label class=\"z-pr2\">1年<\/label><\/div>\n";
+                    strVar += "                <span class=\"z-fr\">费用：<i class=\"z-red\">" + data2.VIPPresentPrice + "<\/i>元<\/span>\n";
+                    strVar += "            <\/div>\n";
+                    strVar += "            <p class=\"z-gray fz14\" >VIP有效期：" + data2.beginDate + "至" + data2.endDate + "<\/p>\n";
+                    strVar += "        <\/div>\n";
+                    strVar += "        <div class=\"po-account\" style=\"padding-top: 17px;\">\n";
+                    strVar += "            <a href=\"javascript:\" class=\"tx-img\"> <img src=\"" + data2.AvatarSrc + "\" onerror=\"javascript:this.src = '" + data2.GetErrorImg + "';\">\n<\/a>\n";
+                    strVar += "            <p class=\"z-mb0\" style=\"padding-top:0px;padding-bottom:0px;\"><span class=\"z-mr4\">用户名：" + data2.UserName + "<\/span><\/p>\n";
+                    strVar += "            <p class=\"z-mb0\" style=\"padding-top:0px;padding-bottom:0px;\"><span class=\"z-mr4\">账户余额：" + data2.Balance + "<\/span><\/p>\n";
+                    strVar += "            <p class=\"z-mb0\" style=\"padding-top:0px;padding-bottom:0px;\"><span class=\"z-mr4\">扣款：<i class=\"z-red\">-" + data2.VIPPresentPrice + "元<\/i><\/span><span>剩余：<i class=\"z-green\">" + data2.shengyu + "元<\/i><\/span><\/p>\n";
+                    strVar += "        <\/div>\n";
+                    strVar += "    <\/div>\n";
+                    strVar += "    <div class=\"fotwrap z-tc radius clearfix z-mb5\">\n";
+                    strVar += "        <a href=\"javascript:\" class=\"btn05 z-mr4 z-plr5 w90 fz18\" onclick=\"OnPurchase('" + data2.orderno + "','VIP续费')\">确定购买<\/a>\n";
+                    strVar += "    <\/div>\n";
+                    strVar += "<\/div>\n";
+
+                    strVar += "<\/body>\n";
+                    strVar += "<\/html>\n";
+                    strVar += "\n";
+                    layer.open({
+                        title: "账户续费",
+                        type: 1,
+                        content: strVar,
+                        area: ['430px', '430px']
+                    });
+                }
+
+               
+
+            } else {
+                layer.alert(data.message);
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            //alert(XMLHttpRequest.status);
+            //alert(XMLHttpRequest.readyState);
+            alert(errorThrown);
+        }
+
+    });
+});
+
+
+
+
