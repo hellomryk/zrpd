@@ -3928,8 +3928,11 @@ th {
 #slider ul li span .p2 {
     text-indent: 30px;
 }
+.zyl_helpPart2Bot ul li.l3 .s1 {
+    background: url(zyl_help_p5.png) center center no-repeat;
+}
 .zyl_helpPart2Bot ul li.l3 .s1gexing {
-    background: url(zyl_help_p4.png) center center no-repeat;
+    background: url(zyl_help_p3.png) center center no-repeat;
 }
 .zyl_helpPart2Bot ul li.l4 {
     background: #f8f8f8;
