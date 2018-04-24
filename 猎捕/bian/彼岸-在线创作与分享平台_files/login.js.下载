@@ -1,0 +1,96 @@
+$(function(){	
+	//监听回车键事件
+	$("#form_login input").keydown(function(event) {
+		if(event.keyCode == 13){
+			submit_loginForm_new();
+		}
+	});
+});
+//跳转到注册页面
+function rewardUserLogin(){
+	$('.reg_box4').hide();
+	$('#loadUserLogin').load('/user/login');
+}
+
+//关闭注册弹框
+function colseLoginBox(){
+	//console.log('aaaaaaaaa');
+	$('.land2_box').children("*").children("*").children("*").removeClass('zLo');
+	$('.land2_box').addClass('zLo');
+	$('.land2_box').children("*").children("*").children("*").addClass('zLo');
+	//$('.mask_none4').hide(2000);
+	
+	//$('.land2_box').hide(2000);
+	$('.mask_tenper').hide();
+}
+//登录表单提交
+function submit_loginForm_new(){
+	// 校验
+	if(!beforeSubmit_login()){
+		return;
+	}
+	// 加密
+	/*var modulus = $('#hid_modulus').val(), exponent = $('#hid_exponent').val();
+	var token = $('#hid_token').val();
+	var key = RSAUtils.getKeyPair(exponent, '', modulus);*/
+	var pwd = $("#password_").val();
+	/*pwd = pwd + ":" + token;
+	pwd = RSAUtils.encryptedString(key, pwd);*/
+	$("#password2").val(pwd);
+	
+	// 提交
+	/*$("#form_login").attr("action","user/login").submit();*/
+	var param = $("#form_login").serialize();
+	$.ajax({
+    	async: true,
+		type: "post",
+        url: "/user/login",
+        data: param,
+        dataType: "json",
+        success: function(data){
+        	if(data['status']!=''){
+        		if(data['status'] == 'yes'){//登录成功
+        			var dd = data['dd'];
+        			var url = 'http://ciyun-bbs.moxiai.com/?/account/sso/ajaxsso/?u='+dd;
+        			$('#iframeId').attr('src',url);
+        			$('#hid_token').val(data['token']);
+        			$('#hid_modulus').val(data['modulus']);
+        			$('#hid_exponent').val(data['exponent']);
+        			$('#userName').val(data['userName']);
+        			$('#password').val(data['password']);
+        			setTimeout(function(){
+        				/*$('.js-tpl-login-box').hide()*/
+        				colseLoginBox();
+            			$('.Top .tools').remove();
+            			$('.Top .w').append('<div class="fr land2_sel land2_sel2" id="land2_sel"><div></div><ul class="headr_drop2" id="headr_drop2" style="display: none;"><i></i><li><a href="/userCenter/account/1">个人中心</a></li><li><a href="/vip/member">会员中心</a></li><li><a href="javascript:;" onclick="logout();">退出登录</a></li></ul></div>')
+            			var timer=null;var oPro_service=document.getElementById("land2_sel");if(oPro_service == undefined){return false;}var oPro_show=document.getElementById("headr_drop2");if(oPro_show != null){oPro_service.onmouseover=oPro_show.onmouseover=function(){clearTimeout(timer);oPro_show.style.display="block";};oPro_service.onmouseout=oPro_show.onmouseout=function(){clearTimeout(timer);timer=setTimeout(function(){oPro_show.style.display="none";},300);};}$(".head_nul li a").hover(function(){$(this).closest("li").addClass("head_nshow");},function(){$(this).closest("li").removeClass("head_nshow");});
+        			},1000);
+        		}
+        		if(data['status'] == 'no'){//登录失败
+        			$('#userName_prompt_2').text("用户名或密码错误！");
+        			$('#userName_prompt_2').show();
+        		}
+        		return false;
+        	}
+        }
+	});
+}
+
+//登录表单提前验证处理
+function beforeSubmit_login(){
+    if ($("#userName_").val() == '') {
+        $('#userName_prompt_').text("请输入用户名/手机号！");
+        $("#userName_").focus();
+        return false;
+    } else{
+    	$('#userName_prompt_').text("");
+    }
+    if ($("#password_").val() == '') {
+        $('#password_prompt_').text("请输入密码！");
+        $("#password_").focus();
+        return false;
+    }else{
+    	$('#password_prompt_').text("");
+    }
+    return true;
+}

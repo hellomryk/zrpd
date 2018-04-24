@@ -1,0 +1,85 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('icomoon.eot?pjqpo9');
+  src:  url('icomoon.eot?pjqpo9#iefix') format('embedded-opentype'),
+    url('icomoon.ttf?pjqpo9') format('truetype'),
+    url('icomoon.woff?pjqpo9') format('woff'),
+    url('icomoon.svg?pjqpo9#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrow:before {
+  content: "\e900";
+}
+.icon-register:before {
+  content: "\e901";
+  color: #999;
+}
+.icon-login:before {
+  content: "\e902";
+  color: #999;
+}
+.icon-step1:before {
+  content: "\e903";
+}
+.icon-step2:before {
+  content: "\e904";
+}
+.icon-step3:before {
+  content: "\e905";
+}
+.icon-step4:before {
+  content: "\e906";
+}
+.icon-project1:before {
+  content: "\e907";
+}
+.icon-project2:before {
+  content: "\e908";
+}
+.icon-project3:before {
+  content: "\e909";
+}
+.icon-project4:before {
+  content: "\e90a";
+}
+.icon-project5:before {
+  content: "\e90b";
+}
+.icon-project6:before {
+  content: "\e911";
+}
+.icon-refresh:before {
+  content: "\e90c";
+}
+.icon-select:before {
+  content: "\e90d";
+}
+.icon-download:before {
+  content: "\e90e";
+}
+.icon-price:before {
+  content: "\e90f";
+}
+.icon-save:before {
+  content: "\e910";
+}
+.icon-plus:before {
+  content: "\ea0a";
+}

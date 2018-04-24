@@ -1,0 +1,56 @@
+/* Copyright (C) 1999 Offical Seal 
+ * Version: 1.0
+ * LastModified: 2017年12月6日18:31:47
+ * This library is free.  You can redistribute it and/or modify it.
+ */
+	/**
+	*canvas绘制印章
+	*/
+	function renderSeal(canvas,agency,department,x,y){
+		// 绘制印章边框   
+		var params ={left: x,top: y,originX: 'center', originY: 'center',stroke: '#f00', strokeWidth: 2, radius: 60, fill: 'transparent',selectable: false,transparentCorners: false};
+		var circle = new fabric.Circle(params);
+		canvas.add(circle);
+		// 绘制印章中部五角星(算法) 
+		/* var pathstr;
+		var x = Math.sin(0);
+        var y = Math.cos(0);
+        var whitespace = new String(" \t\n\r");
+        var dig = Math.PI / 5 * 4;
+             for (var i = 0; i < 5; i++) {//画五角星的五条边
+                 var x = Math.sin(i * dig);
+                 var y = Math.cos(i * dig);
+                 pathstr += (whitespace+(x * 15) +whitespace+(y * 15));
+             }
+        console.log(pathstr); */
+		// 绘制印章中部五角星 
+		var path = new fabric.Path('M 0 15 L 8.816778784387099 -12.13525491562421 L -14.265847744427305 4.635254915624208 L 14.265847744427303 4.635254915624216 L -8.816778784387092 -12.135254915624214 z');
+			path.set({left: x,top: y, originX: 'center', originY: 'center',angle: -25,fill:'#f00',selectable: false, transparentCorners: false });
+		canvas.add(path);
+		//绘制印章部门
+		var dpparams={left:x-6,top:y+27,originX: 'center', originY: 'center',angle: 10,fontSize:20,selectable:false,borderScaleFactor:1,fontFamily:'SimHei',fill:'#f00'};
+		var depart = new fabric.Text(department,dpparams);
+		canvas.add(depart);
+		//绘制印章机构(算法)
+		var count=agency.length;
+       	var angle = 3*Math.PI/(3*(count - 1)); 
+        var agencyArr = agency.split("");
+        var agencyAngle;
+        var agencyX=x;
+        var agencyY=y;
+        var agencyparams;
+        if(count>0){
+        	for(var i = 0; i<count; i++){
+        		 if(i==0){
+        			agencyAngle = (4 * Math.PI / 6);
+        			agencyparams = {left:agencyX-(56*Math.cos(i*agencyAngle)), top:agencyY-(56*Math.sin(i*agencyAngle)),angle:-90,fontSize:16,selectable:false,borderScaleFactor:1,fontFamily:'SumSun',fill:'#f00'};
+        		}else{
+        			agencyAngle = angle;
+        			agencyparams = {left:agencyX-(56*Math.cos(i*agencyAngle)), top:agencyY-(56*Math.sin(i*agencyAngle)),angle:-90+(i*angle*58),fontSize:16,selectable:false,borderScaleFactor:1,fontFamily:'SumSun',fill:'#f00'};
+        		}
+        		var text = new fabric.Text(agencyArr[i],agencyparams);
+        		canvas.add(text);
+        	}      	
+        }
+		  
+	}

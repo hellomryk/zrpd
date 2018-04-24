@@ -1,0 +1,196 @@
+// 获取省份列表
+function getProvinceList(target) {
+	$(target).html("");
+	$(target).append('<option value="-1">请选择</option>');
+	$.ajax({
+		async : false,
+		dataType : "JSON",
+		type : 'POST',
+		url : "/select/queryProvince",
+		data : {},
+		success : function(data) {
+			if (data && data.length > 0) {
+				for ( var i = 0, len = data.length; i < len; i++) {
+					var option = $('<option value="' + data[i].id + '">'
+							+ data[i].area_designation + '</option> ');
+					$(target).append(option);
+				}
+			}
+		}
+	});
+}
+// 获取城市列表
+function getCityList(target, provinceId) {
+	$(target).html("");
+	if (provinceId != 10 && provinceId != 11 && provinceId != 18
+			&& provinceId != 31) {
+		$(target).append('<option value="-1">请选择</option>');
+	}
+	$.ajax({
+		async : false,
+		dataType : "JSON",
+		type : 'POST',
+		url : "/select/queryCityByProvinceId",
+		data : {
+			province_id : provinceId
+		},
+		success : function(data) {
+			if (data && data.length > 0) {
+				for ( var i = 0, len = data.length; i < len; i++) {
+					var option = $('<option value="' + data[i].id + '">'
+							+ data[i].area_designation + '</option> ');
+					$(target).append(option);
+				}
+			}
+		}
+	});
+}
+// 获取区县列表
+function getCountyList(target, cityId) {
+	$(target).html("");
+	$(target).append('<option value="-1">请选择</option>');
+	$.ajax({
+		async : false,
+		dataType : "JSON",
+		type : 'POST',
+		url : "/select/queryCountyByCityId",
+		data : {
+			cityId : cityId
+		},
+		success : function(data) {
+			if (data && data.length > 0) {
+				for ( var i = 0, len = data.length; i < len; i++) {
+					var option = $('<option value="' + data[i].id + '">'
+							+ data[i].area_designation + '</option> ');
+					$(target).append(option);
+				}
+			}
+		}
+	});
+}
+// 获取行业列表
+function getTradeList(target) {
+	$(target).html("");
+	$(target).append('<option value="-1">请选择</option>');
+	$.ajax({
+		async : false,
+		dataType : "JSON",
+		type : 'POST',
+		url : "/select/queryTrade",
+		data : {},
+		success : function(data) {
+			if (data && data.length > 0) {
+				for ( var i = 0, len = data.length; i < len; i++) {
+					var option = $('<option value="' + data[i].id + '">'
+							+ data[i].trade_category + '</option> ');
+					$(target).append(option);
+				}
+			}
+		}
+	});
+}
+//获取字库一级分类
+function getKindList(target) {
+	$(target).html("");
+	$(target).append('<option value="-1">请选择</option>');
+	$.ajax({
+		async : false,
+		dataType : "JSON",
+		type : 'POST',
+		url : "/select/queryKindPar",
+		data : {},
+		success : function(data) {
+			if (data && data.length > 0) {
+				for ( var i = 0, len = data.length; i < len; i++) {
+					var option = $('<option value="' + data[i].id + '">'
+							+ data[i].kind_name + '</option> ');
+					$(target).append(option);
+				}
+			}
+		}
+	});
+}
+// 获取字库二级分类
+function getChildrenKindList(target, kindPar) {
+	$(target).html("");
+	$(target).append('<option value="-1">请选择</option>');
+	$.ajax({
+		async : false,
+		dataType : "JSON",
+		type : 'POST',
+		url : "/select/queryKindChild",
+		data : {
+			id : kindPar
+		},
+		success : function(data) {
+			if (data && data.length > 0) {
+				for ( var i = 0, len = data.length; i < len; i++) {
+					var option = $('<option value="' + data[i].id + '">'
+							+ data[i].kind_name + '</option> ');
+					$(target).append(option);
+				}
+			}
+		}
+	});
+}
+//获取词库列表
+function getAiThesaurusList(target) {
+	$(target).html("");
+	//$(target).append('<option value="-1">请选择</option>');
+	$.ajax({
+		async : false,
+		dataType : "JSON",
+		type : 'POST',
+		url : "/word/getThesaurusList",
+		data : {},
+		success : function(data) {
+			if (data && data.length > 0) {
+				for ( var i = 0, len = data.length; i < len; i++) {
+					var option = $('<option value="' + data[i].id + '">'
+							+ data[i].name + '</option> ');
+					$(target).append(option);
+				}
+			}
+		}
+	});
+}
+//获取行业一级分类
+function getIndustryList(target) {
+	alert("111");
+	$.ajax({
+		async : false,
+		dataType : "JSON",
+		type : 'POST',
+		url : "/select/queryIndustry",
+		data : {},
+		success : function(data) {
+			if (data && data.length > 0) {
+				for ( var i = 0, len = data.length; i < len; i++) {
+					var option = $('<h3>'+data[i].title+'</h3>');
+					$(target).append(option);
+				}
+			}
+		}
+	});
+}
+//获取行业二级分类
+function getChildrenIndustryList(target, industryPar) {
+	$.ajax({
+		async : false,
+		dataType : "JSON",
+		type : 'POST',
+		url : "/select/queryChildIndustry",
+		data : {
+			id : industryPar
+		},
+		success : function(data) {
+			if (data && data.length > 0) {
+				for ( var i = 0, len = data.length; i < len; i++) {
+					var option = $('<option value="' + data[i].id + '">'
+							+ data[i].kind_name + '</option> ');
+					$(target).append(option);
+				}
+			}
+		}
+	});
+}

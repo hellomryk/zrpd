@@ -1,0 +1,70 @@
+// 时间校验
+function chkDate(bdate, edate) {
+	var beginDate = bdate || $("#beginDate").val();
+	var endDate = edate || $("#endDate").val();
+	if (beginDate == "") {
+		if (endDate != "") {
+			alert("起始日期不能为空！");
+			return false;
+		}
+	} else if (endDate == "") {
+		if (beginDate != "") {
+			alert("终止日期不能为空！");
+			return false;
+		}
+	} else if (beginDate > endDate) {
+		alert("起始日期不能晚于终止日期！");
+		return false;
+	}
+	var now = new Date();
+	var str = ""
+			+ now.getFullYear()
+			+ "-"
+			+ ((now.getMonth() + 1) < 10 ? "0" + (now.getMonth() + 1) : (now
+					.getMonth() + 1)) + "-"
+			+ (now.getDate() < 10 ? "0" + now.getDate() : now.getDate());
+
+	if (beginDate > str) {
+		alert("起始日期不能为晚于当前日期！");
+		return false;
+	} else if (endDate > str) {
+		alert("终止日期不能为晚于当前日期！");
+		return false;
+	}
+	return true;
+}
+// 结束时间
+function onfocusStartTime(edate) {
+	var maxDate = "%y-%M-%d";
+	var endDate = edate || $("#endDate").val();
+	if (endDate != '') {
+		maxDate = endDate;
+	}
+	WdatePicker({
+		dateFmt : 'yyyy-MM-dd',
+		maxDate : maxDate || "%y-%M-%d",
+		isShowClear : false,
+		readOnly : true
+	});
+}
+// 开始时间
+function onfocusEndTime(bdate) {
+	var maxDate = "%y-%M-%d";
+	var minDate = "";
+	var beginDate = bdate || $("#beginDate").val();
+	if (beginDate == '') {
+		alert("请先选择起始时间！");
+		return;
+	}
+	minDate = beginDate;
+	WdatePicker({
+		dateFmt : 'yyyy-MM-dd',
+		minDate : minDate,
+		maxDate : maxDate,
+		isShowClear : false,
+		readOnly : true
+	});
+}
+function onStartTimeFocus(input){
+	WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true,isShowClear:true,maxDate:'%y-%M-%d'});
+}

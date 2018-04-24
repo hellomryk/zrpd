@@ -1,0 +1,256 @@
+$(function(){
+	//滚动条
+	//_scroll();
+	//回到顶部按钮
+	//_gotoTop();
+	
+});
+
+//滚动条
+function _scroll(){
+  	//body滚动条
+	$("html").niceScroll({cursorborder:"",cursorwidth:"10px",cursorcolor:"#CDCDCD", zindex:"99999", 
+	boxzoom:false});  // The document page (body)
+	//.nicescroll_1滚动条
+    $(".nicescroll_1").niceScroll({cursorborder:"",cursorwidth:"7px",cursorcolor:"#CDCDCD",zindex:"9999",
+    boxzoom:false/* ,touchbehavior:false,autohidemode:false */});
+}
+
+//返回顶部
+function _gotoTop(){
+	$("#scrollTop").remove();
+	$("body").append('<div id="scrollTop" title="回到顶部"/>');
+	$("#scrollTop").scrolltop({
+		right: "0%",
+		bottom: "100px",
+		heightThreshold: 600,
+		topSpeed: 500,
+		bgImg: "images/gotoTop.png"
+	});
+}
+
+//验证图形验证码
+function validateCaptcha(captcha){
+	var bool = false;
+	$.ajax({
+		type : "post",
+		url : "captcha/validateCaptcha",
+		dataType : "json",
+		async : false,
+		data : {
+			captcha : captcha
+		},
+		success : function(data) {
+			if (data) {
+				if (data.success) {
+					bool = true;
+				} else {
+					bool = false;
+				}
+			}
+		}
+	});
+	return bool;
+}
+
+
+// 监测用户是否登录
+function isLogin(){
+	var bool = false;
+	$.ajax({
+		type : "post",
+		url : "user/validateLogin",
+		dataType : "text",
+		async : false,
+		data : {},
+		success : function(data) {
+			if (data == 0) {// 未登录
+				bool = false;
+			} else if (data == 1) {// 已登录
+				bool = true;
+			} else {
+
+			}
+		}
+	});
+	return bool;
+}
+
+
+/* 添加收藏 */
+function addCollect(infoId, channelId){
+    $.ajax({
+		type : "post",
+		url : "collect/add",
+		dataType : "json",
+		async : true,
+		data : {
+			infoId : infoId,
+			channelId : channelId,
+			rnd : Math.random()
+		},
+		success : function(data) {
+			if (data > 0) {
+				alert("收藏成功！");
+				window.location.reload();
+			} else if (data == -1) {
+				alert("登录后才能收藏！");
+				// showLoginBox();
+				location.href = "user/login?fromUrl="+document.location.href;
+			} else if (data == -2) {
+				alert("该信息未审核！");
+			} else if (data == -3) {
+				alert("您已经收藏过该信息！");
+			} else {
+				alert("收藏失败！");
+			}
+		}
+	});
+}
+
+/* 取消收藏 */
+function delCollect(id){
+	$.ajax({
+		type : "post",
+		url : "collect/del",
+		dataType : "json",
+		async : true,
+		data : {
+			id : id,
+			rnd : Math.random()
+		},
+		success : function(data) {
+			if (data > 0) {
+				alert("取消收藏成功！");
+				window.location.reload();
+			} else if (data == -1) {
+				alert("登录后才能取消收藏！");
+				// showLoginBox();
+				location.href = "user/login?fromUrl="+document.location.href;
+			} else if (data == -2) {
+				alert("该信息未审核！");
+			} else if (data == -3) {
+				alert("非法操作！");
+			} else {
+				alert("取消收藏失败！");
+			}
+		}
+	});
+}
+
+
+// 阻止浏览器刷新，调用UnloadConfirm.set(msg)即可
+var UnloadConfirm = {};
+UnloadConfirm.MSG_UNLOAD = "数据尚未保存，离开后可能会导致数据丢失\n\n您确定要离开吗？";
+UnloadConfirm.set = function(a) {
+    window.onbeforeunload = function(b) {
+        b = b || window.event;
+        a = a || UnloadConfirm.MSG_UNLOAD;
+        b.returnValue = a;
+        return a
+    }
+};
+UnloadConfirm.clear = function() {
+    window.onbeforeunload = function() {}
+};
+
+
+//js获取项目根路径，如： http://localhost:8083/uimcardprj
+function getRootPath(){
+    //获取当前网址，如： http://localhost:8083/uimcardprj/share/meun.jsp
+    var curWwwPath=window.document.location.href;
+    //获取主机地址之后的目录，如： uimcardprj/share/meun.jsp
+    var pathName=window.document.location.pathname;
+    var pos=curWwwPath.indexOf(pathName);
+    //获取主机地址，如： http://localhost:8083
+    var localhostPaht=curWwwPath.substring(0,pos);
+    //获取带"/"的项目名，如：/uimcardprj
+    var projectName=pathName.substring(0,pathName.substr(1).indexOf('/')+1);
+    return(localhostPaht+"/");
+}
+
+/**
+ * 图片尺寸以及位置设置（等比缩放）
+ * imgTarget：需要设置的目标图片
+ * url：图片的路径
+ * containerW：容器的宽
+ * containerH：容器的高
+ */
+function resetImg(imgTarget,url,containerW,containerH){
+	var img=new Image();
+	img.src=url;
+	setInterval(function() {
+		if(img.complete){
+			afterImgLoadComplete(img,imgTarget,url,containerW,containerH);
+		}else{
+			img.onload = function () {
+				afterImgLoadComplete(img,imgTarget,url,containerW,containerH);
+				img.onload = null;
+			};
+		}
+	},50);
+
+}
+
+function afterImgLoadComplete(img,imgTarget,url,containerW,containerH){
+	var imgW=img.width,imgH=img.height;
+	//图片横向超出
+	if(imgW > containerW && imgH <= containerH){
+		imgTarget.width = containerW;
+		//图片等比缩放
+		imgTarget.height = (imgTarget.width / imgW) * imgH;
+	}
+	//图片纵向超出
+	if(imgH > containerH && imgW <= containerW){
+		imgTarget.height = containerH;
+		imgTarget.width = (imgTarget.height / imgH) * imgW;
+	}
+	//图片横向、纵向都超出
+	if(imgW > containerW && imgH > containerH){
+		if(imgW > imgH){
+			imgTarget.width = containerW;
+			imgTarget.height = (imgTarget.width / imgW) * imgH;
+		}else{
+			imgTarget.height = containerH;
+			imgTarget.width = (imgTarget.height / imgH) * imgW;
+		}
+	}
+	//横向、纵向都没超出
+	if(imgW <= containerW && imgH <= containerH){
+		imgTarget.width = imgW;
+		imgTarget.height = imgH;
+	}
+	//图片位置
+	var top = (containerH - imgTarget.height) / 2;
+	var left = (containerW - imgTarget.width) / 2;
+	//imgTarget.style.marginTop = marginTop + "px";
+	//imgTarget.style.marginLeft = marginLeft + "px";
+	imgTarget.style.paddingTop = top + "px";
+	//imgTarget.style.paddingLeft = (left + "px")-20+ "px";
+}
+
+
+/* check user status global javascript plugin by jackLei 20171023 */
+function checkUserStatus() {
+    var a;
+    $.ajax({
+        type: 'POST',
+        url: '/logo/checkLogin',
+        async: false,
+        success: function(json){
+            a = (json == '1') ? !0 : !1;
+        }
+    })
+
+    return a ? !0 : ($.get('/logo/loginNew', function(html) {
+        $('body').append(html)
+    }), !1)
+}
+
+function goUploadLogoFn(){
+	if (!checkUserStatus()) {
+        return;
+    }else{
+    	window.location.href="/logo/toLogoUpload"
+    }		
+}

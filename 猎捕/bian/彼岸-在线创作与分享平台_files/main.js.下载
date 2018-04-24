@@ -1,0 +1,121 @@
+﻿
+$(document).ready(function(){	
+									 								 										 										 										
+/*tab切换*/
+$(".tabs-title").children("li").bind('click',function(){
+$(".tabs-title").children("li").removeClass("active");
+$(".tab_con").hide();
+$(this).addClass("active");
+var Id=$(this).attr("name");
+$("#"+Id).show();
+})
+/*我的账户*/
+$(".btn_jt").bind('click',function(){
+$(this).parent().next().show();
+})
+
+$(".hea_wdzh").hover(
+function(){
+},
+function(){
+$(this).children("ul").hide();
+}
+	)
+/*侧边栏*/
+$(".lqb_slk").hover(function(){
+	$(this).children("div").show();
+},function(){
+	$(this).children("div").hide();
+})
+	
+/*地区展开/收起*/
+$(".show_dq").toggle(
+function(){
+$(this).children("span").hide();
+$(this).children("i").show();
+$(this).next().slideDown();
+},
+function(){
+$(this).children("span").show();
+$(this).children("i").hide();
+$(this).next().hide();
+}
+	)
+
+/*弹出框*/
+$(".tck_btn").bind('click',function(){
+	$(".modal-box").show();
+	$(".overlay").show();
+});
+$(".modal-del").bind('click',function(){
+	$(".modal-box").hide();
+	$(".overlay").hide();
+});
+});
+/*logo滑块*/
+function toOption(param,param2){
+	setTimeout(function(){
+		doToOption(param,param2);
+	},1000);
+}
+/*logo滑块*/
+function doToOption(param,param2){
+	//alert(11);
+	if(param==1){
+	    // 底部的滚动
+		$('.slider3').bxSlider({
+			slideWidth: 150,
+			minSlides: 2,
+			maxSlides: 6,
+			moveSlides: 1,
+			slideMargin: 0
+		});
+		$('.slider3').parent().parent().children().children(".bx-controls-direction").addClass("logo_dir");
+		$(".logo_dir").children().empty();
+		$(".logo_pic").children(".bx-wrapper").css("max-width","980px");
+		$(".logo_pic").children().children(".bx-viewport").css("width","900px");
+		$(".logo_pic").children().children(".bx-viewport").css("margin-left","40px");
+	}
+	if(param2==1){
+		/*最热项目*/
+		$('.slider4').bxSlider({
+			slideWidth: 196,
+			minSlides: 2,
+			maxSlides: 5,
+			moveSlides: 1,
+			startSlide: 1,
+			slideMargin: 0
+		});
+		$('.slider4').parent().parent().children().children(".bx-controls-direction").addClass("xm_ami");
+		$(".xm_ami").children(".bx-prev").addClass("xm_left");
+		$(".xm_ami").children(".bx-next").addClass("xm_right");
+		$(".xm_ami").children(".bx-prev").text("<");
+		$(".xm_ami").children(".bx-next").text(">");
+		/*列表页*/
+		$('.slider8').bxSlider({ 
+			slideWidth: 1160, 
+			adaptiveHeight: true,
+			startSlides: 0, 
+			slideMargin: 10
+		});
+		$('.slider8').parent().parent().children().children(".bx-controls-direction").addClass("list_arr");
+		$(".list_arr").children().empty();
+	}
+}
+function checkTelAndPhone(phone){
+    var isPhone = /^([0-9]{3,4}-)?[0-9]{7,8}$/;
+    var isMob = /^13[0-9]{9}|15[012356789][0-9]{8}|18[0123456789][0-9]{8}|147[0-9]{8}|17[0-9]{9}|170[0-9]{8}$/;
+    if(isMob.test(phone) || isPhone.test(phone)){
+        return true;
+    } else {
+        return false;
+    }
+}
+function checkEmail(email){
+	var register_email = /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/;
+    if(register_email.test(email)){
+        return true;
+    } else {
+        return false;
+    }
+}

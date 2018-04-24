@@ -1,0 +1,651 @@
+//输入验证
+function chkkeyup(obj,regex){
+    var t = obj.value.replace(regex,"");
+    if(obj.value!=t)
+        obj.value=t;
+}
+//验证单选按钮是否被选中：name-单选按钮名
+function chkRadio(name) {
+	if($("input[type='radio'][name='" + name + "']:checked").val()) {
+		return true;
+	} else {
+		alert("有单选按钮未被选中");
+	}
+	return false;
+}
+
+//验证复选按钮是否被选中：name-复选按钮名
+function chkCheckbox(name) {
+	if($("input[type='checkbox'][name='" + name + "']:checked").length) {
+		return true;
+	} else {
+		alert("有复选框未被选择");
+	}
+	return false;
+}
+
+//手机号码验证
+function chkPhone(obj) {
+	if("" != trim($(obj).val())) {
+		var regex = /^1[3|4|5|8][0-9]\d{4,8}$/gi;
+		var result = regex.test(trim($(obj).val()));
+		if(result) {
+			return true;
+		} else {
+			alert("输入手机号码格式有误！");
+			
+			return false;
+		}
+	}
+	return false;
+}
+
+//验证电话号码格式
+function chkTelPhone(obj) {
+	if("" != trim($(obj).val())) {
+		var regex = /^((0\d{2,3})-)(\d{7,8})(-(\d{3,}))?$/gi;
+		var result = regex.test($(obj).val());
+		if(result) {
+			return true;
+		} else {
+			alert("输入固定电话号码格式有误！");
+			
+			return false;
+		}
+	}
+	return false;
+}
+//验证传真电话号码格式
+function chkFaxPhone(obj) {
+	if("" != trim($(obj).val())) {
+		var regex = /^((0\d{2,3})-)(\d{7,8})(-(\d{3,}))?$/gi;
+		var result = regex.test($(obj).val());
+		if(result) {
+			return true;
+		} else {
+			alert("输入传真电话号码格式有误！");
+			
+			return false;
+		}
+	}else{
+		alert("请输入传真电话号码");
+		return false;
+	}
+	
+}
+
+//验证Email
+function chkEmail(obj, len) {
+	if("" != trim($(obj).val())) {
+		regex = /^([a-zA-Z]+[_|\-|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\-|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/gi;
+		var result = regex.test(trim($(obj).val()));
+		if(result && $(obj).val().length <= len) {
+			return true;
+		} else if($(obj).val().length > len) {
+			alert("输入邮箱长度错误！");
+			
+			return false;
+		} else {
+			alert("电子邮箱格式错误！");
+			
+			return false;
+		}
+	}else{
+		alert("请输入电子邮箱");
+		return false;
+	}
+	
+}
+
+//验证电话和手机
+function checkTelAndPhone(phone){
+    var isPhone = /^([0-9]{3,4}-)?[0-9]{7,8}$/;
+    var isMob = /^13[0-9]{9}|15[012356789][0-9]{8}|18[0123456789][0-9]{8}|147[0-9]{8}|177[0-9]{8}|170[0-9]{8}$/;
+    if(isMob.test(phone) || isPhone.test(phone)){
+        return true;
+    } else {
+        return false;
+    }
+}
+
+//名字验证
+function chkName(obj, len) {
+	if("" != trim($(obj).val())) {
+		var regex = /^[\u4e00-\u9fa5a-zA-Z0-9\s]+$/gi;
+		var result = regex.test($(obj).val());
+		if(result && $(obj).val().length <= len) {
+			return true;
+		} else if($(obj).val().length > len) {
+			alert("输入信息长度错误！");
+			
+			return false;
+		} else {
+			alert("输入数据有非法字符！");
+			
+			return false;
+		}
+	}else{
+		return false;
+	}
+	
+}
+
+//用户名验证
+function chkUserName(obj, len) {
+	if("" != trim($(obj).val())) {
+		var regex = /^[0-9a-zA-Z_]+$/gi;
+		var result = regex.test($(obj).val());
+		if(result && $(obj).val().length <= len) {
+			return true;
+		} else if($(obj).val().length > len) {
+			alert("输入信息长度错误！");
+			
+			return false;
+		} else {
+			alert("输入数据有非法字符！");
+			
+			return false;
+		}
+	}
+	return false;
+}
+
+// 真实姓名验证
+function chkRealUserName(val, len) {
+	if("" != trim(val)) {
+		var regex = /^[\u4e00-\u9fa5]{2,}$/;
+		var result = regex.test(val);
+		if(result && val.length <= len) {
+			return true;
+		} else if(val.length > len) {
+			alert("输入信息长度错误！");
+			return false;
+		} else {
+			alert("输入信息格式有误！");
+			return false;
+		}
+	}
+	return false;
+}
+
+//密码验证
+function chkPassword(obj, len) {
+	if("" != trim($(obj).val())) {
+		if(6 <= $(obj).val().length && $(obj).val().length <= len) {
+			var regex = /^[a-zA-Z0-9!@#$%^&*()-_+=\[\]{}<>\/,.?]+$/gi;
+			var result = regex.test($(obj).val());
+			if(result) {
+				return true;
+			} else {
+				alert("输入数据有非法字符！");
+				
+				return false;
+			}
+		} else {
+			alert("输入数据长度有误！");
+			
+		}
+	}
+	return false;
+}
+
+//浮点数验证
+function chkFloat(obj) {
+	if("" != trim($(obj).val())) {
+		var regex = /^([0-9]\.\d+|[1-9]+\.?\d+|[0-9])+$/gi;
+		var result = regex.test(trim($(obj).val()));
+		if(result) {
+			if($(obj).val()<=0){
+				alert("请输入合理数据！");
+				return false;
+			}
+			return true;
+		} else {
+			alert("输入数据格式不正确！");
+			return false;
+		}
+	}else{
+		return false;
+	}
+	
+}
+
+
+//验证整数
+function chkInt(obj) {
+	if("" != trim($(obj).val())) {
+		var regex = /^-?[0-9]\d*$/gi;
+		var result = regex.test(trim($(obj).val()));
+		if(result) {
+			if($(obj).val()<=0){
+				alert("请输入合理数据！");
+				return false;
+			}
+			return true;
+		} else {
+			alert("输入的数字不合法！");
+			
+			return false;
+		}
+	}else{
+		return false;
+	}
+	
+}
+
+//年龄验证
+function chkAge(obj) {
+	if("" != $(obj).val() && chkInt(obj)) {
+		if(0 < $(obj).val() && $(obj).val() < 120) {
+			return true;
+		} else {
+			alert("您填写的信息不正确！");
+			
+		}
+	}else{
+		return false;
+	}
+	
+}
+
+//URL验证
+function chkURL(obj, len) {
+	var str = "^((https|http|ftp|rtsp|mms)?://)"  
+		+ "?(([0-9a-z_!~*'().&=+$%-]+: )?[0-9a-z_!~*'().&=+$%-]+@)?" //ftp的user@  
+		+ "(([0-9]{1,3}\.){3}[0-9]{1,3}" // IP形式的URL- 199.194.52.184  
+		+ "|" // 允许IP和DOMAIN（域名） 
+		+ "([0-9a-z_!~*'()-]+\.)*" // 域名- www.  
+		+ "([0-9a-z][0-9a-z-]{0,61})?[0-9a-z]\." // 二级域名  
+		+ "[a-z]{2,6})" // first level domain- .com or .museum  
+		+ "(:[0-9]{1,4})?" // 端口- :80  
+		+ "((/?)|" // a slash isn't required if there is no file name  
+		+ "(/[0-9a-z_!~*'().;?:@&=+$,%#-]+)+/?)$";  
+
+	if("" != $(obj).val()) {
+		var regex = new RegExp(str);
+		var result = regex.test($(obj).val());
+		if(result) {
+			return true;
+		} else {
+			alert("输入的URL地址信息有误！");
+			
+			return false;
+		}
+	}
+	return false;
+	
+}
+
+function chkWeibo(obj, len) {
+	return true;
+}
+
+//QQ号验证
+function chkQQ(obj) {
+	if("" != $(obj).val()) {
+		var regex = /^[1-9]\d{4,9}$/gi;
+		var result = regex.test($(obj).val());
+		if(result) {
+			return true;
+		} else {
+			alert("输入QQ号有误！");
+			
+			return false;
+		}
+	}else{
+		alert("请输入您的QQ");
+		return false;
+	}
+	
+}
+
+//利率验证
+function chkRate(obj) {
+	if("" != $(obj).val() && chkFloat(obj)) {
+		if(0 <= $(obj).val() && $(obj).val() < 100) {
+			return true;
+		} else {
+			alert("输入数据不正确！");
+			
+			return false;
+		}
+	}else{
+		return false;
+	}
+	
+}
+
+
+//内容长度验证
+function chkContentLen(obj,maxLen,minLen){
+	if(trim($(obj).val()) == ""){
+		alert("请输入内容！");
+		return false;
+	}
+	
+	else if($(obj).val().replace(/[^\x00-\xff]/g,"**").length < minLen){
+		alert("您输入的内容太短了，请完善一下吧！");
+		return false;
+	}
+	else if($(obj).val().replace(/[^\x00-\xff]/g,"**").length > maxLen){
+		alert("内容最多1000字哦！");
+		return false;
+	}
+	return true;
+}
+
+//标题长度验证
+function chkTitleLen(obj,maxLen,minLen){
+	if($(obj).val() == ""){
+		alert("请输入标题名称！");
+		return false;
+	}
+	
+	else if($(obj).val().replace(/[^\x00-\xff]/g,"**").length < minLen){
+		alert("您输入的标题名称太短了，请完善一下吧！");
+		return false;
+	}
+	else if($(obj).val().replace(/[^\x00-\xff]/g,"**").length > maxLen){
+		alert("标题名称最多" + maxLen + "字哦！");
+		return false;
+	}
+	return true;
+}
+
+//机构名称长度验证
+function chkInstitutionLen(obj,maxLen,minLen){
+	if($(obj).val() == ""){
+		alert("请输入机构名称！");
+		return false;
+	}
+	
+	else if($(obj).val().replace(/[^\x00-\xff]/g,"**").length < minLen){
+		alert("您输入的机构名称太短了，请完善一下吧！");
+		return false;
+	}
+	else if($(obj).val().replace(/[^\x00-\xff]/g,"**").length > maxLen){
+		alert("机构名称最多" + maxLen + "字哦！");
+		return false;
+	}
+	return true;
+}
+// 校验身份证
+function isCardID(sId){  
+	var aCity={11:"北京",12:"天津",13:"河北",14:"山西",15:"内蒙古",  
+			21:"辽宁",22:"吉林",23:"黑龙江",31:"上海",32:"江苏",33:"浙江",  
+			34:"安徽",35:"福建",36:"江西",37:"山东",41:"河南",42:"湖北",  
+			43:"湖南",44:"广东",45:"广西",46:"海南",50:"重庆",51:"四川"  
+				,52:"贵州",53:"云南",54:"西藏",61:"陕西",62:"甘肃",63:"青海",  
+				64:"宁夏",65:"新疆",71:"台湾",81:"香港",82:"澳门",91:"国外"};
+	var iSum=0 ;  
+	if(!/^\d{17}(\d|x)$/i.test(sId)){
+		alert("你输入的身份证长度或格式错误");
+	    return false;  
+	}
+	sId=sId.replace(/x$/i,"a");  
+	if(aCity[parseInt(sId.substr(0,2))]==null){
+		alert("你的身份证地区非法");
+	    return false;  
+	}
+	sBirthday=sId.substr(6,4)+"-"+Number(sId.substr(10,2))+"-"+Number(sId.substr(12,2));  
+	var d=new Date(sBirthday.replace(/-/g,"/")) ;  
+	if(sBirthday!=(d.getFullYear()+"-"+ (d.getMonth()+1) + "-" + d.getDate())){
+		alert("身份证上的出生日期非法");
+	    return false;  
+	}
+	for(var i = 17;i>=0;i --){
+	    iSum += (Math.pow(2,i) % 11) * parseInt(sId.charAt(17 - i),11) ;  
+	}
+	if(iSum%11!=1){
+		alert("你输入的身份证号非法");
+	    return false;  
+	}
+	return true;   
+}  
+//去除字符两端空格
+function trim(str) {   
+  if (str != null) {  
+      var i;   
+      for (i=0; i<str.length; i++) {  
+          if (str.charAt(i)!=" ") {  
+              str=str.substring(i,str.length);   
+              break;  
+          }   
+      }   
+    
+      for (i=str.length-1; i>=0; i--) {  
+          if (str.charAt(i)!=" ") {  
+              str=str.substring(0,i+1);   
+              break;  
+          }   
+      }   
+        
+      if (str.charAt(0)==" ") {  
+          return "";   
+      } else {  
+          return str;   
+      }  
+  }  
+}   
+
+//验证Email
+function chkYZEmail(obj) {
+	if("" != trim(trim($(obj).val()))) {
+		regex = /^([a-zA-Z]+[_|\-|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\-|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/gi;
+		var result = regex.test($(obj).val());
+		if(result){
+			return false;
+		}
+	}
+	return false;
+}
+
+//用户名验证
+function chkUserNameNEW(obj, len) {
+	if("" != trim($(obj).val())) {
+		var regex = /^[0-9a-zA-Z@._]+$/gi;
+		var result = regex.test($(obj).val());
+		if(result && $(obj).val().length <= len) {
+			return true;
+		} else if($(obj).val().length > len) {
+			alert("输入信息长度错误！");
+			
+			return false;
+		} else {
+			alert("输入数据有非法字符！");
+			
+			return false;
+		}
+	}
+	return false;
+}
+
+//用户名验证
+function chkInstiutionNew(obj, len) {
+	if("" != trim($(obj).val())) {
+		var regex = /^[0-9a-zA-Z-]+$/gi;
+		var result = regex.test($(obj).val());
+		if(result && $(obj).val().length <= len) {
+			return true;
+		} else if($(obj).val().length > len) {
+			alert("输入信息长度错误！");
+			
+			return false;
+		} else {
+			alert("输入数据有非法字符！");
+			
+			return false;
+		}
+	}
+	return false;
+}
+
+
+//带有特殊字符文本验证
+function chkTextNews(obj, len) {
+	if("" != trim($(obj).val())) {
+		var regex = /^[\u4e00-\u9fa5a-zA-Z0-9@-\\,\\.\\，\\。\\、\s]+$/gi;
+		var result = regex.test($(obj).val());
+		if(result && $(obj).val().length <= len) {
+			return true;
+		} else if($(obj).val().length > len) {
+			alert("输入信息长度错误！");
+			
+			return false;
+		} else {
+			alert("输入数据有非法字符！");
+			return false;
+		}
+	}else{
+		alert("输入信息！");
+	}
+}
+
+//验证全文和简介特殊字符
+//带有特殊字符文本验证
+function chkText_Abstract(obj,len) {
+	if("" != trim($(obj).val())) {
+		if($(obj).val().replace(/[^\x00-\xff]/g,"**").length > len){
+			alert("输入信息长度有误");
+			$(obj).focus();
+			return false;
+		}
+		var regex = /^[\u4e00-\u9fa5a-zA-Z0-9@-\\,\\.\\，\\。\\(\\)\\）\\（\\、\s]+$/gi;
+		var result = regex.test($(obj).val());
+		if(result) {
+			return true;
+		}else {
+			alert("输入数据有非法字符！");
+			$(obj).focus();
+			return false;
+		}
+	}
+	return false;
+}
+
+
+
+//验证手机号和座机号
+function checkPhone(phone){
+	var regMobPhone = /^13[0-9]{9}|15[012356789][0-9]{8}|18[0123456789][0-9]{8}|147[0-9]{8}|177[0-9]{8}|170[0-9]{8}$/;
+	var regTelPhone = /^(0[0-9]{2,3}\-)?([2-9][0-9]{6,7})+(\-[0-9]{1,4})?$/;
+	if(phone==""){
+		alert("请输入电话号码");
+		return false;
+	} 
+	if(!(regMobPhone.test(phone)) && !(regTelPhone.test(phone))){
+		alert("请填写真实的电话号码，例如：139****8967，010-8*****21，0755-3****90！");
+		return false;
+	}
+	return true;
+}
+
+//验证邮箱
+function checkEmail(email){
+	var regexEmial =  /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,4}$/;
+	var fromEmail = new RegExp(regexEmial);
+	if(email == null || email == "") {
+		alert("邮箱不能为空，请输入常用邮箱！");
+		return false;
+	} else if(!fromEmail.test(email)) {
+		alert("邮箱格式不正确，请填写真实的Email，例如：kefu@infobigdata.com！");
+		return false;
+	}
+	return true;
+}
+
+//验证手机号
+function checkMobilePhone(phone){
+	var regPhone = /^13[0-9]{9}|15[012356789][0-9]{8}|18[0123456789][0-9]{8}|147[0-9]{8}|177[0-9]{8}|170[0-9]{8}$/;
+	if(phone==""){
+		  alert("请输入手机号");
+	    return false;
+	} 
+	if(phone.length > 11) {
+	    alert("手机号格式不正确");
+	 	return false;
+	}
+	if(!(regPhone.test(phone))){
+	   alert("手机号格式不正确，请填写真实的手机号，例如：139****8967！");
+	   return false;
+	}
+	return true;
+}
+
+function checkPhoneAndEmail(value){
+    if(isNaN(value)){
+        // 不是数字校验邮箱是否合法
+        var regexEmial = "^\\w+((-\\w+)|(\\.\\w+))*\\@[A-Za-z0-9]+((\\.|-)[A-Za-z0-9]+)*\\.[A-Za-z0-9]+$";
+    	var fromEmail = new RegExp(regexEmial);
+	    if(fromEmail.test(value)){
+	        return true;
+	    } else{
+	        return false;
+	    }
+    } else {
+	    var isMob = /^13[0-9]{9}|15[012356789][0-9]{8}|18[0123456789][0-9]{8}|147[0-9]{8}|177[0-9]{8}|170[0-9]{8}$/;
+	    if(isMob.test(value)){
+	        return true;
+	    } else{
+	        return false;
+	    }
+    }
+}
+
+//密码验证
+function checkPwd(pwd, len) {
+	if("" != $.trim(pwd)) {
+		if(6 <= pwd.length && pwd.length <= len) {
+			var regex = /^[a-zA-Z0-9!@#$%^&*()-_+=\[\]{}<>\/,.?]+$/gi;
+			var result = regex.test(pwd);
+			if(result) {
+				return true;
+			} else {
+				alert("输入密码有非法字符！");
+				return false;
+			}
+		} else {
+			alert("输入密码长度有误，请输入6~"+len+"位字符！");
+			return false;
+		}
+	}
+}
+
+//名字验证
+function checkName(name, len) {
+	if("" != $.trim(name)) {
+		var regex = /^[\u4e00-\u9fa5a-zA-Z0-9\s]+$/gi;
+		var result = regex.test(name);
+		if(result && name.length <= len) {
+			return true;
+		} else if(name.length > len) {
+			alert("输入信息长度错误！");
+			return false;
+		} else {
+			alert("输入数据有非法字符,只能输入中文、英文和数字！");
+			return false;
+		}
+	}else{
+		return false;
+	}
+}
+
+
+//带有特殊字符文本验证
+function checkText(text, len) {
+	if("" != $.trim(text)) {
+		var regex = /^[\u4e00-\u9fa5a-zA-Z0-9@-\\,\\.\\，\\。\\、\\（\\）\\(\\)\\?\\？\\!\\！\s]+$/gi;
+		var result = regex.test(text);
+		if(result && text.length <= len) {
+			return true;
+		} else if(text.length > len) {
+			alert("输入信息长度错误！");
+			return false;
+		} else {
+			alert("输入信息有非法字符，只能输入中文、数字、字母和标点符号！");
+			return false;
+		}
+	}else{
+		return false;
+	}
+}
