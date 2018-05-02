@@ -376,21 +376,21 @@ h1 {
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body class="  pace-done"><div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+  <body class="pace-done modal-open" style="padding-right: 17px;"><div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
   <div class="pace-progress-inner"></div>
 </div>
 <div class="pace-activity"></div></div>
     <div class="container">
       <div class="header clearfix">
-        <button class="btn btn-default pull-right login_inquery" data-toggle="modal" data-target="#modal_login">登录 / 注册</button>
-        <a class="pull-right user_icon" id="usericon_label"><i class="free_dot"></i></a>
+        <button class="btn btn-default pull-right login_inquery" data-toggle="modal" data-target="#modal_login" style="display: none;">登录 / 注册</button>
+        <a class="pull-right user_icon" id="usericon_label" style="display: inline;"><i class="free_dot"></i></a>
         <h1 class="text-muted">AI人工智能图片放大</h1>
       </div>
 
       <div class="jumbotron">
         <p><button class="btn btn-lg btn-success" onclick="javascript:document.getElementById(&#39;fileupload&#39;).click();">选择文件<input style="display:none;" id="fileupload" type="file" name="file" accept="image/*" multiple=""></button></p>
         <p class="lead">图片限制：文件大小 &lt;10MB，尺寸 &lt;3000x3000px</p>
-        <a href="http://bigjpg.com/" data-toggle="modal" data-target="#modal_login" class="login_inquery">想要放大图片更快、更多、更稳定? 登录!</a>
+        <a href="http://bigjpg.com/" data-toggle="modal" data-target="#modal_login" class="login_inquery" style="display: none;">想要放大图片更快、更多、更稳定? 登录!</a>
       </div>
       <div id="files"></div>
         <hr>
@@ -523,13 +523,13 @@ h1 {
 </div>
 
 
-<div class="modal fade" id="modal_user" data-backdrop="static">
+<div class="modal fade in" id="modal_user" data-backdrop="static" aria-hidden="false" style="display: block;">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <ul class="nav nav-tabs">
-          <li class="active"><a href="http://bigjpg.com/#home" data-toggle="tab" aria-expanded="true"><h5 class="username_label"> - </h5></a></li>
+          <li class="active"><a href="http://bigjpg.com/#home" data-toggle="tab" aria-expanded="true"><h5 class="username_label">3043156522@qq.com</h5></a></li>
           <li class=""><a href="http://bigjpg.com/#log" data-toggle="tab" aria-expanded="false"><h5>放大历史</h5></a></li>
           <li class=""><a href="http://bigjpg.com/#conf" data-toggle="tab" aria-expanded="false"><h5>设置</h5></a></li>
         </ul>
@@ -537,7 +537,7 @@ h1 {
       <div class="modal-body">
         <div class="tab-content">
           <div class="tab-pane fade active in" id="home">
-            <p class="lead text-center"><span id="version">当前版本：免费版</span> <span class="badge" id="expire"></span> <span class="badge" id="used"></span></p>
+            <p class="lead text-center"><span id="version">当前版本：免费版</span> <span class="badge" id="expire"></span> <span class="badge" id="used">本月已放大：0</span></p>
             <div class="row">
                 <div class="col-xs-12 col-md-3">
                     <div class="panel panel-default">
@@ -663,7 +663,7 @@ h1 {
                 <tbody id="logs">
                 </tbody>
             </table>
-            <div style="text-align: center;" class="load_more"><a href="javascript: load_more();">Load More</a></div>
+            <div style="text-align: center; display: none;" class="load_more"><a href="javascript: load_more();">Load More</a></div>
           </div>
 
           <div class="tab-pane fade" id="conf">
@@ -685,7 +685,7 @@ h1 {
 </div>
 
 
-<div class="modal fade" id="modal_login" data-backdrop="static">
+<div class="modal fade" id="modal_login" data-backdrop="static" aria-hidden="true" style="display: none;">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
@@ -1118,7 +1118,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
                 if(!$("#is_reg").is(':checked')) {
                     reg_data['not_reg'] = 'true';
                 };
-                $.get("/login", reg_data, function (data) {
+                $.post("/login", reg_data, function (data) {
                     if(data.status === 'ok') {
                         username = $("#username").val();
                         init_login();
@@ -1323,13 +1323,14 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
         })();
 
 
-
         $(function() {
-           // alert(1)
-            $("#modal_user").modal();
-            console.log(1)
-        });
+            $("#modal_user").modal('show');
+            console.log(1);
+        })
     </script>
+
 </div>
-</body>
-</html>                                                                                                                                                                                                                                              
+
+<div class="modal-backdrop fade in"></div>
+
+</body></html>
