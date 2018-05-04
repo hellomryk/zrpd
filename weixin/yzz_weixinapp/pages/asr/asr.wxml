@@ -1,22 +1,24 @@
-<view class="container">
+<view class="container" >
   <view class="page-section">
-    <view class="text-box" scroll-y="true">      
-      <text style="max-width:200px;overflow-y:auto;height:200px;" selectable="true">{{outputTxt}}</text>
-    </view>
-    <!-- 上部文字显示区域 start -->
-    <view class="text-box-normal clearfix" scroll-y="true">    
+ 
+        <!-- 上部文字显示区域 start -->
+    <view class="text-box-normal clearfix" scroll-y="true" >    
         <view class="text-box-normal-left">
+         <image class="word-lb" src="../../pics/asr-lb.png" bindtap="notried"></image>
             <text class="text-box-normal-left-text" selectable="true">{{outputTxt}}</text>
         </view>  
         <view class="text-box-normal-right">
             <view wx:for-items='{{array}}' wx:key="{{item.id}}" id="{{item.id}}" class="text-box-normal-right-btn {{item.open ? 'text-box-normal-right-btn-active' : ''}}"  bindtap="clickMe">{{item.message}}</view> 
         </view>  
     </view>
+    <view style="clear:both;"></view>
      <!-- 上部文字显示区域 end -->
   </view>
+
   <view class="page-section" style='display:none;'>
     <text selectable="true" class="text-head">语义理解基于olami.ai，作者QQ：404499164</text>
   </view>
+
   <view class="little-gap-top button-selection2 button-show bottom-button">
     <button size="mini" type="default" open-type="contact" style='display:none;'>联系作者</button>
     <button size="mini" type="default" bindtap="turnToOld" style='display:none;'>切老版本</button>
@@ -44,18 +46,18 @@
 </view>
 
 
+
+<!-- 按住说话 -->
+ <view class="word-dejp {{isChecked_btn?'normal':'is_checked'}}" >
+    <image class="word-deimg" src="../../pics/word-delijp.png" bindtap="Singleclick"></image>
+    <button type="primary" class="word-deBtn"  bindtouchstart="touchdown" bindtouchend="touchup" >按住说话</button>
+</view>  
+<!-- 键盘输入 -->
+<view class="word-dejp {{isChecked_btn?'is_checked':'normal'}}" >
+    <image class="word-deimg" src="../../pics/asr-yy.png" bindtap="Singleclick"></image>
+    <input class="word-deTxt" type="text" placeholder="请输入内容"  bindinput="listenerPhoneInput"/>
+    <button class="word-deBtn2"  bindtap="search_text">搜索</button>
+</view>
+
 <!--默认隐藏-->
 <loading hidden="{{hiddenLoading}}">正在加载</loading>
-<!-- <view class="record-style">
-   <button type="primary" class="btn-style {{isChecked_btn?'is_checked':'normal'}}"  bindtouchstart="touchdown" bindtouchend="touchup" bindtap="Singleclick">录音</button>
-    <button type="primary" class="btn-style is_checked"  bindtouchstart="touchdown" bindtouchend="touchup" >录音</button>
-    <view class='btn-box'><input placeholder="请输入内容"  class='btn-input'   bindinput="listenerPhoneInput"/></view>
-    <view class='sousuo' bindtap="search_text">搜索</view> 
-</view> -->
-<!-- 按住说话 -->
- <view class="word-dejp" >
-    <image class="word-deimg" src="../../pics/word-delijp.png"></image>
-    <button class="word-deBtn" bindtouchstart='start' bindtouchend='stop'>按住说话</button>
-</view> 
-
-

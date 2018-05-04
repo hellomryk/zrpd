@@ -34,7 +34,7 @@ const mp3RecoderOptions = {
 
 //弹幕定时器
 var timer;
-
+var ner;
 var pageSelf = undefined;
 
 var doommList = [];
@@ -70,21 +70,21 @@ Page({
   data: {
     j: 1,//帧动画初始图片 
     isSpeaking: false,//是否正在说话
-    outputTxt: "当地时间3日早上，美国总统特朗普在社交媒体发文，首次承认了曾向艳星丹尼尔斯支付了130,000美元的款项，称这是为了阻止她提出虚假的和勒索性指控的一份“不对外披露”的协议。与先前否认知道任何与“封口费”事情相矛盾的是，特朗普称，这样的协议“在名人和富有的人士中非常普遍”。他还强调，竞选资金“在这次交易中没有发挥任何作用”。此前，特朗普的新律师，纽约市前市长朱利安尼周三（2日）透露，特朗普的私人律师科恩代他处理与艳星“暴风女丹尼尔斯”（Stormy Daniels）的事情时，曾向丹尼尔斯支付了一笔13万美元的封口费。不过，特朗普过后曾分几个月把这笔钱还给了科恩。当地时间3日早上，美国总统特朗普在社交媒体发文，首次承认了曾向艳星丹尼尔斯支付了130,000美元的款项，称这是为了阻止她提出虚假的和勒索性指控的一份“不对外披露”的协议。与先前否认知道任何与“封口费”事情相矛盾的是，特朗普称，这样的协议“在名人和富有的人士中非常普遍”。他还强调，竞选资金“在这次交易中没有发挥任何作用”。此前，特朗普的新律师，纽约市前市长朱利安尼周三（2日）透露，特朗普的私人律师科恩代他处理与艳星“暴风女丹尼尔斯”（Stormy Daniels）的事情时，曾向丹尼尔斯支付了一笔13万美元的封口费。不过，特朗普过后曾分几个月把这笔钱还给了科恩当地时间3日早上，美国总统特朗普在社交媒体发文，首次承认了曾向艳星丹尼尔斯支付了130,000美元的款项，称这是为了阻止她提出虚假的和勒索性指控的一份“不对外披露”的协议。与先前否认知道任何与“封口费”事情相矛盾的是，特朗普称，这样的协议“在名人和富有的人士中非常普遍”。他还强调，竞选资金“在这次交易中没有发挥任何作用”。此前，特朗普的新律师，纽约市前市长朱利安尼周三（2日）透露，特朗普的私人律师科恩代他处理与艳星“暴风女丹尼尔斯”（Stormy Daniels）的事情时，曾向丹尼尔斯支付了一笔13万美元的封口费。不过，特朗普过后曾分几个月把这笔钱还给了科恩", //输出识别结果
+    outputTxt: "", //输出识别结果
     isChecked_btn: false,//录音输入与文本输入切换
     value:"",//搜索结果
     hiddenLoading: true,// loading
-    clickMeopen0:true,//控制疾病高亮显示
+    clickMeopen0: true,//控制疾病高亮显示
     clickMeopen: true,
     array: [{
-        id:0,
+        id: 0,
         message: '支气管炎',
-        open:true
+        open: true
     }, {
         id: 1,
         message: '高血压',
         open: false
-    },{
+    }, {
         id: 2,
         message: '痛风',
         open: false
@@ -103,6 +103,7 @@ Page({
     }],//刷出疾病列表
     doommData: []
   },
+
   initDoomm: function () {
     doommList.push(new Doomm());
     doommList.push(new Doomm());
@@ -112,9 +113,11 @@ Page({
     })
   },
 
-  onLoad: function () {   
+  onLoad: function () {
+     
     pageSelf = this;
     this.initDoomm();
+
     //onLoad中为录音接口注册两个回调函数，主要是onStop，拿到录音mp3文件的文件名（不用在意文件后辍是.dat还是.mp3，后辍不决定音频格式）
     mp3Recorder.onStart(() => {
       UTIL.log('mp3Recorder.onStart()...')
@@ -155,20 +158,7 @@ Page({
       url: '../index/index',
     })
   },
-  /* 新增人工智能上部区域内容 start*/
-  // 点击事件多选疾病
-  clickMe: function (e) {
-    var id = e.currentTarget.id, array = this.data.array;
-    for (var i = 0, len = array.length; i < len; ++i) {
-      if (array[i].id == id) {
-        array[i].open = !array[i].open
-      } 
-    }
-    this.setData({
-      array: array
-    });
-  },
-   /* 新增人工智能上部区域内容 end*/
+
   /////////////////////////////////////////////////////////////// 以下是调用老接口实现的录音，录出来的是 silk_v3
   //手指按下 
   touchdown_silk: function () {
@@ -223,20 +213,18 @@ Page({
     }, 1000)
   },
   //点击切换成文字输入
-//   Singleclick:function(){
-//       console.log(11)
-//       if (this.data.isChecked_btn){
-//           this.setData({
-//               isChecked_btn: false
-//           }) 
-//       }else{
-//            this.setData({
-//           isChecked_btn: true
-//       }) 
-//       }
-     
-
-//   },
+  Singleclick:function(){
+      console.log(11)
+      if (this.data.isChecked_btn){
+          this.setData({
+              isChecked_btn: false
+          }) 
+      }else{
+           this.setData({
+          isChecked_btn: true
+      }) 
+      }
+     },
    //文字输入
   listenerPhoneInput: function (e) {
       this.data.value = e.detail.value;
@@ -245,6 +233,23 @@ Page({
     search_text : function(){
         search(this, this.data.value);
     },
+    /* 新增人工智能上部区域内容 start*/
+    // 点击事件多选疾病
+    clickMe: function (e) {
+        var id = e.currentTarget.id, array = this.data.array;
+        for (var i = 0, len = array.length; i < len; ++i) {
+            if (array[i].id == id) {
+                array[i].open = !array[i].open
+            }
+        }
+        this.setData({
+            array: array
+        });
+    },
+   /* 新增人工智能上部区域内容 end*/
+    notried: function(){
+        ner.stop()
+    }
 
 })
 
@@ -274,7 +279,7 @@ function processFileUploadForAsr(urls, filePath, _this) {
 
       var lastOutput = "==>语音识别结果：\n" + stt + "\n\n==>语义处理结果：\n" + sentenceResult;
       console.log(_this)
-      th.setData({
+      _this.setData({
           hiddenLoading: false,
       });
       wx.request({
@@ -294,7 +299,7 @@ function processFileUploadForAsr(urls, filePath, _this) {
                   _this.setData({
                       outputTxt: res.data.result,
                   });
-                  th.setData({
+                  _this.setData({
                       hiddenLoading: true,
                   });
                   speckText(res.data.result)
@@ -349,14 +354,12 @@ function speaking() {
   }, 200);
 }
 //搜索结果文字朗读
+
 function speckText(str) {
   
     var url = "http://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&text=" + encodeURI(str);        // baidu
-    //  var n = new Audio(url);
-    //   n.src = url;
-    //   n.pause(); 
-    //   n.play();
     const innerAudioContext = wx.createInnerAudioContext()
+    ner = innerAudioContext
     innerAudioContext.autoplay = true
     innerAudioContext.src = url
     innerAudioContext.onPlay(() => {
