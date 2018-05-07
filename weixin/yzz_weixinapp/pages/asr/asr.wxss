@@ -86,18 +86,12 @@ page{
 .normal{display: none;}
 .word-dejp {height:98rpx;border-top:1rpx solid #ddd;background:#fff;border-bottom:1px solid #ddd;    position: fixed; bottom: 0; left: 0;width: 100%;}
 .word-deimg {width:64rpx;height:64rpx;float: left;margin-top:20rpx;margin-left:20rpx;}
-.word-deBtn {width:498rpx;height:62rpx;display:inline-block;font-size:28rpx;line-height:62rpx;color:#5c5c5c;float: left;margin-top:20rpx;margin-left:50rpx;
+.word-deBtn {width:498rpx;height:62rpx;display:inline-block;font-size:28rpx;line-height:62rpx;color:#040404;float: left;margin-top:20rpx;margin-left:50rpx;background-color:#E5E5E4;
+
 }
 .word-deTxt {display:inline-block;border-bottom:1px solid #ddd;width:532rpx;font-size:30rpx;float: left;margin-top:20rpx;margin-left:40rpx;}
 .word-deBtn2 {float:right;width:76rpx;height:64rpx;font-size:28rpx;line-height:60rpx;padding:0;background:#ccc;color:#fff;border:1px solid #ddd;margin-top:18rpx;margin-right:10rpx;}
-.word-lb{
-width:64rpx;
-height:64rpx;
-position:absolute;
-top:10rpx;
-right:220rpx;
-
-}
+.word-lb{width:100rpx;height:100rpx;position:absolute;bottom:60px;right:45rpx;}
 
 
 /* 新增人工智能上部区域内容 start*/

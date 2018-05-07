@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.9.94",
 	"appid": "touristappid",
-	"projectname": "weixin0505",
+	"projectname": "wx1",
 	"isGameTourist": false,
 	"condition": {
 		"search": {

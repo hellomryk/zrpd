@@ -76,6 +76,7 @@ Page({
     hiddenLoading: true,// loading
     clickMeopen0: true,//控制疾病高亮显示
     clickMeopen: true,
+    isChecked_img: true,//声音图标
     array: [{
         id: 0,
         message: '支气管炎',
@@ -125,9 +126,9 @@ Page({
     mp3Recorder.onStop((res) => {
       UTIL.log('mp3Recorder.onStop() ' + res)
       const { tempFilePath } = res
-      var urls = "https://api.happycxz.com/wxapp/mp32asr";
+    //   var urls = "https://api.happycxz.com/wxapp/mp32asr";
       UTIL.log('mp3Recorder.onStop() tempFilePath:' + tempFilePath)
-      processFileUploadForAsr(urls, tempFilePath, this);
+      processFileUploadForAsr(tempFilePath, this);
     })
   },
 
@@ -235,57 +236,71 @@ Page({
     },
     /* 新增人工智能上部区域内容 start*/
     // 点击事件多选疾病
-    clickMe: function (e) {
-        var id = e.currentTarget.id, array = this.data.array;
-        for (var i = 0, len = array.length; i < len; ++i) {
-            if (array[i].id == id) {
-                array[i].open = !array[i].open
-            }
-        }
-        this.setData({
-            array: array
-        });
-    },
+    // clickMe: function (e) {
+    //     var id = e.currentTarget.id, array = this.data.array;
+    //     for (var i = 0, len = array.length; i < len; ++i) {
+    //         if (array[i].id == id) {
+    //             array[i].open = !array[i].open
+    //         }
+    //     }
+    //     this.setData({
+    //         array: array
+    //     });
+    // },
    /* 新增人工智能上部区域内容 end*/
+   //声音暂停
     notried: function(){
-        ner.stop()
+        if (this.data.isChecked_img){
+            this.setData({
+                isChecked_img: false,
+            });
+            ner.stop()
+        }else{
+            this.setData({
+                isChecked_img: true,
+            });
+           
+        }
+        
     }
 
 })
 
 //上传录音文件到 api.happycxz.com 接口，处理语音识别和语义，结果输出到界面
-function processFileUploadForAsr(urls, filePath, _this) {
-  wx.uploadFile({
-    url: urls,
-    filePath: filePath,
-    name: 'file',
-    formData: { "appKey": appkey, "appSecret": appsecret, "userId": UTIL.getUserUnique() },
-    header: { 'content-type': 'multipart/form-data' },
-    success: function (res) {
-      UTIL.log('res.data:' + res.data);
-
-      var nliResult = getNliFromResult(res.data);
-      UTIL.log('nliResult:' + nliResult);
-      var stt = getSttFromResult(res.data);
-      UTIL.log('stt:' + stt);
-
-      var sentenceResult;
-      try {
-        sentenceResult = NLI.getSentenceFromNliResult(nliResult);
-      } catch (e) {
-        UTIL.log('touchup() 错误' + e.message + '发生在' + e.lineNumber + '行');
-        sentenceResult = '没明白你说的，换个话题？'
-      }
-
-      var lastOutput = "==>语音识别结果：\n" + stt + "\n\n==>语义处理结果：\n" + sentenceResult;
-      console.log(_this)
-      _this.setData({
+function processFileUploadForAsr(filePath, _this) {
+    // 文件上传到服务器
+    wx.uploadFile({
+        url: 'https://ssl.infobigdata.com/weixin/upload',
+        filePath: filePath,
+        name: 'file',
+        formData: {
+            'user': 'test'
+        },
+        success: function (res) {
+            var resData = res.data;
+            if (resData == '') {
+                wx.showToast({
+                    title: '语音太短请重试~',
+                    icon: 'none',
+                    duration: 1000
+                })
+            }
+            var jsonData = JSON.parse(resData);
+            if (jsonData.code === '1') {
+                console.info(jsonData.dataInfo);
+                // 跳转到分析结果页面
+                if (jsonData.dataInfo != '') {
+                    // wx.navigateTo({
+                    //     url: '../word/Word-list?dataInfo=' + jsonData.dataInfo
+                    // })
+                    console.log(jsonData.dataInfo)
+     _this.setData({
           hiddenLoading: false,
       });
       wx.request({
           url: 'https://tjk.infobigdata.com/ask',
           data: {
-              str: stt
+              str: jsonData.dataInfo
 
           },
           header: {
@@ -299,33 +314,35 @@ function processFileUploadForAsr(urls, filePath, _this) {
                   _this.setData({
                       outputTxt: res.data.result,
                   });
-                  _this.setData({
-                      hiddenLoading: true,
-                  });
+                 
                   speckText(res.data.result)
               }
 
 
           }
       })
-    //   _this.setData({
-    //     outputTxt: lastOutput,
-    //   });
-      wx.hideToast();
-    
-    },
-    fail: function (res) {
-      UTIL.log(res);
-      wx.showModal({
-        title: '提示',
-        content: "网络请求失败，请确保网络是否正常",
-        showCancel: false,
-        success: function (res) {
-        }
+      _this.setData({
+          hiddenLoading: true,
       });
-      wx.hideToast();
-    }
-  });
+                } else {
+                    wx.showToast({
+                        title: '未识别请重试~',
+                        icon: 'none',
+                        duration: 2000
+                    })
+                }
+            } else {
+                wx.showToast({
+                    title: '系统开小差了~',
+                    icon: 'none',
+                    duration: 2000
+                })
+            }
+        }
+    })
+
+
+
 }
 
 function getNliFromResult(res_data) {
@@ -395,13 +412,14 @@ function search(th,str){
                 th.setData({
                     outputTxt: res.data.result,
                 });
-                th.setData({
-                    hiddenLoading: true,
-                });
+               
                 speckText(res.data.result)
             }
            
 
         }
     })
+    th.setData({
+        hiddenLoading: true,
+    });
 }
