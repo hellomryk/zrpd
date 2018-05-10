@@ -180,3 +180,74 @@ animation-fill-mode: none;
   from{left: 100%; }
   to{left: -100%;}
 }
+  /* <!-- 点击弹出弹框start --> */
+  .text-box-normal-left {
+    position:relative;
+  }
+.text-box-tan-select {
+  position:absolute;
+  top:0rpx;
+  left:0rpx;
+  width:200rpx;
+  height:80rpx;
+  font-size:30rpx;
+  line-height:80rpx;
+  text-align:left;
+  box-shadow:1rpx 1rpx 5rpx #888888;
+  z-index:9;
+}
+.text-box-tan-select-in{
+  position:absolute;
+  top:0rpx;
+  left:198rpx;
+  width:89rpx;
+  height:70rpx;
+  font-size:30rpx;
+  line-height:80rpx;
+  text-align:left;
+  box-shadow:1rpx 1rpx 5rpx #888888;
+  z-index:10;
+  transform:rotate(90deg);
+}
+.text-box-tan-select-out{
+  position:absolute;
+  top:0rpx;
+  left:198rpx;
+  width:89rpx;
+  height:70rpx;
+  font-size:30rpx;
+  line-height:80rpx;
+  text-align:left;
+  box-shadow:1rpx 1rpx 5rpx #888888;
+  z-index:10;
+  transform:rotate(-90deg);
+}
+.text-box-tan-select-wantsearch{
+  positiom:absolute;
+  bottom:200rpx;
+  right:45rpx;
+  width:200rpx;
+  height:80rpx;
+  font-size:30rpx; 
+  line-height:80rpx;
+  text-align:left;
+  box-shadow:1rpx 1rpx 5rpx #888888;
+}
+.text-box-tan-select-hide0 {
+    transition:all linear 0.8s;
+    height:0;
+    overflow: hidden;
+  }
+.text-box-tan-select-leftout {
+    left:-200rpx;
+}
+  /* <!-- 点击弹出弹框end --> */
+.text-box-tan-select-hide {
+    height:600rpx;
+  }
+  .text-box-normal-right {
+    display:none;
+  }
+  .text-box-normal-left {
+    width:710rpx;
+  }

@@ -77,6 +77,9 @@ Page({
     clickMeopen0: true,//控制疾病高亮显示
     clickMeopen: true,
     isChecked_img: true,//声音图标
+    textboxtanselecthide:false,//猜你喜欢
+    wantyoulike:true,//猜你喜欢旋转按钮
+    wantyoulikeleft:false,//猜你喜欢
     array: [{
         id: 0,
         message: '支气管炎',
@@ -103,6 +106,41 @@ Page({
         open: false
     }],//刷出疾病列表
     doommData: []
+  },
+  // 猜你喜欢
+  clickWantSearch:function () {
+      if (this.data.textboxtanselecthide) {
+        this.setData({
+          textboxtanselecthide: false
+        })
+      } else {
+        this.setData({
+          textboxtanselecthide: true
+        })
+      }
+  },
+  wantyoulike:function() {
+    if (!this.data.textboxtanselecthide) {
+        if(this.data.wantyoulike) {
+          this.setData({
+            wantyoulike:false
+          })
+          this.setData({
+            wantyoulikeleft:true
+          })
+        } else {
+          this.setData({
+            wantyoulike:true
+          })
+          this.setData({
+            wantyoulikeleft: false
+          })
+        }
+    } else {
+        this.setData({
+          textboxtanselecthide: false
+        })
+    }
   },
 
   initDoomm: function () {
@@ -205,7 +243,6 @@ Page({
     })
     clearInterval(this.timer)
     wx.stopRecord()
-
     var _this = this
     setTimeout(function () {
       var urls = "https://api.happycxz.com/wxapp/silk2asr/";
@@ -215,7 +252,6 @@ Page({
   },
   //点击切换成文字输入
   Singleclick:function(){
-      console.log(11)
       if (this.data.isChecked_btn){
           this.setData({
               isChecked_btn: false
@@ -259,11 +295,8 @@ Page({
             this.setData({
                 isChecked_img: true,
             });
-           
         }
-        
     }
-
 })
 
 //上传录音文件到 api.happycxz.com 接口，处理语音识别和语义，结果输出到界面
@@ -422,4 +455,23 @@ function search(th,str){
     th.setData({
         hiddenLoading: true,
     });
+
+
+
+
+
+    //      var re = /^[1-9]+[0-9]*]*$/；  
+  
+    //  if (!re.test(input.rate.value))  
+    // {  
+    //     alert("请输入正整数");  
+    //     input.rate.focus();  
+    //     return false;  
+    //  } 
+
+
+
+
+
+     
 }

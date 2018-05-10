@@ -1,9 +1,24 @@
 <view class="container" >
   <view class="page-section">
+
+
  
         <!-- 上部文字显示区域 start -->
     <view class="text-box-normal clearfix" scroll-y="true" >    
         <view class="text-box-normal-left">
+          <!-- 点击弹出弹框start -->
+            <view class="text-box-tan-select {{wantyoulikeleft ? '':'text-box-tan-select-leftout'}}" bindtap="clickWantSearch">
+                猜你想搜
+                <!-- <view class='text-box-tan-select-in'>展开</view> -->
+                <image class="text-box-tan-select-in {{wantyoulike ? '': 'text-box-tan-select-out'}}" src="../../pics/backtotop.png" catchtap="wantyoulike"></image>
+            </view>
+            <view class="text-box-tan-select-hide0 {{textboxtanselecthide ? 'text-box-tan-select-hide' : ''}}">
+                  <view wx:for-items="{{array}}" wx:key="{{item.id}}" id="{{item.id}}" class="text-box-tan-select-wantsearch">
+                {{item.message}}
+                </view>
+            </view>
+
+  <!-- 点击弹出弹框end -->
          <image class="word-lb" src="../../pics/{{isChecked_img?'asr-lb.png':'speaker open.png'}}" bindtap="notried"></image>
             <text class="text-box-normal-left-text" selectable="true">{{outputTxt}}</text>
         </view>  
@@ -44,8 +59,6 @@
 </view>
 
 </view>
-
-
 
 <!-- 按住说话 -->
  <view class="word-dejp {{isChecked_btn?'normal':'is_checked'}}" >
