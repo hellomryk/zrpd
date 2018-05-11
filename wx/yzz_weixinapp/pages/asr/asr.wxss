@@ -177,6 +177,7 @@ page {
     left: 100%;
     background: #fff;
     z-index: 98;
+    overflow-y:scroll;
 }
 
 .list {
@@ -197,8 +198,17 @@ page {
 .container {
     width: 100%;
     background: #fff;
+    height:1150rpx;
+    /* width:760rpx; */
+    overflow-x:hidden; 
+    overflow-y: scroll;
+    position:relative;
 }
-
+/* page {
+  width:200rpx;
+  display:block;
+  overflow-x: hidden;
+} */
 .text-box-normal-left {
     float: left;
     width: 92%;

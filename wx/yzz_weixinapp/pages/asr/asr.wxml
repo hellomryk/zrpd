@@ -11,7 +11,7 @@
         <view style="clear:both;"></view>
         <!-- 上部文字显示区域 end -->
     </view>
-    <view class="word-list" animation="{{animation}}">
+    <view class="word-list" animation="{{animation}}" wx:if="{{icnicList}}">
         <view wx:for-items='{{array}}' wx:key="{{item.id}}" id="{{item.id}}" class="list" bindtap="clickMe">{{item.message}}</view>
     </view>
 

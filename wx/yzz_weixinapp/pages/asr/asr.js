@@ -61,6 +61,7 @@ Page({
         condition: true, //问题列表
         animation: '',//问题列表动画
         array: [],//刷出疾病列表
+        icnicList:true,//疾病显示
         doommData: []
     },
     initDoomm: function () {
@@ -131,13 +132,19 @@ Page({
             this.setData({
                 condition: false,
             });
+            this.setData({
+              icnicList: true,
+            });
         } else {
             //平移收回
             this.animation.translate(wx.getSystemInfoSync().windowWidth).step({ duration: 600 })
             this.setData({
                 //输出动画
                 animation: this.animation.export()
-            })
+            });
+            this.setData({
+              icnicList: false,
+            });
             this.setData({
                 condition: true,
             });
@@ -246,7 +253,7 @@ Page({
         var id = e.currentTarget.id, array = this.data.array;
         for (var i = 0, len = array.length; i < len; ++i) {
             if (array[i].id == id) {
-                console.log()
+              console.log(array[i])
                 search(this, array[i].message)
                 //收回面板
                 this.animation.translate(wx.getSystemInfoSync().windowWidth).step({ duration: 600 })
