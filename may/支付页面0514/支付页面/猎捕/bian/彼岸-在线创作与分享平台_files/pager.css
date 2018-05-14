@@ -1,0 +1,82 @@
+@charset "UTF-8";
+.paging *{
+	box-sizing: initial;
+}
+.paging {
+    color: #555;
+    font-size: 12px;
+    margin: 0 auto;
+    padding: 10px 0 0;
+    text-align: right;
+    width: auto;
+}
+.paging a {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    color: #555;
+    display: inline-block;
+    font-size: 11px;
+    height: 17px;
+    line-height: 17px;
+    margin-left: 5px;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+.paging a:hover {
+    background-image: -moz-linear-gradient(90deg, #3399ff 0%, #1177ee 100%)!important;
+    background-image: -webkit-linear-gradient(90deg, #3399ff 0%, #1177ee 100%)!important;
+    background-image: -ms-linear-gradient(90deg, #3399ff 0%, #1177ee 100%)!important;
+    background-image: linear-gradient(90deg,#3399ff 0%, #1177ee 100%)!important;
+    color: #fff;
+}
+.paging span {
+    display: inline-block;
+    height: 17px;
+    line-height: 17px;
+}
+.paging span.current {
+    background-image: -moz-linear-gradient(90deg, #3399ff 0%, #1177ee 100%)!important;
+    background-image: -webkit-linear-gradient(90deg, #3399ff 0%, #1177ee 100%)!important;
+    background-image: -ms-linear-gradient(90deg, #3399ff 0%, #1177ee 100%)!important;
+    background-image: linear-gradient(90deg,#3399ff 0%, #1177ee 100%)!important;
+    color: #fff;
+    margin-left: 5px;
+    padding: 5px 10px;
+}
+.paging span.disabled {
+    display: none;
+}
+.paging label {
+    background: white none repeat scroll 0 0;
+    border: 1px solid #d1d5d9;
+    display: inline-block;
+    height: 18px;
+    line-height: 18px;
+    margin: 0 3px;
+    padding: 3px 4px 6px;
+}
+.paging input {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #bebebe;
+    height: 15px;
+    margin: 0 2px;
+    padding: 2px 3px;
+}
+.paging input.direct {
+    border: 1px solid #cfcfcf;
+    cursor: pointer;
+    margin-left: 3px;
+    width: 40px;
+}
+.paging span.more {
+    margin-left: 5px;
+    margin-top: 0;
+}
+#page3 a {
+    padding: 5px 3px;
+}
+/*改*/
+.paging label{
+	padding: 5px 4px 6px;
+	display:initial;
+}

@@ -1,0 +1,91 @@
+\n#product .chunk-intro.row,#product .chunk.row,#intro-page .chunk-intro.row,#intro-page .chunk.row {margin: 0;}
+#product .chunk,#intro-page .chunk {border-bottom: 1px solid #e2e2e2; overflow: visible;}
+#product .chunk.bg-fff,#intro-page .chunk.bg-fff {background-color: #fff;}
+#product .chunk.bg-fff .container,#intro-page .chunk.bg-fff .container {background-color: #fff;}
+#product .chunk .container,#intro-page .chunk .container {background-color: #f6f6f6;}
+/*#product .chunk-intro,#intro-page .chunk-intro {margin-top: 35px; padding-bottom: 40px;}*/
+#product .chunk-intro dt,#intro-page .chunk-intro dt {height: 52px; line-height: 52px; font-size: 24px; font-weight: normal;}
+#product .chunk-intro dt span,#intro-page .chunk-intro dt span {margin-left: 18px; font-size: 12px;}
+#product .chunk-intro dd,#intro-page .chunk-intro dd {font-size: 16px; color: #777777; line-height: 30px;}
+#product .chunk-intro dd b,#intro-page .chunk-intro dd b {color: #000;}
+#product .chunk-intro dd .icon,#intro-page .chunk-intro dd .icon {margin-right: 10px; width: 29px; height: 29px; vertical-align: middle;}
+#product .chunk-intro dd .broadcast,#intro-page .chunk-intro dd .broadcast {background: -202px -34px;}
+#product .chunk-intro dd .note,#intro-page .chunk-intro dd .note {background: -202px -63px;}
+#product .chunk-intro dd .book,#intro-page .chunk-intro dd .book {background: -202px -92px;}
+#product .chunk-intro dd .proket,#intro-page .chunk-intro dd .proket {background: -202px -121px;}
+#product .chunk-intro dd.icon-row,#intro-page .chunk-intro dd.icon-row {line-height: 50px;}
+#product .chunk-intro .intro,#intro-page .chunk-intro .intro {float: left; width: 692px;}
+#product .chunk-intro .image,#intro-page .chunk-intro .image {float: left; height: 300px; width: 478px; background-repeat: no-repeat;}
+#product .chunk-intro .small.image,#intro-page .chunk-intro .small.image {float: right; width: 400px;}
+#product .sentiment .image,#intro-page .sentiment .image {background-image: url("../images/product_03.png");}
+#product .classification .image,#intro-page .classification .image {background-image: url("../images/product_10.png");}
+#product .extraction .image,#intro-page .extraction .image {background-image: url("../images/product_12.png");}
+#product .clustering .image,#intro-page .clustering .image {background-image: url("../images/product_20.png");}
+#product .keyword .image,#intro-page .keyword .image {background-image: url("../images/product_17.png");}
+#product .ner .image,#intro-page .ner .image {background-image: url("../images/product_18.png");}
+/**/
+/*#product .ner .image,#intro-page .ner .image {background-image: url("../images/product_18.png");}
+#product .ner .image,#intro-page .ner .image {background-image: url("../images/product_18.png");}
+#product .ner .image,#intro-page .ner .image {background-image: url("../images/product_18.png");}
+#product .ner .image,#intro-page .ner .image {background-image: url("../images/product_18.png");}*/
+
+#intro-page .chunk {border: 0;}
+#intro-page .chunk-intro dt {height: auto;}
+#intro-page .chunk-intro dt h1 {font-size: 26px;}
+#intro-page .chunk-intro dt h3 {font-size: 20px;}
+#intro-page .chunk-intro dt h5 {margin-top: 5px; color: #999;}
+#intro-page .chunk-intro dt .icon-share {margin-left: 10px; width: 34px; height: 34px; vertical-align: middle; background: -202px 0;}
+#intro-page .chunk-intro img.image {float: right; width: 490px; height: 400px;}
+#intro-page .chunk-intro .intro {width: 590px;}
+#intro-page .chunk-intro .intro .what-desc-1 {margin-top: 40px;}
+#intro-page .chunk-intro .intro .what-desc-2 {margin-top: 20px;}
+#intro-page .chunk-intro .intro .know-api {margin-top: 100px; font-size: 14px;}
+#intro-page .chunk-intro .intro .know-api a {font-style: italic; margin-right: 20px;}
+#intro-page .chunk-intro .intro .know-api .icon {width: 12px; height: 12px; vertical-align: middle; background: -202px -150px;}
+#intro-page .work .intro {margin-top: 80px;}
+#intro-page .work dd {margin-top: 28px;}
+#intro-page .work dd ul {font-size: 0;}
+#intro-page .work dd li {display: inline-block; width: 25%; text-align: center; vertical-align: top;}
+#intro-page .work dd li .font-title {font-size: 14px;}
+#intro-page .work dd li .bg-image {display: inline-block; margin: auto; width: 101px; height: 101px;}
+#intro-page .work dd li .client {background: 0 0;}
+#intro-page .work dd li .opposite {background: -101px 0;}
+#intro-page .work dd li .company {background: 0 -101px;}
+#intro-page .work dd li .industry {background: -101px -101px;}
+#intro-page .font-start {font-size: 20px;}
+#intro-page .number,#intro-page .font-start {color: #5999d3;}
+#solution-page h1 {font-size: 26px;}
+#solution-page h4 {margin: 24px auto; font-size: 14px;}
+#solution-page dt {font-weight: normal;}
+#solution-page .sub-content {color: #777;}
+#solution-page .font-start {color: #1c88e3; font-size: 20px;}
+#solution-page .row-item h3 {margin: 50px 0 30px 0; font-size: 20px;}
+#solution-page .row-item p {line-height: 28px;}
+#solution-page ul.col-3 li {display: inline-block; width: 344px; vertical-align: top; font-size: 14px; text-align: center;}
+#solution-page ul.col-3 li p {margin: 0 auto; text-align: left; line-height: 28px;}
+#solution-page .list {margin-top: 44px;}
+#solution-page .list .col-lg-3 {text-align: center;}
+#solution-page .list .col-lg-3 p {margin: 0 auto; width: 205px; line-height: 28px;}
+#solution-page .example {color: #777;}
+#solution-page .example dt {margin: 50px 0 26px 0;}
+#solution-page .example dd {line-height: 28px;}
+#solution-page .example dd img {margin-top: 36px;}
+#solution-page .example .font-title {color: #333; font-size: 14px;}
+#solution-page .benefit li {line-height: 48px;}
+#solution-page .benefit li .icon {margin-right: 24px; font-size: 26px; color: #373737; vertical-align: bottom;}
+#riskstorm-page p {font-size: 16px; color: #777777; line-height: 30px; margin: 20px 0;}
+#riskstorm-page h3 {color: #333;}
+#riskstorm-page .row {display: flex; justify-content: space-between;}
+#riskstorm-page .row:before {content: none;}
+#riskstorm-page .row:after {content: none;}
+#riskstorm-page .row-item {margin: 50px 0 30px 0;}
+#riskstorm-page .button {padding: 10px 15px; background-color: #469dff; border-radius: 4px; color: white; font-size: 14px; display: inline-block; cursor: pointer;}
+#riskstorm-page .overview h4 {margin-top: 20px; color: #469cff;}
+#riskstorm-page .overview .image {width: 473px; height: 435px; background-image: url("../images/riskstorm_01.png");}
+#riskstorm-page .relation .image {width: 414px; height: 376px; background-image: url("../images/riskstorm_02.png");}
+#riskstorm-page .event .image {width: 416px; height: 366px; background-image: url("../images/riskstorm_03.png");}
+#riskstorm-page .analysis .image {width: 416px; height: 390px; background-image: url("../images/riskstorm_04.png");}
+#riskstorm-page .integrated-engine .image {width: 493px; height: 362px; background-image: url("../images/riskstorm_05.png");}
+#riskstorm-page .enterprise-overview .image {width: 493px; height: 270px; background-image: url("../images/riskstorm_06.png");}
+#riskstorm-page .relation-navigation .image {width: 413px; height: 280px; background-image: url("../images/riskstorm_07.png");}
+#intro-page .work dd li .client,#intro-page .work dd li .opposite,#intro-page .work dd li .company,#intro-page .work dd li .industry,#intro-page .chunk-intro dt .icon-share,#product .chunk-intro dd .broadcast,#intro-page .chunk-intro dd .broadcast,#product .chunk-intro dd .note,#intro-page .chunk-intro dd .note,#product .chunk-intro dd .book,#intro-page .chunk-intro dd .book,#product .chunk-intro dd .proket,#intro-page .chunk-intro dd .proket,#intro-page .chunk-intro .intro .know-api .icon{background-image: url(../images/sprite_product.png?172e7b7);}

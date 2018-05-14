@@ -1,0 +1,332 @@
+
+/**
+ *检查违规字符 
+ */
+function regForbiddenChar(name){
+	var regex = new RegExp("[`~!@#$^&*()=|{}':;',\\[\\].<>/?~！@#￥……&*（）——|{}【】‘；：”“'。，、？%+_]");
+	var result = regex.test(name);
+	if(result) {
+		return false;
+	} else {
+		return true;
+	}
+}
+/**
+ *验证验证码
+ */
+function checkMsgCode(code){
+	var reg=/^\d{4}$/;
+	if(reg.test(code)){
+        return true;
+    } else {
+        return false;
+    }
+}
+//跳转到注册页面
+function rewardUserRegister(){
+	$('.land2_box').hide();
+	var phoneNum = $('#reqisterPhoneNum').val();
+	if(phoneNum!=''&&phoneNum!=undefined&&phoneNum!=null){
+		if(checkTelAndPhone(phoneNum)){
+			$('#loadUserRegister').load('/userregister/register?phoneNum='+phoneNum);
+		}else{
+			alert("手机号码格式有误！或者不输入。");
+			return false;
+		}
+	}else{	
+			$('#loadUserRegister').load('/userregister/register');
+	}
+}
+//首页输入手机号后点击注册的按钮
+function rewardUserRegisters(){
+	$('.land2_box').hide();
+	var phoneNum = $('#reqisterPhoneNum').val();
+	phoneNum = $('#phones').val();
+	if(phoneNum!=''&&phoneNum!=undefined&&phoneNum!=null){
+		if(checkTelAndPhone(phoneNum)){
+			$('#loadUserRegister').load('/userregister/register?phoneNum='+phoneNum);
+		}else{
+			alert("手机号码格式有误！或者不输入。");
+			return false;
+		}
+	}else{	
+			$('#loadUserRegister').load('/userregister/register');
+	}
+}
+//关闭注册弹框
+function colseRegisterBox(){
+	$('.reg_box4').children("*").children("*").children("*").removeClass('z');
+	$('.reg_box4').addClass('z');
+	$('.reg_box4').children("*").children("*").children("*").addClass('z');
+	$('.mask_none4').hide(2000);
+	$('.mask_none').hide(2000);
+	$('#reqisterPhoneNum').val("");
+}
+//验证和手机号码
+function checkTelAndPhone(phone){
+    var isMob = /^13[0-9]{9}|15[012356789][0-9]{8}|18[0123456789][0-9]{8}|147[0-9]{8}|177[0-9]{8}|170[0-9]{8}$/;
+    if(isMob.test(phone)){
+        return true;
+    } else {
+        return false; 
+    }
+}
+//密码验证
+function checkPwd(pwd, len) {
+	if("" != $.trim(pwd)) {
+		if(6 <= pwd.length && pwd.length <= len) {
+			var regex = new RegExp("[`~!@#$^&*()=|{}':;',\\[\\].<>/?~！@#￥……&*（）——|{}【】‘；：”“'。，、？%+_]");
+			var result = regex.test(pwd);
+			if(result) {
+				$('#password_prompt').text("提示信息：输入密码有非法字符！");
+				return false;
+			} else {
+				$('#password_prompt').text("");
+				return true;
+			}
+		} else {
+			$('#password_prompt').text("提示信息：输入密码长度有误，请输入6~"+len+"位字符！");
+			return false;
+		}
+	}
+}
+//获取手机短信验证码
+function getRegisterSMSCode(phone){
+    if(!checkTelAndPhone(phone)){
+    	$('#phone_prompt_reg').text("提示信息：请输入正确的手机号码！");
+    	$("#phone").focus();
+    	return false;
+    }
+    var regphone=/^\d{11}$/;
+    if(!regphone.test(phone)){
+    	$('#phone_prompt_reg').text("提示信息：请输入正确的手机号码！");
+    	$("#phone").focus();
+        return false;
+    }
+    //验证手机号是否已经注册过
+    if(validatePhoneIsReg(phone)){
+    	$('#phone_prompt_reg').text("提示信息：此手机号已经注册过！");
+    	$("#phone").focus();
+    	return false;
+    }
+    $.ajax({
+    	async: true,
+		type: "post",
+        url: "sms/sendCode",
+        data: {phone:phone},
+        dataType: "text",
+        success: function(data){
+        	if(data == "1"){
+        		waitRegTime($("#buttonCode")[0]);
+        		$('#jumpRegisterButton').attr('onclick',"submit_registerForm();");
+        		$('#jumpRegisterButton').css('background',"#1c88e3");
+        		$('#phone_prompt_reg').text("");//都验证完了清空
+        		$('#smsCode_prompt').text("");//都验证完了清空
+        		$('#userName_prompt').text("");//都验证完了清空
+        	} else if(data=="-3"){
+        		$('#phone_prompt_reg').text("对不起，此手机号已经注册过了。");
+        	} else if(data=="-4"){
+        		$('#smsCode_prompt').text("对不起，我们正在尽快处理，请勿重复发送。");
+        	} else if(data=="-5"){
+        		$('#smsCode_prompt').text("对不起，此手机号发送验证码已超过当天上限。");
+        	} else if(data=="-6"){
+        		$('#smsCode_prompt').text("对不起，验证码发送失败请联系管理员。");
+        	} else {
+        		
+        	}
+        }
+    });
+}
+//发送等待时间
+var regwait = 60;
+function waitRegTime(btn) {
+    if (regwait == 0) {
+    	$("#buttonCode").removeAttr("disabled");
+    	$("#buttonCode").val("重新获取验证码");
+        btn.style.backgroundColor = "#1c88e3";
+        smsCode = "";
+        regwait = 60;
+    } else {
+    	$("#buttonCode").attr({"disabled":"disabled"});
+    	$("#buttonCode").val(regwait + "秒后重新获取验证码");
+        btn.style.backgroundColor = "#999999";
+        regwait--;
+        setTimeout(function () {
+        	waitRegTime(btn);
+        },
+        1000);
+    }
+}
+
+//验证用户名是否被注册过
+function validateUsernameIsReg(userName){
+	var bool = false;
+    $.ajax({
+        type: "post",
+        url: "userregister/checkrepeatname",
+        dataType: "text",
+        async: false,
+        data: {
+        	userName: userName
+        },
+        success:function(data){
+        	if("1" == data) {
+        		bool = true;
+			}else {
+				bool = false;
+			}
+        }
+    });
+    return bool;
+}
+//验证手机号是否已经注册过
+function validatePhoneIsReg(phone){
+	var bool = false;
+    $.ajax({
+        type: "post",
+        url: "userregister/checkrepeatphonenum",
+        dataType: "text",
+        async: false,
+        data: {
+        	phone: phone
+        },
+        success:function(data){
+        	if("1" == data) {
+        		bool = true;
+			}else {
+				bool = false;
+			}
+        }
+    });
+    return bool;
+}
+
+//注册表单提交
+function submit_registerForm(){
+	// 校验
+	if(!beforeRegisterValidate()){
+		return false;
+	}
+	// 提交
+	var param = $("#form_register").serialize();
+	$.ajax({
+    	async: true,
+		type: "post",
+        url: "userregister/register",
+        data: param,
+        dataType: "json",
+        success: function(data){
+        	var dataJson = eval('('+data+')');
+        	if(dataJson['error'] != ''&& dataJson['error'] != undefined){
+        		if(dataJson['error']=='error_sensitive'){
+        			$('#smsCode_prompt').text("操作非法");
+        		}else{
+        			$('#userName').val(dataJson['userName']);
+        			$('#toUrl').val(dataJson['toUrl']);
+        			$('#phone').val(dataJson['phoneNum']);
+        			$('#smsCode_prompt').text(dataJson['error']);//验证码错误//验证码过期//非法请求//此手机号已被注册
+        		}
+                return false;
+        	}else{
+        		location.href="/userCenter/account/1";
+        	}
+        }
+    });
+}
+/**
+ * 优化注册输入框验证
+ */
+function beforeRegisterValidate(){
+	var passName= validateUserName();
+	var passPwd= validateUserPwd();
+	var passPhone= validateUsePhone();
+	var passCod= validateUserMscod(); 
+	if(passName&passPwd&passPhone&passCod){return true}else{return false};
+}
+/**
+ *验证用户名 
+ */
+function validateUserName(){
+	
+	var name = $('#userName').val().trim();
+	if(name==""){
+		$('#userName_prompt').text("提示信息：请输入用户姓名！");
+		$('#userName').focus();
+		return false;
+	}else{
+		if(!regForbiddenChar(name)){
+			$('#userName_prompt').text("提示信息：输入用户名有非法字符！");
+			$('#userName').focus();
+			return false;
+		}else{
+			if(validateUsernameIsReg(name)){
+				$('#userName_prompt').text("提示信息：输入用户名重复！");
+				$('#userName').focus();
+				return false;
+			}else{
+				$('#userName_prompt').text("");
+				return true;
+			}
+		}
+	}
+}
+/**
+ *验证密码 
+ */
+function validateUserPwd(){
+	var pwd = $('#password').val().trim();
+	if(pwd == ""){
+		$('#password_prompt').text("提示信息：请输入密码！");
+		$('#password').focus();
+		return false;
+	}else{
+		if(!checkPwd(pwd, 20)) {
+			$('#password_prompt').text("提示信息：输入密码是6-20位字母数字组合，不含特殊字符！");
+			$("#password").focus();
+			return false;
+		}else{
+			$('#password_prompt').text("");
+			return true;
+		}
+	}
+}
+/**
+ *验证电话号码 
+ */
+function validateUsePhone(){
+	var phone =$('#phone').val().trim();
+	if(phone ==""){
+		$('#phone_prompt_reg').text("提示信息：请输入电话号码！");
+		$('#phone').focus();
+		return false;
+	}else{
+		if(!checkTelAndPhone(phone)){
+			$('#phone_prompt_reg').text("提示信息：电话号码输入有误！");
+			$('#phone').focus();
+			return false;
+		}else{
+			$('#phone_prompt_reg').text("");
+			return true;
+		}
+	}
+}
+/**
+ *验证验证码
+ */
+function validateUserMscod(){
+	var regCode = $('#smsCode').val().trim();
+	if(regCode ==""){
+		$('#smsCode_prompt').text("提示信息：请输入验证码！");
+		$('#smsCode').focus();
+		return false;
+	}else{
+		if(!checkMsgCode(regCode)){
+			$('#smsCode_prompt').text("提示信息：验证码格式错误");
+			$('#smsCode').focus();
+			return false;
+		}else{
+			$('#smsCode_prompt').text("");
+			return true;
+		}
+	}
+}
