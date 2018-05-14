@@ -132,9 +132,9 @@ Page({
             this.setData({
                 condition: false,
             });
-            this.setData({
-              icnicList: true,
-            });
+            // this.setData({
+            //   icnicList: true,
+            // });
         } else {
             //平移收回
             this.animation.translate(wx.getSystemInfoSync().windowWidth).step({ duration: 600 })
@@ -142,9 +142,9 @@ Page({
                 //输出动画
                 animation: this.animation.export()
             });
-            this.setData({
-              icnicList: false,
-            });
+            // this.setData({
+            //   icnicList: false,
+            // });
             this.setData({
                 condition: true,
             });

@@ -171,7 +171,7 @@ page {
 
 .word-list {
     width: 100%;
-    min-height: 1100rpx;
+    max-height: 1100rpx;
     position: absolute;
     top: 0;
     left: 100%;
@@ -215,9 +215,11 @@ page {
     color: #adadad;
     background: #e5e5e4;
     margin-left: 4%;
-    min-height: 1075rpx;
+    min-height: 1070rpx;
+    max-height: 1070rpx;
     text-indent: 50rpx;
     padding-top: 30rpx;
+    padding-bottom: 30rpx;
     line-height: 30rpx;
     overflow-y: scroll;
 }
