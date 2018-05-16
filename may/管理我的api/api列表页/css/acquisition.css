@@ -1,0 +1,346 @@
+body,html{font-family:"微软雅黑"}
+.collection-banner{
+    background: url(../images/collection-banner.png) no-repeat;
+}
+.collection-banner .home-banh2{
+    padding-top:145px;
+}
+.collection-cont{
+    padding:140px 130px;
+}
+.acquisitiontopbg{
+	width:100%;
+}
+li{
+	list-style: none;
+}
+h1,h2,h3,h4,h5{
+	margin:0;
+	padding:0;
+}
+ul{
+	margin:0;
+	padding:0;
+}
+.dataacquisition1-pub{
+	width:204px;
+	height:375px;
+	font-size: 16px;
+	color:#99d417;
+}
+.dataacquisition11-pub{
+	width:204px;
+	height:375px;
+	font-size: 14px;
+	color:#fff;
+	line-height:24px;
+/*	width:104px;
+	margin:0 auto;*/
+	display:none;
+	position: relative;
+	z-index: 100;
+}
+.dataacquisition1-pub p{
+	width:204px;
+	text-align: center;
+}
+.dataacquisition11-pub h5{
+	width:104px;
+	margin:0 auto;
+	font-size: 14px;
+	color:#fff;
+	line-height:24px;
+}
+.dataacquisition11-pub h5{
+	margin-left:49px;
+}
+.dataacquisition1{
+	background:url(../images/dataacquisition1.png) no-repeat 0 0;
+}
+.dataacquisition2{
+	background:url(../images/dataacquisition2.png) no-repeat 0 0;
+}
+.dataacquisition3{
+	background:url(../images/dataacquisition3.png) no-repeat 0 0;
+}
+.dataacquisition4{
+	background:url(../images/dataacquisition4.png) no-repeat 0 0;
+}
+.dataacquisition5{
+	background:url(../images/dataacquisition5.png) no-repeat 0 0;
+}
+.dataacquisition6{
+	background:url(../images/dataacquisition6.png) no-repeat 0 0;
+}
+.dataacquisition11{
+	background:url(../images/dataacquisition11.png) no-repeat 0 0;
+}
+.dataacquisition22{
+	background:url(../images/dataacquisition22.png) no-repeat 0 0;
+}
+.dataacquisition33{
+	background:url(../images/dataacquisition33.png) no-repeat 0 0;
+}
+.dataacquisition44{
+	background:url(../images/dataacquisition44.png) no-repeat 0 0;
+}
+.dataacquisition55{
+	background:url(../images/dataacquisition55.png) no-repeat 0 0;
+}
+.dataacquisition66{
+	background:url(../images/dataacquisition66.png) no-repeat 0 0;
+}
+.acquisitiontop-li {
+	float:left;
+}
+.acquisitiontop-li2 {
+	margin-left:-62px;
+}
+.acquisitiontop-li3 {
+	margin-left:-67px;
+}
+.acquisitiontop-li4 {
+	margin-left:-62px;
+}
+.acquisitiontop-li5 {
+	margin-left:-62px;
+}
+.acquisitiontop-li6 {
+	margin-left:-62px;
+}
+.acquisitiontop-li7 {
+	margin-left:-62px;
+}
+.acquisitiontop-li:hover .dataacquisition1 {
+	display:none;
+}
+.acquisitiontop-li:hover .dataacquisition11 {
+	display:block;
+}
+.acquisitiontop-li:hover .dataacquisition2 {
+	display:none;
+}
+.acquisitiontop-li:hover .dataacquisition22 {
+	display:block;
+}
+.acquisitiontop-li:hover .dataacquisition3 {
+	display:none;
+}
+.acquisitiontop-li:hover .dataacquisition33 {
+	display:block;
+}
+.acquisitiontop-li:hover .dataacquisition4 {
+	display:none;
+}
+.acquisitiontop-li:hover .dataacquisition44{
+	display:block;
+}
+.acquisitiontop-li:hover .dataacquisition5 {
+	display:none;
+}
+.acquisitiontop-li:hover .dataacquisition55 {
+	display:block;
+}
+.acquisitiontop-li:hover .dataacquisition6 {
+	display:none;
+}
+.acquisitiontop-li:hover .dataacquisition66 {
+	display:block;
+}
+.acquisitiontop-ul{
+	width:912px;
+	height:392px;
+	margin:0 auto;
+/*	padding-top:142px; */
+}
+.dataacquisition1 p{
+	padding-top:229px;
+	color:#efac29;
+}
+.dataacquisition11 h5{
+	padding-top:196px;
+}
+.dataacquisition2 p{
+	padding-top:91px;
+	color:#99d417;
+}
+.dataacquisition22 h5{
+	padding-top:61px;
+}
+.dataacquisition3 p{
+	padding-top:229px;
+	color:#61a4dc;
+}
+.dataacquisition33 h5{
+	padding-top:196px;
+}
+.dataacquisition4 p{
+	padding-top:91px;
+	color:#1aa08b;
+}
+.dataacquisition44 h5{
+	padding-top:61px;
+}
+.dataacquisition5 p{
+	padding-top:229px;
+	color:#e88049;
+}
+.dataacquisition55 h5{
+	padding-top:196px;
+}
+.dataacquisition6 p{
+	padding-top:91px;
+	color:#ce7ef3;
+}
+.dataacquisition66 h5{
+	padding-top:61px;
+}
+.acquisitiontop {
+	padding-top: 142px;
+}
+/*数据量板块*/
+.acquisition-datasizebg {
+	width:100%;
+	height:596px;
+	background:#f6f6f6;
+}
+.acquisition-datasize-imgleft {
+	width:595px;
+	height:295px;
+/*	height:auto;*/
+	float:left;
+	margin-left:140px;
+	background:url(../images/collection-cbl.png) no-repeat 0 0;
+}
+.acquisition-datasize-imgright {
+	float:left;
+	margin-left: 100px;
+}
+.acquisition-datasize-imgright h2{
+	font-size: 20px;
+	color:#5c5c5c;
+	line-height:40px;
+	font-weight: bold;
+}
+.acquisition-datasize-imgright h3{
+	font-size: 20px;
+	color:#5c5c5c;
+	line-height:40px;
+	font-weight: bold;
+}
+.acquisition-datasize-imgright h4{
+	font-size: 20px;
+	color:#5c5c5c;
+	line-height:40px;
+	font-weight: bold;
+	margin-top:30px;
+}
+.acquisition-datasize-imgright h5{
+	font-size: 14px;
+	color:#999999;
+	line-height:28px;
+}
+.acquisition-datasize-imgright p{
+	font-size: 20px;
+	color:#5c5c5c;
+	line-height:28px;
+	font-weight: bold;
+	margin-top:30px;
+}
+.acquisition-datasize-imgright var{
+	font-size: 14px;
+	color:#999999;
+	line-height:28px;
+	display: block;
+	font-style: normal;
+}
+.acquisition-datasize{
+	width:1160px;
+	margin:0 auto;
+	padding-top: 160px;
+}
+/*定位底部板块*/
+.acquisition-asknowbg{
+	width:100%;
+	background:#1aa08b;
+	position: fixed;
+	left:0;
+	bottom: 0;
+	z-index: 111;
+}
+.acquisition-asknow{
+	width:1160px;
+	margin:0 auto;
+	height: 120px;
+}
+.acquisition-asknow h2{
+	float:left;
+	font-size: 60px;
+	color:#fcfcfc;
+	line-height:120px;
+	font-family:'Open Sans', sans-serif;
+	 letter-spacing:3px;
+	 width:768px;
+	 text-align: center;
+}
+a{
+	text-decoration: none!important;
+}
+.acquisition-asknow a{
+	float:left;
+	font-size: 30px;
+	color:#fff;
+	line-height:74px;
+	font-family:'Open Sans', sans-serif;
+	 width:230px;
+	 height:74px;
+	 text-align: center;
+	 border-radius:37px;
+	 box-shadow:0px 0px 5px #21c3aa;
+	 background:#21c3aa;
+	 margin-top:23px; 
+}
+.acquisition-footer{
+	margin-bottom:120px;
+}
+/* 新加采集页面css */
+.home-banh2{
+	color:#222;
+}
+.home-banh5{
+	width:1126px;
+	line-height:28px;
+	text-align:center;
+	color:#222;
+	font-size:16px;
+	margin:78px auto 0;
+}
+.home-banh5newadd-bot{
+	margin:35px auto 0;
+}
+.acquisitiontopbg{
+	background:#fff;
+}
+.home-banh2newadd-bot a{
+	display:block;
+	width:220px;
+	height:66px;
+	background:#fff;
+	line-height:66px;
+	text-align:center;
+	color:#111;
+	font-size:24px;
+	font-weight:bold;
+	margin:20px auto 0;
+}
+.home-banh5newadd-bot{
+	color:#fff;
+}
+.collection-banner-bottom{
+	width:100%;
+	height:266px;
+	background:url(../images/home-banh5newadd-botbg.png) no-repeat 0 0;
+}
+.collection-banner .home-banh2newadd-bot{
+	padding-top:60px;
+}

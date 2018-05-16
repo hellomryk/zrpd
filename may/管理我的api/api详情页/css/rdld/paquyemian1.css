@@ -1,0 +1,129 @@
+/**, :after, :before {
+    box-sizing: border-box;
+}
+a, body {
+    color: #666;
+}
+body {
+    font: 13px/1.5 Lantinghei SC,Open Sans,Arial,Hiragino Sans GB,Microsoft YaHei,STHeiti,WenQuanYi Micro Hei,SimSun,sans-serif;
+    background-color: #fbfbfb;
+    min-height: 600px!important;
+    overflow: auto;
+}
+._5118-wraper {
+    min-height: 100%;
+    padding-top: 60px;
+}
+._5118-trend {
+    background: url(../images/trend/trend-bg.png?v=47e377fc0f) no-repeat top center #166df2;
+    width: 100%;
+}
+section.content {
+    padding-bottom: 294px;
+}
+section.wrapper {
+    width: 1180px;
+    min-width: 1180px;
+    margin: 0 auto;
+    overflow: visible;
+}
+section.content:after, section.content:before {
+    content: " ";
+    display: table;
+}
+._5118-trend .title-wrap {
+    width: 100%;
+    padding: 40px 0 25px;
+    text-align: center;
+    color: #fff;
+    font-size: 30px;
+}
+._5118-trend .screen-wrap {
+    padding: 0 14px;
+}
+._5118-trend .trend-box {
+    width: 1180px;
+    margin: 0 auto 15px;
+    background-color: #fff;
+    outline: 1px solid #e6e6e6;
+    box-shadow: 0 0 2px 2px hsla(0,0%,79%,.2);
+    overflow: hidden;
+}
+dl {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+._5118-trend .screen-wrap dl {
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid #f6f6f6;
+    margin: 0;
+    line-height: 45px;
+}
+._5118-trend .screen-wrap dl {
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid #f6f6f6;
+    margin: 0;
+    line-height: 45px;
+}
+dd {
+    display: block;
+    -webkit-margin-start: 40px;
+}
+dd, dt {
+    margin: 0;
+    padding: 0;
+/*    _position: relative;*/
+/*}
+._5118-trend .screen-wrap dl dd {
+    float: left;
+}
+._5118-trend .screen-wrap dl dd a {
+    color: #606060;
+    font-size: 14px;
+    padding: 5px 8px;
+    border-radius: 2px;
+    margin-right: 3px;
+}
+._5118-trend .screen-wrap dl dd a.active {
+    background: #136ef3;
+    color: #fff;
+}
+._5118-trend .screen-wrap dl dd a {
+    color: #606060;
+    font-size: 14px;
+    padding: 5px 8px;
+    border-radius: 2px;
+    margin-right: 3px;
+}
+a {
+    text-decoration: none;
+}
+._5118-trend .screen-wrap dl {
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid #f6f6f6;
+    margin: 0;
+    line-height: 45px;
+}
+._5118-trend .screen-wrap dl dt {
+    width: auto;
+    padding-right: 5px;
+    float: left;
+    height: 45px;
+}
+._5118-trend .screen-wrap dl dd a {
+    color: #606060;
+    font-size: 14px;
+    padding: 5px 8px;
+    border-radius: 2px;
+    margin-right: 3px;
+}
+._5118-trend .screen-wrap dl dd a.active {
+    background: #136ef3;
+    color: #fff;
+}*/*/
