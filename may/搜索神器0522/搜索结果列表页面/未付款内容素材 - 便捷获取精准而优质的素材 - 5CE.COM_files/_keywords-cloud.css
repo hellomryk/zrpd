@@ -1,0 +1,129 @@
+/* keywords cloud */
+
+div.jqcloud span {
+    cursor: pointer;
+    background: #6dc9bc;
+    color:#fff;
+    border-radius: 5px;
+}
+div.jqcloud span:hover{
+    background: #ffb838;
+}
+
+div.jqcloud span.w10 {
+    font-size: 400%;
+    padding: 23px 28px!important;
+}
+
+div.jqcloud span.w9 {
+    font-size: 360%;
+    padding: 21px 26px!important;
+}
+
+div.jqcloud span.w8 {
+    font-size: 350%;
+    padding: 19px 24px!important;
+}
+
+div.jqcloud span.w7 {
+    font-size: 240%;
+    padding: 17px 22px!important;
+}
+
+div.jqcloud span.w6 {
+    font-size: 210%;
+    padding: 15px 20px!important;
+}
+
+div.jqcloud span.w5 {
+    font-size: 190%;
+    padding: 13px 18px!important;
+}
+
+div.jqcloud span.w4 {
+    font-size: 170%;
+    padding: 11px 16px!important;
+}
+
+div.jqcloud span.w3 {
+    font-size: 160%;
+    padding: 9px 14px!important;
+}
+
+div.jqcloud span.w2 {
+    font-size: 140%;
+    padding: 7px 12px!important;
+}
+
+div.jqcloud span.w1 {
+    font-size: 130%;
+    padding: 5px 10px!important;
+}
+
+
+/* colors */
+
+div.jqcloud {
+    color: #09f;
+}
+
+div.jqcloud a {
+    color: inherit;
+}
+
+div.jqcloud a.chart-a:hover {
+    color:#49bcab!important;
+}
+
+/*div.jqcloud span:hover { color: red; font-size: 40px; font-weight: bold;}
+
+div.jqcloud span.w10 {
+    color: #0cf;
+}
+
+div.jqcloud span.w9 {
+    color: #0cf;
+}
+
+div.jqcloud span.w8 {
+    color: #0cf;
+}
+
+div.jqcloud span.w7 {
+    color: #39d;
+}
+
+div.jqcloud span.w6 {
+    color: #90c5f0;
+}
+
+div.jqcloud span.w5 {
+    color: #90a0dd;
+}
+
+div.jqcloud span.w4 {
+    color: #90c5f0;
+}
+
+div.jqcloud span.w3 {
+    color: #a0ddff;
+}
+
+div.jqcloud span.w2 {
+    color: #99ccee;
+}
+
+div.jqcloud span.w1 {
+    color: #aab5f0;
+}
+*/
+
+/* layout */
+
+div.jqcloud {
+    position: relative;
+}
+
+div.jqcloud span {
+    padding: 0;
+}

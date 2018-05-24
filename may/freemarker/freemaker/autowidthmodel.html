@@ -1,0 +1,784 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />   
+<title>${title?string}</title>      
+<style>             
+@page {         
+  	size: 21cm 29.7cm;
+  	@top-left{
+  		font-size: 9pt;
+  		font-family: SimSun; 
+  		border-bottom: 1pt solid black;
+  	 	content: "北京中润普达魔系NLP";
+  	}
+  	@bottom-left { 
+  		font-size: 9pt;
+  		font-family: SimSun; 
+  		border-top: 1pt solid black;   
+        content: "公司名称：北京中润普达信息技术有限公司";       
+  	}          
+  	@bottom-center { 
+  		font-size: 9pt;
+  		font-family: SimSun; 
+  		border-top: 1pt solid black;
+  		text-align:right;    
+        content: "第  " counter(page) " 页  共 " counter(pages) " 页   ";         
+  	} 
+  	@bottom-right { 
+  		font-size: 9pt;
+  		font-family: SimSun; 
+  		border-top: 1pt solid black;           	    
+        content:"联系电话：010-62353166";   
+  	}      
+}
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; }
+body, button, input, select, textarea {font:14px/1.5tahoma, arial, \5b8b\4f53; } 
+h1, h2, h3, h4, h5, h6{ font-size:100%; } 
+address, cite, dfn, em, var { font-style:normal; } 
+code, kbd, pre, samp { font-family:SimSun,"Microsoft Yahei",Tahoma,Helvetica,Arial,sans-serif; } 
+small{ font-size:12px; } 
+ul, ol { list-style:none; } 
+a { text-decoration:none; } 
+a:hover { text-decoration:underline; } 
+sup { vertical-align:text-top; } 
+sub{ vertical-align:text-bottom; } 
+legend { color:#000; } 
+img { border:0; vertical-align: middle; }
+button, input, select, textarea { font-size:100%; } 
+h1,h2,h3,h4,h5,h6,b{font-size:12px; font-weight:normal; } 
+input,textarea{ border:none; padding:0; margin:0; }
+table { width:100%;border:green dotted ;border-width:0 0 0 0 }       
+td { border:green dotted;border-width:0 0 0 0 }   
+<#--使用字体一定要定义好-->  
+body { font-family: SimSun; font-size:14px; font-style:italic; font-weight:500; }
+
+<#--css为clearfix，清除浮动-->
+.fl{ float:left; }
+.fr{ float:right; }
+.clearfix::before,
+.clearfix::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.clearfix:after{clear:both;} 
+.clearfix{ 
+    *zoom:1;/*IE/7/6*/
+}
+.streng_area {
+    padding-top: 17px;
+}
+.streng_area textarea {
+    width: 95%;
+    border: 1px solid #bdbdbd;
+    font-size: 12px;
+    padding: 15px 16px;
+} 
+.streng_fruit {
+    margin-top: 50px;
+}
+.streng_fruit tr{
+	background: #f6f6f6;
+    border-radius: 3px;
+    padding: 27px 38px;
+    margin-bottom: 20px;
+}
+
+.streng_fruit .fruitr_resl {
+	margin:0;
+	width: 68%;
+	font-size: 12px;
+    margin-top: 28px;
+    padding:0;
+}
+.fruitr_resl span {
+    float: left;
+    padding: 8px 10px;
+    margin: 0 5px 6px 0;
+    color: #333;
+}
+.fruitr_resr h4 {
+    font-size: 14px;
+    color: #898989;
+    margin-bottom: 33px;
+}
+.fruitr_rcount span {
+    float: left;
+    padding: 8px 10px;
+    margin: 0 5px 6px 0;
+    color: #333;
+}
+.streng_fruit .fruitr_resr {
+	width:28%;
+	margin:0;
+	padding:0;
+}
+.count3{
+	margin-top:50px;
+	background: #f6f6f6;
+	border-radius: 3px;
+}
+
+
+
+.fruitr{
+	background:#f6f6f6;
+	border-radius:3px;
+	padding:27px 38px;
+	margin-bottom:20px;
+	width:894px;
+}
+.fruitr h3{
+	font-size:14px;
+}
+.fruitr .fruitr_res{
+	font-size:12px;
+	margin-top:28px;
+}
+.fruitr_resl{
+	width:655px;
+	min-height:379px;
+}
+.fruitr_resl span{
+	float:left;
+	padding:8px 10px;
+	margin:0 5px 6px 0;
+	color:#333;
+}
+
+.fruitr_text0{
+	background:#ccc;
+}
+.fruitr_text1{
+	background:#c7aee7;
+}
+.fruitr_text2{
+	background:#ffcb99;
+}
+.fruitr_text3{
+	background:#4dd9e6;
+}
+.fruitr_text4{
+	background:#1c88e3;
+}
+.fruitr_text5{
+	background:#99cc67;
+}
+.fruitr_text6{
+	background:#d07f7f;
+}
+.fruitr_text7{
+	background:#f48363;
+}
+.fruitr_text8{
+	background:#50c6fb;
+}
+.fruitr_text9{
+	background:#8ea4de;
+}
+.fruitr_text10{
+	background:#67ccaa;
+}
+.fruitr_text11{
+	background:#ffcccb;
+}
+.fruitr_text12{
+	background:#f6f;
+}
+.fruitr_text13{
+	background:#c3c;
+}
+.fruitr_text14{
+	background:#50c6fb;
+}
+.fruitr_text15{
+	background:#986699;
+}
+.fruitr_text16{
+	background:#cee887;
+}
+.fruitr_text17{
+	background:#c9aaca;
+}
+.fruitr_text18{
+	background:#ff9899;
+}
+.fruitr_text19{
+	background:#e3587c;
+}
+.fruitr_text20{
+	background:#c35a9b;
+}
+.fruitr_text21{
+	background:#b75ac3;
+}
+.fruitr_text22{
+	background:#8f5ac3;
+}
+.fruitr_text23{
+	background:#d38b2c;
+}
+.fruitr_text24{
+	background:#5a66c3;
+}
+.fruitr_text25{
+	background:#7cabe5;
+}
+.fruitr_text26{
+	background:#ffe199;
+}
+.fruitr_text27{
+	background:#89db95;
+}
+.fruitr_text28{
+	background:#93d7d9;
+}
+.fruitr_text29{
+	background:#CC00FF;
+}
+.fruitr_text30{
+	background:#FF33FF;
+}
+.fruitr_text31{
+	background:#CC99FF;
+}
+.fruitr_text32{
+	background:#9900CC;
+}
+.fruitr_text33{
+	background:#FF00FF;
+}
+.fruitr_text34{
+	background:#CC99CC;
+}
+.fruitr_text35{
+	background:#990066;
+}
+.fruitr_text36{
+	background:#993399;
+}
+.fruitr_text37{
+	background:#CC66CC;
+}
+.fruitr_text38{
+	background:#663366;
+}
+.fruitr_text39{
+	background:#CC0099;
+}
+.fruitr_text40{
+	background:#990099;
+}
+.fruitr_text41{
+	background:#FFFFCC;
+}
+.fruitr_text42{
+	background:#FFCC00;
+}
+.fruitr_text43{
+	background:#663300;
+}
+.fruitr_text44{
+	background:#FF6600;
+}
+.fruitr_text45{
+	background:#CC6666;
+}
+.fruitr_text46{
+	background:#FF6666;
+}
+.fruitr_text47{
+	background:#FFCC66;
+}
+.fruitr_text48{
+	background:#FF9966;
+}
+.fruitr_text49{
+	background:#CC3300;
+}
+.fruitr_text50{
+	background:#996666;
+}
+.fruitr_text51{
+	background:#FFCCCC;
+}
+.fruitr_text52{
+	background:#660000;
+}
+.fruitr_text53{
+	background:#FF6633;
+}
+.fruitr_text54{
+	background:#996633;
+}
+.fruitr_text55{
+	background:#CC9999;
+}
+.fruitr_text56{
+	background:#FF3333;
+}
+.fruitr_text57{
+	background:#990000;
+}
+.fruitr_text58{
+	background:#CC9966;
+}
+.fruitr_text59{
+	background:#FFFF33;
+}
+.fruitr_text60{
+	background:#FF9933;
+}
+.fruitr_text61{
+	background:#330000;
+}
+.fruitr_text62{
+	background:#993333;
+}
+.fruitr_text63{
+	background:#CC3333;
+}
+.fruitr_text64{
+	background:#CC0000;
+}
+.fruitr_text65{
+	background:#FFCC99;
+}
+.fruitr_text66{
+	background:#996600;
+}
+.fruitr_text67{
+	background:#CC6633;
+}
+.fruitr_text68{
+	background:#CC9933;
+}
+.fruitr_text69{
+	background:#FFCC33;
+}
+.fruitr_text70{
+	background:#FFFF99;
+}
+
+.fruitr_resr{
+	width:205px;
+}
+.fruitr_resr h4{
+	font-size:14px;
+	color:#898989;
+	margin-bottom:33px;
+}
+.fruitr_rcount span{
+	float:left;
+	padding:8px 10px;
+	margin:0 5px 6px 0;
+	color:#333;
+}
+.fruitl.fruitl_fixed{
+	position: fixed;
+	left:50%;
+	top:20px;
+	margin-left:-600px;
+}
+.fruitr_seler ul{
+    border: 1px solid #ebebeb;
+    font-size:12px;
+}
+.fruitr_seler ul li{
+	float:left;
+    border-right: 1px solid #ebebeb;
+    padding:10px 17px;
+    background:#fff;
+    cursor:pointer;
+}
+.fruitr_seler h3{
+	margin-top:18px;
+}
+.fruitr_seler ul .fruitr_1c88e3{
+	background:#1c88e3;
+	color:#fff;
+}
+.fruitr_grammar{
+	margin-top:10px;
+    height: 328px;
+    overflow: auto;
+}
+.fruitr_abstract{
+	margin-top:20px;
+}
+.fruitr_abstract span{
+	float:left;
+	font-size:12px;
+	margin:0 10px 10px 0;
+	color:#979797;
+	padding:10px 20px;
+	border:1px solid #ccc;
+	background:#fff;
+}
+.fruitr_copy{
+    padding: 10px 17px;
+    cursor:pointer;
+}
+.fruitr_abstract p{
+	font-size:14px;
+	line-height:20px;
+	color:#1c88e3;
+}
+.fruitr_abstract .fruitr_absp p{
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    color: #979797;
+}
+
+
+
+
+
+
+.table2_tdl{
+	width:20%;
+	text-indent:20px;
+}
+.table2_tdr{
+	text-indent:20px;
+}
+.table2_tdr p{
+	line-height:25px;
+}
+
+
+
+.fruitr_abstract .fruitr_absp .fruitr_table2 p{
+	border:none;
+}
+.fruitr_other{
+	border:1px solid #979797;
+	padding:10px;
+	margin-top:10px;
+	font-size:12px;
+	line-height:24px;
+}
+.fruoth_tit{
+	width:83px;
+}
+.fruoth_con{
+	
+}
+.fruoth_con i{
+	padding-right:5px;
+	font-style:normal;
+}
+.fother{
+	width:100%;
+    border-radius: 3px;
+	border:1px solid #979797;
+}
+.fother h3{
+	height:40px;
+	line-height:40px;
+	padding-left:10px;
+	background:#f6f6f6;
+	border-bottom:1px solid #979797;
+	color:#1c88e3;
+	font-size:14px;
+}
+.fother_box{
+	padding:10px 0;
+}
+.fother_box li{
+	float:left;
+	padding:10px 20px;
+}
+.fother_btn{
+	height:30px;
+	line-height:30px;
+	margin-top:5px;
+	border-radius:3px;
+	background:#1c88e3;
+	color:#fff;
+	padding:0 5px;
+	margin-left:20px;
+}
+.fother_box2{
+	padding:20px;
+}
+.fother_box2 p{
+	line-height:24px;
+}
+
+
+.fruitr_color1{
+	color:#c7aee7;
+}
+.fruitr_color2{
+	color:#ffcb99;
+}
+.fruitr_color3{
+	color:#4dd9e6;
+}
+.fruitr_color4{
+	color:#1c88e3;
+}
+.fruitr_color5{
+	color:#99cc67;
+}
+.fruitr_color6{
+	color:#d07f7f;
+}
+.fruitr_color7{
+	color:#f48363;
+}
+.fruitr_color8{
+	color:#50c6fb;
+}
+.fruitr_color9{
+	color:#8ea4de;
+}
+.fruitr_color10{
+	color:#67ccaa;
+}
+.fruitr_color11{
+	color:#ffcccb;
+}
+.fruitr_color12{
+	color:#f6f;
+}
+.fruitr_color13{
+	color:#c3c;
+}
+.fruitr_color14{
+	color:#50c6fb;
+}
+.fruitr_color15{
+	color:#986699;
+}
+.fruitr_color16{
+	color:#cee887;
+}
+.fruitr_color17{
+	color:#c9aaca;
+}
+.fruitr_color18{
+	color:#ff9899;
+}
+.fruitr_color19{
+	color:#e3587c;
+}
+.fruitr_color20{
+	color:#c35a9b;
+}
+</style>      
+</head>      
+    <body>      
+      <div align="center">
+	      <table style="padding-top:50px;">
+	      	<tr>
+	  			<th style="font-size:24px;">XXX热点事件分析报告</th>    	
+	      	</tr>
+	      	
+	      	<tr>
+	      		<td>中&nbsp;润&nbsp;普&nbsp;达&nbsp;捕&nbsp;猎&nbsp;</td>
+	      	</tr>
+	      </table>
+      </div>
+      <div style="page-break-before:always;">
+      	  <#-- 内容1 -->
+      	  <table style="margin-top:50px; background: #f0f0f0;">
+      	  	<tr>
+      	  		<td align="left">${title?string}</td>
+      	  	</tr>
+      	  	<tr class="streng_area">
+      	  		<td><textarea>${content?left_pad(5)}</textarea></td>
+      	  	</tr>
+      	  </table>
+      	  <#-- 内容2 -->
+        <#if cixing?exists>    
+          <table class="streng_fruit">      
+             <tr>      
+                <td colspan="2">词性分析</td>         
+             </tr>         
+             <tr>           
+                <td class="fruitr_resl clearfix">
+                			<#list cixing.nltkList as data>
+								<span class="${data.className}">${data.name}</span>
+							</#list>
+				</td>
+				<td class="fruitr_resr">
+					<h4>词性类别图示:</h4>
+					<div class="fruitr_rcount clearfix">
+						<#if cixing.icoList?exists>
+								<#list cixing.icoList as data>
+									<span class="${data.className}">${data.name}</span>
+								</#list>
+						<#else>
+								<span>暂无词性</span>
+						</#if>
+					</div>
+				</td>      
+             </tr>      
+          </table>      
+          </#if> 
+          <#-- 内容3 -->
+          <#if shiti?exists>
+          <table class="streng_fruit">      
+             <tr>      
+                <td colspan="2">实体识别</td>         
+             </tr>         
+             <tr>           
+                <td class="fruitr_resl clearfix">
+                			<#list shiti.nltkList as data>
+								<span class="${data.className}">${data.name}</span>
+							</#list>
+					</td>
+					<td class="fruitr_resr">
+						<h4>实体类别图示:</h4>
+						<div class="fruitr_rcount clearfix">
+							<#if shiti.icoList?exists>
+								<#list shiti.icoList as data>
+									<span class="${data.className}">${data.name}</span>
+								</#list>
+							<#else>
+								<span>暂无实体</span>
+							</#if>
+						</div>
+					</td>      
+             </tr>      
+          </table>
+      </#if> 
+    	  <#-- 内容4 -->
+	  <#if yicunList?exists>
+	  	  <table style="margin-top:50px; background: #f0f0f0;">
+	      	  	<tr>
+	      	  		<td align="left">依存文法</td>
+	      	  	</tr>
+	      	  	<tr class="streng_area">
+	      	  		<td><img src="${imagepath}yicun.png" alt="logo" width="693"/></td>
+	      	  	</tr>
+      	  </table> 
+	  </#if>	
+          <#-- 内容5 -->
+       <#if zhaiyao?exists>
+      	  <table style="margin-top:50px; background: #f0f0f0;">
+      	  	<tr>
+      	  		<td align="left">摘要提取</td>
+      	  	</tr>
+      	  	<tr class="streng_area">
+      	  		<td><textarea>${zhaiyao?left_pad(5)}</textarea></td>
+      	  	</tr>
+      	  </table>         
+        </#if>
+          <#-- 内容6 -->
+        <#if guanjianzi?exists>
+          <table class="count3">
+				<tr class="fruitr_seler">
+					<td>关键字提取</td>
+				</tr>
+				<tr>
+					<td class="fruitr_abstract clearfix">
+						<#list guanjianzi as data>
+								<span>${data}</span>
+						</#list>
+					</td>
+				</tr>
+          </table>
+        </#if>
+          <#-- 内容7 -->
+        <#if duanyu?exists>
+          <table class="count3">
+				<tr class="fruitr_seler">
+					<td>短语提取</td>
+				</tr>
+				<tr>
+					<td class="fruitr_abstract clearfix">
+						<#list duanyu as data>
+							<span>${data}</span>
+						</#list>
+					</td>
+				</tr>
+          </table>
+        </#if>
+          <#-- 内容8 -->
+        <#if jianfan?exists>
+          <table style="margin-top:50px; background: #f0f0f0;">
+      	  	<tr>
+      	  		<td align="left">简繁体转换</td>
+      	  	</tr>
+      	  	<tr class="streng_area">
+      	  		<td><textarea>${jianfan?left_pad(5)}</textarea></td>
+      	  	</tr>
+      	  </table> 
+        </#if>
+
+
+	
+<#-- 内容9 -->
+<#if endResultList?exists>
+	<#list endResultList as data>
+		<#list data.errorList as d>
+			 		<table style="margin-top:50px; background: #f0f0f0;">
+						<tr>
+							<td align="left">
+								【${data.title }批改模式】:
+							</td>
+						</tr>
+						<tr class="streng_area">
+							<td >
+								<div class="fruitr_other clearfix" style="100%">
+									${d.resultSimpleContent}
+								</div>
+							</td>
+						</tr>
+					</table>
+			
+				<table style="margin-top:50px; background: #f0f0f0;">
+					<tr>
+						<td align="left">
+							【${data.title }检测结果】:
+						</td>
+					</tr>
+					<tr class="streng_area">
+						<td>
+							<div class="fruitr_other clearfix" style="100%">
+								<p class="">
+									<span class="fl fruoth_tit">A、检测结果：</span>
+									<span class="fl fruoth_con fruitr_color1">共检测出来${d.errorCount}处${data.title }；文本正确率（${d.correctRate}）</span>
+								</p>
+								<br/>
+								<p class="">
+									<span class="fl ">B、提示：</span>
+									<span class="fl fruoth_con fruitr_color2">
+										<#list d.errorWordHintList as d3>
+											<i>${d3}</i>
+										</#list >
+									</span>
+								</p>
+								<br/>
+								<p >
+									<span class="fl ">C、用法纠正：</span>
+									<span class="fl fruoth_con fruitr_color3">
+										<#list d.errorWordCorrectList as d3>
+											<i>${d3}</i>
+										</#list >
+									</span>
+								</p>
+							</div>
+						</td>
+					</tr>
+			</table>
+		</#list>
+	</#list>
+<#else>
+    <table style="margin-top:50px; background: #f0f0f0;">
+		<tr>
+			<td align="left">
+				<h3 class="fl">恭喜您，完美的表述！！</h3>
+			</td>
+		</tr>
+	</table>
+</#if>
+        
+      	</div>      
+    </body>      
+</html>  
