@@ -1,12 +1,12 @@
 {
   "pages":[
-    "pages/index/index",
+    "pages/details/index",
     "pages/logs/logs"
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarBackgroundColor": "#1B89F4",
+    "navigationBarTitleText": "网络热点智能AI平台",
+    "navigationBarTextStyle":"#fff"
   }
 }

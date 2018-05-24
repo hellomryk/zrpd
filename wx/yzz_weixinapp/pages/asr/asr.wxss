@@ -76,13 +76,13 @@ page {
 /* 录音 */
 
 .speak-style {
-    position: relative;
+    position: absolute;
     height: 240rpx;
     width: 240rpx;
     border-radius: 20rpx;
     margin: 0 auto;
     background: #26a5ff;
-    top: -600rpx;
+    top: 600rpx;
     z-index: 999;
 }
 
@@ -125,6 +125,18 @@ page {
     margin-top: 20rpx;
     margin-left: 50rpx;
     background-color: #e5e5e4;
+}
+.word-deBtn1 {
+    width: 498rpx;
+    height: 62rpx;
+    display: inline-block;
+    font-size: 28rpx;
+    line-height: 62rpx;
+    color: #fff;
+    float: left;
+    margin-top: 20rpx;
+    margin-left: 50rpx;
+    background-color: #19A418;
 }
 
 .word-deTxt {

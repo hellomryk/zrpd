@@ -26,7 +26,7 @@
 <!-- 按住说话 -->
 <view class="word-dejp {{isChecked_btn?'normal':'is_checked'}}">
     <image class="word-deimg" src="../../pics/word-delijp.png" bindtap="Singleclick"></image>
-    <button class="word-deBtn" bindtouchstart="touchdown" bindtouchend="touchup">按住说话</button>
+    <button class="{{isSpeaking?'word-deBtn1':'word-deBtn'}}" bindtouchstart="touchdown" bindtouchend="touchup">按住说话</button>
 </view>
 <!-- 键盘输入 -->
 <view class="word-dejp {{isChecked_btn?'is_checked':'normal'}}">

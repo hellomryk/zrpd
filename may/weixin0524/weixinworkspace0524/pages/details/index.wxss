@@ -1,0 +1,4 @@
+/**index.wxss**/
+.container{width: 92%;margin: 0 auto;padding-top: 60rpx;}
+.details-headr{width: 100%;}
+.details-headr-img{width: 300rpx;height: 200rpx;float: left;}

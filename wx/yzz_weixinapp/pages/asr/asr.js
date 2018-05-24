@@ -55,8 +55,6 @@ Page({
         isChecked_btn: false,//录音输入与文本输入切换
         value: "",//搜索结果
         hiddenLoading: true,// loading
-        clickMeopen0: true,//控制疾病高亮显示
-        clickMeopen: true,
         isChecked_img: true,//声音图标
         condition: true, //问题列表
         animation: '',//问题列表动画
@@ -73,19 +71,6 @@ Page({
         })
     },
     onLoad: function () {
-        //问题列表数据请求
-        wx.request({
-            url: 'https://tjk.infobigdata.com/que',
-            header: {
-                'content-type': 'application/json' // 默认值
-            },
-            method: "POST",
-            success: function (res) {
-                console.log(res.data)
-                json = res.data;
-            }
-        })
-
         pageSelf = this;
         this.initDoomm();
         //onLoad中为录音接口注册两个回调函数，主要是onStop，拿到录音mp3文件的文件名（不用在意文件后辍是.dat还是.mp3，后辍不决定音频格式）
@@ -118,11 +103,28 @@ Page({
     //问题列表 
     rotate: function () {
         if (this.data.condition) {
-            //渲染问题列表
-            this.setData({
-                array: json.key,
+            pageSelf.setData({
+                hiddenLoading: false,
             });
-
+            //问题列表数据请求
+            wx.request({
+                url: 'https://tjk.infobigdata.com/que',
+                header: {
+                    'content-type': 'application/json' // 默认值
+                },
+                method: "POST",
+                success: function (res) {
+                    console.log(res.data)
+                    json = res.data;
+                    //渲染问题列表
+                    pageSelf.setData({
+                        array: json.key,
+                    });
+                }
+            })
+            pageSelf.setData({
+                hiddenLoading: true,
+            });
             //平移展示
             this.animation.translate(-wx.getSystemInfoSync().windowWidth).step({ duration: 600 })
             this.setData({
@@ -132,9 +134,6 @@ Page({
             this.setData({
                 condition: false,
             });
-            // this.setData({
-            //   icnicList: true,
-            // });
         } else {
             //平移收回
             this.animation.translate(wx.getSystemInfoSync().windowWidth).step({ duration: 600 })
@@ -142,9 +141,6 @@ Page({
                 //输出动画
                 animation: this.animation.export()
             });
-            // this.setData({
-            //   icnicList: false,
-            // });
             this.setData({
                 condition: true,
             });
@@ -152,7 +148,6 @@ Page({
     },
     //////////////////////// 以下是调用新接口实现的录音，录出来的是 mp3
     touchdown: function () {
-        //touchdown_mp3: function () {
         UTIL.log("mp3Recorder.start with" + mp3RecoderOptions)
         var _this = this;
         speaking(_this);
@@ -162,7 +157,6 @@ Page({
         mp3Recorder.start(mp3RecoderOptions);
     },
     touchup: function () {
-        //touchup_mp3: function () {
         UTIL.log("mp3Recorder.stop")
         this.setData({
             isSpeaking: false,
@@ -223,9 +217,7 @@ Page({
 
         var _this = this
         setTimeout(function () {
-            var urls = "https://api.happycxz.com/wxapp/silk2asr/";
-            UTIL.log(_this.data.recordPath);
-            processFileUploadForAsr(urls, _this.data.recordPath, _this);
+            processFileUploadForAsr(_this.data.recordPath, _this);
         }, 1000)
     },
     //点击切换成文字输入
@@ -321,10 +313,30 @@ function processFileUploadForAsr(filePath, _this) {
                             console.log(res.data)
                             console.log(res.data.result)
                             if (res.data.result) {
+                                if (!pageSelf.data.condition) {
+                                    //平移收回
+                                    pageSelf.animation.translate(wx.getSystemInfoSync().windowWidth).step({ duration: 600 })
+                                    pageSelf.setData({
+                                        //输出动画
+                                        animation: pageSelf.animation.export()
+                                    });
+                                    // this.setData({
+                                    //   icnicList: false,
+                                    // });
+                                    pageSelf.setData({
+                                        condition: true,
+                                    });
+                                }
                                 _this.setData({
                                     outputTxt: res.data.result,
                                 });
                                 speckText(res.data.result)
+                            } else {
+                                wx.showToast({
+                                    title: '暂时没有您想要的数据！',
+                                    icon: 'none',
+                                    duration: 2000
+                                })
                             }
                         }
                     })
@@ -372,6 +384,9 @@ function speaking(_this) {
 }
 //搜索结果文字朗读
 function speckText(str) {
+    if (ner!=null){
+        ner.stop()
+    }
     var url = "http://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&text=" + encodeURI(str);        // baidu
     const innerAudioContext = wx.createInnerAudioContext()
     ner = innerAudioContext
@@ -387,6 +402,7 @@ function speckText(str) {
 }
 //搜索接口函数
 function search(th, str) {
+   
     th.setData({
         hiddenLoading: false,
     });
@@ -403,10 +419,30 @@ function search(th, str) {
             console.log(res.data)
             console.log(res.data.result)
             if (res.data.result) {
+                if (!pageSelf.data.condition) {
+                    //平移收回
+                    pageSelf.animation.translate(wx.getSystemInfoSync().windowWidth).step({ duration: 600 })
+                    pageSelf.setData({
+                        //输出动画
+                        animation: pageSelf.animation.export()
+                    });
+                    // this.setData({
+                    //   icnicList: false,
+                    // });
+                    pageSelf.setData({
+                        condition: true,
+                    });
+                }
                 th.setData({
                     outputTxt: res.data.result,
                 });
                 speckText(res.data.result)
+            }else{
+                wx.showToast({
+                    title: '暂时没有您想要的数据！',
+                    icon: 'none',
+                    duration: 2000
+                })
             }
         }
     })
@@ -414,3 +450,23 @@ function search(th, str) {
         hiddenLoading: true,
     });
 }
+
+
+
+
+
+// wx.request({
+//     url: 'https://tjk.infobigdata.com/scr',
+//     data: {
+//         str: "我爱北京天安门"
+//     },
+//     header: {
+//         'content-type': 'application/json' // 默认值
+//     },
+//     method: "POST",
+//     success: function (res) {
+//         console.log(res.data)
+//         console.log(res.data.result)
+
+//     }
+// })
