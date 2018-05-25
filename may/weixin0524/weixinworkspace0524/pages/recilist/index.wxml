@@ -1,0 +1,52 @@
+<view class='reci-top-bg'>
+    <view class='reci-top-bg-top'>
+        <view class='reci-top-bg-top-title' bindtap="recixiala1">类型</view>
+        <image src="../../images/{{tittleopen1 ? 'jiantoubottom.png':'jiantoutop.png'}}" class='reci-top-bg-top-img' bindtap="recixiala1"></image>
+        <view class="reci-top-bg-top-shuxian"></view>
+        <view class='reci-top-bg-top-title' bindtap="recixiala2">时间</view>
+        <image src="../../images/{{tittleopen2 ? 'jiantoubottom.png':'jiantoutop.png'}}" class='reci-top-bg-top-img' bindtap='recixiala2'></image>
+    </view>
+</view>
+<!-- 点击下拉出现的内容-start -->
+<view class="reci-top-bg-top-box">
+    <view class="reci-top-bg-top-box1 {{tittleopen1 ? 'reci-top-bg-top-box2-hide':''}}">
+        <navigator href="javascript:;" class="reci-top-bg-top-box1-nav">全部</navigator>
+        <navigator href="javascript:;" class="reci-top-bg-top-box1-nav">新闻</navigator>
+        <navigator href="javascript:;" class="reci-top-bg-top-box1-nav">金融财经</navigator>
+        <navigator href="javascript:;" class="reci-top-bg-top-box1-nav">泛娱乐</navigator>
+        <navigator href="javascript:;" class="reci-top-bg-top-box1-nav">视频</navigator>
+        <navigator href="javascript:;" class="reci-top-bg-top-box1-nav">游戏</navigator>
+        <navigator href="javascript:;" class="reci-top-bg-top-box1-nav">视频</navigator>
+        <navigator href="javascript:;" class="reci-top-bg-top-box1-nav">游戏</navigator>
+    </view>
+    <view class="reci-top-bg-top-box2 {{tittleopen2 ? 'reci-top-bg-top-box2-hide':''}}">
+        <navigator href="javascript:;" class="reci-top-bg-top-box1-nav">全部</navigator>
+        <navigator href="javascript:;" class="reci-top-bg-top-box1-nav">新闻</navigator>
+        <navigator href="javascript:;" class="reci-top-bg-top-box1-nav">金融财经</navigator>
+        <navigator href="javascript:;" class="reci-top-bg-top-box1-nav">泛娱乐</navigator>
+        <navigator href="javascript:;" class="reci-top-bg-top-box1-nav">视频</navigator>
+        <navigator href="javascript:;" class="reci-top-bg-top-box1-nav">游戏</navigator>
+        <navigator href="javascript:;" class="reci-top-bg-top-box1-nav">视频</navigator>
+        <navigator href="javascript:;" class="reci-top-bg-top-box1-nav">游戏</navigator>
+    </view>
+    <view class="reci-top-bg-top-box3 {{tittleopen1 ? 'reci-top-bg-top-box-hide':''}}"></view>
+    <view class="reci-top-bg-top-box3 {{tittleopen2 ? 'reci-top-bg-top-box-hide':''}}"></view>  
+</view>
+<!-- 点击下拉出现的内容-end -->
+<view class='reci-listbg'>
+<!-- 列表内容-start -->
+    <view class='reci-list' wx:for-items="{{array}}" wx:key="{{item.id}}" id="{{item.id}}">
+        <image src='../../images/yangzhou.png' class='reci-list-image'></image>
+        <view class='reci-list-right'>
+              <view class='reci-list-right-top'>
+                  <view class='reci-list-right-top-left-one'>{{item.message}}</view>
+                  <view class='reci-list-right-top-left-biao'>{{item.biaoqian1}}</view>
+                  <view class='reci-list-right-top-left-biao'>{{item.biaoqian2}}</view>
+                  <view class='reci-list-right-top-left-biao'>{{item.biaoqian3}}</view>
+                  <view class='reci-list-right-top-left-biao'>{{item.biaoqian4}}</view>
+              </view>
+              <view class="reci-list-right-bottom">更新时间: {{item.updatetime}}</view>
+        </view> 
+    </view>
+<!-- 列表内容-end -->
+</view>

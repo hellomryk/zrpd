@@ -1,0 +1,107 @@
+.reci-top-bg-top {
+    width:100%;
+    height:87rpx;
+    background:#fff;
+}
+.reci-top-bg-top-title {
+  font-size:28rpx;
+  color:#333;
+  line-height:87rpx;
+  float:left;
+  margin-left:146rpx;
+}
+.reci-top-bg-top-img {
+    width:20rpx;
+    height:12rpx;
+    float:left;
+    margin-left:11rpx;
+    margin-top: 39rpx;
+}
+.reci-top-bg-top-shuxian {
+    width:2rpx;
+    height:30rpx;
+    float:left;
+    background:#eee;
+    margin-left:145rpx;
+    margin-top:29rpx;
+}
+.reci-top-bg-top-box1 {
+    width:100%;
+    height:422rpx;
+    background:#fff;
+    border-top:1px solid #eeeeee;
+    overflow:scroll;
+}
+.reci-top-bg-top-box1-nav {
+   width:100%;
+   height:70rpx;
+   text-align:center;
+   font-size:24rpx;
+   color:#333;
+   line-height:70rpx;
+}
+.reci-top-bg-top-box2-hide {
+  display:none;
+}
+.reci-top-bg-top-box {
+  float:left;
+  width:100%;
+}
+.reci-top-bg-top-box1 {
+  float:left;
+}
+.reci-top-bg-top-box3 {
+  width:100%;
+  height:1000rpx;
+  background:rgba(0,0,0,0.4);
+}
+.reci-top-bg-top-box-hide {
+  display:none;
+}
+/* 列表内容开始 */
+.reci-listbg {
+  width:100%;
+  height:1000rpx;
+  background:#f6f6f6;
+   /* background:red; */
+}
+.reci-list {
+  width:100%;
+  height:160rpx;
+  background:#fff;
+  margin-top:20rpx;
+}
+.reci-list-right-top-left-biao {
+    padding:0rpx 19rpx;
+    border:1rpx solid #cccccc;
+    border-radius:17rpx;
+    font-size: 20rpx;
+    color:#999;
+    line-height: 39rpx;
+    float:left;
+    margin-left:15rpx;
+}
+.reci-list-image {
+  width:150rpx;
+  height:100rpx;
+  border-radius:3rpx; 
+  float: left;
+  margin-left:30rpx;
+  margin-top:30rpx;
+}
+.reci-list-right {
+  float:left;
+  margin-left:20rpx;
+  margin-top:33rpx;
+}
+.reci-list-right-top-left-one {
+    font-size: 28rpx;
+    color:#333;
+    line-height: 39rpx;
+    float:left;
+}
+.reci-list-right-bottom {
+    font-size: 20rpx;
+    color:#999;
+    line-height: 75rpx;
+}

@@ -1,12 +1,34 @@
 {
   "pages":[
     "pages/details/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/recilist/index",
+    "pages/redianlist/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#1B89F4",
     "navigationBarTitleText": "网络热点智能AI平台",
     "navigationBarTextStyle":"#fff"
-  }
+  },
+"tabBar": {
+    "color": "#999999",
+    "selectedColor": "#1b89f4",
+    "borderStyle": "#eee",
+    "backgroundColor": "#fff",
+    "list": [
+        {
+            "pagePath": "pages/redianlist/index",
+            "iconPath": "images/diandeng1.png",
+            "selectedIconPath": "images/diandeng11.png",
+            "text": "热点追踪"
+        },
+        {
+            "pagePath": "pages/recilist/index",
+            "iconPath": "images/zuizong2.png",
+            "selectedIconPath": "images/zuizong22.png",
+            "text": "热词追踪"
+        }
+    ]
+}
 }

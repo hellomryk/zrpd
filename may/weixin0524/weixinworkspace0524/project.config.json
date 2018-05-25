@@ -23,13 +23,30 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 0,
+			"list": [
+				{
+					"id": 0,
+					"name": "re",
+					"pathName": "pages/recilist/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "re",
+					"pathName": "pages/redianlist/index",
+					"query": ""
+				}
+			]
 		}
 	}
 }
