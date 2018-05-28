@@ -75,6 +75,7 @@
 }
 .content-view-list-bottom {
     height:103rpx;
+    padding-top: 20rpx;
 }
 .content-view-list-bottom-navigator1 {
   margin-left:30rpx;
