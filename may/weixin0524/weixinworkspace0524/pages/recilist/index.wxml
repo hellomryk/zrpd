@@ -43,7 +43,7 @@
           <view class='reci-list-right'>
                 <view class='reci-list-right-top'>
                     <!-- <view class='reci-list-right-top-left-one'>{{item.message}}</view> -->
-                    <navigator url="pages/details/index?title={{item.id}}" class='reci-list-right-top-left-one'>{{item.message}}</navigator>
+                    <navigator url="../details/index?title={{item.id}}" class='reci-list-right-top-left-one'>{{item.message}}</navigator>
                     <view class='reci-list-right-top-left-biao' wx:for-items="{{item.arrayBiao}}" wx:for-item="page">{{page}}</view>
                 </view>
                 <view class="reci-list-right-bottom">更新时间: {{item.updateDate}}</view>
