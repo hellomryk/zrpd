@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<link href="css/common.css" rel="stylesheet" type="text/css" />
+  <link href="css/icon.css" rel="stylesheet" type="text/css" />
+  <SCRIPT src="js/jquery.min.js" type=text/javascript></SCRIPT>
+  <SCRIPT src="js/main.js" type=text/javascript></SCRIPT>
+	<title>登录</title>
+</head>
+<body>
+<div class="page">
+<!--header开始-->
+<div class="wrap-header">
+  <div class="header_top">
+	<div class="header_top_con">
+    <div id="header" class="visually-hidden"><div class="inner-header">
+      <a id="logo" href="#"><img src="images/logo.png" alt=""></a>
+        <h1><span>武汉市舆情监测系统</span><i>WUHAN OPINION MONITORING PLATFORM</i></h1>
+        <div class="search-block">
+            <form action="#" class="form-search-block">
+                <input type="search" class="search-text">
+                <input type="submit" value="搜索" class="search-submit">
+                <a href="">高级搜索</a>
+            </form>
+        </div>
+    </div></div>
+		<div class="fr hea_r">
+    <span>2014年11月24日</span>
+    <span>星期五</span>
+  </div>
+		<div class="fl hea_l visually-hidden">
+    <a href="">监测报告</a><i>|</i>  
+    <a href="">统计分析</a><i>|</i>  
+    <a href="">简报夹</a> 
+    </div>
+  </div>
+	</div>
+</div>
+<!--header结束-->
+
+<!--main开始-->
+<div class="wrap-container">
+	<div id="container">
+		<div id="main">
+      <div id="login">
+        <div class="lo_con">
+          <input type="text" class="user_inp" />
+          <input type="text" class="pass_inp" />
+          <div class="jym_con"><input type="text" class="jym_inp fl" /><img src="images/code.jpg" alt="" class="fl mar_lr" width="83" height="40" /><a href="" class="fl hyz">换一张</a></div>
+          <input type="button" class="btn_lo" />
+        </div>
+
+<div id="demo" class="qimo8 box_tb">
+  <div class="qimo">
+    <div id="demo1">
+      <ul>
+ <li><a href="" class="fl">▪ 中国首届国家网络安全宣传周11月24日启动</a><i class="fl">[2014-10-12 13:00]</i></li>
+              <li><a href="" class="fl">▪ 马凯:中国政府高度重视互联网发展</a><i class="fl">[2014-10-12 13:00]</i></li>
+              <li><a href="" class="fl">▪ 中国首届国家网络安全宣传周11月24日启动</a><i class="fl">[2014-10-12 13:00]</i></li>
+              <li><a href="" class="fl">▪ 马凯:中国政府高度重视互联网发展</a><i class="fl">[2014-10-12 13:00]</i></li>
+              <li><a href="" class="fl">▪ 中国首届国家网络安全宣传周11月24日启动</a><i class="fl">[2014-10-12 13:00]</i></li>
+              <li><a href="" class="fl">▪ 马凯:中国政府高度重视互联网发展</a><i class="fl">[2014-10-12 13:00]</i></li>
+              <li><a href="" class="fl">▪ 中国首届国家网络安全宣传周11月24日启动</a><i class="fl">[2014-10-12 13:00]</i></li>
+              <li><a href="" class="fl">▪ 马凯:中国政府高度重视互联网发展</a><i class="fl">[2014-10-12 13:00]</i></li>
+              <li><a href="" class="fl">▪ 中国首届国家网络安全宣传周11月24日启动</a><i class="fl">[2014-10-12 13:00]</i></li>
+              <li><a href="" class="fl">▪ 马凯:中国政府高度重视互联网发展</a><i class="fl">[2014-10-12 13:00]</i></li>
+              <li><a href="" class="fl">▪ 中国首届国家网络安全宣传周11月24日启动</a><i class="fl">[2014-10-12 13:00]</i></li>
+              <li><a href="" class="fl">▪ 马凯:中国政府高度重视互联网发展</a><i class="fl">[2014-10-12 13:00]</i></li>
+      </ul>
+    </div>
+    <div id="demo2">
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+var demo = document.getElementById("demo");
+var demo1 = document.getElementById("demo1");
+var demo2 = document.getElementById("demo2");
+demo2.innerHTML=document.getElementById("demo1").innerHTML;
+function Marquee(){
+if(demo.scrollLeft-demo2.offsetWidth>=0){
+ demo.scrollLeft-=demo1.offsetWidth;
+}
+else{
+ demo.scrollLeft++;
+}
+}
+var myvar=setInterval(Marquee,30);
+demo.onmouseout=function (){myvar=setInterval(Marquee,30);}
+demo.onmouseover=function(){clearInterval(myvar);}
+</script>
+      </div>
+		</div>
+	</div>
+</div>
+<!--main结束-->
+
+<!--footer开始-->
+<div class="wrap-footer login-footer">
+        <div id="footer"><div class="inner-footer">
+            <p>版权所有：中国数字文化集团有限公司&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;技术支持：北京中润普达信息技术有限公司</p>
+          <p>Copyright@2014 Runup (Group) Co.,Ltd. All Rights Reserved</p>
+        </div></div>
+    </div>
+<!--footer结束-->
+</div>
+</body>
+</html>

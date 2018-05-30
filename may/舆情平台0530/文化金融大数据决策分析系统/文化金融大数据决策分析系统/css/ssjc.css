@@ -1,0 +1,94 @@
+@charset "utf-8";
+/* CSS Document*/
+
+.main_left,.main_right {width: 482px;height: 310px;float: left;border:1px solid #cecece;margin-top: 15px;background: #fff url(../images/style_yh/title_bg.gif) 0 4px repeat-x;_display:inline;}
+.title_line {height: 4px;}
+.main_title {overflow:hidden;height: 30px;line-height: 30px;padding: 0 15px 3px;}
+.main_title a {float: right;color: #999;}
+.main_title h2 {width: 108px;height: 30px;line-height: 30px;color: #dd4109;font-size: 14px;}
+.main_left {margin-right: 12px;*+margin-right: 11px;_margin-right:8px;}
+.main_con {padding: 0 15px 10px; overflow:hidden;}
+.m_con_hot {padding: 10px 0 15px;border-bottom: 1px dashed #adadad;}
+.m_con_hot h3 {text-decoration: underline; text-align:center;}
+.m_con_hot h3 a {font-size: 14px;color: #dd0202;line-height: 24px;}
+.m_con_hot p {line-height: 24px;color: #999;}
+.m_con_hot p a {color: #333;}
+
+.m_con_list {margin-top: 5px;}
+.m_con_list li {overflow:hidden; border-bottom: 1px dashed #ddd;height: 16px;line-height: 16px;padding:5px 0;}
+.m_con_list li span {float: right;color: #888;}
+.m_con_list li a {position: relative;top: -2px;color: #333;}
+.m_con_list li a:hover {color: #DD0202;}
+.m_con_list li span em {font-style: normal;}
+.m_con_list1 ul{ display:block; float:left; width:450px;}
+
+.main_table {_overflow:hidden;_height:250px;padding: 0;}
+.overFlow{overflow:hidden;*+margin-bottom: 10px;}
+.gg_jc{_height:320px;}
+.gg_jc .main_left,.gg_jc .main_right{_height:315px;}
+
+.ssjcTab{float:left;width:118px;height:250px;margin-top:3px;background:#f1f8ff;border-right:1px solid #cccccc;}
+.ssjcTab dd{position:relative;height:30px;border-bottom:1px solid #cccccc;color:#444444;font-size:14px;line-height:30px;padding-left:30px;cursor:pointer;}
+.ssjcTab dd.current{color:#343434;font-weight:bold;background:#fff;width: 89px;}
+.ssjcTab dd i{display:none;position:absolute;top: 12px;right:1px;width:0;height:0;border:5px solid;border-color: transparent transparent transparent #343434;line-height: 0;_border-style:dashed dashed dashed solid;}
+.ssjcTab dd.current i{display:block;}
+
+.main_jc .main_right,.main_jc .main_left{overflow:hidden;height:285px;}
+
+.xx_jc {height: 265px;}
+.xx_jc .main_left,.xx_jc .main_right{height:260px;overflow: hidden;}
+.wbjcTab{position:absolute;top:6px;left:225px;height:30px;}
+.pos{position:relative;}
+.wbjcTab span {float:left;height:29px;padding:0 12px;margin-left:2px;color:#333333;line-height:29px;text-align:center;blr:expression(this.onFocus=this.blur());cursor: pointer;}
+.wbjcTab span.current,.wbjcTab span:hover{height:30px; color: #fff; line-height:30px;font-weight:bold;background:#c10606;}
+.qlgTab {left: 175px;}
+.wbjcTag {width: 482px;height: 330px;overflow: hidden;margin: 5px 0;zoom:1;}
+.ss {width: 472px;height: 330px;margin: 0 10px;overflow-y:auto;*+position: relative;}
+.ss li {position: relative;padding-left: 25px;margin-bottom: 15px;}
+.ss li input {position: absolute;top: 10px;left: 0;}
+.ss li dt {width: 40px;float: left;margin-right: 10px;}
+.ss li dd {width: 410px;margin-left: 10px;float: left;line-height: 20px;margin-top: -2px;}
+.ss li dd span {color: #c10606;}
+.ss li dd span.come_from{float: right;}
+
+.ss li dd a {color: #f00;}
+.xxjcTitleTab {left: 140px;}
+.mtgj_con {padding: 10px;}
+
+.qlgpg_table {padding-top: 10px;}
+table.pgbgTable{background:#dadada;margin:0 auto;width:94%;}
+table.pgbgTable th {background:#f3f3f3;line-height:35px;text-align:center;font-weight: normal;}
+table.pgbgTable td{background:#fff;line-height:30px;text-align:center;}
+
+.yh_h1 .main_left,.yh_h1 .main_right {height: 270px;}
+.yh_h2 .main_left,.yh_h2 .main_right {height: 270px;}
+.yh_ssjc {left: 85px;}
+.yh_wb .main_left,.yh_wb .main_right {background: #fff;height: 380px;}
+.yh_wb .main_title {background: #f8f8f8;border-bottom: 2px solid #cecece;height: 38px;line-height: 38px;padding-bottom: 0;}
+.yh_wb .main_title h2 {height: 38px;line-height: 38px;background: url(../images/style_yh/index2.gif) -8px 2px no-repeat;padding-left: 20px;}
+.yh_wb .yh_ssjc {left: 105px;top: 9px;}
+.yh_h1 .main_con {height: 216px;overflow: hidden;zoom:1;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
