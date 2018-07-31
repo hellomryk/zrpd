@@ -1,0 +1,239 @@
+/*
+ * 加载左导航 
+ * 
+ */
+$(function() {
+	$.ajax({
+		url: 'module/getNav.htm',
+		data :{parentId:'-1'},
+		type: 'post',
+		async: false,
+		dataType : "json",
+		success: function(data) {
+			if (data) {
+				/***
+				 * data中的newFunction字段表示是否是添加的功能
+				 * true-是  false-否
+				 */
+				///var showlist = $("<ul></ul>");
+				showall(data, $("#left-nav"));
+				//				封装ul  li
+				//$("#left-nav").append(showlist);
+				var locationUrl = window.location.href;
+				$("#left-nav").contents().find("li a").each(function() {
+					//处理微信账号切换
+					var href = $(this).attr("href");
+					var moduleCode = "";
+					if (href.indexOf("moduleCode") > 0) {
+						moduleCode = href.split("moduleCode=")[1];
+					}
+					var id = $(this).attr('id');
+					$(this).on('click',function(){
+						$('body').addClass('minified');
+						//清除掉存在kStorage的code值
+						var myStorage = kst.use("myStorage");
+						myStorage.set("code","");
+						//点击事件
+						modelClick.call(this,moduleCode,id);
+					});
+					//反选左边导航菜单
+					var locationModuleCode = "";
+					if (locationUrl.indexOf("moduleCode") > 0) {
+						locationModuleCode = locationUrl.split("moduleCode=")[1];
+					}
+					if (locationModuleCode != "" && locationModuleCode == moduleCode) {
+						$(this).parent().attr("class", "active").parent().css("display", "block").parent().attr("class", "open");
+
+					}
+				});
+				checkURL();
+			} else {
+				window.location.href = IKFTool.ctx;
+			}
+
+		}
+	});
+	//menu_list为json数据
+	//parent为要组合成html的容器
+/*	function showall(menu_list, parent) {
+		for (var menu = 0; menu < menu_list.length; menu++) {
+			//如果有子节点，则遍历该子节点
+			if (menu_list[menu].hasChild) {
+				//创建一个子节点li
+				var li = $("<li class=''></li>");
+				//              创建li下的a
+				var a = $("<a></a>");
+				//              创建a下的li
+				var subli = $('<i class="fa fa-lg fa-fw ' + menu_list[menu].extjsIconCls + '"></i>');
+				//                创建a下的span
+				var span = $('<span class="menu-item-parent"></span>');
+				$(span).append(menu_list[menu].name);
+				//                将subli放到a
+				$(subli).appendTo(a);
+				$(span).appendTo(a);
+
+				判断是否要加“新功能标识”
+				if(menu_list[menu].newFunction){
+					var oI = $('<i class="menu-item-newFunction"title="该级有添加功能哦" style="display: inline-block!important;width: 10px!important;height: 10px!important;background-color: red!important;border-radius: 50%!important;margin-left: 5px!important;"></i>')
+					$(oI).appendTo(span);
+					oI.on('click',function(event){
+						return false;
+					});
+				}
+				$(a).attr('href', '#').attr('title', menu_list[menu].name).attr('id', menu_list[menu].id);
+				//                将a 放到li
+				$(a).appendTo(li);
+				//将li的文本设置好，并马上添加一个空白的ul子节点，并且将这个li添加到父亲节点中
+				$(li).append("<ul class='temporary-marginBug'></ul>").appendTo(parent);
+				//添加的temporary-marginBug类名用来解决bug
+				//将空白的ul作为下一个递归遍历的父亲节点传入
+				showall(menu_list[menu].children, $(li).children('ul').eq(0));
+			}
+			//如果该节点没有子节点，则直接将该节点li以及文本创建好直接添加到父亲节点中
+			else {
+				var li = $('<li></li>');
+				//            	li下的a
+				var li_a = $('<a href="#"><i class="fa fa-fw fa-lg ' + menu_list[menu].extjsIconCls + '"></i><span class="menu-item-parent">' + menu_list[menu].name + '</span></a>');
+				if (menu_list[menu].url != undefined && menu_list[menu].url != '') {
+					$(li_a).attr('href', menu_list[menu].url + "?moduleCode=" + menu_list[menu].code).attr('id', menu_list[menu].id);
+				} else {
+					$(li_a).attr('href', "nav/toList.htm?p="+menu_list[menu].id).attr('id', menu_list[menu].id);
+//					$(li_a).attr('href', "nav/toList.htm?p="+menu_list[menu].id).attr('id', menu_list[menu].id);
+				}
+				判断是否要加“新功能标识”
+				if(menu_list[menu].newFunction){
+					var oI = $('<i class="menu-item-newFunction"title="该级有添加功能哦" style="display: inline-block;!important;width: 10px!important;height: 10px!important;background-color: red!important;border-radius: 50%!important;margin-left: 5px!important;"></i>')
+					$(oI).appendTo(li_a.find('.menu-item-parent')[0]);
+					oI.on('click',function(event){
+						return false;
+					});
+				}
+				$(li_a).appendTo(li);
+				$(li).appendTo(parent);
+			}
+		}
+	}*/
+	
+	//menu为json数据，parent为要组合成html的容器
+	function showall(menu, parent) {
+		var heightParent = parent.height();//父盒子的高度(盛放li菜单)
+		var topArr = menu.top;
+		var bottomArr = menu.bottom;
+		var topUl = $('<ul style="display: block;"></ul>');
+
+		var mount = bottomArr.length+ topArr.length;
+
+		var eachHeight = heightParent/mount;
+		parent.css('minHeight',mount*35+'px');
+		if(eachHeight>54){
+			eachHeight = 54;
+		}else if(eachHeight<35){
+			eachHeight =35;
+		}
+		$(window).resize(function(){
+			var heightParent = parent.height();
+			var eachHeight = heightParent/mount;
+				if(eachHeight>54){
+					eachHeight = 54;
+				}else if(eachHeight<35){
+					eachHeight =35;
+				}
+				parent.find('li').css('lineHeight',eachHeight+'px');
+		})
+
+		for (var menu = 0; menu < topArr.length; menu++) {
+			var li = $('<li></li>');
+			li.css('lineHeight',eachHeight+'px');
+			//li下的a
+			var li_a = $('<a href="#"><i title="' + topArr[menu].name + '" class="fa fa-fw fa-lg ' + topArr[menu].extjsIconCls + '"></i><span class="menu-item-parent">' + topArr[menu].name + '</span></a>');
+			if (topArr[menu].url != undefined && topArr[menu].url != '') {
+				$(li_a).attr('href', topArr[menu].url + "?moduleCode=" + topArr[menu].code+"&_="+aikf_version).attr('id', topArr[menu].id);
+			} else {
+				$(li_a).attr('href', "nav/toList.htm?p="+topArr[menu].id+"&_="+aikf_version).attr('id', topArr[menu].id);
+			}
+			$(li_a).appendTo(li);
+			$(li).appendTo(topUl);
+		}
+		var bottomUl = $('<ul style="display: block;position: absolute; bottom:0px;"></ul>');
+		for (var menu = 0; menu < bottomArr.length; menu++) {
+			var li = $('<li></li>');
+			li.css('lineHeight',eachHeight+'px');
+			//li下的a
+			var li_a = $('<a href="#"><i title="' + bottomArr[menu].name + '" class="fa fa-fw fa-lg ' + bottomArr[menu].extjsIconCls + '"></i><span class="menu-item-parent">' + bottomArr[menu].name + '</span></a>');
+			if (bottomArr[menu].url != undefined && bottomArr[menu].url != '') {
+				$(li_a).attr('href', bottomArr[menu].url + "?moduleCode=" + bottomArr[menu].code+"&_="+aikf_version).attr('id', bottomArr[menu].id);
+			} else {
+				$(li_a).attr('href', "nav/toList.htm?p="+bottomArr[menu].id+"&_="+aikf_version).attr('id', bottomArr[menu].id);
+			}
+			$(li_a).appendTo(li);
+			$(li).appendTo(bottomUl);
+		}
+		parent.append(topUl).append(bottomUl);
+	}
+
+	$('#left-panel').hover(
+	function(a) {
+	    if($(this).width()>=60){
+			$('body').removeClass("minified");		
+	    }
+	    a.preventDefault()
+	},function(a) {
+ 		if($(this).width()<=160){	
+			$('body').addClass("minified");	 	
+	    }
+	    a.preventDefault()
+	})
+
+});
+/**
+ * 模块点击
+ * @param moduleCode
+ * @return
+ */
+
+function modelClick(moduleCode, id) {
+	if (moduleCode != 'CONVERLIST') {
+		clearTimeout(clearConverTimer);
+		clearConverTimer = 0;
+	}
+	if (moduleCode != 'INDEX') {
+		clearTimeout(clearIndexTimer);
+	}
+
+	/*删除对应新功能编辑session*/
+	if($(this).find('i.menu-item-newFunction').length>0){
+		$('i.menu-item-newFunction',this).remove();
+		$.post("module/removeNewFunction.htm", {
+			userId: login_user_id,
+			resourceId: id
+		});	
+	}
+
+}
+
+/*解决数据字典-点击维护值 左侧导航无选中class*/
+function addClas() {
+	var t = setTimeout(function() {
+		adds();
+	}, 100)
+}
+
+
+function adds() {
+	$('#left-nav ul li:nth-child(3) ul li:nth-child(5)').addClass('active')
+}
+
+//这段代码解决bug用,间隙问题
+$(function(){
+	$('.temporary-marginBug').eq(7).css('margin-top','-11px');
+})
+
+/*
+function addClas1(){
+	var t=setTimeout(function(){
+		adds1();
+	},100)
+}
+function adds1(){
+	$('#left-nav ul li:nth-child(2) ul li:nth-child(1)').addClass('active')
+}*/

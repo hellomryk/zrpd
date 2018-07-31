@@ -1,0 +1,204 @@
+body,.smart-style-3 body, body.smart-style-3{font-size:14px;font-family:"Helvetica","Arial","Hiragino Sans GB","Microsoft YaHei","sans-serif";}
+html,.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{font-family:"Helvetica","Arial","Hiragino Sans GB","Microsoft YaHei","sans-serif";}
+.h1,h1{font-size:28px;font-weight:bold;}
+.h2,h2{font-size:24px;font-weight:bold;}
+.h3,h3{font-size:20px;font-weight:bold;}
+.h4,h4{font-size:18px;font-weight:bold;}
+.h5, h5{font-size:16px;font-weight:bold;}
+.h6,h6{font-size:14px;font-weight:bold;}
+.jarviswidget-ctrls .button-icon{font-family:"Helvetica","Arial","Hiragino Sans GB","Microsoft YaHei","sans-serif";}
+.smart-form .input input, .smart-form .select select, .smart-form .textarea textarea{font:14px/18px "Helvetica","Arial","Hiragino Sans GB","Microsoft YaHei","sans-serif";}
+.ui-widget{font-family:"Helvetica","Arial","Hiragino Sans GB","Microsoft YaHei","sans-serif";}
+.jvectormap-label{font-family:"Helvetica","Arial","Hiragino Sans GB","Microsoft YaHei","sans-serif";}
+code, kbd, pre, samp{font-family:"Helvetica","Arial","Hiragino Sans GB","Microsoft YaHei","sans-serif";}
+.smart-form footer .btn{font:300 16px/30px "Helvetica","Arial","Hiragino Sans GB","Microsoft YaHei","sans-serif";}
+.smart-form .button{font-family:"Helvetica","Arial","Hiragino Sans GB","Microsoft YaHei","sans-serif";}
+.tooltip-inner{font-family:"Helvetica","Arial","Hiragino Sans GB","Microsoft YaHei","sans-serif";}
+.select2-search input{font-family:"Helvetica","Arial","Hiragino Sans GB","Microsoft YaHei","sans-serif";}
+.select2-container-multi .select2-choices .select2-search-field input{font-family:"Helvetica","Arial","Hiragino Sans GB","Microsoft YaHei","sans-serif";}
+.ui-widget button, .ui-widget input, .ui-widget select, .ui-widget textarea{font-family:"Helvetica","Arial","Hiragino Sans GB","Microsoft YaHei","sans-serif";}
+.md-editor > textarea{font-family:"Helvetica","Arial","Hiragino Sans GB","Microsoft YaHei","sans-serif";}
+
+.btn{font-size:14px;line-height:1.28572;}
+/*.h1 .small, .h1 small, .h2 .small, .h2 small, .h3 .small, .h3 small, h1 .small, h1 small, h2 .small, h2 small, h3 .small, h3 small{font-size:70%;}
+.h4 .small, .h4 small, .h5 .small, .h5 small, .h6 .small, .h6 small, h4 .small, h4 small, h5 .small, h5 small, h6 .small, h6 small{font-size:77.8%;}*/
+
+.demo .btn{font-size:14px !important;}
+
+/*10px to 12px*/
+.slider-handle{font-size:12px;}
+.fd-slider-active .fd-slider-handle:before, .fd-slider-focused .fd-slider-handle:before, .fd-slider-hover .fd-slider-handle:before{font-size:12px;}
+.fc-event-vert .fc-event-time{font-size:12px;}
+.irs-from, .irs-single, .irs-to{font-size:12px;}
+.chat-body li.message .message-text time{font-size:12px;}
+.email-open-header > span{font-size:12px;}
+time.icon *{font-size:12px;}
+.todo > li > p > span{font-size:12px;}
+#logo-group > span b.badge{font-size:12px;}
+#project-context > *:first-child, .project-context > *:first-child{font-size:12px;}
+.onoffswitch-inner:after, .onoffswitch-inner:before{font-size:12px;}
+.onoffswitch-checkbox + .onoffswitch-label .onoffswitch-switch:before, .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch:before{font-size:12px;}
+.bootstrapWizard li .step i{font-size:12px;}
+.smart-style-2.menu-on-top .menu-item-parent{font-size:12px;}
+
+/*11px to 12px*/
+.dt-toolbar-footer{font-size:12px;}
+.fc-event-vert .ui-resizable-s{font-size:12px;}
+.ui-jqgrid .ui-jqgrid-view{font-size:12px;}
+.ui-jqgrid .loading{font-size:12px;}
+.ui-jqdialog{font-size:12px;}
+.ui-jqgrid .ui-jqgrid-view button, .ui-jqgrid .ui-jqgrid-view input, .ui-jqgrid .ui-jqgrid-view select, .ui-jqgrid .ui-jqgrid-view textarea{font-size:12px;}
+.ui-tooltip{font-size:12px;}
+.note, .smart-form .note{font-size:12px;}
+.smart-form .tooltip{font-size:12px;}
+.smart-form .state-error + em{font-size:12px;}
+.smart-form input.input-xs{font-size:12px;}
+.fc-event-time, .fc-event-title{font-size:12px;}
+#external-events > li > *:first-child:after{font-size:12px;}
+.inbox-side-bar h6{font-size:12px;}
+.input-xs{font-size:12px;}
+.timeline-seperator > *:first-child{font-size:12px;}
+.progress-bar{font-size:12px;}
+.nav-tabs > li > a .badge{font-size:12px;}
+.nav-tabs > li > a .label{font-size:12px;}
+.notification-body time{font-size:12px;}
+.tooltip-inner{font-size:12px;}
+.jqstooltip .jqsfield{font-size:12px;}
+nav ul b{font-size:12px;}
+#sparks li h5{font-size:12px;}
+
+/*13px to 12px*/
+output{font-size:12px;}
+.form-control{font-size:12px;}
+/*.btn{font-size:12px;}*/
+.dropdown-menu{font-size:12px;}
+.input-group-addon{font-size:12px;}
+.popover-title{font-size:12px;}
+/*.demo .btn{font-size:12px;}*/
+.md-editor > textarea{font-size:12px;}
+.bootstrap-tagsinput{font-size:12px;}
+.bootstrap-tagsinput > span{font-size:12px;}
+div.dataTables_info{font-size:12px;font-style:normal;}
+.jarviswidget > div{font-size:12px;}
+.bigBox p{font-size:12px;}
+.SmallBox p{font-size:12px;}
+.note-editor .note-dialog .note-help-dialog .note-shortcut th{font-size:12px;}
+.superbox-imageinfo span{font-size:12px;}
+.ui-widget{font-size:12px;}
+.ui-widget .ui-widget{font-size:12px;}
+.ui-state-default p, .ui-state-error p, .ui-state-highlight p{font-size:12px;}
+.ui-dialog-titlebar-close:before{font-size:12px;}
+.pricing-big .panel-footer > div{font-size:12px;}
+#chat-container #chat-users li a{font-size:12px;}
+.smart-form .label{font-size:12px;}
+.smart-form .note a{font-size:12px;}
+.smart-form .input-file .button{font-size:12px;}
+.smart-form .checkbox, .smart-form .radio{font-size:12px;}
+.smart-form .rating{font-size:12px;}
+#extr-page-header-space > *:first-child{font-size:12px;}
+.dd{font-size:12px;}
+.dd-empty, .dd-item, .dd-placeholder{font-size:12px;}
+.dd-handle > span{font-size:12px;}
+#inbox-table{font-size:12px;}
+.inbox-menu-lg li a{font-size:12px;}
+.inbox-menu-sm li a{font-size:12px;}
+.table-forum tr td h4 small{font-size:12px;}
+nav ul{font-size:12px;}
+
+.btn-header a > span{font-size:14px;}
+
+.ajax-dropdown > *:last-child{font-size:12px;}
+.notification-body .msg-body, .notification-body .subject{font-size:12px;}
+.bootstrapWizard li .title{font-size:12px;}
+.menu-on-top aside#left-panel nav > ul > li > a{font-size:12px;}
+.menu-on-top .menu-item-parent{font-size:12px;}
+.menu-on-top nav ul ul li a{font-size:12px;}
+.smart-style-1 nav ul ul li > a{font-size:12px;}
+.smart-style-1.menu-on-top aside#left-panel nav > ul > li > a{font-size:12px;}
+.smart-style-1.menu-on-top nav ul ul li a{font-size:12px;}
+.smart-style-2.menu-on-top aside#left-panel nav > ul > li > a{font-size:12px;}
+.smart-style-2.menu-on-top nav ul ul li a{font-size:12px;}
+.smart-style-3 nav > ul > li > a{font-size:14px;}
+.smart-style-3 nav ul ul li > a{font-size:14px;}
+.smart-style-3.menu-on-top aside#left-panel nav > ul > li > a{font-size:12px;}
+.smart-style-3.menu-on-top nav ul ul li a{font-size:12px;}
+.ui-jqgrid tr.ui-row-ltr td{font-size:12px !important;}
+
+/*italic to normal*/
+dfn{font-style:normal;}
+.jarviswidget-timestamp{font-style:normal;}
+.editable-empty, .editable-empty:focus, .editable-empty:hover{font-style:normal;}
+.pricing-big .panel-footer .btn span{font-style:normal;}
+.chat-body li.message .message-text .chat-file b{font-style:normal;}
+.todo > li.complete > *{font-style:normal;}
+.smart-timeline-time > small{font-style:normal;}
+
+/*17px to 16*/
+.input-lg{font-size:16px;}
+.input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn{font-size:16px;}
+.input-group-addon.input-lg{font-size:16px;}
+.navbar-brand{font-size:16px;}
+.pagination-lg > li > a, .pagination-lg > li > span{font-size:16px;}
+.demo > span i{font-size:16px;}
+.bigBox span{font-size:16px;}
+#divMiniIcons .cajita{font-size:16px;}
+.SmallBox span{font-size:16px;}
+.smart-form .rating label{font-size:16px;}
+.smart-form input.input-lg{font-size:16px;}
+.smart-form select.input-lg{font-size:16px;}
+.table-forum thead tr th{font-size:16px;}
+.header-search > button{font-size:16px;}
+#cancel-search-js{font-size:16px;}
+.btn-header > *:first-child > a{font-size:16px;}
+.smart-style-1 nav > ul > li > a > i{font-size:16px;}
+
+/*15px to 14px*/
+.panel-title{font-size:14px;position:relative;}
+.del-btn{position:absolute;top:13px;right:45px;cursor:pointer;}
+.bootstrap-tagsinput .tag [data-role="remove"]:after{font-size:14px;}
+.ui-jqgrid .ui-jqgrid-title{font-size:14px;}
+.select2-search-choice-close{font-size:14px;}
+.ui-accordion .ui-accordion-header{font-size:14px;}
+.smart-form .toggle{font-size:14px;}
+#extr-page h5.about-heading{font-size:14px;}
+.dd-handle{font-size:14px;}
+.dd3-content{font-size:14px;}
+time.icon span{font-size:14px;}
+.table-forum tr td h4{font-size:14px;}
+.ajax-notifications .ajax-loading-error{font-size:14px;}
+.ajax-notifications .ajax-loading-animation{font-size:14px;}
+.bootstrapWizard li .step{font-size:14px;}
+.bootstrapWizard li.active .step, .bootstrapWizard li.active.complete .step{font-size:14px;}
+.menu-on-top nav ul ul li:hover > a:after, .menu-on-top nav > ul ul > li a:after, .menu-on-top nav > ul ul > li a:hover:after, .menu-on-top nav > ul > li > a:after{font-size:14px;}
+
+/*19px to 18px*/
+.lead{font-size:18px;}
+#logo-group span#activity{font-size:18px;}
+.minifyme{font-size:18px;}
+/*21px to 20px*/
+.subscript{font-size:20px;}
+#chat-container .chat-list-open-close{font-size:20px;}
+
+/*23px to 22px*/
+.ajax-loading-error{font-size:22px;}
+.minified .minifyme{font-size:22px;}
+
+/*25px to 24px*/
+.bigBox .bigboxnumber{font-size:24px;}
+.smart-style-2 nav > ul > li > a > i{font-size:24px !important;}
+
+.irs-grid-text{font-size:10px;}
+#chat-container .chat-list-open-close b{font-size:10px;}
+.smart-form .toggle i:after{font-size:10px;}
+nav > ul > li > a > i > em{font-size:10px;}
+.minified .inbox-badge{font-size:10px;}
+label input.radiobox.style-2[type="radio"]:checked + span:before{font-size:10px;}
+/**/
+.btn-group-lg > .btn, .btn-lg{font-size:18px;}
+
+
+
+
+
+
+

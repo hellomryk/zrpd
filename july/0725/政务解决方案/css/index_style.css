@@ -1,0 +1,234 @@
+@charset "utf-8";
+/* CSS Document */
+
+.knowledge_bg1 {
+	width:100%;
+	height:485px;
+	min-width:1180px;
+	background-color:#FFF;
+}
+.knowledge_title {
+	font-size:30px;
+	line-height:30px;
+	color:#000;
+	font-weight:normal;
+	margin-top:100px;
+	text-align:center;
+}
+.knowledge_bg1 ul {
+	width: 1180px;
+	margin:0 auto;
+}
+.knowledge_bg1 li {
+	display:inline-block;
+	margin-left:12%;
+	margin-top:80px;
+}
+.knowledge_bg1 p {
+	font-size:16px;
+	
+	line-height:30px;
+	color:#000;
+	
+	text-align:center;
+}
+.features_bg1 {
+	min-width:1180px;
+	width:100%;
+	height:670px;
+	background-color:#F6F6F6;
+}
+.features_title {
+	font-size:30px;
+	line-height:30px;
+	color:#000;
+	font-weight:normal;
+	padding-top:100px;
+	text-align:center;
+}
+.features_bg1 ul {
+	width: 1180px;
+	margin:0 auto;
+}
+.features_bg1 li {
+	float: left;
+	margin-left:5%;
+	margin-top:80px;
+	width:330px;
+	height:360px;
+	background-color:#108CEE;
+	border-top:6px #108CEE solid;
+	border-radius:10px;
+	position:relative; 
+}
+.features_bg1 li div {
+	width:330px;
+	height:360px;
+	background-color:#fff;
+}
+.features_bg1 h2 {
+	font-size:24px;
+	font-weight:normal;
+	line-height:28px;
+	color:#000;
+	text-align:center;
+	padding-top: 40px;
+}
+.features_bg1 p {
+	font-size:16px;
+	line-height:28px;
+	color:#999999;
+	margin-top:38px;
+	margin-left:28px;
+}
+
+.process_bg1 {
+	width:100%;
+	height:485px;
+	min-width:1180px;
+	background-color:#FFF;
+}
+.process_title {
+	font-size:30px;
+	line-height:30px;
+	color:#000;
+	font-weight:normal;
+	margin-top:100px;
+	text-align:center;
+}
+.process_bg1 ul {
+	width:1180px;
+	margin:0 auto;
+	overflow:hidden;
+}
+.process_bg1 li {
+	display:inline-block;
+	margin-top:95px;
+}
+.process_bg1 li:nth-child(1){
+	margin-left:0;
+}
+.process_bg1 h2 {
+	
+}
+.process1{
+	font-size:16px;
+	width:220px;
+	height:50px;
+	line-height:50px;
+	color:#000;
+	font-weight:normal;
+	
+	text-align:center;
+	background:#eeeeee url(../images/process_img1.png) no-repeat 0 0;
+	
+	}
+
+.process2{
+	font-size:16px;
+	width:220px;
+	height:50px;
+	line-height:50px;
+	color:#000;
+	font-weight:normal;
+	
+	text-align:center;
+	background:#eeeeee url(../images/process_img2.png) no-repeat 0 0;
+	
+	}
+.process3{
+	font-size:16px;
+	width:220px;
+	height:50px;
+	line-height:50px;
+	color:#000;
+	font-weight:normal;
+
+	text-align:center;
+	background:#eeeeee url(../images/process_img3.png) no-repeat 0 0;
+    }
+	
+.process4{
+	font-size:16px;
+	width:220px;
+	height:50px;
+	line-height:50px;
+	color:#000;
+	font-weight:normal;
+
+	text-align:center;
+	background:#eeeeee url(../images/process_img4.png) no-repeat 0 0;
+	}
+.process_bg1 p {
+	font-size:12px;
+	line-height:28px;
+	color:#999999;
+	margin-bottom:100px;
+	text-align:center;
+	
+}
+<!----> 
+.process_bg1 li {
+	float:left;
+	display:inline-block;
+	margin-top:80px;
+	width:218px;
+	height:130px;
+	border:#EEEEEE 1px solid; 
+}
+.jiantou{ margin-left:34px; margin-top:137px; margin-right:34px; width:30px;height:20px;display:block;float:left;}
+.process_bg1 li div {
+	width:220px;
+	height:50px;
+	background-color:#eeeeee;
+}
+.consult_rightnow {
+	width:100px;
+	height:40px;
+	border:1px solid #108cee;
+	display:block;
+	margin:0 auto;
+	font-size:16px;
+	color:#108cee;
+	line-height:40px;
+	border-radius:3px;
+	text-align:center;
+	position:absolute;
+	bottom:43px;
+	left:115px;
+}
+.consult_rightnow:hover{
+	display: block;
+	background: -webkit-linear-gradient(to right, red , blue);
+	background:linear-gradient(to right,#15bdee,#1e96f2);
+	background:-o-linear-gradient(to right,#15bdee,#1e96f2);
+	background:-moz-linear-gradient(to right,#15bdee,#1e96f2);
+	color:#fff;
+}
+.custom_made_li {
+	margin-top:80px;
+	transition:all linear 0.5s;
+}
+.custom_made_li:hover {
+	margin-top:50px;
+}
+.knowledge_img {
+	width:105px;
+	height:104px;
+	margin-left:15px;
+	margin-bottom:20px;
+}
+.top_banner_consult_a {
+	display: block;
+	width:180px;
+	height:65px;
+	margin:0 auto;
+	font-size: 24px;
+	line-height: 65px;
+	color:#fff;
+	text-align: center;
+	background:linear-gradient(to right,#15bdee,#1e96f2);
+	margin-top:66px;
+	border-radius:3px;
+}
+

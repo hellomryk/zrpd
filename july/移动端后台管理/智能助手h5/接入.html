@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>接入</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/smartadmin-production.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/navFonts.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-skins.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/chanese-fixed.css">
+    <link rel="stylesheet" type="text/css" href="css/b06Nav.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.minicolors.css">
+    <link rel="stylesheet" type="text/css" href="css/talkbox1.css">
+    <link rel="stylesheet" href="css/wzh_zj_29.css">
+    <link rel="stylesheet" href="css/yk_mobile.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/mobilecomputerreback.js"></script>
+</head>
+<body>
+
+<div id="main" role="main">
+
+    <!-- RIBBON -->
+    <div id="ribbon" style="display:none;">
+
+        <ol class="breadcrumb" style="display:none;">
+            <li>接入</li>
+        </ol>
+        <div class="demo"><span id="demo-setting"><i class="fa fa-cog txt-color-blueDark"></i></span>
+            <form>
+                <legend class="no-padding margin-bottom-10">布局设置</legend>
+                <section><label><input name="subscription" id="smart-fixed-header" type="checkbox"
+                                       class="checkbox style-0"><span>固定头部</span></label><label><input type="checkbox"
+                                                                                                       name="terms"
+                                                                                                       id="smart-fixed-navigation"
+                                                                                                       class="checkbox style-0"><span>固定导航</span></label><label><input
+                        type="checkbox" name="terms" id="smart-fixed-ribbon" class="checkbox style-0"><span>固定菜单</span></label><label><input
+                        type="checkbox" name="terms" id="smart-fixed-footer" class="checkbox style-0"><span>固定底部</span></label><label><input
+                        type="checkbox" name="terms" id="smart-fixed-container" class="checkbox style-0"><span>切换窄版(无响应模式)</span></label><label
+                        style="display:block;"><input type="checkbox" id="smart-topmenu" class="checkbox style-0"><span>导航悬浮顶部</span></label>
+                    <span id="smart-bgimages" style="display: none;"></span></section>
+                <section><h6 class="margin-top-10 semi-bold margin-bottom-5">清空本地缓存</h6><a href="javascript:void(0);"
+                                                                                           class="btn btn-xs btn-block btn-primary"
+                                                                                           id="reset-smart-widget"><i
+                        class="fa fa-refresh"></i> 重置系统</a></section>
+                <h6 class="margin-top-10 semi-bold margin-bottom-5">皮肤选择</h6>
+                <section id="smart-styles"><a href="javascript:void(0);" id="smart-style-0"
+                                              data-skinlogo="resources/bootstrap/img/logo.png"
+                                              class="btn btn-block btn-xs txt-color-white margin-right-5"
+                                              style="background-color:#4E463F;">夜空灰色</a><a href="javascript:void(0);"
+                                                                                           id="smart-style-1"
+                                                                                           data-skinlogo="resources/bootstrap/img/logo-white.png"
+                                                                                           class="btn btn-block btn-xs txt-color-white"
+                                                                                           style="background:#3A4558;">黑色优雅</a><a
+                        href="javascript:void(0);" id="smart-style-3"
+                        data-skinlogo="resources/bootstrap/img/logo-pale.png"
+                        class="btn btn-xs btn-block txt-color-white margin-top-5" style="background:#f78c40">清新淡雅</a><a
+                        href="javascript:void(0);" id="smart-style-2"
+                        data-skinlogo="resources/bootstrap/img/logo-blue.png"
+                        class="btn btn-xs btn-block txt-color-darken margin-top-5" style="background:#fff;"><i
+                        class="fa fa-check fa-fw" id="skin-checked"></i>默认皮肤</a></section>
+            </form>
+        </div>
+    </div>
+    <!-- END RIBBON -->
+    <div class="row payTip" style="">
+        <div class="col-xs-8 col-sm-8 col-md-6 col-lg-6 col-xs-offset-2 col-sm-offset-2 col-md-offset-3 col-lg-offset-3 payTipInnerbox">
+            <h6>温馨提示：</h6>
+            <p id="tipCont">您的坐席还有<span>7</span>天就过期了哦，为了不影响您的使用，请及时到<a
+                    href="http://www.aikf.com/aikfadmin/admin/toIndex.htm#nav/toList.htm?p=1681477&amp;code=user_account">账户管理</a>续费！
+            </p>
+            <button data-act="miss"></button>
+        </div>
+    </div>
+    <!-- #SHORTCUT AREA : With large tiles (activated via clicking user name tag)
+		Note: These tiles are completely responsive, you can add as many as you like -->
+    <div id="shortcut">
+        <ul>
+
+            <!-- <li>
+						<a href="#security/userInfo/toChangePassWord.htm" class="jarvismetro-tile big-cubes bg-color-greenLight" data-toggle="modal" data-target="#remoteModal"> <span class="iconbox"> <i class="fa fa-user fa-4x"></i> <span>修改密码 </span> </span> </a>
+					</li> -->
+        </ul>
+    </div>
+    <!-- END SHORTCUT AREA -->
+    <!-- #MAIN CONTENT -->
+    <div id="content" class="clearfix" style="padding-left: 26px; padding-top: 18px; opacity: 1;">
+
+        <div class="row index-header text-color-magenta">
+            <hr class="hrB06">
+            <div class="col-lg-6 col-md-6">
+                <h3>
+                    接入
+                </h3>
+            </div>
+            <div class="col-lg-6 col-md-6 text-muted text-right"></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <input type="hidden" id="code_id" value="">
+                <div class="clearfix nav_tooltip_style">
+                    <ul class="nav nav-tabs bordered ivrNav-tabs tab-content-system bo6Nav-tab indexPageNavList">
+                        <li class="active">
+                            <a class="active" data-toggle="tab" href="http://www.aikf.com/aikfadmin/admin/toIndex.htm"
+                               data-url="interfaceManagement/toDesktop.htm?moduleCode=desktop_service">
+                                <span class="hidden-mobile hidden-tablet" style="font-size:16px;">桌面网站</span> </a>
+                        </li>
+                        <li>
+                            <a class="" data-toggle="tab" href="http://www.aikf.com/aikfadmin/admin/toIndex.htm"
+                               data-url="mobileService/getSittingPage.htm?moduleCode=mobile_service">
+                                <span class="hidden-mobile hidden-tablet" style="font-size:16px;">移动网站</span> </a>
+                        </li>
+                        <li>
+                            <a class="" data-toggle="tab" href="http://www.aikf.com/aikfadmin/admin/toIndex.htm"
+                               data-url="interfaceManagement/toWechat.htm?moduleCode=wechat_service">
+                                <span class="hidden-mobile hidden-tablet" style="font-size:16px;">微信</span> </a>
+                        </li>
+                        <li>
+                            <a class="" data-toggle="tab" href="http://www.aikf.com/aikfadmin/admin/toIndex.htm"
+                               data-url="interfaceManagement/toApp.htm?moduleCode=app_service">
+                                <span class="hidden-mobile hidden-tablet" style="font-size:16px;">APP</span> </a>
+                        </li>
+                        <li>
+                            <a class="" data-toggle="tab" href="http://www.aikf.com/aikfadmin/admin/toIndex.htm"
+                               data-url="interfaceManagement/toHuyou.htm?moduleCode=huyou_service">
+                                <span class="hidden-mobile hidden-tablet" style="font-size:16px;">互有</span> </a>
+                        </li>
+                        <li>
+                            <a class="" data-toggle="tab" href="http://www.aikf.com/aikfadmin/admin/toIndex.htm"
+                               data-url="rongyun/toRongyunAuth.htm?moduleCode=rongcloud_service">
+                                <span class="hidden-mobile hidden-tablet" style="font-size:16px;">融云</span> </a>
+                        </li>
+                        <li>
+                            <a class="" data-toggle="tab" href="http://www.aikf.com/aikfadmin/admin/toIndex.htm"
+                               data-url="interfaceManagement/toSdk.htm?moduleCode=sdk_service">
+                                <span class="hidden-mobile hidden-tablet" style="font-size:16px;">SDK</span> </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-content
+												" id="tab-content-system" style="opacity: 1;">
+
+
+                    <ul class="deskInsertNav">
+                        <li class="active" data-url="interfaceManagement/toDesktopList.htm?moduleCode=joinUpCodeSetting"
+                            onclick="tab_25(this)">接入代码
+                        </li>
+                        <li data-url="interfaceManagement/toDesktopList.htm?moduleCode=askButtonSetting"
+                            onclick="tab_25(this)">咨询按钮设置
+                        </li>
+                        <li data-url="interfaceManagement/toDesktopList.htm?moduleCode=askWindowSetting"
+                            onclick="tab_25(this)">咨询窗口设置
+                        </li>
+                    </ul>
+                    <div class="deskInsertContent" id="deskInsertContent">
+                        <ul>
+                            <li class="li_25">
+
+                                <!-- 接入说明 begin -->
+                                <div class="modal-body no-padding">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                            <div class="jarviswidget jarviswidget-sortable"
+                                                 data-widget-editbutton="false" data-widget-colorbutton="false"
+                                                 data-widget-deletebutton="false" data-widget-fullscreenbutton="false"
+                                                 data-widget-collapsed="true" role="widget">
+                                                <!-- <header role="heading">
+					<h2>
+						<strong>接入说明</strong>
+					</h2>
+					<span class="jarviswidget-loader" style="display: none;"><i
+						class="fa fa-refresh fa-spin"></i> </span>
+					</header> -->
+                                                <!-- widget div-->
+                                                <div role="content" style="zoom:0;">
+                                                    <!-- widget edit box -->
+                                                    <div class="jarviswidget-editbox">
+                                                        <!-- This area used as dropdown edit box -->
+                                                    </div>
+                                                    <!-- end widget edit box -->
+                                                    <!-- widget content -->
+                                                    <div class="row" style="margin-bottom:20px;">
+                                                        <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 no_paddingLeft">
+                                                            <span class="span_tip">复制以下代码，插入到您网站HTML页面的&lt;/body&gt;标记之前。</span>
+                                                            <textarea rows="2" id="copyFromTxtZero" readonly="readonly"
+                                                                      class="form-control">&lt;script&gt; var tenantId='dc1a7977d45342cf8d11c9a68896a425';document.write(unescape("%3Cscript id='aikfWebMainJs' src='"+((window.location.protocol=="file:")?"http:":window.location.protocol)+"//www.aikf.com/ask/resources/app/ask/webMain.js?_="+Math.random()+"' type='text/javascript'%3E%3C/script%3E")) &lt;/script&gt;</textarea>
+                                                        </div>
+                                                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"
+                                                             style="padding-top:35px;padding-left:0px;">
+                                                            <button type="button" class="btn btn-sm btn-dimgray"
+                                                                    id="copyBtnZero"
+                                                                    data-clipboard-target="copyFromTxtZero" title="复制"
+                                                                    style="margin-top:20px;padding:6px 15px;">复制
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 no_paddingLeft">
+                                                            <span class="span_tip">或使用下面链接直接打开</span>
+                                                            <textarea rows="2" id="copyFromTxtZeroSite"
+                                                                      readonly="readonly" class="form-control"
+                                                                      style="height:40px!important;">http://www.aikf.com/ask/zdg.htm</textarea>
+                                                        </div>
+                                                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"
+                                                             style="padding-top:15px;padding-left:0px;">
+                                                            <button type="button" class="btn btn-sm btn-dimgray"
+                                                                    id="copyBtnZeroSite"
+                                                                    data-clipboard-target="copyFromTxtZeroSite"
+                                                                    title="复制"
+                                                                    style="margin-top:20px;padding:6px 15px;">复制
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <br>
+                                                    <div class="row">
+                                                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9"
+                                                             style="padding:0px;">
+                                                            <span class="span_tip">注：接入详情请参考<a
+                                                                    href="http://www.aikf.com/aikefu/help/file/helpdocument/fadocument/index.html"
+                                                                    target="_blank"
+                                                                    style="color:#4588e3;">《爱客服快速接入指南》</a></span>
+                                                        </div>
+                                                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <img style="margin-left:260px;cursor:inherit;"
+                                                             src="./接入_files/img_b10000.png">
+                                                    </div>
+                                                    <div class="row div_paddind_left"></div>
+                                                    <!-- end widget content -->
+                                                </div>
+                                                <!-- end widget div -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="li_25" style="opacity:0;display:none;">
+                                <div class="buttonSettingBox_bstb clearfix">
+                                    <div class="settingLeft_bstb">
+                                        <form action="" id="Form_bstb" class="form-horizontal" method="post"
+                                              novalidate="novalidate">
+                                            <input type="hidden" name="dataId" value="1">
+                                            <input type="hidden" name="pUserId" value="4">
+                                            <input type="hidden" name="field" value="desktopButJson">
+
+                                            <!-- 按钮样式 -->
+                                            <div class="btnStyle_bstb">
+                                                <h6>按钮样式</h6>
+                                                <ul class="settingItem_bstb">
+                                                    <li class="cartoonItem_bstb" data-value="1">卡通形象</li>
+                                                    <li class="txtItem_bstb checked" data-value="0">文字按钮</li>
+                                                    <!-- <li class="diyItem_bstb" data-value="3">自定义按钮</li> -->
+                                                    <input id="btnTypeInput_bstb" type="hidden" name="type" value="0">
+                                                </ul>
+                                                <div class="content_bstb">
+                                                    <div style="display: none;" class="cartoonButton_bstb">
+                                                        <ul>
+                                                            <li class="redCar_bstb checked" data-value="0">
+                                                                <div></div>
+                                                            </li>
+                                                            <li class="blueCar_bstb" data-value="1">
+                                                                <div></div>
+                                                            </li>
+                                                            <li class="whiteCar_bstb" data-value="2">
+                                                                <div></div>
+                                                            </li>
+<!--                                                             <li class="redCarTxt_bstb" data-value="3">
+                                                                <div></div>
+                                                            </li>
+                                                            <li class="blueCarTxt_bstb" data-value="4">
+                                                                <div></div>
+                                                            </li>
+                                                            <li class="whiteCarTxt_bstb" data-value="5">
+                                                                <div></div>
+                                                            </li> -->
+                                                        </ul>
+                                                        <input id="btnStyleCartoonInput_bstb" type="hidden"
+                                                               name="btnStyleCartoon" value="0">
+                                                    </div>
+                                                    <div class="txtButton_bstb" style="display: block;">
+                                                        <ul>
+                                                            <li class="shuTxt_bstb" data-value="1">
+                                                                <div></div>
+                                                            </li>
+                                                            <li class="hengTxt_bstb checked" data-value="0">
+                                                                <div></div>
+                                                            </li>
+                                                            <li class="roundTxt_bstb" data-value="2">
+                                                                <div></div>
+                                                            </li>
+                                                        </ul>
+                                                        <input id="btnStyleInput_bstb" type="hidden" name="btnStyle"
+                                                               value="0">
+                                                        <p>按钮文字&nbsp;<input type="text" id="btnTitleInput_bstb"
+                                                                            class="form-control btnTitle"
+                                                                            name="btnTitle" value="点我咨询" maxlength="6">
+                                                        </p>
+                                                    </div>
+                                                    <div class="diyButton_bstb" style="display: none;">
+                                                        <div class="uploadBox_bstb">
+                                                            <div class="sizeBox_bstb">
+                                                                <img src="images/default.png" id="imageDiyButton_image">
+                                                            </div>
+                                                            <div class="img_uploadify_container">
+                                                                <input id="imageDiyButton" name="file" type="file"
+                                                                       multiple="false" style="width:100px; height:
+                                                                       20px;">
+                                                            </div>
+                                                        </div>
+                                                        <input id="imageDiyButton_input" type="hidden" name="btnUrl">
+                                                        <p>*文件大小在2MB以内，<br>支持png、jpg、jpeg、gif、bmp格式</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- 按钮颜色 -->
+                                            <div class="btnColor_bstb" style="display: block;">
+                                                <h6>按钮颜色</h6>
+                                                <ul>
+                                                    <li data-value="#ffa627"></li>
+                                                    <li class="checked" data-value="#e5004a"></li>
+                                                    <li data-value="#b12daf"></li>
+                                                    <li data-value="#2257c2"></li>
+                                                    <li data-value="#1ba9c8"></li>
+                                                    <li data-value="#289a53"></li>
+                                                </ul>
+                                                <div class="diyColorBox_bstb">
+                                                    自定义色值
+                                                    <div class="minicolors minicolors-theme-bootstrap minicolors-position-bottom minicolors-position-left">
+                                                        <input class="form-control minicolors-input" type="text"
+                                                               id="diy-color" name="windowColor" value="#E5004A"
+                                                               size="7"><span class="minicolors-swatch"><span class="minicolors-swatch-color" style="background-color: rgb(255, 166, 39);" id="minicolors-swatch-color"></span></span>
+                                                        <div class="minicolors-panel minicolors-slider-wheel">
+                                                            <div class="minicolors-slider"
+                                                                 style="background-color: rgb(255, 0, 81);">
+                                                                <div class="minicolors-picker"
+                                                                     style="top: 15.2941px;"></div>
+                                                            </div>
+                                                            <div class="minicolors-opacity-slider">
+                                                                <div class="minicolors-picker"></div>
+                                                            </div>
+                                                            <div class="minicolors-grid">
+                                                                <div class="minicolors-grid-inner"></div>
+                                                                <div class="minicolors-picker"
+                                                                     style="top: 99.8981px; left: 4.25337px;">
+                                                                    <div></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- 按钮位置 -->
+                                            <div class="btnPosition_bstb" id="btnPosition_bstb">
+                                                <h6>按钮位置</h6>
+                                                <ul>
+                                                    <li data-value="0"><span></span>左下角</li>
+                                                    <li class="checked" data-value="1"><span></span>右下角</li>
+                        <!--                             <li data-value="2"><span></span>左侧居中</li>
+                                                    <li data-value="3"><span></span>右侧居中</li> -->
+                                                </ul>
+                                                <input id="btnPositionInput_bstb" type="hidden" name="btnPosition"
+                                                       value="1">
+                                                <div class="distance_bstb">
+                                                    <p>左右偏移<input id="sideDistanceInput_bstb" type="number"
+                                                                  name="sideDistance" value="0" class="form-control">像素
+                                                    </p>
+                                                    <p>上下偏移<input id="belowDistanceInput_bstb" type="number"
+                                                        name="belowDistance" value="0" class="form-control">像素
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <div><a class="btn btn-sm btn-dimgray" title="保存" id="saveButton_bstb">保存</a>
+                                        </div>
+                                    </div>
+                                    <div class="rightWrap_bstb">
+                                        <div class="viewRight_bstb">
+                                            <div class="row">
+                                                <!--<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">-->
+                                                    <!--<div class="inputWrap_bstb">-->
+                                                        <!--<input type="text" class="form-control"-->
+                                                               <!--placeholder="输入网站地址，点击预览，即可预览按钮在页面上的效果"-->
+                                                               <!--id="siteInput_bstb">-->
+                                                        <!--<a class="btn btn-dimgray" id="preViewButton_bstb">预览</a>-->
+                                                    <!--</div>-->
+                                                <!--</div>-->
+                                            </div>
+                                            <!-- 手机端box -->
+                                            <div class="iframeBox_bstbmobile">
+                                                <!-- 手机端小人 -->
+                                                <div class="iframeBox_bstbmobile_cen">
+                                                    <div class="iframeBox_bstbmobile_cen2">
+                                                        <div id="background" class="ykmobile-fa" style="display:none;">
+                                                            <div class="ykmobile"></div>
+                                                        </div> 
+                                                        <!-- 按钮 -->
+                                                        <div class="aikf-min-dialog aikf-min-dialog-style1 huilan-aikf-show ykmobile-fa"
+                                                     id="huilan-aikf-show" style=" background-color: #e5004a;">
+                                                            <span id="aikef-mini-dialog-text">点我咨询</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </li>
+                            <li class="li_25" style="display:none;opacity:0;">
+                                <div class="askWindowBox">
+                                    <div class="window-body no-padding">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <div class="row askWindowBox">
+                                                    <!--左侧面板-->
+                                                    <form action="http://www.aikf.com/aikfadmin/admin/interfaceManagement/saveDesktopInfo.htm"
+                                                          id="addOrUpdateform" class="form-horizontal" method="post"
+                                                          novalidate="novalidate">
+                                                        <input type="hidden" name="webId"
+                                                               value="d9628f33775311e8b0bf00163e1085a3"> <input
+                                                            type="hidden" name="entId"
+                                                            value="d962e85f775311e8b0bf00163e1085a3">
+                                                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"
+                                                             style="width:228px;">
+                                                            <div style="width:100%;" id="windowTabAnimate"><!--左侧设置面板-->
+                                                                <div class="windowColor marginBottom">
+                                                                    <h3>窗口颜色</h3>
+                                                                    <ul>
+                                                                        <li data-value="#ffa627"></li>
+                                                                        <li data-value="#e5004a" class="checked"></li>
+                                                                        <li data-value="#b12daf"></li>
+                                                                        <li data-value="#2257c2"></li>
+                                                                        <li data-value="#1ba9c8"></li>
+                                                                        <li data-value="#289a53"></li>
+                                                                    </ul>
+                                                                    <div class="customColor">
+                                                                        <p style="vertical-align:middle;margin-top:10px;">
+                                                                            自定义色值</p>
+                                                                        <div class="minicolors minicolors-theme-bootstrap minicolors-position-bottom minicolors-position-left">
+                                                                            <input type="text" id="wheel-demo"
+                                                                                   class="form-control minicolors-input minicolors-input1"
+                                                                                   name="windowColor" value="#E5004A"
+                                                                                   size="7"><span
+                                                                                class="minicolors-swatch"><span
+                                                                                class="minicolors-swatch-color minicolors-swatch-color1" id="minicolors-swatch-color1"
+                                                                                ></span></span>
+                                                                            <div class="minicolors-panel minicolors-slider-wheel">
+                                                                                <div class="minicolors-slider"
+                                                                                     style="background-color: rgb(255, 0, 81);">
+                                                                                    <div class="minicolors-picker"
+                                                                                         style="top: 15.2941px;"></div>
+                                                                                </div>
+                                                                                <div class="minicolors-opacity-slider">
+                                                                                    <div class="minicolors-picker"></div>
+                                                                                </div>
+                                                                                <div class="minicolors-grid">
+                                                                                    <div class="minicolors-grid-inner"></div>
+                                                                                    <div class="minicolors-picker"
+                                                                                         style="top: 99.8981px; left: 4.25337px;">
+                                                                                        <div></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!--企业信息设置-->
+                                                                <div class="companyInformation marginBottom">
+                                                                    <h3>企业信息设置</h3>
+                                                                    <div class="companyLogo">
+                                                                        <div class="companyName">
+                                                                            <div>
+                                                                                <p>企业名称</p>
+                                                                                <input type="text" name="tenantSiteName"
+                                                                                       class="form-control" id="tenantSiteName"
+                                                                                       placeholder="爱客服" maxlength="21" value="爱客服"><br>
+                                                                                <span id="tenantSiteNameSpan"
+                                                                                      style="display:none;font-size:12px;color:red;">*企业名称最多为20个字符</span>
+                                                                            </div>
+                                                                            <!-- 打电话 -->
+                                                                            <div class="phoneFunction"><!-- 电话功能 -->
+                                                                                <span>电话功能</span>
+                                                                                <div style="display:inline-block;height:20px;width:unset;" class=""><span class="smart-form" style="float:left"> <label class="toggle"> <input type="checkbox" name="isEnabledPhone" value="0">
+                                                                                            <i data-swchon-text="关闭" data-swchoff-text="开启" data-val = "false" class="phone-btn-circle"></i> </label> </span></div><br>
+                                                                                <div class="form-group ykmobilephonenum" style="margin-top: 10px; display: none;">
+                                                                                    <div class="col-lg-3 col-md-8 col-sm-4 col-xs-5" style="margin-left:65px;width:unset;">
+                                                                                        <input type="text" id="form-controlykphonenum" class="form-control form-controlykphonenum" name="phone" placeholder="请输入电话号码" value="">
+                                                                                        <input type="hidden" id="form-controlykphonenumshow" value="0">
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!-- 打电话end -->
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!--窗口界面功能设置-->
+                                                            </div>
+                                                            <div class=" submitBtn">
+                                                                <a class="btn btn-sm btn-dimgray" title="保存"
+                                                                   id="add_desktop"
+                                                                   style="width:70px;height:35px;">保存</a>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                    <!--右侧预览-->
+                                                    <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 no-padding askWindowRight"
+                                                         id="askWindowRight">
+                                                        <div id="show_site" class="modal-body no-padding">
+                                                            <div class="iframeFather">
+                                                                <div id="iframe_div_id"
+                                                                     style="width:100%;height:600px;background-color:#fff;background-image:none;">
+
+                                                            <!-- 手机端box1 start-->
+
+
+
+
+
+
+                                                            <div class="windowRight">
+                                                                    <div class="rightBox">
+                                                                        <div class="windowArticle">
+                                                                            <header id="smallWindowHeader" style="background-color: rgb(229, 0, 74);">
+                                                                      <!--           <span id="headerName" smallWindowHeader>爱客服</span> -->
+                                                                            <span>爱客服</span>
+                                                                                <div class="phoneNav">
+                                                                                    <img id="img_phonecall" src="images/img_phonecall.png" style="display:none;">
+                                                                                    <img id="img_conta01" src="images/img_conta01.png" style="display: none;">
+                                                                                </div>
+                                                                            </header>
+                                                                            <article>
+                                                                                <img src="images/duihuaphoneeffec02.png">
+                                                                            </article>
+                                                                            <footer>
+                                                                                <div class="artificial">
+                                                                                    <img src="images/icntohumans1.png" title="转人工">
+                                                                                </div>
+                                                                                <div style="float:left;">
+                                                                                    <img style="width:135px;" src="images/duihua.png">
+                                                                                </div>
+                                                                                <!-- windowSendBtn -->
+                                                                                <div class="sendBtn" id="windowSendBtn" style="background-color: rgb(229, 0, 74);">发送</div>
+                                                                            </footer>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            <!-- 手机端box1 end-->
+
+                                                            <!-- 手机端box -->
+                                  <!--                               <div class="iframeBox_bstbmobile">
+                                                                  
+                                                                    <div class="iframeBox_bstbmobile_cen">
+                                                                        <div class="iframeBox_bstbmobile_cen2">
+                                                                            <div id="background" class="ykmobile-fa" style="display:none;">
+                                                                                <div class="ykmobile"></div>
+                                                                            </div> 
+                                                                         
+                                                                            <div class="aikf-min-dialog aikf-min-dialog-style1 huilan-aikf-show ykmobile-fa"
+                                                                         id="huilan-aikf-show" style=" background-color: #e5004a;">
+                                                                            <span id="aikef-mini-dialog-text">点我咨询</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div> -->
+                                            <!-- 手机端box结束 -->
+                                                                </div>
+
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                            </div>
+                                                        </div>
+
+
+                                                        <!--大窗-->
+
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </li>
+                        </ul>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+    <!-- END #MAIN CONTENT -->
+</div>
+<!-- END #MAIN PANEL -->
+
+
+<!--================================================== -->
+<input type="hidden" value="/aikfadmin" id="vsiteContextPath">
+<input type="hidden" value="114.241.52.82" id="forwarded">
+<input type="hidden" value="www.aikf.com/" id="baseProjectPath">
+<input type="hidden" value="18511181686" id="mjid">
+
+
+<div class="modal fade" id="logoutModal" tabindex="-1" style="z-index: 2000" role="dialog"
+     aria-labelledby="navigationModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" id="modal-content4">
+            <div class="modal-body no-padding">
+                <img alt="loading..." src="./接入_files/ajax-loader.gif">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL PLACE HOLDER -->
+<div class="modal fade" id="navigationModal" tabindex="-1" style="z-index: 2000" role="dialog"
+     aria-labelledby="navigationModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" id1="modal-content4">
+            <div class="modal-body no-padding">
+                <img alt="loading..." src="./接入_files/ajax-loader.gif">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="remoteModal" tabindex="-1" style="z-index: 2001" role="dialog"
+     aria-labelledby="remoteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" id="modal-content">
+            <div class="modal-body no-padding">
+                <img alt="loading..." src="./接入_files/ajax-loader.gif">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mediaModal" tabindex="-1" style="z-index: 2000" role="dialog"
+     aria-labelledby="mediaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" id="modal-content2">
+            <div class="modal-body no-padding">
+                <img alt="loading..." src="./接入_files/ajax-loader.gif">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="sitePreviewModal" tabindex="-1" style="z-index: 2001" role="dialog"
+     aria-labelledby="sitePreviewModalLabel" aria-hidden="true">
+    <div class="modal-dialog"
+         style="width:372px;border-radius:25px;border-left: 15px solid #FFFFFF; border-right: 15px solid #FFFFFF;border-top: 40px solid #FFFFFF;border-bottom: 40px solid #FFFFFF;position: relative; ">
+        <div class="modal-content" id="modal-content3">
+            <div class="modal-body no-padding">
+                <img alt="loading..." src="./接入_files/ajax-loader.gif">
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<!-- END MODAL -->
+
+<!--系统弹出框-->
+<div class="modal fade" id="modal-remote" tabindex="-1" style="z-index: 2001" role="dialog"
+     aria-labelledby="remoteLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" id="modal-remote-modal-content">
+            <div class="modal-body no-padding">
+                <img alt="loading..." src="./接入_files/ajax-loader.gif">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-remote1" tabindex="-1" style="z-index: 2000" role="dialog"
+     aria-labelledby="remoteLargeModalLabel1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body no-padding">
+                <img alt="loading..." src="./接入_files/ajax-loader.gif">
+            </div>
+        </div>
+    </div>
+</div>
+<!--系统弹出框 end-->
+<!-- large modal -->
+<div class="modal fade" id="largeModal" tabindex="-1" style="z-index: 2000" role="dialog" aria-labelledby="largeModal"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" id="modal-content-large">
+            <div class="modal-body no-padding">
+                <img alt="loading..." src="./接入_files/ajax-loader.gif">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="divSmallBoxes"></div>
+<div id="divMiniIcons"></div>
+<div id="divbigBoxes"></div>
+<div id="_my97DP" style="position: absolute; top: -1970px; left: -1970px;">
+
+</div>
+</body>
+<script src="js/wzh_29_jqr.js"></script>
+</html>

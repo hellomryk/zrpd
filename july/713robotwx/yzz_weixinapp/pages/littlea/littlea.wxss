@@ -1,0 +1,368 @@
+/* pages/littlea/littlea.wxss */
+@charset "utf-8";
+/*=========================Reset_start==========================*/
+.y_talk-boxz {
+	width:100%;
+	height:1010rpx;
+	/* box-shadow: 2rpx 2rpx 30rpx #eee; */
+}
+.y-talk-box-title {
+	width:100%;
+	height:120rpx;
+  background:#4baaf4;
+}
+.y-talk-box-title-img {
+  width:47rpx;
+  height:48rpx;
+  float:left;
+  margin-left:52rpx;
+  margin-top:39rpx;
+}
+.y-talk-box-title-a {
+  float:right;
+  width:30rpx;
+  height:30rpx;
+  margin-right:21rpx;
+  margin-top:40rpx;
+}
+.customer-sen>image {
+	float: right;
+	width:64rpx;
+	height:64rpx;
+	border-radius:50% 50%;
+	margin-right:30rpx;
+	margin-left: 15rpx;
+}
+.customer-sen>view {
+  float:right;
+  font-size:24rpx;
+  color:#0c0c0c;
+  line-height:36rpx;
+  padding:20rpx 20rpx 20rpx;
+  background:#f4f4f4;
+  border-radius:4rpx;
+  position:relative;
+  max-width:395rpx;
+  display:inline-block;
+}
+.customer-sen>view>image{
+	position: absolute;
+	top:26rpx;
+	right:-10rpx;
+	width:12rpx;
+	height:16rpx;
+}
+.customer-sen {
+	margin-top:11rpx;
+}
+.y-talk-box-content-left {
+	float: left;
+	width:100%;
+	height:800rpx;
+	border-right:1rpx solid #dcdcdc; 
+}
+.robot-sen>image {
+	float:left;
+	width:64rpx;
+	height:64rpx;
+	border-radius: 50% 50%;
+	margin-right:15rpx;
+	margin-left:23rpx;
+}
+.robot-sen>view {
+	float:left;
+	font-size: 24rpx;
+	color: #0c0c0c;
+	line-height:36rpx;
+	padding: 20rpx 15rpx; 
+	background: #e7f3fd;
+	border-radius:4rpx;
+	position: relative;
+	max-width: 395rpx;
+}
+.robot-sen>view>image{
+	position: absolute;
+	top:20rpx;
+	left:-10rpx;
+	width:12rpx;
+	height:16rpx;
+}
+.robot-sen {
+	margin-top:11rpx;
+}
+.y-talk-box-content {
+	background: #fff;
+}
+.y-talk-box-content-left-top {
+	width:100%;
+	height:1010rpx;
+	/* overflow-y: scroll; */
+	border-bottom: 1rpx solid #dcdcdc;
+}
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+.y-talk-box-content-left-top::-webkit-scrollbar
+{
+    width: 6rpx;
+    height: 16rpx;
+    background-color: #F5F5F5;
+    opacity: 0.5;
+}
+
+/*定义滚动条轨道 内阴影+圆角*/
+.y-talk-box-content-left-top::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6rpx rgba(0,0,0,0.1);
+    border-radius: 10rpx;
+    background-color: #F5F5F5;
+    opacity: 0.5;
+}
+
+/*定义滑块 内阴影+圆角*/
+.y-talk-box-content-left-top::-webkit-scrollbar-thumb
+{
+    border-radius: 10rpx;
+    -webkit-box-shadow: inset 0 0 6rpx rgba(0,0,0,.1);
+    background-color: #ddd;
+}
+.y-talk-box-content-right {
+	float:left;
+	margin-left:25rpx;
+	margin-top:12rpx;
+}
+.y-talk-box-content-left-bottom-input {
+  float:right;
+  width:62rpx;
+  height:55rpx;
+  background:#ddd;
+  display:inline-block;
+  border:none;
+  border-radius:3rpx;
+  margin-right:15rpx;
+  margin-top:10rpx;
+  cursor:pointer;
+  font-size:22rpx;
+  color:#0c0c0c;
+  line-height:52rpx;
+  text-align:center;
+  padding-left:2rpx;
+  padding-right:2rpx;
+}
+.y-talk-box-content-left-topi {
+	width:100%;
+	font-size:24rpx;
+	color:#999;
+	line-height: 60rpx;
+	text-align: center;
+	font-style: normal;
+	display: block;
+	padding-top:11rpx;
+}
+.y-talk-box-content-rightp {
+	font-size: 14rpx;
+	color: #0c0c0c;
+	line-height: 22rpx;
+}
+.y-talk-box-content-rightol li {
+	font-size: 12rpx;
+	color: #999999;
+	line-height: 27rpx;
+	cursor: pointer;
+}
+.wzh_20_tianqi{width: 380rpx;height: 195rpx;color: #fff;font-size: 14rpx;background: url(../images/BG.png) no-repeat;}
+.wzh_20_tianqi .hea_wzh_20{width: 100%;height: 34rpx;line-height: 34rpx; border-bottom: 1rpx solid #71BFF6;text-align: center;}
+.wzh_20_tianqi li{width: 20%;height: 160rpx;padding: 10rpx 0; box-sizing: border-box;border-left: 1rpx solid #71BFF6;float: left;font-size: 12rpx;}
+.wzh_20_tianqi li:first-child{border:none;}
+.wzh_20_tianqi li p{text-align: center;line-height: 20rpx;}
+.wzh_20_tianqi li image{margin: 10rpx 0;}
+.wzh_20_goumai{width: 385rpx;height: 280rpx;}
+.wzh_20_goumai li{width: 48%;height: 280rpx;padding:5rpx; box-sizing: border-box; background: #fff;}
+.wzh_20_jiage{font-size: 14rpx;color: #FA4B16;float: left;font-weight: 600;}
+.wzh_20_jiage1{font-size: 10rpx;color: #999;float: left;}
+.wzh_20_renshu{font-size: 10rpx;color: #999;float: right;}
+.clear{clear: both;}
+.wzh_20_goumai li p a:hover{color: #5BA5F1;text-decoration:underline !important;}
+.wzh_20_goumai li p {margin-top: 5rpx;}
+.wzh_20_goumai li{ float: left;}
+.wzh_20_goumai li:first-child{ margin-right: 4%; }
+.wzh_20_baidu{width: 100%;padding:5rpx; box-sizing: border-box;}
+.wzh_20_baidu li p a text{color: #5BA5F1;text-decoration:underline !important;float: left;}
+.wzh_20_baidu li p a font{color: red;text-decoration:underline !important;float: left;}
+.wzh_20_baidu li{font-size: 12rpx;margin-top: 15rpx;}
+.wzh_20_baidu li p:first-child{ font-size: 14rpx;height: 25rpx;}
+.wzh_20_baidu li p a em{color: #0E8D59;}
+.y-talk-box-title text,.y-talk-box-title font {float: left;font-size: 22rpx;height: 120rpx;color: #fff;line-height: 120rpx;margin-left: 20rpx;margin-top: 7rpx;}
+#lovekfcompanytitle {font-size:35rpx;margin-top:0rpx;}
+.y-talk-box-title font{font-size:12rpx; }
+.wzh_20_waichaung{width: 100rpx;height: auto;box-shadow:1rpx 1rpx 10rpx #ddd;background: #fff;border-radius: 4rpx;padding: 5rpx 15rpx 20rpx 15rpx;position: absolute;left: 100%;top:20%;box-sizing: border-box;}
+.wzh_20_waichaung p{font-size: 14rpx;text-align: center;line-height: 35rpx;}
+.wzh_20_waichaung li{color: #5BA5F1;text-align: left;line-height: 30rpx;}
+.wzh_20_waichaung li image{vertical-align: middle;margin-right: 3rpx;}
+/*new-addrobot-content*/
+.movie-a {
+	display:block;
+	text-decoration: underline!important;
+	color:#108cee;
+	line-height: 24rpx;
+}
+.img-robot {
+	display:block;
+	max-width:394rpx;
+	height:auto;
+}
+.y-talk-box-content-left-button-voice {
+	float: left;
+	width:15rpx;
+	height:16rpx;
+	border:none;
+	margin-left:20rpx;
+	margin-top:7rpx;
+	cursor:pointer;
+}
+.y-talk-box-content-left-button-uploadimg {
+	float: left;
+	width:17rpx;
+	height:16rpx;
+	border:none;
+	margin-left:20rpx;
+	margin-top:7rpx;
+	cursor:pointer;
+}
+.y-talk-box-content-left-button-uploadimg>input{
+	opacity:0;
+	cursor:pointer;
+}
+.y-talk-box-content-left-button {
+	height:30rpx;
+	background: #f4f4f4;
+}
+.clearfix::after {
+	content:"";
+	display: block;
+	clear:both;
+}
+.y-talk-box-content-left-bottom-text::-webkit-input-placeholder { /* WebKit browsers */
+    color:#ccc;
+    font-size:50rpx;
+}
+.y-talk-box-content-left-bottom-text:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:#ccc;
+    font-size:20rpx;
+}
+.y-talk-box-content-left-bottom-text::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:#ccc;
+    opacity:1;
+    font-size:20rpx;
+}
+.y-talk-box-content-left-bottom-text:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:#ccc !important;
+    font-size:20rpx;
+}
+.y-talk-box-content-left-bottom {
+	position:fixed;
+	left:0;
+	bottom:20rpx;
+	width:100%;
+	box-sizing: border-box;
+  min-height:64rpx;
+	/* padding-top:10rpx;
+	padding-bottom: 10rpx; */
+}
+.y-talk-box-content-left-bottom-voice {
+  float:left;
+  width:53rpx;
+  height:50rpx;
+  margin-left:4rpx;
+  margin-right:4rpx;
+  margin-top:10rpx;
+}
+.y-talk-box-content-left-bottom-text {
+  float:left;
+  width:81%;
+  height:53rpx;
+  font-size:22rpx;
+  border:1rpx solid #ddd;
+  margin-top:10rpx;
+  margin-left:0;
+}
+.y-talk-box-title-phone-a {
+	cursor:pointer;
+	float: right;
+  width: 18rpx;
+  height: 18rpx;
+  margin-right: 21rpx;
+  background-size: 100% 100%;
+}
+.robot-sen>view>.img-robot {
+  width:300rpx;
+  height:200rpx; 
+  position:relative;
+  padding-left:20rpx;
+  padding-bottom:30rpx;
+}
+.y-talk-box-content-left-bottom_none {
+  display:none;
+}
+.y_voice_insert_none {
+  display:none;
+}
+.word-deBtn1 {
+  background:#888;
+}
+.voicetowriteimg {
+  float:left;
+  width:53rpx;
+  height:50rpx;
+  margin-left:4rpx;
+  margin-right:4rpx;
+  margin-top:25rpx;
+}
+.voice_tabbtn {
+  float:left;
+  width:81%;
+  height:53rpx;
+  font-size:22rpx;
+  border:1rpx solid #ddd;
+  margin-top:25rpx;
+  margin-left:20rpx;
+}
+.speak-style {
+    position: fixed;
+    height: 240rpx;
+    width: 240rpx;
+    border-radius: 20rpx;
+    margin: 0 auto;
+    background: #26a5ff;
+    top: 500rpx;
+    left:300rpx;
+    z-index: 999;
+}
+.speak-style >image {
+  display: block;
+  height: 240rpx;
+  width: 240rpx;
+}
+.textThink {
+  width:609rpx;
+  font-size:20rpx;
+  color:#ddd;
+  border:1rpx solid #f3f3f3;
+  position:absolute;
+  left:59rpx;
+  bottom:68rpx;
+  border-bottom:none;
+}
+.textThink>view{
+  width:100%;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.textThink_hide {
+  display:none;
+}
+.loadhistoryhide {
+  display:none;
+}
+.phoneswitchhide {
+  display:none;
+}

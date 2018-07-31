@@ -1,0 +1,42 @@
+<view class="container">
+    <view class="page-section">
+        <!-- 上部文字显示区域 start -->
+        <view class="text-box-normal clearfix" scroll-y="true">
+            <view class="text-box-normal-left">
+                <image class="word-lb" src="../../pics/{{isChecked_img?'asr-lb.png':'speaker open.png'}}" bindtap="notried"></image>
+                <image class="word-wt" src="../../pics/{{condition?'fang.png':'shou.png'}}" bindtap="rotate"></image>
+                <text class="text-box-normal-left-text" selectable="true">{{outputTxt}}</text>
+                
+            </view>
+        </view>
+        <view style="clear:both;"></view>
+        <!-- 上部文字显示区域 end -->
+    </view>
+    <view class="word-list" animation="{{animation}}" wx:if="{{icnicList}}">
+        <view wx:for-items='{{array}}' wx:key="{{item.id}}" id="{{item.id}}" class="list" bindtap="clickMe">{{item.message}}</view>
+    </view>
+    <view wx:if="{{isSpeaking}}" class="speak-style">
+        <image class="sound-style" src="../../pics/voice_icon_speech_sound_1.png"></image>
+        <image wx:if="{{j==2}}" class="sound-style" src="../../pics/voice_icon_speech_sound_2.png"></image>
+        <image wx:if="{{j==3}}" class="sound-style" src="../../pics/voice_icon_speech_sound_3.png"></image>
+        <image wx:if="{{j==4}}" class="sound-style" src="../../pics/voice_icon_speech_sound_4.png"></image>
+        <image wx:if="{{j==5}}" class="sound-style" src="../../pics/voice_icon_speech_sound_5.png"></image>
+    </view>
+</view>
+<!-- 按住说话 -->
+<view class="word-dejp {{isChecked_btn?'normal':'is_checked'}}">
+    <image class="word-deimg" src="../../pics/word-delijp.png" bindtap="Singleclick"></image>
+    <button class="voice_tabbtn {{isSpeaking?'word-deBtn1':'word-deBtn'}}" bindtouchstart="touchdown" bindtouchend="touchup">按住说话</button>
+</view>
+<!-- 键盘输入 -->
+<view class="word-dejp {{isChecked_btn?'is_checked':'normal'}}">
+    <image class="word-deimg" src="../../pics/asr-yy.png" bindtap="Singleclick"></image>
+    <input class="word-deTxt" type="text" placeholder="请输入内容" bindinput="listenerPhoneInput" />
+    <button class="word-deBtn2" bindtap="search_text">搜索</button>
+</view>
+<!--默认隐藏-->
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
+<view class="littlearobot" style="position:fixed;width:100rpx;text-align:center;font-size:35rpx;height:100rpx;right:10rpx;bottom:240rpx;border-radius:50%;padding:5rpx;z-index:99999;letter-spacing:5rpx;background:linear-gradient(to right bottom,#3fe5e7,#fff,#f8422a);">
+  <navigator url="/pages/littlea/littlea"> 小A客服</navigator>
+</view>
+<!-- background:linear-gradient(to right,#f68e48,#39f353,#a6179a) -->

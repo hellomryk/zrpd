@@ -1,0 +1,188 @@
+.wordinsert-part1 {
+	width:1180px;
+	height:505px;
+	margin:0 auto;
+}
+.wordinsert-part1-form {
+	width:1080px;
+	margin: 0 auto;
+}
+.wordinsert-part1-write {
+	width:100%;
+	font-size:16px;
+	color:#0c0c0c;
+	line-height:56px;
+	text-align: left;
+}
+.wordinsert-part1-textarea {
+	width:100%;
+	height:198px;
+	font-size:14px;
+	color:#0c0c0c;
+	line-height:39px;
+	padding:2px 10px; 
+	border:1px solid #dcdcdc;
+	background: #f9f9f9;
+	resize:none;
+}
+.wordinsert-part1-text {
+	width:100%;
+	height:40px;
+	font-size:14px;
+	color:#0c0c0c;
+	line-height:39px;
+	padding:0px 10px; 
+	border:1px solid #dcdcdc;
+	background: #f9f9f9;
+}
+.wordinsert-part1-text-btn {
+	width:160px;
+	height:50px;
+	margin:40px auto 0;
+	background: #108cee;
+	font-size:18px;
+	color:#fff;
+	line-height:50px;
+	border:none;
+	border-radius: 3px;
+	text-align: center;
+	display: block;
+}
+.wordinsert-part1-text-jiantoudown {
+	width:21px;
+	height:21px;
+	margin:15px auto 0;
+	background:url(../images/wordjiantoudown.png) no-repeat 0 0;
+}
+.wzh_zs_21{border:none;background:none;border-bottom: 1px solid #ddd;padding-bottom: 50px;}
+.wzh_zs1_21{border:none;background:none;}
+.chinese-ppl-part2 {
+	width:1180px;
+	height:525px;
+	margin:0 auto;
+/*	overflow: hidden;*/
+}
+.chinese-ppl-part2-top {
+	width:1080px;
+	height:150px;
+	margin:0 auto;
+	padding:0 50px;
+	border-bottom: 1px solid #dcdcdc;
+}
+.chinese-ppl-part2-bottom {
+	width:1080px;
+	margin:0 auto;
+}
+.chinese-ppl-part2-top-ul {
+	margin-top:24px;
+}
+.chinese-ppl-part2-top-ul>li{
+	font-size:12px;
+	color:#0c0c0c;
+	line-height:26px;
+	background:#99cd67;
+	float:left;
+	padding:0 12px;
+	margin-right: 5px;
+	margin-top:5px;
+}
+.wordinsert-part1-writeposition {
+	padding-top: 80px;
+}
+/*emotion-start*/
+.wordemotion-part2 {
+	width:1090px;
+	margin:0 auto;
+}
+.emotion-box-title>span{
+	display:inline-block;
+	width:540px;
+	font-size:14px;
+	color:#108cee;
+	line-height:63px;
+	text-align: center;
+}
+.emotion-box-title>span:nth-child(2){
+	color:#f65312;
+}
+.emotion-box-bar {
+	width:1080px;
+	height:10px;
+	background:url(../images/emotionbar1.png) no-repeat 0 0;
+}
+.emotion-box-line1 {
+	width:1080px;
+	height:25px;
+	background:url(../images/emotionline1.png) no-repeat 0 0;
+}
+.emotion-box-num-ul {
+	margin-left:14px;
+	width:1100px;
+	overflow: hidden;
+}
+.emotion-box-num-ul>li {
+	width:51px;
+	font-size:14px;
+	color:#999;
+	line-height:32px;
+	text-align:left;
+	float: left;
+}
+.emotion-box-num-ul>li:nth-child(9){
+	margin-left:6px;
+}
+.emotion-box-num-ul>li:nth-child(11){
+	margin-left:7px;
+}
+.emotion-box-num-ul>li:nth-child(12){
+	margin-left:4px;
+}
+.emotion-box-sticker-ul {
+	width:1100px;
+	overflow: hidden;
+}
+.emotion-box-sticker-ul>li {
+	width:32px;
+	height:32px;
+	float: left;
+	margin-top:8px;
+	margin-right: 20px;
+}
+.emotion-box-sticker-ul>li:nth-child(10){
+	margin-right:25px;
+}
+.emotion-sad {
+	background:url(../images/emotionsad.png) no-repeat 0 0;
+}
+.emotion-none {
+	background:url(../images/emotionnone.png) no-repeat 0 0;
+}
+.emotion-happy {
+	background:url(../images/emotionhappy.png) no-repeat 0 0;
+}
+.emotion-box-bar-happy {
+	float: right;
+	width:300px;
+	height:10px;
+/*	overflow: hidden;*/
+	background:url(../images/emotionblankbg.png) repeat-x 0 0;
+}
+.emotion-box-bar-happy>var{
+	width:4px;
+	height:10px;
+	float: left;
+	background:url(../images/emotionblankleft.png) no-repeat 0 0;
+	margin-left:-4px;
+}
+.emotion-box-bar-happy>em{
+	width:6px;
+	height:10px;
+	float: right;
+	background:url(../images/emotionblankright.png) no-repeat 0 0;
+}
+.emotion-box-bar-sad {
+	float: left;
+	width:200px;
+	transform:rotate(180deg);
+}
+/*emotion-end*/

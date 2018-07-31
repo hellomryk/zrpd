@@ -1,0 +1,57 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('navFonts/icomoon.eot?xr44ci');
+  src:  url('navFonts/icomoon.eot?xr44ci#iefix') format('embedded-opentype'),
+    url('navFonts/icomoon.ttf?xr44ci') format('truetype'),
+    url('navFonts/icomoon.woff?xr44ci') format('woff'),
+    url('navFonts/icomoon.svg?xr44ci#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-mainicon_baobiao:before {
+  content: "\b900";
+}
+.icon-mainicon_gongdan:before {
+  content: "\b901";
+}
+.icon-mainicon_huihua:before {
+  content: "\b902";
+}
+.icon-mainicon_hujiao:before {
+  content: "\b903";
+}
+.icon-mainicon_jieru:before {
+  content: "\b904";
+}
+.icon-mainicon_kehu:before {
+  content: "\b905";
+}
+.icon-mainicon_liuyan:before {
+  content: "\b906";
+}
+.icon-mainicon_shouye:before {
+  content: "\b907";
+}
+.icon-mainicon_shezhi:before {
+  content: "\b908";
+}
+.icon-mainicon_zhishku:before {
+  content: "\b909";
+}
+

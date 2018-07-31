@@ -1,0 +1,112 @@
+var initNavContent = {
+	init:function(url){
+	        //加随机数
+			var pattern = /.+[?].+/;
+		    if(pattern.test(url)){
+		    	url += "&_="+aikf_version ;
+		    }else{
+		    	url += "?_="+aikf_version ;
+		    }
+       		$.ajax({
+       		   cache:false,
+       		   type:"get",
+       		   async:false,
+       		   url:url,
+       		   dataType:"html",
+       		   beforeSend:function(){
+       			  $("#tab-content-system").css({
+                      opacity: "0.0"
+                  }).empty();
+       		   }
+       		}).done(function(data){
+       			var pattern = /\?p=(.+)\&/;
+       			var winUrl = window.location.href;
+       			var id = "";
+       			if(pattern.test(winUrl)){
+       				id = pattern.exec(winUrl)[1];
+       			}else{
+       				var pattern = /\?p=(.+)$/;
+       				id = pattern.exec(winUrl)[1];
+       			}
+       			var nav = $("#left-nav a");
+       			//让左侧对应的导航选中
+       			$.each(nav,function(index,obj){
+       				if(obj.id == id && !$(obj.parentNode).hasClass("active")){
+       					$(obj.parentNode).addClass("active").siblings().removeClass("active");
+       				}
+       			});
+       			$("#tab-content-system").html(data).delay(15).animate({opacity: "1.0"},300,function(){
+
+                	if($.browser.msie&&$.browser.version=='8'){
+                		/*页面渲染后 修复ie8 单复选框 :css无法用input:checked的bug*/
+                		/*不需设置input的 checked值 */
+                		$(".smart-form input[type=checkbox],.smart-form .radio input[type=radio]").each(function(index,input){
+                			if($(this).is(':checked')){
+                				$(this).next('i').addClass('haschecked');
+                			}else{
+                				$(this).next('i').removeClass('haschecked');
+                			}
+                		});
+                	}
+                  })
+       		}).fail(function(){
+       			$("#tab-content-system").css({opacity:"1.0"}).html('<h4 class="ajax-loading-error"><i class="fa fa-warning txt-color-orangeDark"></i> Error 404! Page not found.</h4>');
+       		});
+	},
+	event:function(){
+		    var $this = this;
+			var clickF = function(){
+		    	//$('picBg',this).animate('top');
+				var url = $(this).attr("data-url");
+				var modeulCode = url.substr(url.indexOf("moduleCode=")+11);
+				myStorage.set("code",modeulCode); 
+				$this.init(url);
+				$(".tab-content-system a").removeClass("active");
+				$(this).addClass("active");
+			};
+			$(".tab-content-system").on("click","a",clickF);
+		    //存放跳转页面的code值
+			var myStorage = kst.use("myStorage");
+			var modeulCode = myStorage.get("code")||"";
+			if($.trim(modeulCode)==""){
+				myStorage.set("code", $("#code_id").val());      
+			}
+			var code = myStorage.get("code")||"";
+			if($.trim(code)!=""){
+				$.each($("#content .tab-content-system a"),function(){
+					var url = $(this).attr("data-url");
+					var modeulCode = url.substr(url.indexOf("moduleCode=")+11);
+					if(code == modeulCode){
+						$(this).click();
+					}
+				})
+			}else{
+				$("#content .tab-content-system a").eq(0).click();
+			}
+	},
+	click:function(code){
+		clearMyStorage();
+		$.each($("#content .tab-content-system a"),function(){
+			var url = $(this).attr("data-url");
+			var modeulCode = url.substr(url.indexOf("moduleCode=")+11);
+			if(code == modeulCode){
+				$(this).click();
+			}
+		})
+	}
+}
+initNavContent.event();
+
+$(function(){
+	$(".arrowArea").on("click",function(){
+		if ($(".arrowArea").hasClass("arrowDown")) {
+			$(".moreDiv").slideDown("slow",function(){
+				$(".arrowArea").removeClass("arrowDown").addClass("arrowUp").attr("title","收起");
+			});
+		} else {
+			$(".moreDiv").slideUp("slow",function(){
+				$(".arrowArea").removeClass("arrowUp").addClass("arrowDown").attr("title","展开");
+			});
+		}
+	});
+});

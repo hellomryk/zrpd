@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>aikf按钮预览</title>
+  <style type="text/css">
+    /*默认*/
+    #background{position: relative;}
+    #top_wzh_27{ width: 70px; height: 40px; position: absolute;left: 20px;top: 110px; z-index: 2;opacity: 0;}
+    #center_wzh_27{ width: 70px; height: 60px; position: absolute;  left: 15px ; top: 150px; z-index: 2; opacity: 0;}
+    #bottom_wzh_27{ width: 70px; height: 40px; position: absolute; left: 15px ;top: 210px;z-index: 2;opacity: 0;}
+    .le_ri_wzh_27{ width: 15px;height: 160px; position: absolute; top: 110px;   z-index: 2; opacity: 0;}
+    .back{ width: 100px; height: 270px; cursor: pointer;background: url("images/cartoon-red-smile.png") 0 0 no-repeat; -webkit-animation: 'flymove' 1s steps(18) infinite;-moz-animation: 'flymove' 1s steps(18) infinite;-ms-animation: 'flymove' 1s steps(18) infinite;}
+    @-webkit-keyframes flymove{ 0% {background-position: 0 0;}100% {background-position: -1800px 0; } }
+    @-moz-keyframes flymove{ 0% {background-position: 0 0;}100% {background-position: -1800px 0; }}
+    @-ms-keyframes flymove{ 0% {background-position: 0 0;}100% {background-position: -1800px 0; }}
+    /*头*/
+    .back1{ width: 100px; height: 270px; cursor: pointer; background: url("images/cartoon-red-smile (1).png") 0 0 no-repeat; -webkit-animation: 'flymove1' 1s steps(13) infinite; -moz-animation: 'flymove1' 1s steps(13) infinite;-ms-animation: 'flymove1' 1s steps(13) infinite;}
+    @-webkit-keyframes flymove1{0% {background-position: 0 0;}100% {background-position: -1300px 0; }}
+    @-moz-keyframes flymove1{ 0% {background-position: 0 0;}100% {background-position: -1300px 0; }}
+    @-ms-keyframes flymove1{ 0% {background-position: 0 0;}100% {background-position: -1300px 0; }}
+    /*中*/
+    .back2{ width: 100px;height: 270px;cursor: pointer; background: url("images/cartoon-red-moveHand.png") 0 0 no-repeat;-webkit-animation: 'flymove2' 1s steps(14) infinite;-moz-animation: 'flymove2' 1s steps(14) infinite;-ms-animation: 'flymove2' 1s steps(14) infinite;}
+    @-webkit-keyframes flymove2{0% {background-position: 0 0;}100% {background-position: -1400px 0; }}
+    @-moz-keyframes flymove2{0% {background-position: 0 0;}100% {background-position: -1400px 0; }}
+    @-ms-keyframes flymove2{0% {background-position: 0 0;}100% {background-position: -1400px 0; }}
+    /*下*/
+    .back3{width: 100px;height: 270px;cursor: pointer;background: url("images/cartoon-red-jump.png") 0 0 no-repeat;-webkit-animation: 'flymove3' 2s steps(29) infinite;-moz-animation: 'flymove3' 2s steps(29) infinite;-ms-animation: 'flymove3' 2s steps(29) infinite;}
+    @-webkit-keyframes flymove3{0% {background-position: 0 0;}100% {background-position: -2900px 0; }}
+    @-moz-keyframes flymove3{0% {background-position: 0 0;}100% {background-position: -2900px 0; }}
+    @-ms-keyframes flymove3{0% {background-position: 0 0;}100% {background-position: -2900px 0; }}
+    /*左右*/
+    .back4{width: 100px;height: 270px;cursor: pointer;background: url("images/cartoon-red-wave.png") 0 0 no-repeat;-webkit-animation: 'flymove4' 1.5s steps(21) infinite;-moz-animation: 'flymove4' 1.5s steps(21) infinite;-ms-animation: 'flymove4' 1.5s steps(21) infinite;}
+    @-webkit-keyframes flymove4{0% {background-position: 0 0;}100% {background-position: -2100px 0; }}
+    @-moz-keyframes flymove4{0% {background-position: 0 0;}100% {background-position: -2100px 0; }}
+    @-ms-keyframes flymove4{0% {background-position: 0 0;}100% {background-position: -2100px 0; }}
+  </style>
+  <script src="js/jquery.min.js"></script>
+</head>
+<body>
+     <div id="background"  class="back">
+           <div id="top_wzh_27"></div>
+           <div id="center_wzh_27"></div>
+           <div id="bottom_wzh_27"></div>
+           <div class="le_ri_wzh_27" style="left:0;"></div>
+           <div class="le_ri_wzh_27"  style="left:85px;"></div>
+     </div>
+</body>
+<script>
+        $("#top_wzh_27").hover(function(){
+         $("#background").attr("class","back1");
+       },function(){
+        $("#background").attr("class","back");
+      })
+        $("#center_wzh_27").hover(function(){
+         $("#background").attr("class","back2");
+       },function(){
+        $("#background").attr("class","back");
+      })
+        $("#bottom_wzh_27").hover(function(){
+         $("#background").attr("class","back3");
+       },function(){
+        $("#background").attr("class","back");
+      })
+        $(".le_ri_wzh_27").hover(function(){
+         $("#background").attr("class","back4");
+       },function(){
+        $("#background").attr("class","back");
+      })
+</script>
+</html>

@@ -1,0 +1,84 @@
+    .zw_img_717{width: 730px;margin: 60px auto;}
+    .zw_img_717 li{float: left;margin-right: 55px;}
+    .zw_img_717 .cl_wzh_717{margin-top: 30px;}
+    .zw_list_717{width: 1180px;margin: 0 auto;}
+    .zw_list_717 .wzh_717_ps{width: 430px;float: left;}
+    .zw_list_717 li{margin-top: 100px; margin-left: 50px;}
+    .wzh_717_ps h2{font-size: 30px;font-weight: 400;line-height: 120px;}
+    .wzh_717_ps h3{font-size: 20px;font-weight: 400;line-height: 40px;width: 260px;}
+    .wzh_717_ps p{font-size: 20px;color: #ccc;font-weight: 400;line-height: 100px;}
+    .wzh_717_ps a{display: inline-block; width: 140px;height: 50px;background: url(images/anniu_717.png) 0 0 no-repeat;background-size: 100% 100%;text-align: center;line-height: 50px;font-size: 18px;color: #fff;}
+    .yiruul {
+    	width:1180px;
+    	margin:0 auto;
+    	margin-bottom: 100px;
+    }
+    .yiruul-li {
+    	width:190px;
+    	float: left;
+    	padding-bottom:30px;
+    }
+    .icon_panel_item {
+    	position: relative;
+    	cursor: pointer;
+    	padding: 10px 48px;
+    }
+    .icon_panel_item {
+    	position: relative;
+    	cursor: pointer;
+    	padding: 10px 48px;
+    }
+    .text_center, footer {
+    	text-align: center;
+    }
+    .icon {
+    	width: 1em;
+    	height: 1em;
+    	vertical-align: -.15em;
+    	fill: currentColor;
+    	overflow: hidden;
+    	font-size: 84px;
+    	color: #aaaaaa;
+    }
+    .svg-icon {
+    	width:50px;
+    }
+    .svg-icon>use {
+    	font-size: 84px;
+    }
+    .font20 {
+    	font-size: 20px;
+    }
+    .font20 {
+    	width:100%;
+    	text-align: center;
+    }
+    .active {
+    	background-color: #F2F2F2;
+    	color: #1393ed;
+    }
+    .active .svg-icon {
+    	color: #1393ed;
+    }
+    .active .icon{
+    	color: #1393ed;
+    }
+    a{
+    	text-decoration: none!important;
+    }
+    /*è™šæ‹Ÿå¹¿å‘ŠåŠ©æ‰‹*/
+    .doctor-butlerulassistant {
+    	width:75%;
+    	padding-left:12.5%;
+    	padding-right:12.5%;
+    	background:#333333;
+    }
+    .yiruul-top {
+    	width: 1180px;
+    	margin: 0 auto;
+    	font-size: 30px;
+    	line-height: 60px;
+    	color: #0c0c0c;
+    	text-align: center;
+    	padding-bottom: 50px;
+    }

@@ -1,0 +1,381 @@
+@font-face {
+    font-family: 'icomoon';
+    src:    url('fonts/icomoon.eot?1phpdwz');
+    src:    url('fonts/icomoon.eot?1phpdwz#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.ttf?1phpdwz') format('truetype'),
+        url('fonts/icomoon.woff?1phpdwz') format('woff'),
+        url('fonts/icomoon.svg?1phpdwz#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#left-nav [class^="fa-"],#left-nav [class*=" fa-"] ,[class*="akfIcon-"],[class^="akfIcon-"]{
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+#left-nav [class^="fa-"],#left-nav [class*=" fa-"] {
+    font-size: 30px!important;
+    vertical-align: top;   
+}
+#left-nav .fa-line-chart:before {
+    content: "\e915";
+}
+#left-nav .fa-file-text:before {
+    content: "\e901";
+}
+#left-nav .fa-comments:before {
+    content: "\e902";
+}
+#left-nav .fa-plug:before {
+    content: "\e903";
+}
+#left-nav .fa-customer:before {
+    content: "\e904";
+    background: none;
+}
+
+#left-nav .fa-home:before {
+    content: "\e905";
+}
+
+#left-nav .fa-cog:before {
+    content: "\e906";
+}
+#left-nav .fa-graduation-cap:before {
+    content: "\e907";
+}
+#left-nav .fa-database:before {
+    content: "\e908";
+}
+#left-nav .fa-folder:before {
+    content: "\e909";
+}
+#left-nav .fa-pencil-square-o:before {
+    content: "\e90f";
+}
+#left-nav li{
+    line-height: 54px;      /*每个li的高度 由 line-height决定*/
+}
+.minified #left-nav li{
+    margin: 0px;
+}
+#left-nav li a{
+    font-size: 14px!important;
+    text-align: left;
+    text-indent: 10px;
+}
+#left-nav li a:hover{
+    color: #fff!important;
+}
+#left-nav li.active{
+    background: #33353a;
+}
+#left-nav li.active a{
+    color: #e5004a!important;
+    vertical-align: top;
+}
+
+#left-nav ul li a {
+    color: #a2a5ac!important;
+    white-space: nowrap;
+    padding: 0px;
+    line-height: inherit;
+    text-align: left;
+    text-indent: 7px;
+}
+
+#left-nav>ul>li{
+    border:none;
+}
+
+body.minified #left-panel {
+    width: 60px!important;
+    height: 50px;
+}
+#left-panel .login-info{
+    border:none!important;
+    height: 50px;
+}
+#left-panel .login-info .login-info-inner{
+    border:none!important;
+}
+aside#left-panel{
+    z-index: 1000;
+    padding-top: 52px!important;
+    width: 160px!important;
+    padding-right: 0px!important;
+    padding-left: 0px!important;
+}
+.smart-style-2.minified aside#left-panel{
+    padding-top: 52px!important;
+}
+.navLog{
+    position: absolute;
+    top: 0px;
+    right: -23px;
+    width: 210px;
+    background: url(../../../tpl/images/logoBg.png) no-repeat center right;
+    height: 52px;
+}
+.navLog2{
+    position: absolute;
+    top: 0px; 
+    left: 0px;
+    width: 100%;
+    height: 52px;
+    overflow: hidden; 
+    white-space: nowrap;
+    font-size: 0px;
+}
+.navLog2 img{
+    vertical-align: top;
+}
+.minified aside#left-panel .navLog2 img+img{
+    display: none;
+}
+#left-panel .login-info a{
+    color: #a2a5ac;
+}
+#header>div:first-child {
+    width: auto;
+}
+
+.minified #left-nav li a{
+    text-align: left;
+    white-space: nowrap;
+    padding: 0px;
+    height: 100%;
+    text-indent: 7px;
+    vertical-align: top;
+}
+
+.minified  div#main {
+    margin-left: 60px;
+}
+div#main {
+    margin-left: 60px;
+    margin-top: 52px;
+}
+body #shortcut{
+    z-index: 1000;
+    margin-left: -60px;
+    width: calc( 100% + 60px);
+}
+body.smart-style-2.minified #left-panel{
+    padding-bottom:15px!important;
+}
+.userName{
+    color: #4c4e53;
+    vertical-align: middle;
+    display: inline-block;
+    line-height: 52px;
+    float: none;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 140px;
+    position: relative;
+    padding-right:10px;
+}
+@media (min-width: 1600px){
+    .userName{
+        max-width: 260px;
+    }
+}
+.userName i{
+    position: absolute;
+    right: 0px;
+    top: 20px;
+}
+.smart-style-2 .btn-header > *:first-child >.man-servicePlat-access{
+    background: none;
+}
+.smart-style-2 #hide-menu a > i, .smart-style-2 .btn-header > *:first-child > a{
+     color: #4c4e53!important;
+}
+
+.touxImg{
+    border: 1px solid #4c4e53;
+    border-radius: 50%;
+}
+
+.minified nav>ul>li:hover>a>.menu-item-parent, .minified nav>ul>li:hover>ul {
+    display: none!important;/*二级菜单不显示*/
+}
+.smart-style-2 .header-outer {
+    position: fixed;
+    width: 100%;
+    top: 0px;
+}
+@media (max-width: 979px) and (min-width: 768px){
+    #left-panel {
+        left: 0px;
+    }
+}
+@media only screen and (max-width: 679px) and (min-width: 0){
+    #left-panel {
+        left: 0px;
+    }
+}
+@media only screen and (max-width: 479px) and (min-width: 320px){
+    #left-panel {
+        left: 0px;
+    }
+}
+@media (max-width: 767px){
+    #left-panel {
+        left: 0px;
+    }
+}
+
+@media (max-width: 880px) and (min-width: 768px){
+    #left-panel {
+        left: 0px;
+    }
+}
+nav ul li.active>a:before{
+     display:none;
+}
+.minified nav>ul>li.active>a::before{
+    display:none;
+}
+nav ul span.menu-item-parent{
+    vertical-align: top;
+}
+.minified nav>ul>li>a .fa.fa-fw {
+    display: inline-block;
+    text-align: left;
+}
+nav>ul>li>a .fa.fa-fw {
+    text-align: left;
+}
+#left-panel nav>ul>li>a,#left-panel nav>ul>li>a i{
+    line-height: inherit;
+}
+.minified nav>ul>li>a>.menu-item-parent{
+    line-height: inherit;
+}
+#left-panel nav>ul>li>a{
+    display: inline-block;
+    vertical-align: top;
+}
+
+/*顶部*/
+.akfIcon-kefu:before {
+    content: "\e90b";
+    font-size: 22px;
+    vertical-align: middle;
+}
+.akfIcon-kefu font{
+    vertical-align: middle;
+}
+.akfIcon-test:before {
+    content: "\e90a";
+    font-size: 22px;
+    vertical-align: middle;
+}
+
+.akfIcon-tixing:before {
+    content: "\e90e";
+    font-size: 22px;
+    vertical-align: middle;
+}
+#header>div{
+    height: 100%;
+}
+.btn-header.pull-right {
+    height: 100%;
+}
+.btn-header.pull-right:hover{
+    background-color: #ddd;
+}
+.smart-style-2 #hide-menu a:hover i, .smart-style-2 .btn-header>:first-child>a:hover{
+    color: #4c4e53!important;
+}
+
+.btn-header>:first-child>a.toux{
+    vertical-align: middle;
+    display: inline-block;
+    padding: 0px!important;
+    margin: 0px;
+}
+.minified .page-footer,.page-footer{
+    padding-left: 138px;
+}
+#header{padding: 0px;}
+
+.index-header{
+    border-bottom: 0px;
+    padding: 0px;
+}
+hr.hrB06{
+    margin-bottom: -17px;
+    border: 1px solid #b5b5b5;
+}
+.index-header h3{
+    margin-left: -13px;
+    color: #000;
+    font-size: 18px;
+    float: left;
+    background: #fff;
+    padding-right: 20px;
+}
+.bo6Nav-tab.nav>li>a{
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-right: 20px;
+}
+@media only screen and (max-width: 479px) and (min-width: 320px)
+{
+    .ajax-dropdown:after {
+        margin-left: -7px;
+    }
+    .ajax-dropdown:before {
+        margin-left: -8px;
+    }   
+}
+
+@media (max-width: 979px)
+{
+    #main {
+    width: auto!important;
+    }
+}
+/*b08 会话来源图标 start*/
+.akfIcon-qq:before {
+    content: "\e900";
+}
+.akfIcon-mphone:before {
+    content: "\e910";
+}
+.akfIcon-qq:before {
+    content: "\e900";
+}
+.akfIcon-app:before {
+    content: "\e911";
+}
+.akfIcon-wechat:before {
+    content: "\e912";
+}
+.akfIcon-pc:before {
+    content: "\e913";
+}
+.akfIcon-rongyun:before {
+    content: "\e914";
+}
+.akfIcon-weibo:before {
+    content: "\e917";
+}
+.akfIcon-other:before {
+    content: "\e916";
+}
+/*end*/

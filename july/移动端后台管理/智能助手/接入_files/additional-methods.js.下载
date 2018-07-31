@@ -1,0 +1,103 @@
+//字母校验
+jQuery.validator.addMethod("char", function(value, element) {
+	var char = /^([a-zA-Z]+)$/;
+	return this.optional(element) || (char.test(value));
+}, "只能输入字母");
+// 汉字
+jQuery.validator.addMethod("cn", function(value, element) {
+	var char = /^[\u4e00-\u9fa5]+$/;
+	return this.optional(element) || (char.test(value));
+}, "只能输入汉字");
+// 汉字或字母
+jQuery.validator.addMethod("cnOrChar", function(value, element) {
+	var char = /^[a-z|A-Z|\u4e00-\u9fa5]+$/;
+	return this.optional(element) || (char.test(value));
+}, "只能输入汉字或者字母");
+// 汉字或数字
+jQuery.validator.addMethod("cnOrNumber", function(value, element) {
+	var char = /^[0-9|\u4e00-\u9fa5]+$/;
+	return this.optional(element) || (char.test(value));
+}, "只能输入汉字或者数字");
+// 字母或数字
+jQuery.validator.addMethod("charOrNumber", function(value, element) {
+	var char = /^[a-z|A-Z|0-9]+$/;
+	return this.optional(element) || (char.test(value));
+}, "只能输入字母或者数字");
+// 字母或数字或者汉字
+jQuery.validator.addMethod("charOrNumberCn", function(value, element) {
+	var char = /(^[a-z|A-Z|0-9|\u4e00-\u9fa5]+$)/;
+	return this.optional(element) || (char.test(value));
+}, "只能输入字母、数字、汉字");
+// 手机号码验证
+jQuery.validator.addMethod("mobile", function(value, element) {
+	var length = value.length;
+	var mobile = /^0?1[3|4|5|7|8][0-9]\d{8}$/;
+	return this.optional(element) || (length == 11 && mobile.test(value));
+}, "手机号码格式错误");
+// 手机号码或者电话号码验证
+jQuery.validator.addMethod("mobileOrFixPhone", function(value, element) {
+	var mobile = /^0?1[3|4|5|7|8][0-9]\d{8}$/;
+	var tel = /^(^400(-?\d{3,4}){2}$)|(^0\d{2}-?\d{8}$)|(^0\d{3}-?\d{6}(\d{1})?$)|(^\(0\d{2}\)-?\d{8}$)|(^\(0\d{3}\)-?\d{6}(\d{1})?$)$/;
+	return this.optional(element) || (mobile.test(value) || tel.test(value));
+}, "手机号码或电话号码格式错误");
+
+// 电话号码验证
+jQuery.validator.addMethod("fixPhone", function(value, element) {
+	var tel = /^(^400(-?\d{3,4}){2}$)|(^0\d{2}-?\d{8}$)|(^0\d{3}-?\d{7}$)|(^\(0\d{2}\)-?\d{8}$)|(^\(0\d{3}\)-?\d{7}$)$/;
+	return this.optional(element) || (tel.test(value));
+}, "电话号码格式错误");
+
+// 多个用分号分隔开的email验证
+jQuery.validator.addMethod("multiEmail", function(value, element) {
+	value = value.trim();
+	value += ";";
+    var reg = /^((([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6}\;))){0,5}$/;
+	return this.optional(element) || (reg.test(value));
+}, "多个email格式错误");
+
+// 身份证校验
+jQuery.validator.addMethod("idCard", function(value, element) {
+	var idCard = /^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/;
+	return this.optional(element) || (idCard.test(value));
+}, "身份证号格式错误");
+
+// 日期比较
+jQuery.validator.addMethod("compareDate", function(value, element, param) {
+	var startDate = jQuery(param).val();
+	var date1 = new Date(Date.parse(startDate.replace("-", "/")));
+	var date2 = new Date(Date.parse(value.replace("-", "/")));
+	return date1 < date2;
+});
+
+//
+jQuery.validator.addMethod("notEqualTo", function(value, element, param) {
+
+	var value1 = jQuery(param).val();
+	return value != value1;
+});
+
+//
+jQuery.validator.addMethod("conditionRequired",
+		function(value, element, param) {
+			var flag = true;
+			var ele = jQuery(param);
+			if (ele.is(":checked")) {
+				var pattern = /.+/;
+				if (!pattern.test(value)) {
+					flag = false;
+				}
+			}
+			return flag;
+		});
+
+//只能输入字母及数字（字母开头）
+jQuery.validator.addMethod("letterAndNumber", function(value, element) {
+	var param = /^[a-zA-Z]\w*$/;
+	return this.optional(element) || (param.test(value));
+}, "只允许字母及数字");
+
+//只能正数(最多允许两位小数)
+jQuery.validator.addMethod("plusDouble", function(value, element) {
+	var param = /^([1-9][\d]{0,20}|0)(\.[\d]{1,2})?$/;
+	return this.optional(element) || (param.test(value));
+}, "只允许正数");

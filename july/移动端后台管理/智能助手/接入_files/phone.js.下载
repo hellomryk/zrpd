@@ -1,0 +1,502 @@
+jQuery.fn.extend({
+	menuName :function(selector){// 菜单名称
+		$(this).unbind( "keyup" ) ;
+		$(this).bind('keyup',function(){
+			var me = $(selector) ;
+			me.html($(this).val());
+//			保存到该按钮上
+			if($("input[name='menuLevel']").val() =='1') {
+				var data =me.attr('reldata') ;
+				data = JSON.parse(data) ;
+				data.title_ = $(this).val() ;
+				var reldata = JSON.stringify(data) ;
+				me.attr('reldata',reldata);
+			}else if($("input[name='menuLevel']").val() =='2') {
+				var menuId = $("input[name='menuId']").val() ;
+				var menu = $('#'+menuId) ;
+				var data = menu.attr("reldata") ; 
+				data = JSON.parse(data) ;
+				var index = $("div[zcdrel='"+menuId+"']").children().index(me);
+				for(var i = 0;i<data.subData.length;i++){
+					if(index == data.subData[i].order_) {
+						data.subData[i].title_ = $(this).val() ;
+						break ;
+					}
+				}
+				menu.attr('reldata',JSON.stringify(data)) ;
+			}
+			
+		}) ;
+	},
+	code:function(selector){ //唯一值
+		$(this).bind('keyup',function(){
+//			0.通过menuId获取是那个div上的数据
+//			1.判断是否一级菜单
+//			2.如果是一级菜单，则编辑一级菜单的code_
+//			3.不是一级菜单
+//			3.1 获取当前菜单的位置
+//			3.2通过位置获取二级菜单
+			var menu = "#"+$('input[name="menuId"]').val() ;
+			var reldata = $(menu).attr('reldata') ;
+			reldata = JSON.parse(reldata) ;
+
+			var menuLevel = $('input[name="menuLevel"]').val() ;
+			if(menuLevel ==1) {
+				reldata.code_ = $(this).val() ;
+			}else if(menuLevel ==2) {
+				
+				var subMenuIndex = $("input[name='subMenuIndex']").val() ;
+				
+				for(var item = 0 ;item <reldata.subData.length ; item ++) {
+					
+					if(subMenuIndex == reldata.subData[item].order_){
+						reldata.subData[item].code_ =$(this).val() ;
+						break ;
+					}
+				}
+			}
+			
+			$(menu).attr('reldata',JSON.stringify(reldata));
+		}) ;
+	},
+	subMenuName:function(e){ // 二级菜单增加按钮绑定事件
+		$(this).unbind( "blur" ) ;
+		
+		$('input[name="subMenu"]').bind('blur',function(e){
+            var val = $(this).val();
+
+            if(val.length>7){
+                ZENG.msgbox.show('菜单字数最多为7个', 5, IKFTool.errTime);
+                //$(this).val('');
+                return;
+            }
+            var index = $('input[name="subMenu"]').index(this);
+			var firMenuId = $('input[name="menuId"]').val() ;
+			//var menu = $('div[zcdrel="'+firMenuId+'"]') ;
+			var menu = $('#'+firMenuId+'>ul');
+//			判断需要加入的2级菜单是否有输入
+			var div=$("[data-menuIndex='subMenu"+index+"']",menu);
+			if(div.length==0){
+//			创建一个新的二级菜单
+				div = "<li data-menuIndex='subMenu"+index+"' pid='"+firMenuId+"'>"+$(this).val()+"</li>";
+				menu.append(div);	
+			}else{
+                $(div).html($(this).val());
+            }
+			$('.subMenu').switchingSecLevelMenu('.menuItemSelected') ;
+			
+			//var levelFirMenuIdElement = '#'+firMenuId ;
+			var levelFirMenu = $('#'+firMenuId) ;
+			var data = levelFirMenu.data('reldata') ;
+			//data = JSON.parse(data);
+			
+			var subMenu ={
+                title:$(this).val(),
+                order: index,
+                type: 'click'
+            } ;
+			/*subMenu.title_ = $(this).val() ;
+			subMenu.order_ = index ;
+			subMenu.type_ = 'click' ;*/
+			if(data.subData == null){
+				data.subData = [] ;
+			}
+			var flag = false ;
+			
+			for(var item = 0;item <data.subData.length ; item ++ ){
+				if(data.subData[item].order == index){
+					data.subData[item] = subMenu ;
+					flag = true ;
+					break ;
+				}
+			}
+			if(!flag){
+				data.subData.push(subMenu) ;
+			}
+			//levelFirMenu.data('reldata',JSON.stringify(data)) ;
+			levelFirMenu.data('reldata',data);
+
+			e.preventDefault();
+		});
+		
+	} ,
+	switchingFirstLevelMenu :function(selector){ //切换菜单
+		$(this).unbind( "click" ) ;
+		$(this).bind('click',function(e){
+//			设置一级菜单类型显示
+			/*$("select[name='type']").empty() ;
+			// "<option value=''>请选择...</option>" ;
+			var options = "<option value='addSubMenu' selected='selected'>增加二级菜单</option>" ;
+			options+= "<option value='click'>发送信息</option>" ;
+			options+= "<option value='view'>跳转到网页</option>" ;
+			options+= "<option value='scancode_push'>扫码跳转</option>" ;
+			$("select[name='type']").append(options) ;*/
+
+            var options = [
+                {id:'addSubMenu',text:'增加二级菜单'},
+                {id:'click',text:'发送信息'},
+                {id:'view',text:'跳转到网页'},
+                {id:'scancode_push',text:'扫码跳转'}
+            ];
+
+			$("input[name='menuLevel']").val('1') ;
+			//清除一点击的按钮的颜色
+			$(selector).removeClass("menuItemSelected");
+			$(this).addClass("menuItemSelected");
+//			END
+			$('input[name="menuId"]').val($(this).attr('id')) ;
+//			切换后清理页面中的数据
+			$.resetItem();
+			
+			var data = $(this).data('reldata') ;
+			if(!data){
+                data = {
+                    type:"addSubMenu",
+                    order:$(this).index(),
+                    data:"",
+                    title:$('>strong',this).text(),
+                    subData:[]
+                }
+                $(this).data('reldata',data);
+            }
+			$.setItemValue(data);
+//			-------------------------控制菜单响应----------------------------
+			if($("select[name='type']").val() == 'click' || $("select[name='type']").val() == 'view'){ 
+				queryAllPlugins(data.type);
+				$("#secondMenuContainer").hide();
+				
+			}else if($("select[name='type']").val() == 'addSubMenu'){//增加菜单
+				$("#secondMenuContainer").show();
+				$("#pluginPanel").hide();
+			}
+			
+//			-----------------------------------------------------
+			
+			e.preventDefault() ;
+		}) ;
+	},
+	switchingSecLevelMenu :function(selector){ //二级菜单切换菜单
+        $(this).unbind( "click" ) ;
+        $(this).bind('click',function(e){
+//			设置一级菜单类型隐藏
+            /*$("select[name='type']").empty() ;
+             //			var options = "";//"<option value=''>请选择...</option>" ;
+             var options= "<option value='click' selected='selected'>发送信息</option>" ;
+             options+= "<option value='view'>跳转到网页</option>" ;
+             options+= "<option value='scancode_push'>扫码跳转</option>" ;
+             $("select[name='type']").append(options) ;*/
+            var options = [
+                {id:'click',text:'发送信息'},
+                {id:'view',text:'跳转到网页'},
+                {id:'scancode_push',text:'扫码跳转'}
+            ];
+            $("#phone-right .select2[name='type']").select2('data',options);
+
+            $("input[name='menuLevel']").val('2');
+            //清除一点击的按钮的颜色
+            $(selector).removeClass("menuItemSelected");
+            $(this).addClass("menuItemSelected");
+
+            var pid = $(this).attr('pid');
+            $('input[name="menuId"]').val(pid);
+            var index = $(this).index();
+            //切换后清理页面中的数据
+            $.resetItem();
+            $("#secondMenuContainer").hide();
+            //pid = '#'+pid;
+
+            var data = $('#'+pid).data('reldata') ;
+            //data = JSON.parse(data);
+
+            //console.log(data);
+            $.setItemValue(data);
+            for(var item = 0;item <data.subData.length ; item ++ ){
+                if(data.subData[item].order == index){
+                    $("input[name='subMenuIndex']").val(data.subData[item].order) ;
+                    $.setItemValue(data.subData[item]);
+                    queryAllPlugins(data.subData[item].type);
+                    break;
+                }
+            }
+            e.preventDefault() ;
+        }) ;
+    },
+	plugin:function(){//插件事件绑定
+		$(this).unbind( "click" ) ;
+		$(this).bind('click',function(e){
+			var eventId = $(this).attr("eventId") ;
+			var type = $(this).attr("type") ;
+			var url = $(this).attr("url") ;
+			if(url !=undefined && url !='' && type !=undefined && type){
+				remoteModal = IKFTool.remoteModalEl;
+				 if(type == "material"||type == "article"||type == "guaguacard"||type == "micro_form"
+				 		||type == "side_photo"||type == "attendance"){
+		            $('.modal-dialog',remoteModal).addClass('modal-lg');
+		        }
+		        remoteModal.removeData("bs.modal").modal({
+		            remote : url +"?eventId="+eventId+"&type="+type
+		        });
+		        remoteModal.on('hidden.bs.modal',function(){
+		            var mode = $(this);
+		            if(type == "material"||type == "article"||type == "guaguacard"||type == "micro_form"
+		            		||type == "side_photo"||type == "attendance"){
+		                $('.modal-dialog',this).removeClass('modal-lg');
+		            }
+		            //删除事件
+		            mode.unbind('hidden.bs.modal');
+		            //console.log(this);
+		            mode.removeData("bs.modal");
+		        });
+			}
+			e.preventDefault() ;
+		}) ;
+	}
+	
+}) ;
+
+$.extend({
+	/**
+	 * 微信导航显示列数
+	 * 
+	 */
+	setNavColumn:function(selector){
+		$(selector).unbind('click') ;
+        var flag = true;
+		$(selector).bind('click',function(){
+			var me = $(this) ;
+			var oldColumn = $("input[name='oldNavColumn']").val() ;
+//			判断显示的列数
+			var column = me.val() ;
+			//$("input[name='oldNavColumn']").val(column) ;
+//			console.log(Number(oldColumn) +"-----------"+ Number(column));
+			if(Number(oldColumn) > Number(column)){
+				
+				/*$.confirm("主菜单减少后，删除的菜单不可恢复，是否确定？",function(){
+					changeMainMenu(column) ;	
+				}) ;*/
+                $('#navColumn-Modal').modal({
+                    keyboard: false
+                })
+                if(flag){
+                    $('#navColumn-Modal [data-dismiss=modal]').click(function(){
+                        //$("input[name='navColumn']").eq(parseInt(column)-1).get(0).checked = false;
+                        var oldColumn = $("input[name='oldNavColumn']").val() ;
+                        $("input[name='navColumn']").eq(parseInt(oldColumn)-1).get(0).checked = true;
+                    })
+                    $('#navColumn-Modal .modal-footer button:first-child').click(function(){
+                        var column =$("input[name='navColumn']:checked").val();
+                        $("input[name='oldNavColumn']").val(column) ;
+                        //$("input[name='navColumn'] +i").removeClass('haschecked');
+                        //$("input[name='navColumn']:checked").next('i').addClass('haschecked');
+                        changeMainMenu(column) ;
+                        $('#navColumn-Modal').modal('hide');
+                    })
+                    flag = false;
+                }
+
+
+				
+			}else{
+                $("input[name='oldNavColumn']").val(column) ;
+                //$("input[name='navColumn'] +i").removeClass('haschecked');
+               //me.next('i').addClass('haschecked');
+				changeMainMenu(column) ;
+			}
+			
+		}) ;
+	},
+	resetItem :function(){
+//		$("#secMenuSpan >section:not(:first-child)").remove();
+		$("#secondMenuList").empty() ;
+		$('input[name="menuName"]').val('');
+		$('input[name="subMenu"]').val('');
+		$('input[name="code"]').val('');
+		$('select[name="menuEvent"]').val('');
+	},
+	setItemValue :function(data){ //设置页面的值
+//		console.log(data);
+		$('input[name="menuName"]').val(data.title);
+//		如果是一级菜单，则需要初始化2级菜单
+		if(data.subData !=undefined && data.subData != null){
+			$("#secondMenuList").empty() ;
+//			TITLE
+			for(var item = 0;item <data.subData.length ; item ++ ) {
+				
+				var selection  ='<div class="form-group">'
+                    +'<label class="col-md-2 control-label"><span class="red-start">*</span>菜单名称</label>'
+                    +'<div class="col-md-3">'
+                    +    '<input type="text" name="subMenu" value="'+data.subData[item].title+'" class="form-control">'
+                    +'</div>'
+                    +'<div class="col-md-3 menu-option">'
+                    +    '<span onclick="deleteSecondMenu(this)"><i class="glyphicon glyphicon-trash font-md"></i></span>'
+                    +'</div>'
+                    +'</div>';
+					/*selection +='	<div class="form-group">';
+					selection +='		<div class="col-md-2 control-label"> <i class="red-start">*</i>菜单名称 </div>';
+					selection +='			<div class="col-md-2">';
+					selection +='    			<label class="input input-normal"> ';
+					selection +='     				<input type="text" class="form-control" name="subMenu" value="'+data.subData[item].title_+'">';
+					selection +='				</label>';
+					selection +=' 			</div>';
+					selection +='		<div class="col-md-2" style="width:37px;padding-left:0; padding-top:6px;">';
+					selection +=' 			<label class="">';
+					selection +='  				<span class="fa fa-lg fa-fw fa-trash-o" onclick="deleteSecondMenu(this)"></span> ';
+					selection +=' 			</label>';
+					selection +='		</div>';
+					selection +='	</div>';*/
+				
+				$("#secMenuSpan").append(selection) ;
+			}
+			$('input[name="subMenu"]').subMenuName() ;
+
+		}else{
+			//$("#secMenuSpan").empty() ;
+		}
+//		CODE_
+		$('input[name="code"]').val(data.code_);
+//		PLUGIN_
+		$('select[name="menuEvent"]').val(data.plugin_);
+//		TYPE_ 赋值
+		if(data.type_ !=undefined){
+			$('select[name="type"]').val(data.type_);	
+		}
+		if($('select[name="type"]').val() =='click' || $('select[name="type"]').val() == 'view'){
+			$("#pluginPanel").show();
+		}
+//		text_
+		if(data.text_ !=undefined && data.text_ !=''){
+			var eventId = data.eventId_ ;
+			var eventType = data.eventType_ ;
+			var len =30 ;
+			var text = data.text_ ;
+			var cnType = $.convertType(eventType);
+			
+			var sections = $("#pluginfieldsets").children() ;
+			sections.empty() ;
+			var selection = "<section>" ;
+			selection +="<span>已添加:</span>";
+			if(eventType =='material' || eventType=='newest_material' || eventType =='article' || eventType=="microwebsite"){
+				var showText = data.showText_ ;
+				var otherParam = data.otherParams2_ ;
+				selection +="<span>"+cnType+"["+otherParam+"]:</span>";
+				selection +="	<label title='"+showText+"'>";
+				selection +=	(showText.length>len?showText.substring(0,len)+"......":showText) ;
+				selection +="	</label>" ;
+			}else if(eventType=='newest_article'){
+				var showText = data.showText_ ;
+				var otherParam = data.otherParams2_ ;
+				var map = JSON.parse(data.otherParams_);
+				var countnum = map[0] ;
+				var notnull = map[1] ;
+				selection +="<span>"+cnType+"["+otherParam+"]:</span>";
+				selection +="	<label title='"+showText+"'>";
+				selection +=	(showText.length>len?showText.substring(0,len)+"......":showText)+"<br/>发送条数：" +countnum+"<br/>是否只选择含标题图片的文章："+(notnull=='1'?"是":"否");
+				selection +="	</label>" ;
+			}else if(eventType=='dynamic_data'){
+				var showText = data.showText_ ;
+				var countnum = data.otherParams_;
+				selection +="<span>"+cnType+"[</span>";
+				selection +="	<label >";
+				selection +=	(showText.length>len?showText.substring(0,len)+"......":showText)+" ]&nbsp;&nbsp;&nbsp;发送条数："+countnum;
+				selection +="	</label>" ;
+			}else if(eventType =='text'){
+				selection +="<span>"+cnType+":</span>";
+				selection +="	<label title='"+text+"'>";
+				selection +=	(text.length>len?text.substring(0,len)+"......":text) ;
+				selection +="	</label>" ;
+			
+			}else if( eventType=='link'){
+				selection +="<span>"+cnType+":</span>";
+				selection +="	<label title='"+text+"'>";
+				selection +=	text ;
+				selection +="	</label>" ;
+			
+			}else if(eventType=="guaguacard" || eventType=="micro_form" || eventType=="side_photo" || eventType=="attendance" || eventType=="sign_up") {
+				var showText = data.showText_ ;
+				var otherParam = data.otherParams2_ ;
+				selection +="<span>["+cnType+"]:</span>";
+				selection +="	<label title='"+otherParam+"'>";
+				selection +=	(otherParam.length>len?otherParam.substring(0,len)+"......":otherParam) ;
+				selection +="	</label>" ;
+			}
+			//selection +="<span class='dustbinSpan'>" ;
+			//selection +="&nbsp;&nbsp;&nbsp;&nbsp;<button onclick='deleteData($(this));' class='fa fa-lg fa-fw fa-trash-o'></button>" ;
+			//selection +="</span>" ;
+			selection +="	</section>" ;
+			$("#pluginfieldsets").html(selection) ;
+		}else{
+			var sections = $("#pluginfieldsets").children() ;
+			sections.empty() ;
+		}
+		
+//		二级菜单是否i显示
+		if(data.type_ == "addSubMenu"){
+			$("#secondMenuTop").show() ;
+		}else{
+			$("#secondMenuTop").hide() ;
+		}
+	},
+	convertType:function(type){ //类型转换
+		if(type =='text'){
+			return "文字";
+		}else if(type =='link'){
+			return "链接";
+		}else if(type =='material'){
+			return "图文";
+		}else if(type =='newest_material'){
+			return "最新图文";
+		}else if(type =='article'){
+			return "文章";
+		}else if(type=='microwebsite'){
+			return "微官网" ;
+		}else if(type=='guaguacard'){
+			return "轻应用" ;
+		}else if(type=='micro_form'){
+			return "微表单" ;
+		}else if(type=='side_photo'){
+			return "身边拍" ;
+		}else if(type=='newest_article'){
+			return "最新文章" ;
+		}else if(type=='dynamic_data'){
+			return "动态数据";
+		}else if(type=='attendance'){
+			return "考勤";
+		}else if(type=='sign_up'){
+			return "报名";
+		}
+	}
+}) ;
+
+
+
+//--------------------------------------query plugins----------------------------------------------
+function queryAllPlugins(v){
+	$.ajax({
+		url:'customMenu/toPlugins.htm',
+		type:'post' ,
+		data :{"type":v},
+		success: function(data){
+			$("#plugins").empty();
+			$("#plugins").html(data);
+			//$("#pluginPanel").show();
+			if($("select[name='type']").val() == 'scancode_push'){
+				$("#pluginPanel").hide();
+			}else{
+				$("#pluginPanel").show();
+			}
+		}
+	});
+}
+
+
+//Array.prototype.remove = function(item) {
+//	var me = this ;
+//	console.log(this);
+//	var array = [] ;
+//    for(var i=0;i < me.length;i++) {
+//        if(item != me[i]){
+//        	array.push(me[i]) ;
+//        }
+//    }  
+//    return array ;
+//} ;

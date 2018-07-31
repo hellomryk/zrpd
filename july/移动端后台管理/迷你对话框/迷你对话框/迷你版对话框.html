@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<!-- 	<link rel="stylesheet" type="text/css" href="css/moren.css">
+	<link rel="stylesheet" type="text/css" href="css/talkbox1.css"> -->
+	
+<style>
+@charset "utf-8";
+/*=========================Reset_start==========================*/
+body,h1,h2,h3,h4,h5,h6,div,p,dl,dt,dd,ol,ul,li,form,table,th,td,a,img,span,strong,var,em,input,textarea,select,option{margin: 0; padding: 0;}
+html,body{font-family:"宋体","微软雅黑",Arail,Tabhoma; font-size: 12px; text-align: left;}
+ul,ol{list-style: none;}
+img{border: 0;}
+input,select,textarea{outline:0;}
+textarea{resize:none; overflow: auto;}
+table{border-collapse: collapse; border-spacing: 0;}
+th,strong,var,em{font-weight: normal; font-style: normal;}
+a{text-decoration: none;}
+html{
+    font-size: 100px;
+}
+
+.y_talk-boxz {
+	width:3.2rem;
+	height:4.8rem;
+	box-shadow: 0.02rem 0.02rem 0.3rem #eee;
+}
+.y-talk-box-title {
+    width: 100%;
+    height: 0.6rem;
+    background: #1D9AF1;
+}
+.y_talk-boxz {
+	position:fixed;
+	left:0;
+	top:0;
+}
+.y-talk-box-title-img {
+    width: 0.34rem;
+    height: 0.34rem;
+    margin-top: 0.13rem;
+    float: left;
+    margin-left: 0.20rem;
+}
+.y-talk-box-title-a {
+    float: right;
+    width: 0.18rem;
+    height: 0.18rem;
+    margin-right: 0.21rem;
+    background: url(images/talkshutdown.png) no-repeat 0 0;
+    background-size: 100% 100%;
+}
+.customer-sen>img {
+	float: right;
+	width:0.32rem;
+	height:0.32rem;
+	border-radius: 50% 50%;
+	margin-right:0.10rem;
+	margin-left: 0.15rem;
+}
+.customer-sen>span {
+	float: right;
+	font-size: 0.12rem;
+	color: #0c0c0c;
+	line-height:0.18rem;
+	padding: 0.06rem 0.11rem; 
+	background: #f4f4f4;
+	border-radius:0.04rem;
+	position: relative;
+	max-width: 3.95rem;
+}
+.customer-sen>span>cite{
+	position: absolute;
+	top:0.11rem;
+	right:-0.06rem;
+	width:0.06rem;
+	height:0.08rem;
+	background: url(images/talkjiantouright.png) no-repeat 0 0;	
+}
+.customer-sen {
+	margin-top:0.11rem;
+}
+.y-talk-box-content-left {
+	float: left;
+	width: 3.18rem;
+	height:4.80rem;
+/*	border:0.01rem solid #dcdcdc; */
+}
+.robot-sen>img {
+	float:left;
+	width:0.32rem;
+	height:0.32rem;
+	border-radius: 50% 50%;
+	margin-right:0.15rem;
+	margin-left:0.10rem;
+}
+.robot-sen>span {
+	float:left;
+	font-size: 0.12rem;
+	color: #0c0c0c;
+	line-height:0.18rem;
+	padding: 0.06rem 0.11rem; 
+	background: #e7f3fd;
+	border-radius:0.04rem;
+	position: relative;
+	max-width: 2rem;
+}
+.robot-sen>span>cite{
+	position: absolute;
+	top:.011rem;
+	left:-0.06rem;
+	width:0.06rem;
+	height:0.08rem;
+	background: url(images/talkjiantouleft.png) no-repeat 0 0;	
+}
+.robot-sen {
+	margin-top:0.11rem;
+}
+.y-talk-box-content {
+	background: #fff;
+}
+.y-talk-box-content-left-top {
+	width:100%;
+	height:3.45rem;
+	overflow-y: scroll;
+	border-bottom: 0.01rem solid #dcdcdc;
+}
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+.y-talk-box-content-left-top::-webkit-scrollbar
+{
+    width: 0.06rem;
+    height: 0.16rem;
+    background-color: #F5F5F5;
+    opacity: 0;
+}
+
+/*定义滚动条轨道 内阴影+圆角*/
+.y-talk-box-content-left-top::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 0.06rem rgba(0,0,0,0);
+    border-radius: 0.10rem;
+    background-color: #F5F5F5;
+        opacity: 0;
+}
+
+/*定义滑块 内阴影+圆角*/
+.y-talk-box-content-left-top::-webkit-scrollbar-thumb
+{
+    border-radius: 0.10rem;
+    -webkit-box-shadow: inset 0 0 0.06rem rgba(0,0,0,0);
+    background-color: #ddd;
+}
+.y-talk-box-content-left-bottom-text {
+	display: block;
+	width:3rem;
+	height:0.57rem;
+/*	margin-left:0.17rem;
+	margin-top:0.13rem;*/
+	border:1px solid #ddd;
+}
+.y-talk-box-content-right {
+	float:left;
+	margin-left:0.25rem;
+	margin-top:0.12rem;
+}
+.y-talk-box-content-left-bottom-input {
+    float: right;
+    width: 0.50rem;
+    height: 0.22rem;
+    background: #1D9AF1;
+    display: inline-block;
+    border: none;
+    border-radius: 0.03rem;
+    margin-right: 0.15rem;
+    margin-top: 0.02rem;
+    cursor: pointer;
+    font-size: 0.12rem;
+    color: #fff;
+    line-height: 0.22rem;
+    text-align: center;
+}
+.y-talk-box-content-left-topi {
+	width:100%;
+	font-size:0.12rem;
+	color:#999;
+	line-height: 0.30rem;
+	text-align: center;
+	font-style: normal;
+	display: block;
+	padding-top:0.11rem;
+}
+.y-talk-box-content-rightp {
+    display: inline-block;
+    width: 0.80rem;
+    text-align: center;
+    cursor: pointer;
+    font-size: 0.14rem;
+    color: #0c0c0c;
+    line-height: 0.22rem;
+}
+.y-talk-box_wzh_27{
+	border-bottom: 0.01rem solid #1D9AF1;
+}
+.y-talk-box-content-rightol li {
+	font-size: 0.12rem;
+	color: #999999;
+	line-height: 0.27rem;
+	cursor: pointer;
+}
+.wzh_20_tianqi{width: 2rem;height: 1.95rem;color: #fff;font-size: 0.14rem;background: url(../images/BG.png) no-repeat;background-size: 100% 100%;}
+.wzh_20_tianqi .hea_wzh_20{width: 100%;height: 0.34rem;line-height: 0.34rem; border-bottom: 0.01rem solid #71BFF6;text-align: center;}
+.wzh_20_tianqi li{width: 33%;height: 1.60rem;padding: 0.10rem 0; box-sizing: border-box;border-left: 0.01rem solid #71BFF6;float: left;font-size: 0.12rem;}
+.wzh_20_tianqi li:first-child{border:none;}
+.wzh_20_tianqi li p{text-align: center;line-height: 0.20rem;}
+.wzh_20_tianqi li img{margin: 0.10rem 0;}
+.wzh_20_goumai{width: 3.85rem;height: 2.80rem;}
+.wzh_20_goumai li{width: 48%;height: 2.80rem;padding:0.05rem; box-sizing: border-box; background: #fff;}
+.wzh_20_jiage{font-size: 0.14rem;color: #FA4B16;float: left;font-weight: 600;}
+.wzh_20_jiage1{font-size: 0.10rem;color: #999;float: left;}
+.wzh_20_renshu{font-size: 0.10rem;color: #999;float: right;}
+.clear{clear: both;}
+.wzh_20_goumai li p a:hover{color: #5BA5F1;text-decoration:underline !important;}
+.wzh_20_goumai li p {margin-top: 0.05rem;}
+.wzh_20_goumai li{ float: left;}
+.wzh_20_goumai li:first-child{ margin-right: 4%; }
+.wzh_20_baidu{width: 100%;padding:0.05rem; box-sizing: border-box;}
+.wzh_20_baidu li p a span{color: #5BA5F1;text-decoration:underline !important;float: left;}
+.wzh_20_baidu li p a font{color: red;text-decoration:underline !important;float: left;}
+.wzh_20_baidu li{font-size: 0.12rem;margin-top: 0.15rem;}
+.wzh_20_baidu li p:first-child{ font-size: 0.14rem;height: 0.25rem;}
+.wzh_20_baidu li p a em{color: #0E8D59;}
+.y-talk-box-title span,.y-talk-box-title font {float: left;font-size: 0.16rem;line-height: 0.41rem;width: 40%;height: 0.20rem;color: #fff;margin-left: 0.20rem;}
+.y-talk-box-title span{font-size:0.16rem; font-weight: 700;}
+.y-talk-box-title font{font-size:0.12rem; }
+.wzh_20_waichaung{width: 0.01rem;height: auto;box-shadow:0.01rem 0.01rem 0.10rem #ddd;background: #fff;border-radius: 0.04rem;padding: 0.05rem 0.15rem 0.20rem 0.15rem;position: absolute;left: 100%;top:20%;box-sizing: border-box;}
+.wzh_20_waichaung p{font-size: 14rem;text-align: center;line-height: 0.35rem;}
+.wzh_20_waichaung li{color: #5BA5F1;text-align: left;line-height: 0.30rem;}
+.wzh_20_waichaung li img{vertical-align: middle;margin-right: 0.03rem;}
+/*new-addrobot-content*/
+.movie-a {
+	display:block;
+	text-decoration: underline!important;
+	color:#108cee;
+	line-height: 0.24rem;
+}
+.img-robot {
+	display:block;
+	max-width:2rem;
+	height:auto;
+}
+.y-talk-box-content-left-button-voice {
+	float: left;
+	width:0.15rem;
+	height:0.16rem;
+	border:none;
+	background: url(../images/y-talk-box-content-left-button-voice.png) no-repeat 0 0;	
+	margin-left:0.20rem;
+	margin-top:0.07rem;
+	cursor:pointer;
+}
+.y-talk-box-content-left-button-uploadimg {
+	float: left;
+	width:0.17rem;
+	height:0.16rem;
+	border:none;
+	background: url(../images/y-talk-box-content-left-button-voice2.png) no-repeat 0 0;	
+	margin-left:0.20rem;
+	margin-top:0.07rem;
+	cursor:pointer;
+}
+.y-talk-box-content-left-button-uploadimg>input{
+	opacity:0;
+	cursor:pointer;
+}
+.y-talk-box-content-left-button {
+	height:0.30rem;
+	background: #f4f4f4;
+}
+.y-talk-box-content-left-button-voice:hover {
+	background:url(../images/y-talk-box-content-left-button-voice11.png) no-repeat 0 0;
+}
+.y-talk-box-content-left-button-uploadimg:hover{
+	background: url(../images/y-talk-box-content-left-button-voice22.png) no-repeat 0 0;
+}
+.clearfix::after {
+	content:"";
+	display: block;
+	clear:both;
+}
+
+.y-talk-box-content-left-bottom-text::-webkit-input-placeholder { /* WebKit browsers */
+    color:#ccc;
+    font-size:50px;
+}
+.y-talk-box-content-left-bottom-text:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:#ccc;
+    font-size:20px;
+}
+.y-talk-box-content-left-bottom-text::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:#ccc;opacity:1;
+     font-size:20px;
+}
+.y-talk-box-content-left-bottom-text:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:#ccc !important;
+    font-size:20px;
+}
+.y-talk-box-content-left-bottom {
+	position:fixed;
+	left:0;
+	bottom:0;
+	width:100%;
+	box-sizing: border-box;
+	padding-top:0.1rem;
+	padding-bottom: 0.1rem;
+}
+.y-talk-box-content-left-bottom-voice {
+	float: left;
+	width:8%;
+	margin-left:2.5%;
+	margin-right:2.5%; 
+}
+.y-talk-box-content-left-bottom-text {
+	float: left;
+	width:70%;
+	height:0.25rem;
+	font-size: 0.16rem;
+	border:none;
+	border:1px solid #888;
+}
+.y-talk-box-content-left-bottom-input{
+	float: left;
+	width:10%;
+	margin-left:2.5%;
+	margin-right:2.5%; 
+}
+.y-talk-box-title-phone-a {
+	cursor:pointer;
+	float: right;
+    width: 0.18rem;
+    height: 0.18rem;
+    margin-right: 0.21rem;
+    background: url(images/img_phonecall.png) no-repeat 0 0;
+    background-size: 100% 100%;
+}
+/*			<div class="y-talk-box-content-left-bottom">
+				<img src="images/icntohumans1.png" title="转人工" class="y-talk-box-content-left-bottom-voice">
+				<textarea placeholder="请输入内容" class="y-talk-box-content-left-bottom-text"></textarea>
+				<input type="button" name="" value="发送" class="y-talk-box-content-left-bottom-input" onclick="yksend()">
+			</div> */
+</style>
+<script>
+	function resetPage() {
+   		var htmls = document.getElementsByTagName('html')[0];
+   		var heigtDiv = document.getElementsByClassName("y-talk-box-content-left-top")[0];
+    	var deviceWidth = document.documentElement.clientWidth;
+    	var deviceWidth1 = document.documentElement.clientHeight;
+	   	// htmls.style.fontSize = deviceWidth*0.15625 + 'px';
+	   	console.log(deviceWidth)
+	   
+	   	console.log(window.innerWidth)
+	   		console.log(deviceWidth1)
+	   		console.log(heigtDiv)
+/*	   	console.log(deviceHeight)*/
+	   	htmls.style.fontSize =((window.innerWidth/320)*100) + 'px';
+	   	heigtDiv.style.height = (deviceWidth1-332)+"px";
+	    var fontZ=parseInt($('html').css('font-size'));
+	    // if(fontZ>100){
+	    //     fontZ=100;
+	    //     htmls.style.fontSize = fontZ + 'px';
+	    // }
+	}
+	window.onload = function(){
+	   resetPage();
+	}
+	window.onresize = function(){
+	   resetPage();
+	}
+</script>
+</head>
+<body>
+<div class="y_talk-boxz">
+<!-- 外窗结束 -->
+	<div class="y-talk-box-title">
+		<img src="images/talklogo.png" class="y-talk-box-title-img">
+		<span id="lovekfcompanytitle">爱客服</span>
+		<font>24小时真诚为您服务</font>
+		<a href="javascript:;" class="y-talk-box-title-a"></a>
+		<a href="tel:0147-88469258" class="y-talk-box-title-phone-a" id="img_phonecall"></a>
+		
+	</div>
+	<div class="y-talk-box-content clearfix">
+		<div class="y-talk-box-content-left">
+			<div class="y-talk-box-content-left-top" id="y-talk-box-content-left-top">
+				<i class="y-talk-box-content-left-topi">加载历史消息</i>
+				<div class="customer-sen clearfix">
+					<img src="images/touxiang1.png">
+					<span>
+						增加理财收益的方法有哪些？
+						<cite></cite>
+					</span>
+				</div>
+				<!-- 百度搜索开始 -->
+				<div class="robot-sen clearfix">
+					<img src="images/touxiang2.png">
+					<span >
+						<div class="wzh_20_baidu">
+							<ul>
+								<li>
+									<p><a href="http://www.baidu.com"><font >百度</font> <span>网址大全</font></a></p>
+									<div class="clear"></div>
+									<p><a href="http://www.baidu.com">百度网址大全 -- 简单可依赖的上网导航... 视频更多>>爱奇艺高清优酷网百度视频腾讯视频芒果TV搜狐视频 影视更多>>电视
+									</a> <a href="http://www.baidu.com"><em>site.baidu.com/ </em></a></p>
+								</li>
+								<li>
+									<p><a href="http://www.baidu.com"><font >百度</font> <span>网址大全</font></a></p>
+									<div class="clear"></div>
+									<p><a href="http://www.baidu.com">百度网址大全 -- 简单可依赖的上网导航... 视频更多>>爱奇艺高清优酷网百度视频腾讯视频芒果TV搜狐视频 影视更多>>电视
+									</a> <a href="http://www.baidu.com"><em>site.baidu.com/ </em></a></p>
+								</li>
+								<li>
+									<p><a href="http://www.baidu.com"><font >百度</font> <span>网址大全</font></a></p>
+									<div class="clear"></div>
+									<p><a href="http://www.baidu.com">百度网址大全 -- 简单可依赖的上网导航... 视频更多>>爱奇艺高清优酷网百度视频腾讯视频芒果TV搜狐视频 影视更多>>电视
+									</a> <a href="http://www.baidu.com"><em>site.baidu.com/ </em></a></p>
+								</li>
+								
+							</ul>
+							<div class="clear"></div>
+						</div>
+						<cite></cite>
+					</span>
+				</div>
+				<!-- 百度搜索结束 -->
+				
+				<!-- 天气信息 开始-->
+				<div class="robot-sen clearfix">
+					<img src="images/touxiang2.png">
+					<span style="padding:0.06rem;">
+						<div class="wzh_20_tianqi">
+							<p class="hea_wzh_20"><span>北京</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>14点发布</span></p>
+							<ul>
+								<li>
+									<p>今天</p>
+									<p>6/20</p>
+									<p><img src="images/wzh_20_tq.png" height="32" alt=""></p>
+									<p>晴</p>
+									<p>3°~16°</p>	
+								</li>
+								<li>
+									<p>今明天</p>
+									<p>6/21</p>
+									<p><img src="images/wzh_20_tq1.png"  height="32" alt=""></p>
+									<p>雾霾</p>
+									<p>3°~16°</p>	
+								</li>
+								<li>
+									<p>后天</p>
+									<p>6/22</p>
+									<p><img src="images/wzh_20_tq2.png"  height="32" alt=""></p>
+									<p>多云</p>
+									<p>3°~16°</p>	
+								</li>
+								
+							</ul>
+						</div>
+						<cite></cite>
+					</span>
+				</div>
+				<!-- 天气信息结束-->
+				<div class="robot-sen clearfix">
+					<img src="images/touxiang2.png">
+					<span>
+						小智偷偷告诉你我的理财经，让你收入节节高~ <br/>1、VIP特权收益 <br/>2、续投收益 <br/>3、理财加息券
+						<cite></cite>
+					</span>
+				</div>
+				<i class="y-talk-box-content-left-topi">今天11:23:34</i>
+				<div class="customer-sen clearfix">
+					<img src="images/touxiang1.png">
+					<span>
+						增加理财收益的方法有哪些？
+						<cite></cite>
+					</span>
+				</div>
+				<div class="robot-sen clearfix">
+					<img src="images/touxiang2.png">
+					<span>
+						小智偷偷告诉你我的理财经，让你收入节节高~ 
+						<cite></cite>
+					</span>
+				</div>
+				<div class="robot-sen clearfix">
+					<img src="images/touxiang2.png">
+					<span>
+						您想看的电影如下：
+						<a href="#" class="movie-a">1、超感猎杀：完结特别篇</a>
+						<a href="#" class="movie-a">2、信笺故事</a>
+						<a href="#" class="movie-a">3、燃烧</a>
+						<a href="#" class="movie-a">4、叙利亚的哭声</a>
+						<a href="#" class="movie-a">5、最终幻想女孩</a>
+						<a href="#" class="movie-a">6、李尔王 </a>
+						<a href="#" class="movie-a">7、大屠</a>
+						<cite></cite>
+					</span>
+				</div>
+				<div class="robot-sen clearfix">
+					<img src="images/touxiang2.png">
+					<span>
+						<img src="images/vegetable-robot.png" class="img-robot">
+						<cite></cite>
+					</span>
+				</div>
+			</div>
+			<div class="y-talk-box-content-left-bottom">
+				<img src="images/voicebtnbottom.png" title="转人工" class="y-talk-box-content-left-bottom-voice">
+				<textarea placeholder="请输入内容" class="y-talk-box-content-left-bottom-text"></textarea>
+				<input type="button" name="" value="发送" class="y-talk-box-content-left-bottom-input" onclick="yksend()">
+			</div> 
+<!-- 			</div> -->
+<!-- 			<div class="y-talk-box-content-left-button">
+				<input type="button" name="" class="y-talk-box-content-left-button-voice">
+				<div class="y-talk-box-content-left-button-uploadimg">
+					<input type="file" name="" >
+				</div>
+			</div>
+			<div class="y-talk-box-content-left-bottom">
+				<textarea placeholder="请输入内容" class="y-talk-box-content-left-bottom-text"></textarea>
+				<input type="button" name="" value="发送" class="y-talk-box-content-left-bottom-input" onclick="yksend()">
+			</div> -->
+
+
+
+
+
+
+		</div>
+
+	</div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript">
+	function yksend() {
+		var strContent = $(".y-talk-box-content-left-bottom-text").val();
+		var newString = '<div class="customer-sen clearfix"><img src="images/touxiang1.png"><span>'+strContent+'<cite></cite></span></div>';
+		var boxContent = $(".y-talk-box-content-left-top").html();
+		var oDiv = document.getElementById("y-talk-box-content-left-top")
+		if(strContent == "") {
+			alert("您还没有输入内容呦~~")
+		} else {
+			$(".y-talk-box-content-left-top").html(boxContent + newString); 
+			$(".y-talk-box-content-left-bottom-text").val("");
+			 boxScroll(oDiv)
+		}
+	}
+	 function boxScroll(o){  
+	      o.scrollTop = o.scrollHeight;  
+	} 
+	document.onkeydown = function(event) {
+		var e = event || window.event || arguments.callee.caller.arguments[0];
+		if(e && e.keyCode == 13) {
+				var strContent = $(".y-talk-box-content-left-bottom-text").val();
+				var newString = '<div class="customer-sen clearfix"><img src="images/touxiang1.png"><span>'+strContent+'<cite></cite></span></div>';
+				var boxContent = $(".y-talk-box-content-left-top").html();
+				var oDiv = document.getElementById("y-talk-box-content-left-top")
+				if(strContent == "") {
+					alert("您还没有输入内容呦~~")
+				} else {
+					$(".y-talk-box-content-left-top").html(boxContent + newString); 
+					$(".y-talk-box-content-left-bottom-text").val("");
+			 		boxScroll(oDiv)
+				}
+		}
+	}
+	$(".y-talk-box-content-rightol>li").click(function() {
+		var strContent = $(this).text();
+		var newString = '<div class="customer-sen clearfix"><img src="images/touxiang1.png"><span>'+strContent+'<cite></cite></span></div>';
+		var boxContent = $(".y-talk-box-content-left-top").html();
+		var oDiv = document.getElementById("y-talk-box-content-left-top")
+		$(".y-talk-box-content-left-top").html(boxContent + newString); 
+		boxScroll(oDiv)
+	})
+	// 获取参数
+	$.post("http://192.168.1.74:8080/api/kapSecretKey/getDataByKey"),{key:"078f83e953444764ad893ae049b1a9c2"},function(data) {
+		var desktop_but_json = data.move_but_json;//按钮回显数据
+		var desktop_win_json = data.move_win_json;//窗体回显数据
+		if(desktop_win_json.form_controlykphonenumshow == 0) {
+            $("#img_phonecall").hide();
+		} else if(desktop_win_json.form_controlykphonenumshow == 1) {
+            $("#img_phonecall").show();
+		}
+	}
+  
+
+</script>
+<!-- <script type="text/javascript" src="js/ykmobileback.js"></script> -->
+</body>
+</html>

@@ -1,0 +1,163 @@
+.cartoonButton_bstb li {
+	width:45px;
+    height: 70px;
+}
+.redCar_bstb {
+    background: url(../images/cartoonImageMobile.png) no-repeat 0px 0px;
+}
+.blueCar_bstb {
+    background: url(../images/cartoonImageMobile.png) no-repeat -45px 0px;
+}
+.whiteCar_bstb {
+    background: url(../images/cartoonImageMobile.png) no-repeat -90px 0px;
+}
+/*移动端小人*/
+    /*移动端*/
+.ykmobile{width:65px;height:66px;background:url(../images/cartoon-mobilered.png) 0 0 no-repeat;-webkit-animation:'flymove5' 1.5s steps(17) infinite;-moz-animation:'flymove5' 1.5s steps(17) infinite;-ms-animation:'flymove5' 1.5s steps(17) infinite;}
+@-webkit-keyframes flymove5{0%{background-position:0 0;}100% {background-position:-1088px 0;}}
+@-moz-keyframes flymove5{0%{background-position:0 0;}100% {background-position:-1088px 0;}}
+@-ms-keyframes flymove5{0%{background-position:0 0;}100% {background-position: -1088px 0}}
+
+.iframeBox_bstbmobile_cen {
+	 box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 36px 118px;
+    width: 467px;
+    height: 441px;
+    margin: 0px auto;
+    background: url(../images/phoneeffect1.png);
+    margin-top: 80px;
+}
+.iframeBox_bstbmobile_cen2 {
+	background:#eee url(../images/Pagebg.jpg) no-repeat 0 0;
+	background-size: 100% 100%;
+	height:100%;
+}
+.iframeBox_bstbmobile_cen2 {
+	position: relative;
+}
+.ykmobile-fa {
+	
+}
+#huilan-aikf-show {
+    width: 100%;
+    height: 50px;
+    padding: 0 12px;
+    line-height: 50px;
+    position: absolute;
+    z-index: 2;
+    right: 0px;
+    bottom: 0px;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    cursor: default;
+    margin: auto;
+}
+div.ykmobilephonenum {
+	width:unset;
+}
+.ykmobilephonenum div{
+	width:unset;
+}
+.form-controlykphonenum {
+	width:115px;
+}
+
+/*手机对话框*/
+.windowRight .rightBox {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 36px 118px;
+    width: 467px;
+    height: 441px;
+    margin: 0px auto;
+    background: url(../images/phoneeffect1.png);
+}
+.windowRight .windowArticle {
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    border-radius: 3px;
+    overflow: hidden;
+}
+.windowRight .windowArticle header {
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    color: white;
+    background: red;
+    border-radius: 3px 3px 0px 0px;
+    position: relative;
+    height: 38px;
+}
+#headerName {
+    display: inline-block;
+    width: 110px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-top: 3px;
+}
+.windowRight .windowArticle header .phoneNav {
+    position: absolute;
+    top: 6px;
+    right: 5px;
+    overflow: hidden;
+}
+.windowRight .windowArticle .phoneNav img {
+    width: 25px;
+    height: 25px;
+}
+img {
+    vertical-align: middle;
+}
+.windowRight .windowArticle article {
+    width: 100%;
+    height: 293px;
+    background: #eee;
+    border-bottom: 1px solid #c2c2c2;
+}
+.windowRight .windowArticle article img {
+    width: 100%;
+    height: 100%;
+}
+.windowRight .windowArticle footer {
+    width: 100%;
+    height: 39px;
+    padding: 5px 0px;
+    background: #f6f6f6;
+    overflow: hidden;
+}
+.windowRight .windowArticle footer div {
+    float: left;
+    margin-right: 5px;
+    height: 100%;
+}
+.windowRight .windowArticle .artificial {
+    width: 29px;
+    float: left;
+    margin-left: 6px;
+}
+#windowSendBtn {
+    float: left;
+    margin-left: 5px;
+    width: 40px;
+    height: 100%;
+    text-align: center;
+    line-height: 29px;
+    color: white;
+    border-radius: 4px;
+}
+ .rightBox {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 36px 118px;
+    width: 467px;
+    height: 441px;
+    margin: 0px auto;
+    background: url(../images/phoneeffect1.png);
+}

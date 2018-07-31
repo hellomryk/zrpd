@@ -1,0 +1,75 @@
+$.extend({
+	/**扩展jquery confirm
+	 * @param message 提示信息
+	 * @param fun	后续操作
+	 * @param title	
+	 */
+	confirm:function(message,fun,title){
+		$.messager.model = {
+				 ok:{ text: "确定", classed: 'btn-dimgray' },
+				 cancel: { text: "取消", classed: 'btn-default' }
+		};
+		 if(title ==undefined || title ==''){
+			 title = "提示" ;
+		 }
+		 if(typeof(fun) =="function" ) {
+			 $.messager.confirm(title, "<div style='font-size:16px;'>"+message+"<div>", fun);
+		 }else{
+			 return ;
+		 }
+		 
+	},
+	/**
+	 * 扩展jquery alert
+	 * @param msg 
+	 */
+	alert:function(msg){
+        $.messager.model = {
+            ok:{ text: "确定", classed: 'btn-default' }
+        };
+		 $.messager.alert(msg);
+	},
+	/**
+	 * 字符串截取
+	 * @param element 字符串父元素
+	 * @param str 	  截取的字符串	
+	 * @param len  	  截取的长度
+	 */
+	substring:function(element,str,len){
+		if(str !=undefined ){
+//			td 加title
+			$(element).attr('title',str);
+//			td内容
+			if(str.length>len){
+				
+				$(element).html(str.substring(0,len)+"...");
+			}else{
+				$(element).html(str);
+			}
+		}
+	},
+	get :function(url){
+        try{//解决ie11中切换报错的问题
+            $("#remoteModal .uploadify").uploadify('destroy');
+        }catch(e){}
+		url&&IKFTool.creatModal({url:url,modalEl:$("#modal-remote")}) ; //  $("#remoteModal").modal({remote:url});
+	},
+	closeModal : function(el){
+		var e = el || $("#modal-remote") ;
+		$(e).modal("hide");
+	},
+	getMain : function(url,id){
+		var patternOne = /\.htm$/
+	    var pattern = /\.htm[?].+/
+	    if(url){
+        	if(patternOne.test(url)){
+        		url = url + "?_="+Math.random()
+        	}else if(pattern.test(url)){
+        		url = url + "&_="+Math.random()
+        	}
+        	var id = id||"content";
+        	loadURL(url,$("#"+id));
+	    }
+	}
+}) ;
+

@@ -1,0 +1,80 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.9.94",
+	"appid": "wx5687b6dd46979010",
+	"projectname": "%E5%B0%8FA%E5%90%8C%E5%AD%A6%E5%B0%8F%E7%A8%8B%E5%BA%8F",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 2,
+			"list": [
+				{
+					"id": -1,
+					"name": "index",
+					"pathName": "pages/index/index",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "logs",
+					"pathName": "pages/logs/logs",
+					"query": ""
+				},
+				{
+					"id": 2,
+					"name": "asr",
+					"pathName": "pages/asr/asr",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "text",
+					"pathName": "pages/test/test",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "details",
+					"pathName": "pages/details/Word-details",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "word",
+					"pathName": "pages/word/Word-list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "小A同学",
+					"pathName": "pages/littlea/littlea",
+					"query": ""
+				}
+			]
+		}
+	}
+}

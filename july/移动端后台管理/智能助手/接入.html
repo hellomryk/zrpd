@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>接入</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/smartadmin-production.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/navFonts.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-skins.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/chanese-fixed.css">
+    <link rel="stylesheet" type="text/css" href="css/b06Nav.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.minicolors.css">
+    <link rel="stylesheet" type="text/css" href="css/talkbox1.css">
+    <link rel="stylesheet" href="css/wzh_zj_29.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <style>
+
+    </style>
+
+</head>
+<body>
+
+<div id="main" role="main">
+
+    <!-- RIBBON -->
+    <div id="ribbon" style="display:none;">
+
+        <ol class="breadcrumb" style="display:none;">
+            <li>接入</li>
+        </ol>
+        <div class="demo"><span id="demo-setting"><i class="fa fa-cog txt-color-blueDark"></i></span>
+            <form>
+                <legend class="no-padding margin-bottom-10">布局设置</legend>
+                <section><label><input name="subscription" id="smart-fixed-header" type="checkbox"
+                                       class="checkbox style-0"><span>固定头部</span></label><label><input type="checkbox"
+                                                                                                       name="terms"
+                                                                                                       id="smart-fixed-navigation"
+                                                                                                       class="checkbox style-0"><span>固定导航</span></label><label><input
+                        type="checkbox" name="terms" id="smart-fixed-ribbon" class="checkbox style-0"><span>固定菜单</span></label><label><input
+                        type="checkbox" name="terms" id="smart-fixed-footer" class="checkbox style-0"><span>固定底部</span></label><label><input
+                        type="checkbox" name="terms" id="smart-fixed-container" class="checkbox style-0"><span>切换窄版(无响应模式)</span></label><label
+                        style="display:block;"><input type="checkbox" id="smart-topmenu" class="checkbox style-0"><span>导航悬浮顶部</span></label>
+                    <span id="smart-bgimages" style="display: none;"></span></section>
+                <section><h6 class="margin-top-10 semi-bold margin-bottom-5">清空本地缓存</h6><a href="javascript:void(0);"
+                                                                                           class="btn btn-xs btn-block btn-primary"
+                                                                                           id="reset-smart-widget"><i
+                        class="fa fa-refresh"></i> 重置系统</a></section>
+                <h6 class="margin-top-10 semi-bold margin-bottom-5">皮肤选择</h6>
+                <section id="smart-styles"><a href="javascript:void(0);" id="smart-style-0"
+                                              data-skinlogo="resources/bootstrap/img/logo.png"
+                                              class="btn btn-block btn-xs txt-color-white margin-right-5"
+                                              style="background-color:#4E463F;">夜空灰色</a><a href="javascript:void(0);"
+                                                                                           id="smart-style-1"
+                                                                                           data-skinlogo="resources/bootstrap/img/logo-white.png"
+                                                                                           class="btn btn-block btn-xs txt-color-white"
+                                                                                           style="background:#3A4558;">黑色优雅</a><a
+                        href="javascript:void(0);" id="smart-style-3"
+                        data-skinlogo="resources/bootstrap/img/logo-pale.png"
+                        class="btn btn-xs btn-block txt-color-white margin-top-5" style="background:#f78c40">清新淡雅</a><a
+                        href="javascript:void(0);" id="smart-style-2"
+                        data-skinlogo="resources/bootstrap/img/logo-blue.png"
+                        class="btn btn-xs btn-block txt-color-darken margin-top-5" style="background:#fff;"><i
+                        class="fa fa-check fa-fw" id="skin-checked"></i>默认皮肤</a></section>
+            </form>
+        </div>
+    </div>
+    <!-- END RIBBON -->
+    <div class="row payTip" style="">
+        <div class="col-xs-8 col-sm-8 col-md-6 col-lg-6 col-xs-offset-2 col-sm-offset-2 col-md-offset-3 col-lg-offset-3 payTipInnerbox">
+            <h6>温馨提示：</h6>
+            <p id="tipCont">您的坐席还有<span>7</span>天就过期了哦，为了不影响您的使用，请及时到<a
+                    href="http://www.aikf.com/aikfadmin/admin/toIndex.htm#nav/toList.htm?p=1681477&amp;code=user_account">账户管理</a>续费！
+            </p>
+            <button data-act="miss"></button>
+        </div>
+    </div>
+    <!-- #SHORTCUT AREA : With large tiles (activated via clicking user name tag)
+		Note: These tiles are completely responsive, you can add as many as you like -->
+    <div id="shortcut">
+        <ul>
+
+            <!-- <li>
+						<a href="#security/userInfo/toChangePassWord.htm" class="jarvismetro-tile big-cubes bg-color-greenLight" data-toggle="modal" data-target="#remoteModal"> <span class="iconbox"> <i class="fa fa-user fa-4x"></i> <span>修改密码 </span> </span> </a>
+					</li> -->
+        </ul>
+    </div>
+    <!-- END SHORTCUT AREA -->
+    <!-- #MAIN CONTENT -->
+    <div id="content" class="clearfix" style="padding-left: 26px; padding-top: 18px; opacity: 1;">
+
+        <div class="row index-header text-color-magenta">
+            <hr class="hrB06">
+            <div class="col-lg-6 col-md-6">
+                <h3>
+                    接入
+                </h3>
+            </div>
+            <div class="col-lg-6 col-md-6 text-muted text-right"></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <input type="hidden" id="code_id" value="">
+                <div class="clearfix nav_tooltip_style">
+                    <ul class="nav nav-tabs bordered ivrNav-tabs tab-content-system bo6Nav-tab indexPageNavList">
+                        <li class="active">
+                            <a class="active" data-toggle="tab" href="http://www.aikf.com/aikfadmin/admin/toIndex.htm"
+                               data-url="interfaceManagement/toDesktop.htm?moduleCode=desktop_service">
+                                <span class="hidden-mobile hidden-tablet" style="font-size:16px;">桌面网站</span> </a>
+                        </li>
+                        <li>
+                            <a class="" data-toggle="tab" href="http://www.aikf.com/aikfadmin/admin/toIndex.htm"
+                               data-url="mobileService/getSittingPage.htm?moduleCode=mobile_service">
+                                <span class="hidden-mobile hidden-tablet" style="font-size:16px;">移动网站</span> </a>
+                        </li>
+                        <li>
+                            <a class="" data-toggle="tab" href="http://www.aikf.com/aikfadmin/admin/toIndex.htm"
+                               data-url="interfaceManagement/toWechat.htm?moduleCode=wechat_service">
+                                <span class="hidden-mobile hidden-tablet" style="font-size:16px;">微信</span> </a>
+                        </li>
+                        <li>
+                            <a class="" data-toggle="tab" href="http://www.aikf.com/aikfadmin/admin/toIndex.htm"
+                               data-url="interfaceManagement/toApp.htm?moduleCode=app_service">
+                                <span class="hidden-mobile hidden-tablet" style="font-size:16px;">APP</span> </a>
+                        </li>
+                        <li>
+                            <a class="" data-toggle="tab" href="http://www.aikf.com/aikfadmin/admin/toIndex.htm"
+                               data-url="interfaceManagement/toHuyou.htm?moduleCode=huyou_service">
+                                <span class="hidden-mobile hidden-tablet" style="font-size:16px;">互有</span> </a>
+                        </li>
+                        <li>
+                            <a class="" data-toggle="tab" href="http://www.aikf.com/aikfadmin/admin/toIndex.htm"
+                               data-url="rongyun/toRongyunAuth.htm?moduleCode=rongcloud_service">
+                                <span class="hidden-mobile hidden-tablet" style="font-size:16px;">融云</span> </a>
+                        </li>
+                        <li>
+                            <a class="" data-toggle="tab" href="http://www.aikf.com/aikfadmin/admin/toIndex.htm"
+                               data-url="interfaceManagement/toSdk.htm?moduleCode=sdk_service">
+                                <span class="hidden-mobile hidden-tablet" style="font-size:16px;">SDK</span> </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-content
+												" id="tab-content-system" style="opacity: 1;">
+
+
+                    <ul class="deskInsertNav">
+                        <li class="active" data-url="interfaceManagement/toDesktopList.htm?moduleCode=joinUpCodeSetting"
+                            onclick="tab_25(this)">接入代码
+                        </li>
+                        <li data-url="interfaceManagement/toDesktopList.htm?moduleCode=askButtonSetting"
+                            onclick="tab_25(this)">咨询按钮设置
+                        </li>
+                        <li data-url="interfaceManagement/toDesktopList.htm?moduleCode=askWindowSetting"
+                            onclick="tab_25(this)">咨询窗口设置
+                        </li>
+                    </ul>
+                    <div class="deskInsertContent" id="deskInsertContent">
+                        <ul>
+                            <li class="li_25">
+
+                                <!-- 接入说明 begin -->
+                                <div class="modal-body no-padding">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                            <div class="jarviswidget jarviswidget-sortable"
+                                                 data-widget-editbutton="false" data-widget-colorbutton="false"
+                                                 data-widget-deletebutton="false" data-widget-fullscreenbutton="false"
+                                                 data-widget-collapsed="true" role="widget">
+                                                <!-- <header role="heading">
+					<h2>
+						<strong>接入说明</strong>
+					</h2>
+					<span class="jarviswidget-loader" style="display: none;"><i
+						class="fa fa-refresh fa-spin"></i> </span>
+					</header> -->
+                                                <!-- widget div-->
+                                                <div role="content" style="zoom:0;">
+                                                    <!-- widget edit box -->
+                                                    <div class="jarviswidget-editbox">
+                                                        <!-- This area used as dropdown edit box -->
+                                                    </div>
+                                                    <!-- end widget edit box -->
+                                                    <!-- widget content -->
+                                                    <div class="row" style="margin-bottom:20px;">
+                                                        <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 no_paddingLeft">
+                                                            <span class="span_tip">复制以下代码，插入到您网站HTML页面的&lt;/body&gt;标记之前。</span>
+                                                            <textarea rows="2" id="copyFromTxtZero" readonly="readonly"
+                                                                      class="form-control">&lt;script&gt; var tenantId='dc1a7977d45342cf8d11c9a68896a425';document.write(unescape("%3Cscript id='aikfWebMainJs' src='"+((window.location.protocol=="file:")?"http:":window.location.protocol)+"//www.aikf.com/ask/resources/app/ask/webMain.js?_="+Math.random()+"' type='text/javascript'%3E%3C/script%3E")) &lt;/script&gt;</textarea>
+                                                        </div>
+                                                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"
+                                                             style="padding-top:35px;padding-left:0px;">
+                                                            <button type="button" class="btn btn-sm btn-dimgray"
+                                                                    id="copyBtnZero"
+                                                                    data-clipboard-target="copyFromTxtZero" title="复制"
+                                                                    style="margin-top:20px;padding:6px 15px;">复制
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 no_paddingLeft">
+                                                            <span class="span_tip">或使用下面链接直接打开</span>
+                                                            <textarea rows="2" id="copyFromTxtZeroSite"
+                                                                      readonly="readonly" class="form-control"
+                                                                      style="height:40px!important;">http://www.aikf.com/ask/zdg.htm</textarea>
+                                                        </div>
+                                                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"
+                                                             style="padding-top:15px;padding-left:0px;">
+                                                            <button type="button" class="btn btn-sm btn-dimgray"
+                                                                    id="copyBtnZeroSite"
+                                                                    data-clipboard-target="copyFromTxtZeroSite"
+                                                                    title="复制"
+                                                                    style="margin-top:20px;padding:6px 15px;">复制
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <br>
+                                                    <div class="row">
+                                                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9"
+                                                             style="padding:0px;">
+                                                            <span class="span_tip">注：接入详情请参考<a
+                                                                    href="http://www.aikf.com/aikefu/help/file/helpdocument/fadocument/index.html"
+                                                                    target="_blank"
+                                                                    style="color:#4588e3;">《爱客服快速接入指南》</a></span>
+                                                        </div>
+                                                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <img style="margin-left:260px;cursor:inherit;"
+                                                             src="./接入_files/img_b10000.png">
+                                                    </div>
+                                                    <div class="row div_paddind_left"></div>
+                                                    <!-- end widget content -->
+                                                </div>
+                                                <!-- end widget div -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="li_25" style="opacity:0;display:none;">
+                                <div class="buttonSettingBox_bstb clearfix">
+                                    <div class="settingLeft_bstb">
+                                        <form action="" id="Form_bstb" class="form-horizontal" method="post"
+                                              novalidate="novalidate">
+                                            <input type="hidden" name="dataId" value="1">
+                                            <input type="hidden" name="pUserId" value="4">
+                                            <input type="hidden" name="field" value="desktopButJson">
+
+                                            <!-- 按钮样式 -->
+                                            <div class="btnStyle_bstb">
+                                                <h6>按钮样式</h6>
+                                                <ul class="settingItem_bstb">
+                                                    <li class="cartoonItem_bstb" data-value="1">卡通形象</li>
+                                                    <li class="txtItem_bstb checked" data-value="0">文字按钮</li>
+                                                    <!-- <li class="diyItem_bstb" data-value="3">自定义按钮</li> -->
+                                                    <input id="btnTypeInput_bstb" type="hidden" name="type" value="0">
+                                                </ul>
+                                                <div class="content_bstb">
+                                                    <div style="display: none;" class="cartoonButton_bstb">
+                                                        <ul>
+                                                            <li class="redCar_bstb checked" data-value="0">
+                                                                <div></div>
+                                                            </li>
+                                                            <li class="blueCar_bstb" data-value="1">
+                                                                <div></div>
+                                                            </li>
+                                                            <li class="whiteCar_bstb" data-value="2">
+                                                                <div></div>
+                                                            </li>
+                                                            <li class="redCarTxt_bstb" data-value="3">
+                                                                <div></div>
+                                                            </li>
+                                                            <li class="blueCarTxt_bstb" data-value="4">
+                                                                <div></div>
+                                                            </li>
+                                                            <li class="whiteCarTxt_bstb" data-value="5">
+                                                                <div></div>
+                                                            </li>
+                                                        </ul>
+                                                        <input id="btnStyleCartoonInput_bstb" type="hidden"
+                                                               name="btnStyleCartoon" value="0">
+                                                    </div>
+                                                    <div class="txtButton_bstb" style="display: block;">
+                                                        <ul>
+                                                            <li class="shuTxt_bstb" data-value="1">
+                                                                <div></div>
+                                                            </li>
+                                                            <li class="hengTxt_bstb checked" data-value="0">
+                                                                <div></div>
+                                                            </li>
+                                                            <li class="roundTxt_bstb" data-value="2">
+                                                                <div></div>
+                                                            </li>
+                                                        </ul>
+                                                        <input id="btnStyleInput_bstb" type="hidden" name="btnStyle"
+                                                               value="0">
+                                                        <p>按钮文字&nbsp;<input type="text" id="btnTitleInput_bstb"
+                                                                            class="form-control btnTitle"
+                                                                            name="btnTitle" value="点我咨询" maxlength="6">
+                                                        </p>
+                                                    </div>
+                                                    <div class="diyButton_bstb" style="display: none;">
+                                                        <div class="uploadBox_bstb">
+                                                            <div class="sizeBox_bstb">
+                                                                <img src="images/default.png" id="imageDiyButton_image">
+                                                            </div>
+                                                            <div class="img_uploadify_container">
+                                                                <input id="imageDiyButton" name="file" type="file"
+                                                                       multiple="false" style="width:100px; height:
+                                                                       20px;">
+                                                            </div>
+                                                        </div>
+                                                        <input id="imageDiyButton_input" type="hidden" name="btnUrl">
+                                                        <p>*文件大小在2MB以内，<br>支持png、jpg、jpeg、gif、bmp格式</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- 按钮颜色 -->
+                                            <div class="btnColor_bstb" style="display: block;">
+                                                <h6>按钮颜色</h6>
+                                                <ul>
+                                                    <li data-value="#ffa627"></li>
+                                                    <li class="checked" data-value="#e5004a"></li>
+                                                    <li data-value="#b12daf"></li>
+                                                    <li data-value="#2257c2"></li>
+                                                    <li data-value="#1ba9c8"></li>
+                                                    <li data-value="#289a53"></li>
+                                                </ul>
+                                                <div class="diyColorBox_bstb">
+                                                    自定义色值
+                                                    <div class="minicolors minicolors-theme-bootstrap minicolors-position-bottom minicolors-position-left">
+                                                        <input class="form-control minicolors-input" type="text"
+                                                               id="diy-color" name="windowColor" value="#E5004A"
+                                                               size="7"><span class="minicolors-swatch"><span class="minicolors-swatch-color" style="background-color: rgb(255, 166, 39);"></span></span>
+                                                        <div class="minicolors-panel minicolors-slider-wheel">
+                                                            <div class="minicolors-slider"
+                                                                 style="background-color: rgb(255, 0, 81);">
+                                                                <div class="minicolors-picker"
+                                                                     style="top: 15.2941px;"></div>
+                                                            </div>
+                                                            <div class="minicolors-opacity-slider">
+                                                                <div class="minicolors-picker"></div>
+                                                            </div>
+                                                            <div class="minicolors-grid">
+                                                                <div class="minicolors-grid-inner"></div>
+                                                                <div class="minicolors-picker"
+                                                                     style="top: 99.8981px; left: 4.25337px;">
+                                                                    <div></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- 按钮位置 -->
+                                            <div class="btnPosition_bstb" id="btnPosition_bstb">
+                                                <h6>按钮位置</h6>
+                                                <ul>
+                                                    <li data-value="0"><span></span>左下角</li>
+                                                    <li class="checked" data-value="1"><span></span>右下角</li>
+                                                    <li data-value="2"><span></span>左侧居中</li>
+                                                    <li data-value="3"><span></span>右侧居中</li>
+                                                </ul>
+                                                <input id="btnPositionInput_bstb" type="hidden" name="btnPosition"
+                                                       value="1">
+                                                <div class="distance_bstb">
+                                                    <p>左右偏移<input id="sideDistanceInput_bstb" type="number"
+                                                                  name="sideDistance" value="0" class="form-control">像素
+                                                    </p>
+                                                    <p>上下偏移<input id="belowDistanceInput_bstb" type="number"
+                                                                  name="belowDistance" value="0" class="form-control">像素
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <div><a class="btn btn-sm btn-dimgray" title="保存" id="saveButton_bstb">保存</a>
+                                        </div>
+                                    </div>
+                                    <div class="rightWrap_bstb">
+                                        <div class="viewRight_bstb">
+                                            <div class="row">
+                                                <!--<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">-->
+                                                    <!--<div class="inputWrap_bstb">-->
+                                                        <!--<input type="text" class="form-control"-->
+                                                               <!--placeholder="输入网站地址，点击预览，即可预览按钮在页面上的效果"-->
+                                                               <!--id="siteInput_bstb">-->
+                                                        <!--<a class="btn btn-dimgray" id="preViewButton_bstb">预览</a>-->
+                                                    <!--</div>-->
+                                                <!--</div>-->
+                                            </div>
+                                            <div class="iframeBox_bstb">
+                                                <!-- 	<iframe src="" scrolling="yes" frameborder="0" onload="initViewButton_bstb()"></iframe> -->
+                                                <!-- 小人儿 -->
+                                                <div id="background" class="back  huilan-aikf-show"
+                                                     style="display:none;">
+                                                    <div id="top_wzh_27"></div>
+                                                    <div id="center_wzh_27"></div>
+                                                    <div id="bottom_wzh_27"></div>
+                                                    <div class="le_ri_wzh_27" style="left:0;"></div>
+                                                    <div class="le_ri_wzh_27" style="left:85px;"></div>
+                                                </div>
+                                                <!-- 按钮 -->
+                                                <div class="aikf-min-dialog aikf-min-dialog-style1 huilan-aikf-show"
+                                                     id="huilan-aikf-show" style=" background-color: #e5004a;"><img
+                                                        src="images/kefu-icon.png" id="aikef-mini-icon"><i></i><span
+                                                        id="aikef-mini-dialog-text">点我咨询</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </li>
+                            <li class="li_25" style="display:none;opacity:0;">
+                                <div class="askWindowBox">
+                                    <div class="window-body no-padding">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <div class="row askWindowBox">
+                                                    <!--左侧面板-->
+                                                    <form action="http://www.aikf.com/aikfadmin/admin/interfaceManagement/saveDesktopInfo.htm"
+                                                          id="addOrUpdateform" class="form-horizontal" method="post"
+                                                          novalidate="novalidate">
+                                                        <input type="hidden" name="webId"
+                                                               value="d9628f33775311e8b0bf00163e1085a3"> <input
+                                                            type="hidden" name="entId"
+                                                            value="d962e85f775311e8b0bf00163e1085a3">
+                                                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"
+                                                             style="width:228px;">
+                                                            <div class="windowLeftTab marginBottom">
+                                                                <h3>窗口样式</h3>
+                                                                <ul class="windowTabUl no-padding" id="windowTabUl">
+                                                                    <li style="border-bottom:1px solid #d2d2d2;"
+                                                                        class="windowTabActive">
+                                                                        <span class="tabUlSpan1"></span>
+                                                                        <span>迷你窗口(页面内嵌)</span>
+                                                                        <input class="askWindowTabBtn" type="radio"
+                                                                               name="windowAppearWay" value="0"
+                                                                               checked="checked"
+                                                                               onclick="mini_25(this)">
+                                                                    </li>
+                                                                    <li>
+                                                                        <span class="tabUlSpan2"></span>
+                                                                        <span>标准窗口(独立窗口)</span>
+                                                                        <input class="askWindowTabBtn" type="radio"
+                                                                               name="windowAppearWay" value="1"
+                                                                               onclick="mini_25(this)">
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                            <div style="width:100%;" id="windowTabAnimate"><!--左侧设置面板-->
+                                                                <div class="windowColor marginBottom">
+                                                                    <h3>窗口颜色</h3>
+                                                                    <ul>
+                                                                        <li data-value="#ffa627"></li>
+                                                                        <li data-value="#e5004a" class="checked"></li>
+                                                                        <li data-value="#b12daf"></li>
+                                                                        <li data-value="#2257c2"></li>
+                                                                        <li data-value="#1ba9c8"></li>
+                                                                        <li data-value="#289a53"></li>
+                                                                    </ul>
+                                                                    <div class="customColor">
+                                                                        <p style="vertical-align:middle;margin-top:10px;">
+                                                                            自定义色值</p>
+                                                                        <div class="minicolors minicolors-theme-bootstrap minicolors-position-bottom minicolors-position-left">
+                                                                            <input type="text" id="wheel-demo"
+                                                                                   class="form-control minicolors-input"
+                                                                                   name="windowColor" value="#E5004A"
+                                                                                   size="7"><span
+                                                                                class="minicolors-swatch"><span
+                                                                                class="minicolors-swatch-color"
+                                                                                style="background-color: rgb(229, 0, 74);"></span></span>
+                                                                            <div class="minicolors-panel minicolors-slider-wheel">
+                                                                                <div class="minicolors-slider"
+                                                                                     style="background-color: rgb(255, 0, 81);">
+                                                                                    <div class="minicolors-picker"
+                                                                                         style="top: 15.2941px;"></div>
+                                                                                </div>
+                                                                                <div class="minicolors-opacity-slider">
+                                                                                    <div class="minicolors-picker"></div>
+                                                                                </div>
+                                                                                <div class="minicolors-grid">
+                                                                                    <div class="minicolors-grid-inner"></div>
+                                                                                    <div class="minicolors-picker"
+                                                                                         style="top: 99.8981px; left: 4.25337px;">
+                                                                                        <div></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!--企业信息设置-->
+                                                                <div class="companyInformation marginBottom">
+                                                                    <h3>企业信息设置</h3>
+                                                                    <div class="companyLogo">
+                                                                        <p>企业图片</p>
+                                                                        <div class="logoFile">
+                                                                            <input type="hidden"
+                                                                                   id="imageMaterialAddfile_input"
+                                                                                   name="tenantSiteLogo" value="">
+                                                                            <img src="images/default.png"
+                                                                                 style="cursor:pointer;" title="企业图片"
+                                                                                 alt="企业图片" class="img-rounded"
+                                                                                 width="80px" height="80px"
+                                                                                 id="imageMaterialAddfile_image">
+                                                                            <div class="img_uploadify_container">
+                                                                                <input id="imageMaterialAddfile"
+                                                                                       name="file" type="file"
+                                                                                       multiple="false"
+                                                                                       style="width:80px;height:80px;">
+                                                                            </div>
+                                                                            <div class="logoTitle">点击上传</div>
+                                                                        </div>
+                                                                        <div style="margin-top:9px;">
+                                                                            <p style="font-size:12px;color:#7d7d7d;">
+                                                                                *文件大小在2MB以内，支持png、jpg、jpeg、gif、bmp格式</p>
+                                                                        </div>
+                                                                        <div class="companyName">
+                                                                            <div>
+                                                                                <p>企业名称</p>
+                                                                                <input type="text" name="tenantSiteName"
+                                                                                       class="form-control" id="tenantSiteName"
+                                                                                       placeholder="爱客服" maxlength="21"><br>
+                                                                                <span id="tenantSiteNameSpan"
+                                                                                      style="display:none;font-size:12px;color:red;">*企业名称最多为20个字符</span>
+                                                                            </div>
+                                                                            <div id="minilogoUrl"
+                                                                                 style="display: none;">
+                                                                                <p>跳转链接</p>
+                                                                                <input type="text" name="tenantLogoUrl"
+                                                                                       class="form-control" id="tenantLogoUrl"
+                                                                                       placeholder="请输入地址"
+                                                                                       maxlength="50"><br>
+                                                                                <span id="tenantLogoUrlSpan"
+                                                                                      style="display:none;font-size:12px;color:red;">*跳转链接最多为50个字符</span>
+                                                                            </div>
+                                                                            <div>
+                                                                                <p>服务标语</p>
+                                                                                <!-- <input rows="3" name="tenantSlogan" class="form-control" placeholder="服务标语" maxlength="200"></input> -->
+                                                                                <input rows="3" name="tenantSlogan"
+                                                                                       class="form-control"  id="tenantSlogan"
+                                                                                       placeholder="爱客服24小时竭诚为您服务!"
+                                                                                       maxlength="50"><br>
+                                                                                <span id="tenantSloganSpan"
+                                                                                      style="display:none;font-size:12px;color:red;">*服务标语最多为50个字符</span>
+                                                                            </div>
+                                                                            <div id="serviceSloganDiv"
+                                                                                 style="display: none;">
+                                                                                <p>页面名称</p>
+                                                                                <!-- <input rows="3" name="tenantSlogan" class="form-control" placeholder="服务标语" maxlength="200"></input> -->
+                                                                                <input rows="3" name="serviceSlogan"
+                                                                                       class="form-control"  id="serviceSlogan1"
+                                                                                       placeholder="输入页面名称"
+                                                                                       maxlength="50"><br>
+                                                                                <span id="serviceslogan"
+                                                                                      style="display:none;font-size:12px;color:red;">*页面名称最多为50个字符</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!--窗口界面功能设置-->
+                                                                <!--<div class="leftTabArticleTwo marginBottom">-->
+                                                                    <!--<h3>窗口界面功能设置</h3>-->
+                                                                    <!--<div class="userEvaluate">-->
+                                                                        <!--&lt;!&ndash;用户评价&ndash;&gt;-->
+                                                                        <!--<p style="display:inline-block;">用户评价</p>-->
+                                                                        <!--<div style="height:20px;display:inline-block;">-->
+											<!--<span class="smart-form float-left">-->
+												<!--<label class="toggle">-->
+													<!--<input type="checkbox" name="serviceEvaluateUseStatus" value="1"-->
+                                                           <!--checked="checked">-->
+													<!--<i data-swchon-text="开启"-->
+                                                       <!--data-swchoff-text="关闭"></i> </label> </span>-->
+                                                                        <!--</div>-->
+                                                                        <!--<div class="removeLabel" style="display:none">-->
+													<!--<span class="smart-form"> <label class="checkbox ">-->
+														<!--<input type="checkbox" name="serviceOffUseStatus" value="1"-->
+                                                               <!--checked="checked"><i></i><font color="#999"-->
+                                                                                              <!--style="font-size: 12px;">用户关闭问答窗口时弹出评价框</font>-->
+													<!--</label> </span>-->
+                                                                        <!--</div>-->
+                                                                    <!--</div>&lt;!&ndash;用户评价结束&ndash;&gt;-->
+                                                                    <!--<div class="userEvaluate" style="display: none;">-->
+                                                                        <!--&lt;!&ndash;电话客服&ndash;&gt;-->
+                                                                        <!--<p style="display:inline-block;">电话客服</p>-->
+                                                                        <!--<div style="height:20px;display:inline-block;">-->
+                                                                            <!--<span class="smart-form float-left"> <label-->
+                                                                                    <!--class="toggle"> <input-->
+                                                                                    <!--type="checkbox" name="voiceStatus"-->
+                                                                                    <!--value="1"> <i data-swchon-text="开启"-->
+                                                                                                  <!--data-swchoff-text="关闭"></i> </label> </span>-->
+                                                                        <!--</div>-->
+                                                                        <!--<div style="font-size:12px;">-->
+                                                                            <!--<font color="#999">*用户可向客服发起语音通话请求，注意此功能只有电话客服可以使用。</font>-->
+                                                                        <!--</div>-->
+                                                                    <!--</div>&lt;!&ndash;电话客服结束&ndash;&gt;-->
+                                                                    <!--&lt;!&ndash;以下为标准窗口功能&ndash;&gt;-->
+                                                                    <!--<div id="leftTabArticleBig" style="display:none;">-->
+                                                                        <!--<div class="userEvaluate">-->
+                                                                            <!--<p style="display:inline-block;">答案评价</p>-->
+                                                                            <!--<div style="height:20px;display:inline-block;">-->
+                                                                                <!--<span class="smart-form float-left"> <label-->
+                                                                                        <!--class="toggle"> <input-->
+                                                                                        <!--type="checkbox"-->
+                                                                                        <!--name="answerEvaluateUseStatus"-->
+                                                                                        <!--value="1" checked="checked"> <i-->
+                                                                                        <!--data-swchon-text="开启"-->
+                                                                                        <!--data-swchoff-text="关闭"></i> </label> </span>-->
+                                                                            <!--</div>-->
+                                                                            <!--<div style="font-size:12px;">-->
+                                                                                <!--<font color="#999">开启则在答案下方显示答案评价按钮“有用”或“没用”</font>-->
+                                                                            <!--</div>-->
+                                                                        <!--</div>-->
+                                                                        <!--<div class="userEvaluate">&lt;!&ndash;调教功能&ndash;&gt;-->
+                                                                            <!--<p style="display:inline-block;">调教功能</p>-->
+                                                                            <!--<div style="height:20px;display:inline-block;">-->
+                                                                                <!--<span class="smart-form float-left"> <label-->
+                                                                                        <!--class="toggle"> <input-->
+                                                                                        <!--type="checkbox"-->
+                                                                                        <!--name="teachUseStatus" value="1"-->
+                                                                                        <!--checked="checked"> <i-->
+                                                                                        <!--data-swchon-text="开启"-->
+                                                                                        <!--data-swchoff-text="关闭"></i> </label> </span>-->
+                                                                            <!--</div>-->
+                                                                        <!--</div>&lt;!&ndash;调教功能结束&ndash;&gt;-->
+                                                                        <!--<div class="userEvaluate">&lt;!&ndash;常见问题&ndash;&gt;-->
+                                                                            <!--<p style="display:inline-block;">常见问题</p>-->
+                                                                            <!--<div style="height:20px;display:inline-block;">-->
+                                                                                <!--<span class="smart-form float-left"> <label-->
+                                                                                        <!--class="toggle"> <input-->
+                                                                                        <!--type="checkbox"-->
+                                                                                        <!--name="faqUseStatus" value="1"-->
+                                                                                        <!--checked="checked"><i-->
+                                                                                        <!--data-swchon-text="开启"-->
+                                                                                        <!--data-swchoff-text="关闭"></i> </label> </span>-->
+                                                                            <!--</div>-->
+                                                                            <!--<div style="height:20px;display:inline-block;">-->
+                                                                                <!--<button style="padding:3px 10px;font-size:12px;line-height:1.4;"-->
+                                                                                        <!--type="button" id="faqSetting"-->
+                                                                                        <!--class="btn btn-default"-->
+                                                                                        <!--href="javascript:void(0)">设置-->
+                                                                                <!--</button>-->
+                                                                            <!--</div>-->
+                                                                        <!--</div>&lt;!&ndash;常见问题结束&ndash;&gt;-->
+                                                                        <!--<div class="userEvaluate">-->
+                                                                            <!--<p style="display:inline-block;">公&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;告</p>-->
+                                                                            <!--<div style="height:20px;display:inline-block;">-->
+                                                                                <!--<span class="smart-form float-left"> <label-->
+                                                                                        <!--class="toggle"> <input-->
+                                                                                        <!--type="checkbox"-->
+                                                                                        <!--name="bulletinSettingStatus"-->
+                                                                                        <!--value="1" checked="checked"><i-->
+                                                                                        <!--data-swchon-text="开启"-->
+                                                                                        <!--data-swchoff-text="关闭"></i> </label> </span>-->
+                                                                            <!--</div>-->
+                                                                            <!--<div style="height:20px;display:inline-block;">-->
+                                                                                <!--<button style="padding:3px 10px;font-size:12px;line-height:1.4;"-->
+                                                                                        <!--type="button" id="noticeSetting"-->
+                                                                                        <!--class="btn btn-default"-->
+                                                                                        <!--href="javascript:void(0)">设置-->
+                                                                                <!--</button>-->
+                                                                            <!--</div>-->
+                                                                        <!--</div>-->
+                                                                        <!--<div class="userEvaluate">&lt;!&ndash;快捷导航&ndash;&gt;-->
+                                                                            <!--<p style="display:inline-block;">快捷导航</p>-->
+                                                                            <!--<div style="height:20px;display:inline-block;">-->
+                                                                                <!--<span class="smart-form float-left"> <label-->
+                                                                                        <!--class="toggle"> <input-->
+                                                                                        <!--type="checkbox"-->
+                                                                                        <!--name="navUseStatus" value="1"-->
+                                                                                        <!--checked="checked"><i-->
+                                                                                        <!--data-swchon-text="开启"-->
+                                                                                        <!--data-swchoff-text="关闭"></i> </label> </span>-->
+                                                                            <!--</div>-->
+                                                                            <!--<div style="height:20px;display:inline-block;">-->
+                                                                                <!--<button style="padding:3px 10px;font-size:12px;line-height:1.4;"-->
+                                                                                        <!--type="button" id="navSetting"-->
+                                                                                        <!--class="btn btn-default">设置-->
+                                                                                <!--</button>-->
+                                                                            <!--</div>-->
+                                                                        <!--</div>&lt;!&ndash;快捷导航结束&ndash;&gt;-->
+                                                                    <!--</div>-->
+                                                                <!--</div>-->
+                                                            </div>
+                                                            <div class=" submitBtn">
+                                                                <a class="btn btn-sm btn-dimgray" title="保存"
+                                                                   id="add_desktop"
+                                                                   style="width:70px;height:35px;">保存</a>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                    <!--右侧预览-->
+                                                    <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 no-padding askWindowRight"
+                                                         id="askWindowRight">
+                                                        <div id="show_site" class="modal-body no-padding">
+                                                            <div class="rightHeader"><!--原始class="well"-->
+                                                                <div class="row">
+                                                                    <!--<div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">-->
+                                                                        <!--<input style="width:100%;" type="text"-->
+                                                                               <!--class="form-control"-->
+                                                                               <!--placeholder="输入网站地址，点击预览，即可预览按钮在页面上的效果"-->
+                                                                               <!--id="url_id">-->
+                                                                    <!--</div>-->
+                                                                    <!--<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 no-padding">-->
+                                                                        <!--<a class="btn btn-dimgray"-->
+                                                                           <!--id="show_url_content">预览</a>-->
+                                                                    <!--</div>-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="iframeFather">
+                                                                <div id="iframe_div_id"
+                                                                     style="width:100%;height:600px;background-color:#eee;">
+                                                                    <!-- <iframe src=""></iframe> -->
+                                                                </div>
+                                                                <!--<div class="askWindowSmall" id="askWindowSmall">-->
+                                                                <!--<header id="smallWindowHeader"-->
+                                                                <!--style="background: rgb(229, 0, 74);">-->
+                                                                <!--<div class="smallWindowLogo"-->
+                                                                <!--id="smallWindowLogo">-->
+                                                                <!--<img src="images/logo-aikf.png">-->
+                                                                <!--</div>-->
+                                                                <!--<div class="headRight">-->
+                                                                <!--<h2 id="smallWindowName">爱客服</h2>-->
+                                                                <!--<p id="smallWindowSlogan"-->
+                                                                <!--title="爱客服，专注企业客户服务，为您服务。">-->
+                                                                <!--爱客服24小时竭诚为您服务!</p>-->
+                                                                <!--</div>-->
+                                                                <!--<div class="headClose">-->
+                                                                <!--<img src="images/aikf-minus.png">-->
+                                                                <!--<img style="margin-left:5px;"-->
+                                                                <!--src="images/aikf-close.png">-->
+                                                                <!--</div>-->
+                                                                <!--</header>-->
+                                                                <!--<div class="smallWindowBody"><img-->
+                                                                <!--src="images/smallWindowBodyOne.png"></div>-->
+                                                                <!--<div class="smallWindowFoot">-->
+                                                                <!--<div class="smallFootHead">-->
+                                                                <!--<span class="command-font"></span>-->
+                                                                <!--<span class="command-emoji"></span>-->
+                                                                <!--<span class="command-phone" title="电话客服"-->
+                                                                <!--style="display: none;"></span>-->
+                                                                <!--</div>-->
+                                                                <!--<div class="smallFootBody">-->
+                                                                <!--<span id="windowSendBtn"-->
+                                                                <!--style="background-color: rgb(229, 0, 74); border-color: rgb(229, 0, 74);">发&nbsp;&nbsp;&nbsp;&nbsp;送</span>-->
+                                                                <!--<span id="windowTransBtn"-->
+                                                                <!--style="color: rgb(229, 0, 74); border-color: rgb(229, 0, 74);">转人工</span>-->
+                                                                <!--</div>-->
+                                                                <!--</div>-->
+                                                                <!--</div>-->
+                                                                <div class="y_talk-boxz" >
+                                                                    <div class="y-talk-box-title" id="smallWindowHeader">
+                                                                        <img src="images/talklogo.png"
+                                                                             class="y-talk-box-title-img">
+                                                                        <span>小A</span>
+                                                                        <font>24小时真诚为您服务</font>
+                                                                        <a href="javascript:;"
+                                                                           class="y-talk-box-title-a"></a>
+                                                                    </div>
+                                                                    <div class="y-talk-box-content clearfix">
+                                                                        <div class="y-talk-box-content-left">
+                                                                            <div class="y-talk-box-content-left-top"
+                                                                                 id="y-talk-box-content-left-top">
+                                                                                <i class="y-talk-box-content-left-topi">加载历史消息</i>
+                                                                                <div class="customer-sen clearfix">
+                                                                                    <img src="images/touxiang1.png">
+                                                                                    <span>
+						增加理财收益的方法有哪些？
+						<cite></cite>
+					</span>
+                                                                                </div>
+
+
+                                                                                <div class="robot-sen clearfix">
+                                                                                    <img src="images/touxiang2.png">
+                                                                                    <span>
+						小智偷偷告诉你我的理财经，让你收入节节高~ <br/>1、VIP特权收益 <br/>2、续投收益 <br/>3、理财加息券
+						<cite></cite>
+					</span>
+                                                                                </div>
+
+                                                                            </div>
+
+                                                                            <!-- 			</div> -->
+                                                                            <div class="y-talk-box-content-left-button">
+                                                                                <input type="button" name=""
+                                                                                       class="y-talk-box-content-left-button-voice">
+                                                                                <div class="y-talk-box-content-left-button-uploadimg">
+                                                                                    <input type="file" name="">
+                                                                                </div>
+
+                                                                            </div>
+                                                                            <div class="y-talk-box-content-left-bottom">
+                                                                                <textarea placeholder="请输入内容"
+                                                                                          class="y-talk-box-content-left-bottom-text"></textarea>
+                                                                                <input type="button" name="" value="发送"
+                                                                                       class="y-talk-box-content-left-bottom-input" id="windowSendBtn"
+                                                                                       onclick="yksend()">
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                            </div>
+                                                        </div>
+
+
+                                                        <!--大窗-->
+
+
+
+                                                        <div class="y_talk-boxz" id="askWindowBig" style="border: 1px solid #ddd;width: 710px;height: 598px;box-shadow: 2px 2px 30px #eee;top:60px;    right: 35%;">
+                                                            <div class="y-talk-box-title" id="bigWindowSendBtn1">
+                                                                <img src="images/talklogo.png"
+                                                                     class="y-talk-box-title-img">
+                                                                <span>小A</span>
+                                                                <font>24小时真诚为您服务</font>
+                                                                <a href="javascript:;"
+                                                                   class="y-talk-box-title-a"></a>
+                                                            </div>
+                                                            <div class="y-talk-box-content clearfix">
+                                                                <div class="y-talk-box-content-left" style=" float: left; width: 517px; height: 536px; border-right: 1px solid #dcdcdc;">
+                                                                    <div class="y-talk-box-content-left-top" style="height: 399px;">
+                                                                        <i class="y-talk-box-content-left-topi">加载历史消息</i>
+                                                                        <div class="customer-sen clearfix">
+                                                                            <img src="images/touxiang1.png">
+                                                                            <span>
+						增加理财收益的方法有哪些？
+						<cite></cite>
+					</span>
+                                                                        </div>
+
+
+                                                                        <div class="robot-sen clearfix">
+                                                                            <img src="images/touxiang2.png">
+                                                                            <span>
+						小智偷偷告诉你我的理财经，让你收入节节高~ <br/>1、VIP特权收益 <br/>2、续投收益 <br/>3、理财加息券
+						<cite></cite>
+					</span>
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                    <!-- 			</div> -->
+                                                                    <div class="y-talk-box-content-left-button">
+                                                                        <input type="button" name=""
+                                                                               class="y-talk-box-content-left-button-voice">
+                                                                        <div class="y-talk-box-content-left-button-uploadimg">
+                                                                            <input type="file" name="">
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <div class="y-talk-box-content-left-bottom">
+                                                                                <textarea placeholder="请输入内容"
+                                                                                          class="y-talk-box-content-left-bottom-text" style="    width: 480px;"></textarea>
+                                                                        <input type="button" name="" value="发送"
+                                                                               class="y-talk-box-content-left-bottom-input" id="bigWindowSendBtn"
+                                                                               onclick="yksend()">
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="y-talk-box-content-right" id="tabUl2">
+                                                                    <p class="y-talk-box-content-rightp active" onclick="tab_hlpe_27(this)">常见问题</p>
+                                                                    <p class="y-talk-box-content-rightp" onclick="tab_hlpe_27(this)">使用帮助</p>
+                                                                    <ol class="y-talk-box-content-rightol">
+                                                                        <li>信用卡需要担保吗？</li>
+                                                                        <li>能降低担保额度吗？</li>
+                                                                        <li>信用卡怎么担保？</li>
+                                                                    </ol>
+                                                                    <ol class="y-talk-box-content-rightol" style="display:none;">
+                                                                        <li>信用卡需要担保吗1？</li>
+                                                                        <li>能降低担保额度吗1？</li>
+                                                                        <li>信用卡怎么担保1？</li>
+                                                                    </ol>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <!--<div class="modal-body no-padding" id="askWindowBig"-->
+                                                             <!--style="display: none;">-->
+                                                            <!--<header style="background: rgb(229, 0, 74);">-->
+                                                                <!--<div class="bigWindowLogo" id="bigWindowLogo">-->
+                                                                    <!--<img id="askWindowBigLogo"-->
+                                                                         <!--src="images/logo-aikf.png">-->
+                                                                <!--</div>-->
+                                                                <!--<div class="headRight">-->
+                                                                    <!--<h2 id="bigWindowName">爱客服</h2>-->
+                                                                    <!--<p id="bigWindowSlogan">爱客服24小时竭诚为您服务!</p>-->
+                                                                <!--</div>-->
+                                                                <!--<img class="rightImg" id="rightImg"-->
+                                                                     <!--src="images/bigWimdowImg2.png">-->
+                                                            <!--</header>-->
+                                                            <!--<div class="askWindowBigBody">-->
+                                                                <!--<div class="bigBodyLeft" id="bigBodyLeft"-->
+                                                                     <!--style="width: 67.8%;">-->
+                                                                    <!--<div class="bigBodyLeftImg">-->
+                                                                        <!--<img src="images/smallImgOne.png">-->
+                                                                    <!--</div>-->
+                                                                    <!--<div class="bigBodyLeftTxt">-->
+                                                                        <!--<ul>-->
+                                                                            <!--<li class="command-font" title="文字"></li>-->
+                                                                            <!--<li class="command-emoji" title="表情"></li>-->
+                                                                            <!--<li class="command-evaluation"-->
+                                                                                <!--title="评价"></li>-->
+                                                                            <!--<li class="command-tuning"-->
+                                                                                <!--id="command-tuning" title="调教"></li>-->
+                                                                            <!--<li class="command-clear" title="清除屏幕"></li>-->
+                                                                            <!--<li class="command-phone"-->
+                                                                                <!--style="float: right; margin-right: 20px; display: none;"-->
+                                                                                <!--title="电话客服"></li>-->
+                                                                        <!--</ul>-->
+                                                                        <!--<div class="bigBodyFoot">-->
+                                                                            <!--<span style="padding-right: 10px; padding-left: 15px; background-color: rgb(229, 0, 74); border-color: rgb(229, 0, 74);"-->
+                                                                                  <!--id="bigWindowSendBtn">发&nbsp;&nbsp;&nbsp;&nbsp;送&nbsp;∧</span>-->
+                                                                            <!--<span id="bigWindowTransBtn"-->
+                                                                                  <!--style="color: rgb(229, 0, 74); border-color: rgb(229, 0, 74);">转人工</span>-->
+                                                                        <!--</div>-->
+                                                                    <!--</div>-->
+                                                                <!--</div>-->
+                                                                <!--&lt;!&ndash;大窗口右侧内容&ndash;&gt;-->
+                                                                <!--<div class="bigBodyRight" id="bigBodyRight">-->
+                                                                    <!--<div class="topArticle">-->
+                                                                        <!--<ul class="tabUl2" id="tabUl2">-->
+                                                                            <!--<li class="active"-->
+                                                                                <!--style="border-color: rgb(229, 0, 74); color: rgb(229, 0, 74);">-->
+                                                                                <!--公告栏-->
+                                                                            <!--</li>-->
+                                                                            <!--<li style="border-color: rgb(229, 0, 74); color: rgb(229, 0, 74);">-->
+                                                                                <!--常见问题-->
+                                                                            <!--</li>-->
+                                                                        <!--</ul>-->
+                                                                        <!--&lt;!&ndash;右侧tab切换内容&ndash;&gt;-->
+                                                                        <!--<div class="tabUl2Article">-->
+                                                                            <!--<div id="tabUlLiArticleOne">&lt;!&ndash;公告内容容器&ndash;&gt;-->
+                                                                                <!--<p style="width:100%;text-align:center;font-size:24px;color:#a2a2a2;line-height:240px;">-->
+                                                                                    <!--暂无公告</p></div>-->
+                                                                            <!--<div id="tabUlLiArticleTwo"-->
+                                                                                 <!--style="display:none;">&lt;!&ndash;常见问题内容容器&ndash;&gt;-->
+                                                                                <!--<ul>-->
+                                                                                <!--</ul>-->
+                                                                            <!--</div>-->
+                                                                        <!--</div>-->
+                                                                    <!--</div>-->
+                                                                    <!--<div id="daohangHide">-->
+                                                                        <!--<h2 style="color: rgb(229, 0, 74);">快捷导航</h2>-->
+                                                                        <!--<div class="daohangArticle">-->
+                                                                            <!--<ul>-->
+                                                                            <!--</ul>-->
+                                                                        <!--</div>-->
+                                                                    <!--</div>-->
+                                                                <!--</div>&lt;!&ndash;大窗口右侧内容结束&ndash;&gt;-->
+                                                            <!--</div>-->
+                                                        <!--</div>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </li>
+                        </ul>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+    <!-- END #MAIN CONTENT -->
+</div>
+<!-- END #MAIN PANEL -->
+
+
+<!--================================================== -->
+<input type="hidden" value="/aikfadmin" id="vsiteContextPath">
+<input type="hidden" value="114.241.52.82" id="forwarded">
+<input type="hidden" value="www.aikf.com/" id="baseProjectPath">
+<input type="hidden" value="18511181686" id="mjid">
+
+
+<div class="modal fade" id="logoutModal" tabindex="-1" style="z-index: 2000" role="dialog"
+     aria-labelledby="navigationModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" id="modal-content4">
+            <div class="modal-body no-padding">
+                <img alt="loading..." src="./接入_files/ajax-loader.gif">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL PLACE HOLDER -->
+<div class="modal fade" id="navigationModal" tabindex="-1" style="z-index: 2000" role="dialog"
+     aria-labelledby="navigationModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" id1="modal-content4">
+            <div class="modal-body no-padding">
+                <img alt="loading..." src="./接入_files/ajax-loader.gif">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="remoteModal" tabindex="-1" style="z-index: 2001" role="dialog"
+     aria-labelledby="remoteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" id="modal-content">
+            <div class="modal-body no-padding">
+                <img alt="loading..." src="./接入_files/ajax-loader.gif">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mediaModal" tabindex="-1" style="z-index: 2000" role="dialog"
+     aria-labelledby="mediaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" id="modal-content2">
+            <div class="modal-body no-padding">
+                <img alt="loading..." src="./接入_files/ajax-loader.gif">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="sitePreviewModal" tabindex="-1" style="z-index: 2001" role="dialog"
+     aria-labelledby="sitePreviewModalLabel" aria-hidden="true">
+    <div class="modal-dialog"
+         style="width:372px;border-radius:25px;border-left: 15px solid #FFFFFF; border-right: 15px solid #FFFFFF;border-top: 40px solid #FFFFFF;border-bottom: 40px solid #FFFFFF;position: relative; ">
+        <div class="modal-content" id="modal-content3">
+            <div class="modal-body no-padding">
+                <img alt="loading..." src="./接入_files/ajax-loader.gif">
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<!-- END MODAL -->
+
+<!--系统弹出框-->
+<div class="modal fade" id="modal-remote" tabindex="-1" style="z-index: 2001" role="dialog"
+     aria-labelledby="remoteLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" id="modal-remote-modal-content">
+            <div class="modal-body no-padding">
+                <img alt="loading..." src="./接入_files/ajax-loader.gif">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-remote1" tabindex="-1" style="z-index: 2000" role="dialog"
+     aria-labelledby="remoteLargeModalLabel1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body no-padding">
+                <img alt="loading..." src="./接入_files/ajax-loader.gif">
+            </div>
+        </div>
+    </div>
+</div>
+<!--系统弹出框 end-->
+<!-- large modal -->
+<div class="modal fade" id="largeModal" tabindex="-1" style="z-index: 2000" role="dialog" aria-labelledby="largeModal"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" id="modal-content-large">
+            <div class="modal-body no-padding">
+                <img alt="loading..." src="./接入_files/ajax-loader.gif">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="divSmallBoxes"></div>
+<div id="divMiniIcons"></div>
+<div id="divbigBoxes"></div>
+<div id="_my97DP" style="position: absolute; top: -1970px; left: -1970px;">
+
+</div>
+</body>
+<script src="js/wzh_29_jqr.js"></script>
+</html>
