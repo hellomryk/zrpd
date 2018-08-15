@@ -1,0 +1,27 @@
+<!--pages/new/index.wxml-->
+<view class="continer">
+    <view class='header'>
+        <text class='h1'>创建主题</text>
+        <text class="h3">设定关键词，持续追踪</text>
+ </view>
+    <view class='content'>
+
+
+   <view class="section">
+  <input placeholder="标题" auto-focus/>
+</view>
+
+<view class="section">
+  <textarea placeholder="请输入关键词，以逗号分隔" />
+</view>
+
+<view class="section">
+      <text class='h1'>预览结果</text>
+        <text class="h3">立即创建</text>
+</view>
+
+ </view>
+
+
+
+</view>

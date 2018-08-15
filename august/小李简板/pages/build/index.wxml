@@ -1,0 +1,55 @@
+<!--pages/build/index.wxml-->
+<view class="continer">
+    <view class='header'>
+        <text class='h1'>发现</text>
+        <text class="h3">收集整理全网内容</text>
+         <navigator url="../search/index"><image src='../../images/serch.png'></image></navigator>
+    </view>
+    <view class='content'>
+        <view class='new'>
+            <view class='new_one' bindtap='locall'>
+                <view class='zhuti'>＋ 创建主题</view>
+                <view class='neirong'>追踪你想要的内容</view>
+            </view>
+        </view>
+</view>
+
+    <view class='list_box' wx:for="{{array}}">
+        <view class='list_head'>
+            <image src='../../images/sytzs.png'></image>
+            <text class='h1'>{{item.name}}</text>
+            <text class="h3">追踪大佬最新言论及动态</text>
+             <navigator url="../industythemeMore/index"  class="more"><text>MORE ></text></navigator>
+            <view class="clear"></view>
+        </view>
+        <swiper autoplay="{{autoplay}}" next-margin='100px'>
+            <block wx:for="{{item.address}}">
+                <swiper-item>
+                    <view class='list'>
+                        <image src='../../images/sytzs.png'></image>
+                        <text class='h1'>{{item.name}}</text>
+                        <text class="h3">{{item.detailed}}</text>
+                        <text class="more">＋</text>
+                        <view class="text">· {{item.content}}
+                        </view>
+                        <view class="time">
+                            <text>{{item.time}} · </text>
+                            <text>{{item.url}}</text>
+                        </view>
+                    </view>
+</swiper-item>
+            </block>
+        </swiper>
+
+    </view>
+
+
+
+
+
+
+
+
+
+
+</view>

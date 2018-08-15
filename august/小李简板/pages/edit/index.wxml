@@ -1,0 +1,2 @@
+<!--pages/edit/index.wxml-->
+<textarea bindblur="bindTextAreaBlur" class="program-write-main" fixed="true" maxlength="2000" placeholder="输入文字" bindinput="inputMsg"></textarea>

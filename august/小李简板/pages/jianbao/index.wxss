@@ -1,0 +1,128 @@
+/* pages/jianbao/index.wxss */
+navigator {
+display:inline-block;
+}
+
+.continer {
+    width: 100%;
+    height: auto;
+    background: #eee;
+    overflow: hidden;
+}
+
+.header {
+    width: 100%;
+    height: auto;
+    background: #fff;
+    padding: 25rpx 30rpx;
+}
+
+.header text {
+    line-height: 75rpx;
+}
+
+.header image {
+    width: 35rpx;
+    height: 35rpx;
+    /* vertical-align: middle; */
+    margin-left: 200rpx;
+}
+
+.header .h1 {
+    display: block;
+    font-weight: 500;
+    font-size: 50rpx;
+}
+
+.navigator-hover {
+    color: #1b89f4;
+    background: #fff;
+}
+
+.header .h3 {
+    font-size: 30rpx;
+    color: #505153;
+}
+
+.content {
+    width: 94%;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 20rpx;
+}
+
+.cont {
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    background: #fff;
+    margin: 25rpx 0;
+    border-radius: 8px;
+    padding-top: 20rpx;
+    position: relative;
+}
+
+.cont .tongzhi {
+    font-size: 25rpx;
+    color: #505153;
+    margin-left: 25rpx;
+}
+
+.remove {
+    position: absolute;
+    left: 93%;
+    top: 20rpx;
+    width: 30rpx;
+    height: 30rpx;
+    background: #999;
+    font-size: 25rpx;
+    color: #fff;
+    line-height: 25rpx;
+    text-align: center;
+    border-radius: 100%;
+}
+
+.cont .h1 {
+    display: inline-block;
+    font-size: 40rpx;
+    margin-left: 25rpx;
+}
+
+.cont .list {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #eee;
+    border-radius: 6px;
+    padding-bottom: 15rpx;
+}
+
+.cont .h3 {
+    font-size: 18rpx;
+    margin-left: 20rpx;
+    color: #e65e45;
+}
+
+.cont .block {
+    margin: 30rpx 0;
+    font-size: 28rpx;
+    display: block;
+    margin-left: 25rpx;
+}
+
+.cont .ziliao {
+    font-size: 22rpx;
+    color: #999;
+    margin-right: 15rpx;
+    float: left;
+}
+.cont .ziliao1 {
+    font-size: 22rpx;
+    color: #999;
+    margin-right: 15rpx;
+    float: right;
+    padding-right: 25rpx;
+}
+.clear{
+    clear: both;
+}
+

@@ -1,0 +1,30 @@
+<!--pages/zhuanshu/index.wxml-->
+<view class="continer">
+    <view class='header'>
+        <text class='h1'>专属日报</text>
+        <text class="h3"  style="line-height:40rpx;">由你的主题精编而成 </text>
+        <text class="h3">{{time}}</text>
+            
+     </view>
+     <view class='hr'> </view>
+
+    <view class='content'>
+
+             <view class='cont' wx:for="{{array}}">
+           <text class='h1'>{{item.name}}</text>
+            <view class='list'  wx:for="{{item.address}}">
+            <navigator url="../xqing/index?id={{item.id}}" class='block'>
+                <text  id="{{item.id}}" >{{item.content}}</text>
+                 </navigator> 
+                <text class='ziliao' style="margin-left:25rpx;" >{{item.time}}</text>
+                <text class="ziliao1" style="margin-left:50%;">收藏</text>
+                <view class='clear'></view>
+            </view>
+ </view>
+
+
+ </view>
+
+
+
+</view>

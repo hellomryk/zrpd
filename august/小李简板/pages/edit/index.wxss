@@ -1,0 +1,2 @@
+/* pages/edit/index.wxss */
+.program-write-main{width: 94%;margin: 3% auto;border:1px solid #ccc;border-radius: 6px;box-sizing: border-box;padding: 10rpx 20rpx;}

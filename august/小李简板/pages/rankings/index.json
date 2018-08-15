@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "热词排行",
+    "usingComponents": {
+        "ec-canvas": "../../ec-canvas/ec-canvas"
+    }
+}

@@ -1,0 +1,85 @@
+.re-search-father {
+  height:87rpx;
+}
+.re-search {
+  width:710rpx;
+  height:60rpx;
+  /* background:#f6f6f6;  */
+  position: absolute;
+  top:0;
+  left:20rpx;
+  z-index:10;
+}
+.research-active {
+  display:none;
+}
+.researchimg {
+  width:100rpx;
+  height:60rpx;
+  left:47%;
+  top:0;
+  position: absolute;
+}
+.researchimgfather {
+  width:710rpx;
+  height:60rpx;
+  background:#f6f6f6; 
+  position: absolute;
+  top:0;
+  left:20rpx;
+}
+.re-search-father {
+  position:relative;
+  margin-top:14rpx;
+}
+/* list列表部分 */
+.content-viewbg {
+  width:100%;
+  min-height:1000rpx;
+  background-color:#f6f6f6;
+  border-top:1rpx solid #eee;
+}
+.content-view-list {
+  width:100%;
+  background:#fff;
+  margin-top:21rpx;
+}
+.content-view-list-top {
+    height:86rpx;
+}
+.content-view-list-top-ren {
+    font-size:28rpx;
+    line-height:86rpx;
+    color:#333;
+    float:left;
+    text-indent:30rpx; 
+}
+.content-view-list-top-img {
+    width:20rpx;
+    height:12rpx;
+    float:right;
+    margin-right:30rpx;
+    margin-top:38rpx;
+}
+.content-view-list-bottom-navigator {
+    width:50rpx;
+    height:50rpx;
+    float:left;
+    margin-right:50rpx;
+    /* margin-right:30rpx;
+    margin-top:38rpx; */
+}
+.content-view-list-bottom-navigator image{
+    width:50rpx;
+    height:50rpx;
+}
+.content-view-list-bottom {
+    height:103rpx;
+    padding-top: 20rpx;
+}
+.content-view-list-bottom-navigator1 {
+  margin-left:30rpx;
+}
+.content-view-list-bottom-hide {
+  display:none;
+}

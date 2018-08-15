@@ -1,0 +1,44 @@
+/* pages/public/index.wxss */
+navigator {
+display:inline-block;
+}
+
+.continer {
+    width: 100%;
+    height: auto;
+    background: #eee;
+    overflow: hidden;
+}
+.header {
+    width: 100%;
+    height: auto;
+    background: #fff;
+    padding: 25rpx 30rpx;
+}
+
+.header text {
+    line-height: 75rpx;
+}
+
+.header image {
+    width: 35rpx;
+    height: 35rpx;
+    /* vertical-align: middle; */
+    margin-left: 200rpx;
+}
+
+.header .h1 {
+    display: block;
+    font-weight: 500;
+    font-size: 50rpx;
+}
+
+.navigator-hover {
+    color: #1b89f4;
+    background: #fff;
+}
+
+.header .h3 {
+    font-size: 30rpx;
+    color: #505153;
+}

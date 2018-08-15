@@ -1,0 +1,47 @@
+.word-dejp{
+    height:98rpx;
+    border-top:1rpx solid #ddd;
+}
+.word-deimg{
+    width:64rpx;
+    height:64rpx;
+    margin:17rpx 37rpx 0 23rpx;
+}
+.word-deBtn{
+    width:498rpx;
+    height:62rpx;
+    display: inline-block;
+    font-size:28rpx;
+    line-height:62rpx;
+    color:#5c5c5c;
+}
+.word-deTxt{
+    display: inline-block;
+    border-bottom:1px solid #ddd;
+    width:532rpx;
+}
+.word-deBtn2{
+    float:right;
+    width:76rpx;
+    height:64rpx;
+    font-size:28rpx;
+    line-height:60rpx;
+    padding:0;
+    background:#ddd;
+    color:#fff;
+    border:1px solid #ddd;
+    margin-top: 18rpx;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,47 @@
+<!--pages/xqing/index.wxml-->
+<!-- <text>pages/xqing/index.wxml  跳过来啦！！！{{id}}</text> -->
+<view class="continer">
+    <view class='header'>
+        <text class='h1'>崔永元</text>
+        <text class="h3">私有 </text>
+        <view>
+            <text class='left'>追踪崔永元动态</text>
+            <view class='right'>
+                <text>编辑</text>
+                <text> | </text>
+                <text bindtap='remover'>删除</text>
+            </view>
+        </view>
+<view class='clear'></view>
+<text class='box'>2分钟前更新</text>
+    </view>
+    <view class='content'>
+          <view class='cont' >
+           <view class='h1'>
+           <text class="new {{color?'color':' '}}" bindtap='tab'>最新资讯 <text class="text" wx:if="{{color}}"></text></text>
+           <text class="num {{color?' ':'color'}}" bindtap='tabone'>数据分析 <text class="text" wx:if="{{!color}}"></text></text>
+                    </view> 
+            <view class='list'  wx:for="{{address}}"  wx:if="{{color}}">
+            <navigator url="../xqing/index?id={{item.id}}" class='block'>
+                <text  id="{{item.id}}" >{{item.content}}</text>
+                 </navigator> 
+                <text class='ziliao' style="margin-left:35rpx;" >{{item.time}}</text>
+                <text class='ziliao'>·</text>
+                <text class="ziliao">{{item.url}}</text>
+                <text class="ziliao" style="margin-left:51%;">收藏</text>
+            </view> 
+               <view class='list'   wx:if="{{!color}}">
+            <navigator url="../xqing/index?id={{item.id}}" class='block'>
+                <text >item.content</text>
+                 </navigator> 
+                <text class='ziliao' style="margin-left:40rpx;" >item.time</text>
+                <text class='ziliao'>·</text>
+                <text class="ziliao">item.url</text>
+                <text class="ziliao" style="margin-left:51%;">收藏</text>
+            </view> 
+ </view>
+    </view>
+
+
+
+</view>

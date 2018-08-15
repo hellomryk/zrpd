@@ -1,0 +1,40 @@
+<!--pages/jianbao/index.wxml-->
+<view class="continer">
+    <view class='header'>
+        <text class='h1'>简报</text>
+        <text class="h3">简要汇报你的内容更新 </text>
+        <navigator url="../new/index"><image src='../../images/jia.png'></image></navigator>
+        <navigator url="../search/index"><image src='../../images/serch.png' style="margin-left:60rpx;"></image></navigator>
+
+    </view>
+    <view class='content'>
+     <view class='cont'  style="padding-bottom:20rpx;" wx:if="{{remove}}">
+        
+            <text class="tongzhi">消息通知</text>
+               <navigator url="../zhuanshu/index?id={{item.id}}" class='block'>
+           <text >您的专属简报已经送达,点击查看</text>
+                    </navigator> 
+           <view class='remove' bindtap='remove'>x</view>
+ </view>
+
+        <view class='cont' wx:for="{{array}}">
+           <navigator url="../xqing/index?id={{item.id}}" class='h1'>
+           <text ># {{item.name}}</text>
+                    </navigator> 
+            <text class="h3">私有</text>
+            <view class='list'  wx:for="{{item.address}}">
+            <navigator url="../xqing/index?id={{item.id}}" class='block'>
+                <text  id="{{item.id}}" >{{item.content}}</text>
+                 </navigator> 
+                <text class='ziliao' style="margin-left:25rpx;" >{{item.time}}</text>
+                <text class='ziliao'>·</text>
+                <text class="ziliao">{{item.url}}</text>
+                <text class="ziliao1" style="margin-left:50%;">收藏</text>
+                <view class='clear'></view>
+            </view>
+ </view>
+ </view>
+
+
+
+</view>

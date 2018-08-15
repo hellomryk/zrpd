@@ -1,0 +1,52 @@
+<view class="re-search-father">
+    <input class="re-search" bindtap="bindReSearch"></input>
+    <view class='researchimgfather'>
+        <image src='../../images/research.png' class="researchimg {{researchactive ? 'research-active' : ''}}"></image>
+    </view>
+</view>
+<view style="clear:both;"></view>
+<!-- 中部列表区内容-start -->
+<view class='content-viewbg'>
+    <view class='content-view'>
+          <block class='content-view-block'>
+          <view class="content-view-list" bindtap="bindReList" wx:for-items="{{array}}" wx:key="{{item.id}}" id="{{item.id}}">
+              <view class="content-view-list-top">
+                  <view class="content-view-list-top-ren">
+                        {{item.message}}
+                  </view> 
+                  <image src="../../images/{{item.open ? 'jiantoutop.png':'jiantoubottom.png'}}" class="content-view-list-top-img"></image>
+              </view>
+              <view class="content-view-list-bottom {{item.open ? '':'content-view-list-bottom-hide'}}">
+                    <navigator url="pages/{{page.url}}" class="content-view-list-bottom-navigator content-view-list-bottom-navigator1">
+                          <image src='../../images/baidu1.png'></image>
+                    </navigator>
+                    <navigator url="pages/{{page.url}}" class="content-view-list-bottom-navigator">
+                          <image src='../../images/baidu2.png'></image>
+                    </navigator>
+                    <navigator url="pages/{{page.url}}" class="content-view-list-bottom-navigator">
+                          <image src='../../images/baidu3.png'></image>
+                    </navigator>
+                    <navigator url="pages/{{page.url}}" class="content-view-list-bottom-navigator">
+                          <image src='../../images/xinlang.png'></image>
+                    </navigator>
+                    <navigator url="pages/{{page.url}}" class="content-view-list-bottom-navigator">
+                          <image src='../../images/toutiao.png'></image>
+                    </navigator>
+                    <navigator url="pages/{{page.url}}" class="content-view-list-bottom-navigator">
+                          <image src='../../images/weixin.png'></image>
+                    </navigator>
+                    <navigator url="pages/{{page.url}}" class="content-view-list-bottom-navigator">
+                          <image src='../../images/zhihu.png'></image>
+                    </navigator>
+              </view>
+          </view>
+                <!-- <view wx:for-items="{{array}}" wx:key="{{item.id}}" id="{{item.id}}" class="text-box-tan-select-wantsearch">
+                    <view>
+                        {{item.message}}    
+                    </view>
+                    <image src="../../{{jiantoushow ? 'jiantoutop.png':'jiantoubottom.png'}}"></image>
+                </view> -->
+          </block>
+    </view>
+</view>
+<!-- 中部列表区内容-end -->

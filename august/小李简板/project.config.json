@@ -1,0 +1,101 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+    
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.9.91",
+	"appid": "wx5687b6dd46979010",
+	"projectname": "%E4%BC%81%E4%B8%9A%E7%89%88%E7%83%AD%E8%AF%8D",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 3,
+			"list": [
+				{
+					"id": -1,
+					"name": "detils",
+					"pathName": "pages/details/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "rankings",
+					"pathName": "pages/rankings/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "edit",
+					"pathName": "pages/edit/index",
+					"query": ""
+				},
+				{
+					"id": 3,
+					"name": "简报",
+					"pathName": "pages/jianbao/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "详情",
+					"pathName": "pages/xqing/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "创建",
+					"pathName": "pages/build/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "创建详细",
+					"pathName": "pages/new/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "搜索",
+					"pathName": "pages/search/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "专属",
+					"pathName": "pages/zhuanshu/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "行业主题",
+					"pathName": "pages/industythemeMore/index",
+					"query": ""
+				}
+			]
+		}
+	}
+}

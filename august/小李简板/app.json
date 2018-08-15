@@ -1,0 +1,55 @@
+{
+    "pages": [
+        "pages/recilist/index",
+        "pages/details/index",
+        "pages/logs/logs",
+        "pages/redianlist/index",
+        "pages/rankings/index",
+        "pages/edit/index",
+        "pages/jianbao/index",
+        "pages/xqing/index",
+        "pages/build/index",
+        "pages/new/index",
+        "pages/search/index",
+        "pages/zhuanshu/index",
+       "pages/industythemeMore/index" 
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#1B89F4",
+        "navigationBarTitleText": "网络热点智能AI平台",
+        "navigationBarTextStyle": "#fff"
+    },
+    "tabBar": {
+        "color": "#000",
+        "selectedColor": "#1b89f4",
+        "borderStyle": "#eee",
+        "backgroundColor": "#fff",
+        "list": [
+            {
+                "pagePath": "pages/recilist/index",
+                "iconPath": "images/zuizong2.png",
+                "selectedIconPath": "images/zuizong22.png",
+                "text": "热词展示"
+            },
+            {
+                "pagePath": "pages/jianbao/index",
+                "iconPath": "images/zuizong2.png",
+                "selectedIconPath": "images/zuizong22.png",
+                "text": "简报"
+            },
+            {
+                "pagePath": "pages/build/index",
+                "iconPath": "images/zuizong2.png",
+                "selectedIconPath": "images/zuizong22.png",
+                "text": "发现"
+            },
+            {
+                "pagePath": "pages/recilist/index",
+                "iconPath": "images/zuizong2.png",
+                "selectedIconPath": "images/zuizong22.png",
+                "text": "我的"
+            }
+        ]
+    }
+}

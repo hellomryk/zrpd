@@ -1,0 +1,118 @@
+<!--index.wxml-->
+<!-- <web-view src="http://www.baidu.com/s?wd=1"></web-view> -->
+<view class="container">
+    <view class="headr">
+        <view class="details-headr">
+            <image class="details-headr-img" src="{{img}}"></image>
+            <view class="details-headr-right">
+                <view class="details-headr-name">{{title}}</view>
+                <view class="details-headr-list" wx:for="{{typeNameArray}}">{{item}}</view>
+                <view class="details-headr-time">
+                    <text>更新时间：</text>
+                    <text>{{updateTime}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class="cont">
+        <view class="details-cont">
+            <view class="details-cont-one">
+                <view class="details-cont-one1">
+                    <image class="details-cont-ima" src="../../images/ld.png"></image>
+                    <image animation="{{animation}}" class="details-cont-ima1" src="../../images/ldz.png"></image>
+                    <text class="ld-text" style="{{item.coord}}" wx:for="{{ppt}}">{{item.par}}</text>
+                    <view class="details-cont-one-text">雷达图</view>
+                </view>
+                <view class="details-cont-one2">
+
+                    <view class="container11">
+                        <view class="cube cube--1">
+                            <view class="side {{item.b}}" wx:for="{{ciyun}}">
+                                <view class="side__inner">
+                                    <text class="side__inner11" style="{{item.c}}">{{item.a}}</text>
+                                </view>
+                                <view class="side__inner1">
+                                    <text class="side__inner11" style="color:#104F20;"></text>
+                                </view>
+                            </view>
+                        </view>
+
+                        <view class="cube cube--2">
+                            <view class="side {{item.b}}" wx:for="{{ciyun}}">
+                                <view class="side__inner">
+                                    <text class="side__inner11" style="{{item.c}}">{{item.a}}</text>
+                                </view>
+                                <view class="side__inner1">
+                                    <text class="side__inner11" style="color:#104F20;"></text>
+                                </view>
+                            </view>
+                        </view>
+
+
+                        <view class="cube cube--3">
+                            <view class="side {{item.b}}" wx:for="{{ciyun}}">
+                                <view class="side__inner">
+                                    <text class="side__inner11" style="{{item.c}}">{{item.a}}</text>
+                                </view>
+                                <view class="side__inner1">
+                                    <text class="side__inner11" style="color:#104F20;"></text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="details-cont-one-text">词云图</view>
+                </view>
+                <view class="clear"></view>
+            </view>
+
+
+            <view class="details-cont-two">
+
+                <view class="details-cont-two1">
+                    <text class="details-cont-text">事件热度指数</text>
+                    <view style="text-align:center;">{{uc}}</view>
+                    <view class="details-cont-two-img" wx:if="{{uca}}">
+
+                        <ec-canvas id="mychart-dom-multi-bar" canvas-id="mychart-multi-bar" ec="{{ ecBar }}"></ec-canvas>
+
+                    </view>
+                </view>
+                <view class="details-cont-two2">
+                    <text class="details-cont-text">事件发展脉络指数</text>
+                    <view class="details-cont-two-images">
+                        <ec-canvas id="mychart-dom-multi-scatter" canvas-id="mychart-multi-scatter" ec="{{ ecScatter }}"></ec-canvas>
+                    </view>
+                </view>
+                <view class="details-cont-two3">
+                    <view class="table">
+                        <view class="tr">
+                            <view class="th1 th ">事件发展脉络指数</view>
+                            <view class="th"> </view>
+                            <view class="th ">搜索量</view>
+                        </view>
+                        <view class="tr" wx:for="{{arry}}">
+                            <view class="td">{{item.updateEventTime}}</view>
+                            <view class="td" style="width:200%;">关注点：
+                                <text class='text' bindtap='showmabel' id="{{index}}">{{item.title}}</text>
+                            </view>
+                            <view class="td">{{item.search}}</view>
+                        </view>
+                    </view>
+                </view>
+
+
+            </view>
+        </view>
+    </view>
+    <!-- 弹窗 -->
+    <view class="showModal" wx:if="{{isSpeaking}}"></view>
+    <view class="showcontent" wx:if="{{isSpeaking}}">
+        <view class="showlisthead">用户搜索聚焦</view>
+        <view class="showhide" bindtap='hidemabel'>X</view>
+        <view class="showlist">
+            <text class='showlisttext' wx:for="{{dataArray}}">• {{item}}</text>
+
+        </view>
+    </view>
+</view>

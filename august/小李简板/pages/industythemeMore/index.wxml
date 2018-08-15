@@ -1,0 +1,39 @@
+<!--pages/industythemeMore/index.wxml-->
+<view class="continer">
+  <view class='header'>
+    <text class='h1'>简报</text>
+    <text class="h3">简要汇报你的内容更新 </text>
+    <image src='../../images/jia.png' class='header-jia'></image>
+    <navigator url="../search/index">
+      <image src='../../images/serch.png' style="margin-left:60rpx;"></image>
+    </navigator>
+  </view>
+</view>
+  <!-- 中部内容content-start -->
+  <view class='content-z clearfix'>
+    <view class='content-z-left'>
+        <view class='content-z-left-contain'>
+            <view wx:for-items = "{{buttonList}}">{{item.message}}</view>
+        </view>
+    </view>
+    
+    <view class='content-z-right'>
+
+        <view class='content-z-right-box' wx:for-items="{{rightList}}">
+            <view class='content-z-right-box-title clearfix'>
+                <view># {{item.name}}</view>
+                <image src='../../images/redjia.png'></image>
+            </view>
+            <view class='content-z-right-box-content clearfix'>
+                <image src='../../images/littledot.png'></image>
+                <view>{{item.text}}</view>
+            </view>
+            <view class='content-z-right-box-bottom clearfix'>
+                <view class='content-z-right-box-bottom-time'>{{item.updateTime}}</view>
+                <view class='content-z-right-box-bottom-tap'>  · {{item.resourse}}</view>
+            </view>
+        </view> 
+
+    </view>
+  </view>
+  <!-- 中部内容content-end -->
