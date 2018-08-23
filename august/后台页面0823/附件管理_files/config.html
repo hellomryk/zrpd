@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)https://demo.fastadmin.net/admin/general/config?addtabs=1 -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+<title></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="renderer" content="webkit">
+
+<link rel="shortcut icon" href="https://cdn.demo.fastadmin.net/assets/img/favicon.ico">
+<!-- Loading Bootstrap -->
+<link href="./backend.min.css" rel="stylesheet">
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+<!--[if lt IE 9]>
+  <script src="https://cdn.demo.fastadmin.net/assets/js/html5shiv.js"></script>
+  <script src="https://cdn.demo.fastadmin.net/assets/js/respond.min.js"></script>
+<![endif]-->
+<script src="./hm.js.下载"></script><script src="./hm.js(1).下载"></script><script type="text/javascript">
+    var require = {
+        config:  {"site":{"name":"FastAdmin","cdnurl":"https:\/\/cdn.demo.fastadmin.net","version":"20180806","timezone":"Asia\/Shanghai","languages":{"backend":"zh-cn","frontend":"zh-cn"}},"upload":{"cdnurl":"https:\/\/cdn.demo.fastadmin.net","uploadurl":"https:\/\/v0.api.upyun.com\/fastadmin-demo","bucket":"fastadmin-demo","maxsize":"10M","mimetype":"*","multipart":{"policy":"eyJidWNrZXQiOiJmYXN0YWRtaW4tZGVtbyIsInNhdmUta2V5IjoiXC91cGxvYWRzXC97eWVhcn17bW9ufXtkYXl9XC97ZmlsZW1kNX17LnN1ZmZpeH0iLCJleHBpcmF0aW9uIjoxNTM0OTk1MTI4LCJub3RpZnktdXJsIjoiaHR0cHM6XC9cL2RlbW8uZmFzdGFkbWluLm5ldFwvYWRkb25zXC91cHl1blwvaW5kZXhcL25vdGlmeSJ9","signature":"42ff7a369c2a863aafc7c0bfd8a44122","bucket":"fastadmin-demo","save-key":"\/uploads\/{year}{mon}{day}\/{filemd5}{.suffix}","expiration":1534995128,"notify-url":"https:\/\/demo.fastadmin.net\/addons\/upyun\/index\/notify","ext-param":"1_0"},"multiple":"0"},"modulename":"admin","controllername":"general.config","actionname":"index","jsname":"backend\/general\/config","moduleurl":"\/admin","language":"zh-cn","fastadmin":{"usercenter":true,"login_captcha":false,"login_failure_retry":true,"login_unique":false,"login_background":"\/assets\/img\/loginbg.jpg","multiplenav":false,"checkupdate":false,"version":"1.0.0.20180806_beta","api_url":"https:\/\/api.fastadmin.net"},"referer":null,"__PUBLIC__":"\/","__ROOT__":"\/","__CDN__":"https:\/\/cdn.demo.fastadmin.net"}    };
+</script><style type="text/css" abt="234"></style>
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://cdn.demo.fastadmin.net/assets/js/require-backend.min.js?v=20180806" src="./require-backend.min.js.下载"></script><script>//remove 17173 video ad
+doAdblock();
+function doAdblock(){
+    (function() {
+        function A() {}
+        A.prototype = {
+            rules: {
+                '17173_in':{
+                    'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/PreloaderFile(Customer)?\.swf/,
+                    'replace':"http://swf.adtchrome.com/17173_in_20150522.swf"
+                },
+                '17173_out':{
+                    'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/PreloaderFileFirstpage\.swf/,
+                    'replace':"http://swf.adtchrome.com/17173_out_20150522.swf"
+                },
+                '17173_live':{
+                    'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/Player_stream(_firstpage)?\.swf/,
+                    'replace':"http://swf.adtchrome.com/17173_stream_20150522.swf"
+                },
+                '17173_live_out':{
+                    'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/Player_stream_(custom)?Out\.swf/,
+                    'replace':"http://swf.adtchrome.com/17173.out.Live.swf"
+                }
+            },
+            _done: null,
+            get done() {
+                if(!this._done) {
+                    this._done = new Array();
+                }
+                return this._done;
+            },
+            addAnimations: function() {
+                var style = document.createElement('style');
+                style.type = 'text/css';
+                style.innerHTML = 'object,embed{\
+                -webkit-animation-duration:.001s;-webkit-animation-name:playerInserted;\
+                -ms-animation-duration:.001s;-ms-animation-name:playerInserted;\
+                -o-animation-duration:.001s;-o-animation-name:playerInserted;\
+                animation-duration:.001s;animation-name:playerInserted;}\
+                @-webkit-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}\
+                @-ms-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}\
+                @-o-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}\
+                @keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}';
+                document.getElementsByTagName('head')[0].appendChild(style);
+            },
+            animationsHandler: function(e) {
+                if(e.animationName === 'playerInserted') {
+                    this.replace(e.target);
+                }
+            },
+            replace: function(elem) {
+                if(this.done.indexOf(elem) != -1) return;
+                this.done.push(elem);
+                var player = elem.data || elem.src;
+                if(!player) return;
+                var i, find, replace = false;
+                for(i in this.rules) {
+                    find = this.rules[i]['find'];
+                    if(find.test(player)) {
+                        replace = this.rules[i]['replace'];
+                        if('function' === typeof this.rules[i]['preHandle']) {
+                            this.rules[i]['preHandle'].bind(this, elem, find, replace, player)();
+                        }else{
+                            this.reallyReplace.bind(this, elem, find, replace)();
+                        }
+                        break;
+                    }
+                }
+            },
+            reallyReplace: function(elem, find, replace) {
+                elem.data && (elem.data = elem.data.replace(find, replace)) || elem.src && ((elem.src = elem.src.replace(find, replace)) && (elem.style.display = 'block'));
+                var b = elem.querySelector("param[name='movie']");
+                this.reloadPlugin(elem);
+            },
+            reloadPlugin: function(elem) {
+                var nextSibling = elem.nextSibling;
+                var parentNode = elem.parentNode;
+                parentNode.removeChild(elem);
+                var newElem = elem.cloneNode(true);
+                this.done.push(newElem);
+                if(nextSibling) {
+                    parentNode.insertBefore(newElem, nextSibling);
+                } else {
+                    parentNode.appendChild(newElem);
+                }
+            },
+            init: function() {
+                var handler = this.animationsHandler.bind(this);
+                document.body.addEventListener('webkitAnimationStart', handler, false);
+                document.body.addEventListener('msAnimationStart', handler, false);
+                document.body.addEventListener('oAnimationStart', handler, false);
+                document.body.addEventListener('animationstart', handler, false);
+                this.addAnimations();
+            }
+        };
+        new A().init();
+    })();
+}
+//remove baidu search ad
+if(document.URL.indexOf('www.baidu.com') >= 0){
+    if(document && document.getElementsByTagName && document.getElementById && document.body){
+        var aa = function(){
+            var all = document.body.querySelectorAll("#content_left div,#content_left table");
+            for(var i = 0; i < all.length; i++){
+                if(/display:\s?(table|block)\s!important/.test(all[i].getAttribute("style"))){all[i].style.display= "none";all[i].style.visibility='hidden';}
+            }
+            all = document.body.querySelectorAll('.result.c-container[id="1"]');
+            //if(all.length == 1) return;
+            for(var i = 0; i < all.length; i++){
+                if(all[i].innerHTML && all[i].innerHTML.indexOf('广告')>-1){
+                    all[i].style.display= "none";all[i].style.visibility='hidden';
+                }
+            }
+        }
+        aa();
+        document.getElementById('wrapper_wrapper').addEventListener('DOMSubtreeModified',aa)
+    };
+}
+//remove sohu video ad
+if (document.URL.indexOf("tv.sohu.com") >= 0){
+    if (document.cookie.indexOf("fee_status=true")==-1){document.cookie='fee_status=true'};
+}
+//remove 56.com video ad
+if (document.URL.indexOf("56.com") >= 0){
+    if (document.cookie.indexOf("fee_status=true")==-1){document.cookie='fee_status=true'};
+}
+//fore iqiyi enable html5 player function
+if (document.URL.indexOf("iqiyi.com") >= 0){
+    if (document.cookie.indexOf("player_forcedType=h5_VOD")==-1){
+        document.cookie='player_forcedType=h5_VOD'
+        if(localStorage.reloadTime && Date.now() - parseInt(localStorage.reloadTime)<60000){
+            console.log('no reload')
+        }else{
+            location.reload()
+            localStorage.reloadTime = Date.now();
+        }
+    }
+}
+</script><style type="text/css">object,embed{                -webkit-animation-duration:.001s;-webkit-animation-name:playerInserted;                -ms-animation-duration:.001s;-ms-animation-name:playerInserted;                -o-animation-duration:.001s;-o-animation-name:playerInserted;                animation-duration:.001s;animation-name:playerInserted;}                @-webkit-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @-ms-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @-o-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}</style><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="lang" src="./lang(4)"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="addons" src="./addons.js.下载"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="backend/general/config" src="./config.js.下载"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="umeditor.config" src="./umeditor.config.js.下载"></script><link type="text/css" rel="stylesheet" href="./umeditor.css"><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="umeditor" src="./umeditor.min.js.下载"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="umeditor.lang" src="./zh-cn.js.下载"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="bootstrap-select" src="./bootstrap-select.min.js.下载"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="bootstrap-select-lang" src="./defaults-zh_CN.js.下载"></script></head>
+
+    <body class="inside-header inside-aside " marginwidth="0" marginheight="0">
+        <div id="main" role="main">
+            <div class="tab-content tab-addtabs">
+                <div id="content">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <section class="content-header hide">
+                                <h1>
+                                    控制台                                    <small>Control panel</small>
+                                </h1>
+                            </section>
+                                                        <!-- RIBBON -->
+                            <div id="ribbon">
+                                <ol class="breadcrumb pull-left">
+                                    <li><a href="https://demo.fastadmin.net/admin/general/dashboard" class="addtabsit"><i class="fa fa-dashboard"></i> 控制台</a></li>
+                                </ol>
+                                <ol class="breadcrumb pull-right">
+                                                                        <li><a href="javascript:;" data-url="/admin/general.config/general">常规管理</a></li>
+                                                                        <li><a href="javascript:;" data-url="/admin/general/config">系统配置</a></li>
+                                                                    </ol>
+                            </div>
+                            <!-- END RIBBON -->
+                                                        <div class="content">
+                                <style type="text/css">
+    @media (max-width: 375px) {
+        .edit-form tr td input{width:100%;}
+        .edit-form tr th:first-child,.edit-form tr td:first-child{
+            width:20%;
+        }
+        .edit-form tr th:last-child,.edit-form tr td:last-child{
+            display: none;
+        }
+    }
+</style>
+<div class="panel panel-default panel-intro">
+    <div class="panel-heading">
+        <div class="panel-lead"><em>系统配置</em>可以在此增改系统的变量和分组,也可以自定义分组和变量,如果需要删除请从数据库中删除</div>        <ul class="nav nav-tabs">
+             
+            <li class="active"><a href="https://demo.fastadmin.net/admin/general/config?addtabs=1#basic" data-toggle="tab">基础配置</a></li>
+             
+            <li class=""><a href="https://demo.fastadmin.net/admin/general/config?addtabs=1#email" data-toggle="tab">邮件配置</a></li>
+             
+            <li class=""><a href="https://demo.fastadmin.net/admin/general/config?addtabs=1#dictionary" data-toggle="tab">字典配置</a></li>
+             
+            <li class=""><a href="https://demo.fastadmin.net/admin/general/config?addtabs=1#user" data-toggle="tab">会员配置</a></li>
+             
+            <li class=""><a href="https://demo.fastadmin.net/admin/general/config?addtabs=1#example" data-toggle="tab">示例分组</a></li>
+                        <li>
+                <a href="https://demo.fastadmin.net/admin/general/config?addtabs=1#addcfg" data-toggle="tab"><i class="fa fa-plus"></i></a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+             
+            <div class="tab-pane fade active in" id="basic">
+                <div class="widget-body no-padding">
+                    <form id="basic-form" class="edit-form form-horizontal nice-validator n-default n-bootstrap" role="form" data-toggle="validator" method="POST" action="https://demo.fastadmin.net/admin/general.config/edit" novalidate="novalidate">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th width="15%">变量标题</th>
+                                    <th width="70%">变量值</th>
+                                    <th width="15%">变量名</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                    <td>站点名称</td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-sm-8 col-xs-12">
+                                                                                                <input type="text" name="row[name]" value="FastAdmin" class="form-control" data-tip="请填写站点名称">
+                                                                                            </div>
+                                            <div class="col-sm-4"></div>
+                                        </div>
+
+                                    </td>
+                                    <td>{$site.name}</td>
+                                </tr>
+                                                                <tr>
+                                    <td>备案号</td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-sm-8 col-xs-12">
+                                                                                                <input type="text" name="row[beian]" value="" class="form-control" data-rule="" data-tip="粤ICP备15054802号-4">
+                                                                                            </div>
+                                            <div class="col-sm-4"></div>
+                                        </div>
+
+                                    </td>
+                                    <td>{$site.beian}</td>
+                                </tr>
+                                                                <tr>
+                                    <td>CDN地址</td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-sm-8 col-xs-12">
+                                                                                                <input type="text" name="row[cdnurl]" value="" class="form-control" data-rule="" data-tip="如果静态资源使用第三方云储存请配置该值">
+                                                                                            </div>
+                                            <div class="col-sm-4"></div>
+                                        </div>
+
+                                    </td>
+                                    <td>{$site.cdnurl}</td>
+                                </tr>
+                                                                <tr>
+                                    <td>版本号</td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-sm-8 col-xs-12">
+                                                                                                <input type="text" name="row[version]" value="1.0.1" class="form-control" data-tip="如果静态资源有变动请重新配置该值">
+                                                                                            </div>
+                                            <div class="col-sm-4"></div>
+                                        </div>
+
+                                    </td>
+                                    <td>{$site.version}</td>
+                                </tr>
+                                                                <tr>
+                                    <td>时区</td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-sm-8 col-xs-12">
+                                                                                                <input type="text" name="row[timezone]" value="Asia/Shanghai" class="form-control" data-tip="">
+                                                                                            </div>
+                                            <div class="col-sm-4"></div>
+                                        </div>
+
+                                    </td>
+                                    <td>{$site.timezone}</td>
+                                </tr>
+                                                                <tr>
+                                    <td>禁止IP</td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-sm-8 col-xs-12">
+                                                                                                <textarea name="row[forbiddenip]" class="form-control" data-rule="" rows="5" data-tip="一行一条记录"></textarea>
+                                                                                            </div>
+                                            <div class="col-sm-4"></div>
+                                        </div>
+
+                                    </td>
+                                    <td>{$site.forbiddenip}</td>
+                                </tr>
+                                                                <tr>
+                                    <td>语言</td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-sm-8 col-xs-12">
+                                                                                                <dl class="fieldlist" data-name="row[languages]" data-listidx="0">
+                                                    <dd>
+                                                        <ins>键名</ins>
+                                                        <ins>键值</ins>
+                                                    </dd>
+                                                    <dd class="form-inline"><input type="text" name="row[languages][0][key]" class="form-control" value="backend" size="10"> <input type="text" name="row[languages][0][value]" class="form-control" value="zh-cn" size="30"> <span class="btn btn-sm btn-danger btn-remove"><i class="fa fa-times"></i></span> <span class="btn btn-sm btn-primary btn-dragsort"><i class="fa fa-arrows"></i></span></dd><dd class="form-inline"><input type="text" name="row[languages][1][key]" class="form-control" value="frontend" size="10"> <input type="text" name="row[languages][1][value]" class="form-control" value="zh-cn" size="30"> <span class="btn btn-sm btn-danger btn-remove"><i class="fa fa-times"></i></span> <span class="btn btn-sm btn-primary btn-dragsort"><i class="fa fa-arrows"></i></span></dd><dd><a href="javascript:;" class="btn btn-sm btn-success btn-append"><i class="fa fa-plus"></i> 追加</a></dd>
+                                                    <textarea name="row[languages]" class="form-control hide" cols="30" rows="5">{"backend":"zh-cn","frontend":"zh-cn"}</textarea>
+                                                </dl>
+                                                                                            </div>
+                                            <div class="col-sm-4"></div>
+                                        </div>
+
+                                    </td>
+                                    <td>{$site.languages}</td>
+                                </tr>
+                                                                <tr>
+                                    <td>后台固定页</td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-sm-8 col-xs-12">
+                                                                                                <input type="text" name="row[fixedpage]" value="dashboard" class="form-control" data-tip="请尽量输入左侧菜单栏存在的链接">
+                                                                                            </div>
+                                            <div class="col-sm-4"></div>
+                                        </div>
+
+                                    </td>
+                                    <td>{$site.fixedpage}</td>
+                                </tr>
+                                                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <button type="submit" class="btn btn-success btn-embossed">确定</button>
+                                        <button type="reset" class="btn btn-default btn-embossed">重置</button>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </form>
+                </div>
+            </div>
+             
+            <div class="tab-pane fade " id="email">
+                <div class="widget-body no-padding">
+                    <form id="email-form" class="edit-form form-horizontal nice-validator n-default n-bootstrap" role="form" data-toggle="validator" method="POST" action="https://demo.fastadmin.net/admin/general.config/edit" novalidate="novalidate">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th width="15%">变量标题</th>
+                                    <th width="70%">变量值</th>
+                                    <th width="15%">变量名</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                    <td>邮件发送方式</td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-sm-8 col-xs-12">
+                                                                                                <div class="btn-group bootstrap-select form-control"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" role="button" title="SMTP"><span class="filter-option pull-left">SMTP</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open" role="combobox"><ul class="dropdown-menu inner" role="listbox" aria-expanded="false"><li data-original-index="0"><a tabindex="0" class="" style="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Please select</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1" class="selected"><a tabindex="0" class="" style="" data-tokens="null" role="option" aria-disabled="false" aria-selected="true"><span class="text">SMTP</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" class="" style="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Mail</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div><select name="row[mail_type]" class="form-control selectpicker" data-tip="选择邮件发送方式" tabindex="-98">
+                                                                                                        <option value="0">Please select</option>
+                                                                                                        <option value="1" selected="">SMTP</option>
+                                                                                                        <option value="2">Mail</option>
+                                                                                                    </select></div>
+                                                                                            </div>
+                                            <div class="col-sm-4"></div>
+                                        </div>
+
+                                    </td>
+                                    <td>{$site.mail_type}</td>
+                                </tr>
+                                                                <tr>
+                                    <td>SMTP服务器</td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-sm-8 col-xs-12">
+                                                                                                <input type="text" name="row[mail_smtp_host]" value="smtp.qq.com" class="form-control" data-rule="" data-tip="错误的配置发送邮件会导致服务器超时">
+                                                                                            </div>
+                                            <div class="col-sm-4"></div>
+                                        </div>
+
+                                    </td>
+                                    <td>{$site.mail_smtp_host}</td>
+                                </tr>
+                                                                <tr>
+                                    <td>SMTP端口</td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-sm-8 col-xs-12">
+                                                                                                <input type="text" name="row[mail_smtp_port]" value="465" class="form-control" data-rule="" data-tip="(不加密默认25,SSL默认465,TLS默认587)">
+                                                                                            </div>
+                                            <div class="col-sm-4"></div>
+                                        </div>
+
+                                    </td>
+                                    <td>{$site.mail_smtp_port}</td>
+                                </tr>
+                                                                <tr>
+                                    <td>SMTP用户名</td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-sm-8 col-xs-12">
+                                                                                                <input type="text" name="row[mail_smtp_user]" value="10000" class="form-control" data-rule="" data-tip="（填写完整用户名）">
+                                                                                            </div>
+                                            <div class="col-sm-4"></div>
+                                        </div>
+
+                                    </td>
+                                    <td>{$site.mail_smtp_user}</td>
+                                </tr>
+                                                                <tr>
+                                    <td>SMTP密码</td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-sm-8 col-xs-12">
+                                                                                                <input type="text" name="row[mail_smtp_pass]" value="password" class="form-control" data-rule="" data-tip="（填写您的密码）">
+                                                                                            </div>
+                                            <div class="col-sm-4"></div>
+                                        </div>
+
+                                    </td>
+                                    <td>{$site.mail_smtp_pass}</td>
+                                </tr>
+                                                                <tr>
+                                    <td>SMTP验证方式</td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-sm-8 col-xs-12">
+                                                                                                <div class="btn-group bootstrap-select form-control"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" role="button" title="SSL"><span class="filter-option pull-left">SSL</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open" role="combobox"><ul class="dropdown-menu inner" role="listbox" aria-expanded="false"><li data-original-index="0"><a tabindex="0" class="" style="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">None</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0" class="" style="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">TLS</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2" class="selected"><a tabindex="0" class="" style="" data-tokens="null" role="option" aria-disabled="false" aria-selected="true"><span class="text">SSL</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div><select name="row[mail_verify_type]" class="form-control selectpicker" data-tip="（SMTP验证方式[推荐SSL]）" tabindex="-98">
+                                                                                                        <option value="0">None</option>
+                                                                                                        <option value="1">TLS</option>
+                                                                                                        <option value="2" selected="">SSL</option>
+                                                                                                    </select></div>
+                                                                                            </div>
+                                            <div class="col-sm-4"></div>
+                                        </div>
+
+                                    </td>
+                                    <td>{$site.mail_verify_type}</td>
+                                </tr>
+                                                                <tr>
+                                    <td>发件人邮箱</td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-sm-8 col-xs-12">
+                                                                                                <input type="text" name="row[mail_from]" value="10000@qq.com" class="form-control" data-rule="" data-tip="">
+                                                                                            </div>
+                                            <div class="col-sm-4"><a class="btn btn-info testmail">发送测试邮件</a></div>
+                                        </div>
+
+                                    </td>
+                                    <td>{$site.mail_from}</td>
+                                </tr>
+                                                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <button type="submit" class="btn btn-success btn-embossed">确定</button>
+                                        <button type="reset" class="btn btn-default btn-embossed">重置</button>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </form>
+                </div>
+            </div>
+             
+            <div class="tab-pane fade " id="dictionary">
+                <div class="widget-body no-padding">
+                    <form id="dictionary-form" class="edit-form form-horizontal nice-validator n-default n-bootstrap" role="form" data-toggle="validator" method="POST" action="https://demo.fastadmin.net/admin/general.config/edit" novalidate="novalidate">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th width="15%">变量标题</th>
+                                    <th width="70%">变量值</th>
+                                    <th width="15%">变量名</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                    <td>分类类型</td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-sm-8 col-xs-12">
+                                                                                                <dl class="fieldlist" data-name="row[categorytype]" data-listidx="1">
+                                                    <dd>
+                                                        <ins>键名</ins>
+                                                        <ins>键值</ins>
+                                                    </dd>
+                                                    <dd class="form-inline"><input type="text" name="row[categorytype][0][key]" class="form-control" value="default" size="10"> <input type="text" name="row[categorytype][0][value]" class="form-control" value="Default" size="30"> <span class="btn btn-sm btn-danger btn-remove"><i class="fa fa-times"></i></span> <span class="btn btn-sm btn-primary btn-dragsort"><i class="fa fa-arrows"></i></span></dd><dd class="form-inline"><input type="text" name="row[categorytype][1][key]" class="form-control" value="page" size="10"> <input type="text" name="row[categorytype][1][value]" class="form-control" value="Page" size="30"> <span class="btn btn-sm btn-danger btn-remove"><i class="fa fa-times"></i></span> <span class="btn btn-sm btn-primary btn-dragsort"><i class="fa fa-arrows"></i></span></dd><dd class="form-inline"><input type="text" name="row[categorytype][2][key]" class="form-control" value="article" size="10"> <input type="text" name="row[categorytype][2][value]" class="form-control" value="Article" size="30"> <span class="btn btn-sm btn-danger btn-remove"><i class="fa fa-times"></i></span> <span class="btn btn-sm btn-primary btn-dragsort"><i class="fa fa-arrows"></i></span></dd><dd class="form-inline"><input type="text" name="row[categorytype][3][key]" class="form-control" value="test" size="10"> <input type="text" name="row[categorytype][3][value]" class="form-control" value="Test" size="30"> <span class="btn btn-sm btn-danger btn-remove"><i class="fa fa-times"></i></span> <span class="btn btn-sm btn-primary btn-dragsort"><i class="fa fa-arrows"></i></span></dd><dd><a href="javascript:;" class="btn btn-sm btn-success btn-append"><i class="fa fa-plus"></i> 追加</a></dd>
+                                                    <textarea name="row[categorytype]" class="form-control hide" cols="30" rows="5">{"default":"Default","page":"Page","article":"Article","test":"Test"}</textarea>
+                                                </dl>
+                                                                                            </div>
+                                            <div class="col-sm-4"></div>
+                                        </div>
+
+                                    </td>
+                                    <td>{$site.categorytype}</td>
+                                </tr>
+                                                                <tr>
+                                    <td>配置分组</td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-sm-8 col-xs-12">
+                                                                                                <dl class="fieldlist" data-name="row[configgroup]" data-listidx="2">
+                                                    <dd>
+                                                        <ins>键名</ins>
+                                                        <ins>键值</ins>
+                                                    </dd>
+                                                    <dd class="form-inline"><input type="text" name="row[configgroup][0][key]" class="form-control" value="basic" size="10"> <input type="text" name="row[configgroup][0][value]" class="form-control" value="Basic" size="30"> <span class="btn btn-sm btn-danger btn-remove"><i class="fa fa-times"></i></span> <span class="btn btn-sm btn-primary btn-dragsort"><i class="fa fa-arrows"></i></span></dd><dd class="form-inline"><input type="text" name="row[configgroup][1][key]" class="form-control" value="email" size="10"> <input type="text" name="row[configgroup][1][value]" class="form-control" value="Email" size="30"> <span class="btn btn-sm btn-danger btn-remove"><i class="fa fa-times"></i></span> <span class="btn btn-sm btn-primary btn-dragsort"><i class="fa fa-arrows"></i></span></dd><dd class="form-inline"><input type="text" name="row[configgroup][2][key]" class="form-control" value="dictionary" size="10"> <input type="text" name="row[configgroup][2][value]" class="form-control" value="Dictionary" size="30"> <span class="btn btn-sm btn-danger btn-remove"><i class="fa fa-times"></i></span> <span class="btn btn-sm btn-primary btn-dragsort"><i class="fa fa-arrows"></i></span></dd><dd class="form-inline"><input type="text" name="row[configgroup][3][key]" class="form-control" value="user" size="10"> <input type="text" name="row[configgroup][3][value]" class="form-control" value="User" size="30"> <span class="btn btn-sm btn-danger btn-remove"><i class="fa fa-times"></i></span> <span class="btn btn-sm btn-primary btn-dragsort"><i class="fa fa-arrows"></i></span></dd><dd class="form-inline"><input type="text" name="row[configgroup][4][key]" class="form-control" value="example" size="10"> <input type="text" name="row[configgroup][4][value]" class="form-control" value="Example" size="30"> <span class="btn btn-sm btn-danger btn-remove"><i class="fa fa-times"></i></span> <span class="btn btn-sm btn-primary btn-dragsort"><i class="fa fa-arrows"></i></span></dd><dd><a href="javascript:;" class="btn btn-sm btn-success btn-append"><i class="fa fa-plus"></i> 追加</a></dd>
+                                                    <textarea name="row[configgroup]" class="form-control hide" cols="30" rows="5">{"basic":"Basic","email":"Email","dictionary":"Dictionary","user":"User","example":"Example"}</textarea>
+                                                </dl>
+                                                                                            </div>
+                                            <div class="col-sm-4"></div>
+                                        </div>
+
+                                    </td>
+                                    <td>{$site.configgroup}</td>
+                                </tr>
+                                                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <button type="submit" class="btn btn-success btn-embossed">确定</button>
+                                        <button type="reset" class="btn btn-default btn-embossed">重置</button>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </form>
+                </div>
+            </div>
+             
+            <div class="tab-pane fade " id="user">
+                <div class="widget-body no-padding">
+                    <form id="user-form" class="edit-form form-horizontal nice-validator n-default n-bootstrap" role="form" data-toggle="validator" method="POST" action="https://demo.fastadmin.net/admin/general.config/edit" novalidate="novalidate">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th width="15%">变量标题</th>
+                                    <th width="70%">变量值</th>
+                                    <th width="15%">变量名</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <button type="submit" class="btn btn-success btn-embossed">确定</button>
+                                        <button type="reset" class="btn btn-default btn-embossed">重置</button>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </form>
+                </div>
+            </div>
+             
+            <div class="tab-pane fade " id="example">
+                <div class="widget-body no-padding">
+                    <form id="example-form" class="edit-form form-horizontal nice-validator n-default n-bootstrap" role="form" data-toggle="validator" method="POST" action="https://demo.fastadmin.net/admin/general.config/edit" novalidate="novalidate">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th width="15%">变量标题</th>
+                                    <th width="70%">变量值</th>
+                                    <th width="15%">变量名</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <button type="submit" class="btn btn-success btn-embossed">确定</button>
+                                        <button type="reset" class="btn btn-default btn-embossed">重置</button>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </form>
+                </div>
+            </div>
+                        <div class="tab-pane fade" id="addcfg">
+                <form id="add-form" class="form-horizontal nice-validator n-default n-bootstrap" role="form" data-toggle="validator" method="POST" action="https://demo.fastadmin.net/admin/general.config/add" novalidate="novalidate">
+                    <div class="form-group">
+                        <label for="type" class="control-label col-xs-12 col-sm-2">类型:</label>
+                        <div class="col-xs-12 col-sm-4">
+                            <div class="btn-group bootstrap-select form-control"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" role="button" title="字符"><span class="filter-option pull-left">字符</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open" role="combobox"><ul class="dropdown-menu inner" role="listbox" aria-expanded="false"><li data-original-index="0" class="selected"><a tabindex="0" class="" style="" data-tokens="null" role="option" aria-disabled="false" aria-selected="true"><span class="text">字符</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0" class="" style="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">文本</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" class="" style="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">编辑器</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="3"><a tabindex="0" class="" style="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">数字</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="4"><a tabindex="0" class="" style="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">日期</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="5"><a tabindex="0" class="" style="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">时间</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="6"><a tabindex="0" class="" style="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">日期时间</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="7"><a tabindex="0" class="" style="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">列表</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="8"><a tabindex="0" class="" style="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">列表(多选)</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="9"><a tabindex="0" class="" style="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">图片</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="10"><a tabindex="0" class="" style="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">图片(多)</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="11"><a tabindex="0" class="" style="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">文件</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="12"><a tabindex="0" class="" style="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">文件(多)</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="13"><a tabindex="0" class="" style="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">复选</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="14"><a tabindex="0" class="" style="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">单选</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="15"><a tabindex="0" class="" style="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">数组</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="16"><a tabindex="0" class="" style="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Custom</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div><select name="row[type]" class="form-control selectpicker" tabindex="-98">
+                                                                <option value="string" selected="">字符</option>
+                                                                <option value="text">文本</option>
+                                                                <option value="editor">编辑器</option>
+                                                                <option value="number">数字</option>
+                                                                <option value="date">日期</option>
+                                                                <option value="time">时间</option>
+                                                                <option value="datetime">日期时间</option>
+                                                                <option value="select">列表</option>
+                                                                <option value="selects">列表(多选)</option>
+                                                                <option value="image">图片</option>
+                                                                <option value="images">图片(多)</option>
+                                                                <option value="file">文件</option>
+                                                                <option value="files">文件(多)</option>
+                                                                <option value="checkbox">复选</option>
+                                                                <option value="radio">单选</option>
+                                                                <option value="array">数组</option>
+                                                                <option value="custom">Custom</option>
+                                                            </select></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="group" class="control-label col-xs-12 col-sm-2">分组:</label>
+                        <div class="col-xs-12 col-sm-4">
+                            <div class="btn-group bootstrap-select form-control"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" role="button" title="基础配置"><span class="filter-option pull-left">基础配置</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open" role="combobox"><ul class="dropdown-menu inner" role="listbox" aria-expanded="false"><li data-original-index="0" class="selected"><a tabindex="0" class="" style="" data-tokens="null" role="option" aria-disabled="false" aria-selected="true"><span class="text">基础配置</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0" class="" style="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">邮件配置</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" class="" style="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">字典配置</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="3"><a tabindex="0" class="" style="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">会员配置</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="4"><a tabindex="0" class="" style="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">示例分组</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div><select name="row[group]" class="form-control selectpicker" tabindex="-98">
+                                                                <option value="basic" selected="">基础配置</option>
+                                                                <option value="email">邮件配置</option>
+                                                                <option value="dictionary">字典配置</option>
+                                                                <option value="user">会员配置</option>
+                                                                <option value="example">示例分组</option>
+                                                            </select></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="name" class="control-label col-xs-12 col-sm-2">变量名:</label>
+                        <div class="col-xs-12 col-sm-4">
+                            <input type="text" class="form-control" id="name" name="row[name]" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="title" class="control-label col-xs-12 col-sm-2">变量标题:</label>
+                        <div class="col-xs-12 col-sm-4">
+                            <input type="text" class="form-control" id="title" name="row[title]" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="value" class="control-label col-xs-12 col-sm-2">变量值:</label>
+                        <div class="col-xs-12 col-sm-4">
+                            <input type="text" class="form-control" id="value" name="row[value]" value="" data-rule="">
+                        </div>
+                    </div>
+                    <div class="form-group hide" id="add-content-container">
+                        <label for="content" class="control-label col-xs-12 col-sm-2">数据列表:</label>
+                        <div class="col-xs-12 col-sm-4">
+                            <textarea name="row[content]" id="content" cols="30" rows="5" class="form-control">value1|title1
+value2|title2</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tip" class="control-label col-xs-12 col-sm-2">提示信息:</label>
+                        <div class="col-xs-12 col-sm-4">
+                            <input type="text" class="form-control" id="tip" name="row[tip]" value="" data-rule="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="rule" class="control-label col-xs-12 col-sm-2">校验规则:</label>
+                        <div class="col-xs-12 col-sm-4">
+                            <input type="text" class="form-control" id="rule" name="row[rule]" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="extend" class="control-label col-xs-12 col-sm-2">扩展属性:</label>
+                        <div class="col-xs-12 col-sm-4">
+                            <textarea name="row[extend]" id="extend" cols="30" rows="5" class="form-control" data-rule=""></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-12 col-sm-2"></label>
+                        <div class="col-xs-12 col-sm-4">
+                            <button type="submit" class="btn btn-success btn-embossed">确定</button>
+                            <button type="reset" class="btn btn-default btn-embossed">重置</button>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="./require.min.js.下载" data-main="https://cdn.demo.fastadmin.net/assets/js/require-backend.min.js?v=20180806"></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?58347d769d009bcf6074e9a0ab7ba05e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+</body></html>

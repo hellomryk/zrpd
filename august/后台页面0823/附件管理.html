@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)https://demo.fastadmin.net/admin/general/attachment?ref=addtabs -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- 加载样式及META信息 -->
+        
+<title>附件管理</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="renderer" content="webkit">
+
+<link rel="shortcut icon" href="https://cdn.demo.fastadmin.net/assets/img/favicon.ico">
+<!-- Loading Bootstrap -->
+<link href="./附件管理_files/backend.min.css" rel="stylesheet">
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+<!--[if lt IE 9]>
+  <script src="https://cdn.demo.fastadmin.net/assets/js/html5shiv.js"></script>
+  <script src="https://cdn.demo.fastadmin.net/assets/js/respond.min.js"></script>
+<![endif]-->
+<script src="./附件管理_files/hm.js.下载"></script><script type="text/javascript">
+    var require = {
+        config:  {"site":{"name":"FastAdmin","cdnurl":"https:\/\/cdn.demo.fastadmin.net","version":"20180806","timezone":"Asia\/Shanghai","languages":{"backend":"zh-cn","frontend":"zh-cn"}},"upload":{"cdnurl":"https:\/\/cdn.demo.fastadmin.net","uploadurl":"https:\/\/v0.api.upyun.com\/fastadmin-demo","bucket":"fastadmin-demo","maxsize":"10M","mimetype":"*","multipart":{"policy":"eyJidWNrZXQiOiJmYXN0YWRtaW4tZGVtbyIsInNhdmUta2V5IjoiXC91cGxvYWRzXC97eWVhcn17bW9ufXtkYXl9XC97ZmlsZW1kNX17LnN1ZmZpeH0iLCJleHBpcmF0aW9uIjoxNTM0OTk1MDYzLCJub3RpZnktdXJsIjoiaHR0cHM6XC9cL2RlbW8uZmFzdGFkbWluLm5ldFwvYWRkb25zXC91cHl1blwvaW5kZXhcL25vdGlmeSJ9","signature":"e242782596182d5c741a182a4a7c8df1","bucket":"fastadmin-demo","save-key":"\/uploads\/{year}{mon}{day}\/{filemd5}{.suffix}","expiration":1534995063,"notify-url":"https:\/\/demo.fastadmin.net\/addons\/upyun\/index\/notify","ext-param":"1_0"},"multiple":"0"},"modulename":"admin","controllername":"index","actionname":"index","jsname":"backend\/index","moduleurl":"\/admin","language":"zh-cn","fastadmin":{"usercenter":true,"login_captcha":false,"login_failure_retry":true,"login_unique":false,"login_background":"\/assets\/img\/loginbg.jpg","multiplenav":false,"checkupdate":false,"version":"1.0.0.20180806_beta","api_url":"https:\/\/api.fastadmin.net"},"referer":null,"__PUBLIC__":"\/","__ROOT__":"\/","__CDN__":"https:\/\/cdn.demo.fastadmin.net"}    };
+</script><style type="text/css" abt="234"></style>
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://cdn.demo.fastadmin.net/assets/js/require-backend.min.js?v=20180806" src="./附件管理_files/require-backend.min.js.下载"></script><script>//remove 17173 video ad
+doAdblock();
+function doAdblock(){
+    (function() {
+        function A() {}
+        A.prototype = {
+            rules: {
+                '17173_in':{
+                    'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/PreloaderFile(Customer)?\.swf/,
+                    'replace':"http://swf.adtchrome.com/17173_in_20150522.swf"
+                },
+                '17173_out':{
+                    'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/PreloaderFileFirstpage\.swf/,
+                    'replace':"http://swf.adtchrome.com/17173_out_20150522.swf"
+                },
+                '17173_live':{
+                    'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/Player_stream(_firstpage)?\.swf/,
+                    'replace':"http://swf.adtchrome.com/17173_stream_20150522.swf"
+                },
+                '17173_live_out':{
+                    'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/Player_stream_(custom)?Out\.swf/,
+                    'replace':"http://swf.adtchrome.com/17173.out.Live.swf"
+                }
+            },
+            _done: null,
+            get done() {
+                if(!this._done) {
+                    this._done = new Array();
+                }
+                return this._done;
+            },
+            addAnimations: function() {
+                var style = document.createElement('style');
+                style.type = 'text/css';
+                style.innerHTML = 'object,embed{\
+                -webkit-animation-duration:.001s;-webkit-animation-name:playerInserted;\
+                -ms-animation-duration:.001s;-ms-animation-name:playerInserted;\
+                -o-animation-duration:.001s;-o-animation-name:playerInserted;\
+                animation-duration:.001s;animation-name:playerInserted;}\
+                @-webkit-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}\
+                @-ms-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}\
+                @-o-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}\
+                @keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}';
+                document.getElementsByTagName('head')[0].appendChild(style);
+            },
+            animationsHandler: function(e) {
+                if(e.animationName === 'playerInserted') {
+                    this.replace(e.target);
+                }
+            },
+            replace: function(elem) {
+                if(this.done.indexOf(elem) != -1) return;
+                this.done.push(elem);
+                var player = elem.data || elem.src;
+                if(!player) return;
+                var i, find, replace = false;
+                for(i in this.rules) {
+                    find = this.rules[i]['find'];
+                    if(find.test(player)) {
+                        replace = this.rules[i]['replace'];
+                        if('function' === typeof this.rules[i]['preHandle']) {
+                            this.rules[i]['preHandle'].bind(this, elem, find, replace, player)();
+                        }else{
+                            this.reallyReplace.bind(this, elem, find, replace)();
+                        }
+                        break;
+                    }
+                }
+            },
+            reallyReplace: function(elem, find, replace) {
+                elem.data && (elem.data = elem.data.replace(find, replace)) || elem.src && ((elem.src = elem.src.replace(find, replace)) && (elem.style.display = 'block'));
+                var b = elem.querySelector("param[name='movie']");
+                this.reloadPlugin(elem);
+            },
+            reloadPlugin: function(elem) {
+                var nextSibling = elem.nextSibling;
+                var parentNode = elem.parentNode;
+                parentNode.removeChild(elem);
+                var newElem = elem.cloneNode(true);
+                this.done.push(newElem);
+                if(nextSibling) {
+                    parentNode.insertBefore(newElem, nextSibling);
+                } else {
+                    parentNode.appendChild(newElem);
+                }
+            },
+            init: function() {
+                var handler = this.animationsHandler.bind(this);
+                document.body.addEventListener('webkitAnimationStart', handler, false);
+                document.body.addEventListener('msAnimationStart', handler, false);
+                document.body.addEventListener('oAnimationStart', handler, false);
+                document.body.addEventListener('animationstart', handler, false);
+                this.addAnimations();
+            }
+        };
+        new A().init();
+    })();
+}
+//remove baidu search ad
+if(document.URL.indexOf('www.baidu.com') >= 0){
+    if(document && document.getElementsByTagName && document.getElementById && document.body){
+        var aa = function(){
+            var all = document.body.querySelectorAll("#content_left div,#content_left table");
+            for(var i = 0; i < all.length; i++){
+                if(/display:\s?(table|block)\s!important/.test(all[i].getAttribute("style"))){all[i].style.display= "none";all[i].style.visibility='hidden';}
+            }
+            all = document.body.querySelectorAll('.result.c-container[id="1"]');
+            //if(all.length == 1) return;
+            for(var i = 0; i < all.length; i++){
+                if(all[i].innerHTML && all[i].innerHTML.indexOf('广告')>-1){
+                    all[i].style.display= "none";all[i].style.visibility='hidden';
+                }
+            }
+        }
+        aa();
+        document.getElementById('wrapper_wrapper').addEventListener('DOMSubtreeModified',aa)
+    };
+}
+//remove sohu video ad
+if (document.URL.indexOf("tv.sohu.com") >= 0){
+    if (document.cookie.indexOf("fee_status=true")==-1){document.cookie='fee_status=true'};
+}
+//remove 56.com video ad
+if (document.URL.indexOf("56.com") >= 0){
+    if (document.cookie.indexOf("fee_status=true")==-1){document.cookie='fee_status=true'};
+}
+//fore iqiyi enable html5 player function
+if (document.URL.indexOf("iqiyi.com") >= 0){
+    if (document.cookie.indexOf("player_forcedType=h5_VOD")==-1){
+        document.cookie='player_forcedType=h5_VOD'
+        if(localStorage.reloadTime && Date.now() - parseInt(localStorage.reloadTime)<60000){
+            console.log('no reload')
+        }else{
+            location.reload()
+            localStorage.reloadTime = Date.now();
+        }
+    }
+}
+</script><style type="text/css">object,embed{                -webkit-animation-duration:.001s;-webkit-animation-name:playerInserted;                -ms-animation-duration:.001s;-ms-animation-name:playerInserted;                -o-animation-duration:.001s;-o-animation-name:playerInserted;                animation-duration:.001s;animation-name:playerInserted;}                @-webkit-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @-ms-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @-o-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}</style><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="lang" src="./附件管理_files/lang"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="addons" src="./附件管理_files/addons.js.下载"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="backend/index" src="./附件管理_files/index.js.下载"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="umeditor.config" src="./附件管理_files/umeditor.config.js.下载"></script><link type="text/css" rel="stylesheet" href="./附件管理_files/umeditor.css"><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="umeditor" src="./附件管理_files/umeditor.min.js.下载"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="slimscroll" src="./附件管理_files/jquery.slimscroll.js.下载"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="adminlte" src="./附件管理_files/adminlte.js.下载"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="umeditor.lang" src="./附件管理_files/zh-cn.js.下载"></script></head>
+    <body class="skin-green sidebar-mini fixed" id="tabs">
+        <div class="wrapper">
+
+            <!-- 头部区域 -->
+            <header id="header" class="main-header">
+                <!-- Logo -->
+<a href="javascript:;" class="logo">
+    <!-- 迷你模式下Logo的大小为50X50 -->
+    <span class="logo-mini">FAST</span>
+    <!-- 普通模式下Logo -->
+    <span class="logo-lg"><b>Fast</b>Admin</span>
+</a>
+
+<!-- 顶部通栏样式 -->
+<nav class="navbar navbar-static-top">
+
+    <!--第一级菜单-->
+    <div id="firstnav">
+        <!-- 边栏切换按钮-->
+        <a href="https://demo.fastadmin.net/admin/general/attachment?ref=addtabs#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+        </a>
+
+        <!--如果不想在顶部显示角标,则给ul加上disable-top-badge类即可-->
+        <ul class="nav nav-tabs nav-addtabs disable-top-badge hidden-xs" role="tablist" style="width: 1282px;"><li class="dropdown pull-right hide tabdrop"><a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;"><i class="glyphicon glyphicon-align-justify"></i> <b class="caret"></b></a><ul class="dropdown-menu"></ul></li>
+            <li role="presentation" id="tab_1" class=""><a href="https://demo.fastadmin.net/admin/general/attachment?ref=addtabs#con_1" node-id="1" aria-controls="1" role="tab" data-toggle="tab"><i class="fa fa-dashboard fa-fw fa-fw"></i> <span>控制台</span> </a></li>        <li role="presentation" id="tab_7" class="active"><a href="https://demo.fastadmin.net/admin/general/attachment?ref=addtabs#con_7" node-id="7" aria-controls="7" role="tab" data-toggle="tab"><i class="fa fa-file-image-o fa-fw"></i> <span>附件管理</span> <span class="pull-right-container"> </span></a> <i class="close-tab fa fa-remove"></i></li><li role="presentation" id="tab_4" class=""><a href="https://demo.fastadmin.net/admin/general/attachment?ref=addtabs#con_4" node-id="4" aria-controls="4" role="tab" data-toggle="tab"><i class="fa fa-rocket fa-fw"></i> <span>插件管理</span> <span class="pull-right-container"> <small class="badge pull-right bg-red">new</small></span></a> <i class="close-tab fa fa-remove"></i></li><li role="presentation" id="tab_6" class=""><a href="https://demo.fastadmin.net/admin/general/attachment?ref=addtabs#con_6" node-id="6" aria-controls="6" role="tab" data-toggle="tab"><i class="fa fa-cog fa-fw"></i> <span>系统配置</span> <span class="pull-right-container"> </span></a> <i class="close-tab fa fa-remove"></i></li><li role="presentation" id="tab_8" class=""><a href="https://demo.fastadmin.net/admin/general/attachment?ref=addtabs#con_8" node-id="8" aria-controls="8" role="tab" data-toggle="tab"><i class="fa fa-user fa-fw"></i> <span>个人配置</span> <span class="pull-right-container"> </span></a> <i class="close-tab fa fa-remove"></i></li><li role="presentation" id="tab_241" class=""><a href="https://demo.fastadmin.net/admin/general/attachment?ref=addtabs#con_241" node-id="241" aria-controls="241" role="tab" data-toggle="tab"><i class="fa fa-tasks fa-fw"></i> <span>定时任务</span> <span class="pull-right-container"> </span></a> <i class="close-tab fa fa-remove"></i></li><li role="presentation" id="tab_3" class=""><a href="https://demo.fastadmin.net/admin/general/attachment?ref=addtabs#con_3" node-id="3" aria-controls="3" role="tab" data-toggle="tab"><i class="fa fa-list fa-fw"></i> <span>分类管理</span> <span class="pull-right-container"> </span></a> <i class="close-tab fa fa-remove"></i></li></ul>
+
+        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+		                                                                                                                                          
+                <li data-toggle="tooltip" data-placement="right" title="" data-original-title="切换为二级菜单模式">      
+                    <a href="https://demo.fastadmin.net/admin/index/index?act=switch-multiplenav-on" style="padding-top:14px;padding-bottom:14px;">
+                        <i class="fa fa-toggle-off" style="font-size:20px;"></i>                                  
+                    </a>                                                                                                                                  
+                </li> 
+
+                <li>
+                    <a href="https://demo.fastadmin.net/" target="_blank"><i class="fa fa-home" style="font-size:14px;"></i></a>
+                </li>
+
+                <li class="dropdown notifications-menu hidden">
+                    <a href="https://demo.fastadmin.net/admin/general/attachment?ref=addtabs#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-bell-o"></i>
+                        <span class="label label-warning">10</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="header">最新消息</li>
+                        <li>
+                            <!-- FastAdmin最新更新信息,你可以替换成你自己站点的信息,请注意修改public/assets/js/backend/index.js文件 -->
+                            <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 200px;"><ul class="menu" style="overflow: hidden; width: 100%; height: 200px;">
+
+                            <li><a href="https://forum.fastadmin.net/thread/5567" target="_blank"><i class="undefined"></i> FastAdmin重磅推出强大的FormBuilder(表单生成器)功能</a></li><li><a href="https://www.fastadmin.net/store/blog.html" target="_blank"><i class="undefined"></i> FastAdmin官方出品响应式博客(含小程序前后端)上架啦</a></li><li><a href="https://www.fastadmin.net/store/cms.html" target="_blank"><i class="undefined"></i> FastAdmin官方出品CMS内容管理系统(含小程序前后端)上架啦</a></li><li><a href="https://www.fastadmin.net/store/pay.html" target="_blank"><i class="undefined"></i> FastAdmin免签约、免手续费个人二维码收款插件上架啦</a></li><li><a href="https://forum.fastadmin.net/" target="_blank"><i class="undefined"></i> FastAdmin全新官方交流社区上线</a></li><li><a href="https://jq.qq.com/?_wv=1027&amp;k=487PNBb" target="_blank"><i class="undefined"></i> FastAdmin邀请你加入官方QQ交流群和小伙伴一起交流</a></li><li><a href="https://gitee.com/karson/fastadmin" target="_blank"><i class="undefined"></i> FastAdmin邀请你在码云上为FastAdmin点赞</a></li><li><a href="http://forum.fastadmin.net/d/282" target="_blank"><i class="undefined"></i> Fastadmin插件开发教程之目录文件介绍</a></li><li><a href="http://forum.fastadmin.net/d/324" target="_blank"><i class="undefined"></i> FastAdmin插件开发教程之简明开发教程</a></li><li><a href="http://forum.fastadmin.net/d/56" target="_blank"><i class="undefined"></i> 提示“未知的数据格式或网络错误”时该如何排查错误？</a></li></ul><div class="slimScrollBar" style="background: rgb(0, 0, 0); width: 3px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px;"></div><div class="slimScrollRail" style="width: 3px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
+                        </li>
+                        <li class="footer"><a href="http://www.fastadmin.net/?ref=news" target="_blank">查看更多</a></li>
+                    </ul>
+                </li>
+
+                <!-- 账号信息下拉框 -->
+                <li class="hidden">
+                    <a href="javascript:;" data-toggle="checkupdate" title="检测更新">
+                        <i class="fa fa-refresh"></i>
+                    </a>
+                </li>
+
+                <!-- 清除缓存 -->
+                <li>
+                    <a href="javascript:;" data-toggle="dropdown" title="清空缓存">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                    <ul class="dropdown-menu wipecache">
+                        <li><a href="javascript:;" data-type="all"><i class="fa fa-trash"></i> 一键清除缓存</a></li>
+                        <li class="divider"></li>
+                        <li><a href="javascript:;" data-type="content"><i class="fa fa-file-text"></i> 清空内容缓存</a></li>
+                        <li><a href="javascript:;" data-type="template"><i class="fa fa-file-image-o"></i> 清除模板缓存</a></li>
+                        <li><a href="javascript:;" data-type="addons"><i class="fa fa-rocket"></i> 清除插件缓存</a></li>
+                    </ul>
+                </li>
+
+                <!-- 多语言列表 -->
+                                <li class="hidden-xs">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-language"></i></a>
+                    <ul class="dropdown-menu">
+                        <li class="active">
+                            <a href="https://demo.fastadmin.net/admin/general/attachment?ref=addtabs&amp;lang=zh-cn">简体中文</a>
+                        </li>
+                        <li class="">
+                            <a href="https://demo.fastadmin.net/admin/general/attachment?ref=addtabs&amp;lang=en">English</a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <!-- 全屏按钮 -->
+                <li class="hidden-xs">
+                    <a href="https://demo.fastadmin.net/admin/general/attachment?ref=addtabs#" data-toggle="fullscreen"><i class="fa fa-arrows-alt"></i></a>
+                </li>
+
+                <!-- 账号信息下拉框 -->
+                <li class="dropdown user user-menu">
+                    <a href="https://demo.fastadmin.net/admin/general/attachment?ref=addtabs#" class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="./附件管理_files/avatar.png" class="user-image" alt="Admin">
+                        <span class="hidden-xs">Admin</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <!-- User image -->
+                        <li class="user-header">
+                            <img src="./附件管理_files/avatar.png" class="img-circle" alt="">
+
+                            <p>
+                                Admin                                <small>2018-08-23 11:21:03</small>
+                            </p>
+                        </li>
+                        <!-- Menu Body -->
+                        <li class="user-body">
+                            <div class="row">
+                                <div class="col-xs-4 text-center">
+                                    <a href="https://www.fastadmin.net/" target="_blank">FastAdmin</a>
+                                </div>
+                                <div class="col-xs-4 text-center">
+                                    <a href="https://forum.fastadmin.net/" target="_blank">交流社区</a>
+                                </div>
+                                <div class="col-xs-4 text-center">
+                                    <a href="https://doc.fastadmin.net/" target="_blank">官方文档</a>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- Menu Footer-->
+                        <li class="user-footer">
+                            <div class="pull-left">
+                                <a href="https://demo.fastadmin.net/admin/general/general/profile" class="btn btn-primary addtabsit"><i class="fa fa-user"></i>
+                                    个人配置</a>
+                            </div>
+                            <div class="pull-right">
+                                <a href="https://demo.fastadmin.net/admin/index/logout" class="btn btn-danger"><i class="fa fa-sign-out"></i>
+                                    注销</a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <!-- 控制栏切换按钮 -->
+                <li class="hidden-xs">
+                    <a href="javascript:;" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    </nav>
+
+            </header>
+
+            <!-- 左侧菜单栏 -->
+            <aside class="main-sidebar">
+                <!-- 左侧菜单栏 -->
+<div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 848px;"><section class="sidebar" style="height: 848px; overflow: hidden; width: auto;">
+    <!-- 管理员信息 -->
+    <div class="user-panel hidden-xs">
+        <div class="pull-left image">
+            <a href="https://demo.fastadmin.net/admin/general/general/profile" class="addtabsit"><img src="./附件管理_files/avatar.png" class="img-circle"></a>
+        </div>
+        <div class="pull-left info">
+            <p>Admin</p>
+            <i class="fa fa-circle text-success"></i> 在线        </div>
+    </div>
+
+    <!-- 菜单搜索 -->
+    <form action="https://demo.fastadmin.net/admin/general/attachment?ref=addtabs" method="get" class="sidebar-form" onsubmit="return false;">
+        <div class="input-group">
+            <input type="text" name="q" class="form-control" placeholder="搜索菜单">
+            <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+            </span>
+            <div class="menuresult list-group sidebar-form hide" style="width: 210px;">
+            </div>
+        </div>
+    </form>
+
+    <!-- 移动端一级菜单 -->
+    <div class="mobilenav visible-xs">
+
+    </div>
+
+    <!--如果想始终显示子菜单,则给ul加上show-submenu类即可,当multiplenav开启的情况下默认为展开-->
+    <ul class="sidebar-menu ">
+
+        <!-- 菜单可以在 后台管理->权限管理->菜单规则 中进行增删改排序 -->
+        <li class=""><a href="https://demo.fastadmin.net/admin/dashboard?ref=addtabs" addtabs="1" url="/admin/dashboard" py="kzt" pinyin="kongzhitai"><i class="fa fa-dashboard fa-fw"></i> <span>控制台</span> <span class="pull-right-container"> <small class="label pull-right bg-blue">hot</small></span></a> </li><li class="treeview active"><a href="javascript:;" addtabs="2" url="javascript:;" py="cggl" pinyin="changguiguanli"><i class="fa fa-cogs fa-fw"></i> <span>常规管理</span> <span class="pull-right-container"> <small class="label pull-right bg-purple">new</small></span></a> <ul class="treeview-menu menu-open" style="display: block;"><li class=""><a href="https://demo.fastadmin.net/admin/general/config?ref=addtabs" addtabs="6" url="/admin/general/config" py="xtpz" pinyin="xitongpeizhi"><i class="fa fa-cog fa-fw"></i> <span>系统配置</span> <span class="pull-right-container"> </span></a> </li><li class="active"><a href="https://demo.fastadmin.net/admin/general/attachment?ref=addtabs" addtabs="7" url="/admin/general/attachment" py="fjgl" pinyin="fujianguanli"><i class="fa fa-file-image-o fa-fw"></i> <span>附件管理</span> <span class="pull-right-container"> </span></a> </li><li class=""><a href="https://demo.fastadmin.net/admin/general/profile?ref=addtabs" addtabs="8" url="/admin/general/profile" py="grpz" pinyin="gerenpeizhi"><i class="fa fa-user fa-fw"></i> <span>个人配置</span> <span class="pull-right-container"> </span></a> </li><li class=""><a href="https://demo.fastadmin.net/admin/general/crontab?ref=addtabs" addtabs="241" url="/admin/general/crontab" py="dsrw" pinyin="dingshirenwu"><i class="fa fa-tasks fa-fw"></i> <span>定时任务</span> <span class="pull-right-container"> </span></a> </li></ul></li><li class=""><a href="https://demo.fastadmin.net/admin/category?ref=addtabs" addtabs="3" url="/admin/category" py="flgl" pinyin="fenleiguanli"><i class="fa fa-list fa-fw"></i> <span>分类管理</span> <span class="pull-right-container"> </span></a> </li><li class="treeview"><a href="javascript:;" addtabs="5" url="javascript:;" py="qxgl" pinyin="quanxianguanli"><i class="fa fa-group fa-fw"></i> <span>权限管理</span> <span class="pull-right-container"><i class="fa fa-angle-left"></i> </span></a> <ul class="treeview-menu" style="display: none;"><li class=""><a href="https://demo.fastadmin.net/admin/auth/admin?ref=addtabs" addtabs="9" url="/admin/auth/admin" py="glygl" pinyin="guanliyuanguanli"><i class="fa fa-user fa-fw"></i> <span>管理员管理</span> <span class="pull-right-container"> </span></a> </li><li class=""><a href="https://demo.fastadmin.net/admin/auth/adminlog?ref=addtabs" addtabs="10" url="/admin/auth/adminlog" py="glyrz" pinyin="guanliyuanrizhi"><i class="fa fa-list-alt fa-fw"></i> <span>管理员日志</span> <span class="pull-right-container"> </span></a> </li><li class=""><a href="https://demo.fastadmin.net/admin/auth/group?ref=addtabs" addtabs="11" url="/admin/auth/group" py="jsz" pinyin="juesezu"><i class="fa fa-group fa-fw"></i> <span>角色组</span> <span class="pull-right-container"> </span></a> </li><li class=""><a href="https://demo.fastadmin.net/admin/auth/rule?ref=addtabs" addtabs="12" url="/admin/auth/rule" py="cdgz" pinyin="caidanguize"><i class="fa fa-bars fa-fw"></i> <span>菜单规则</span> <span class="pull-right-container"> <small class="label pull-right bg-purple">菜单</small></span></a> </li></ul></li><li class=""><a href="https://demo.fastadmin.net/admin/addon?ref=addtabs" addtabs="4" url="/admin/addon" py="cjgl" pinyin="chajianguanli"><i class="fa fa-rocket fa-fw"></i> <span>插件管理</span> <span class="pull-right-container"> <small class="badge pull-right bg-red">new</small></span></a> </li><li class=""><a href="https://demo.fastadmin.net/admin/docs?ref=addtabs" addtabs="270" url="/admin/docs" py="wdgl" pinyin="wendangguanli"><i class="fa fa-file fa-fw"></i> <span>文档管理</span> <span class="pull-right-container"> </span></a> </li><li class="treeview"><a href="javascript:;" addtabs="285" url="javascript:;" py="bkgl" pinyin="bokeguanli"><i class="fa fa-list fa-fw"></i> <span>博客管理</span> <span class="pull-right-container"><i class="fa fa-angle-left"></i> </span></a> <ul class="treeview-menu"><li class=""><a href="https://demo.fastadmin.net/admin/blog/post?ref=addtabs" addtabs="286" url="/admin/blog/post" py="rzgl" pinyin="rizhiguanli"><i class="fa fa-list fa-fw"></i> <span>日志管理</span> <span class="pull-right-container"> </span></a> </li><li class=""><a href="https://demo.fastadmin.net/admin/blog/category?ref=addtabs" addtabs="292" url="/admin/blog/category" py="flgl" pinyin="fenleiguanli"><i class="fa fa-list fa-fw"></i> <span>分类管理</span> <span class="pull-right-container"> </span></a> </li><li class=""><a href="https://demo.fastadmin.net/admin/blog/comment?ref=addtabs" addtabs="298" url="/admin/blog/comment" py="plgl" pinyin="pinglunguanli"><i class="fa fa-comment fa-fw"></i> <span>评论管理</span> <span class="pull-right-container"> </span></a> </li></ul></li><li class="treeview"><a href="javascript:;" addtabs="311" url="javascript:;" py="grskgl" pinyin="gerenshoukuanguanli"><i class="fa fa-rmb fa-fw"></i> <span>个人收款管理</span> <span class="pull-right-container"><i class="fa fa-angle-left"></i> </span></a> <ul class="treeview-menu" style="display: none;"><li class=""><a href="https://demo.fastadmin.net/admin/pay/order?ref=addtabs" addtabs="312" url="/admin/pay/order" py="ddgl" pinyin="dingdanguanli"><i class="fa fa-first-order fa-fw"></i> <span>订单管理</span> <span class="pull-right-container"> </span></a> </li><li class=""><a href="https://demo.fastadmin.net/admin/pay/qrcode?ref=addtabs" addtabs="320" url="/admin/pay/qrcode" py="ewmgl" pinyin="erweimaguanli"><i class="fa fa-qrcode fa-fw"></i> <span>二维码管理</span> <span class="pull-right-container"> </span></a> </li><li class=""><a href="https://demo.fastadmin.net/admin/pay/product?ref=addtabs" addtabs="326" url="/admin/pay/product" py="cpgl" pinyin="chanpinguanli"><i class="fa fa-product-hunt fa-fw"></i> <span>产品管理</span> <span class="pull-right-container"> </span></a> </li><li class=""><a href="https://demo.fastadmin.net/admin/pay/statistics?ref=addtabs" addtabs="332" url="/admin/pay/statistics" py="tjgl" pinyin="tongjiguanli"><i class="fa fa-bar-chart fa-fw"></i> <span>统计管理</span> <span class="pull-right-container"> </span></a> </li><li class=""><a href="https://demo.fastadmin.net/admin/pay/missing?ref=addtabs" addtabs="334" url="/admin/pay/missing" py="ldgl" pinyin="loudanguanli"><i class="fa fa-filter fa-fw"></i> <span>漏单管理</span> <span class="pull-right-container"> </span></a> </li></ul></li><li class="treeview"><a href="javascript:;" addtabs="66" url="javascript:;" py="hygl" pinyin="huiyuanguanli"><i class="fa fa-list fa-fw"></i> <span>会员管理</span> <span class="pull-right-container"><i class="fa fa-angle-left"></i> </span></a> <ul class="treeview-menu" style="display: none;"><li class=""><a href="https://demo.fastadmin.net/admin/user/user?ref=addtabs" addtabs="67" url="/admin/user/user" py="hygl" pinyin="huiyuanguanli"><i class="fa fa-user fa-fw"></i> <span>会员管理</span> <span class="pull-right-container"> </span></a> </li><li class=""><a href="https://demo.fastadmin.net/admin/user/group?ref=addtabs" addtabs="73" url="/admin/user/group" py="hyfz" pinyin="huiyuanfenzu"><i class="fa fa-users fa-fw"></i> <span>会员分组</span> <span class="pull-right-container"> </span></a> </li><li class=""><a href="https://demo.fastadmin.net/admin/user/rule?ref=addtabs" addtabs="79" url="/admin/user/rule" py="hygz" pinyin="huiyuanguize"><i class="fa fa-circle-o fa-fw"></i> <span>会员规则</span> <span class="pull-right-container"> </span></a> </li></ul></li><li class="treeview"><a href="javascript:;" addtabs="340" url="javascript:;" py="plgl" pinyin="pinglunguanli"><i class="fa fa-comments fa-fw"></i> <span>评论管理</span> <span class="pull-right-container"><i class="fa fa-angle-left"></i> </span></a> <ul class="treeview-menu"><li class=""><a href="https://demo.fastadmin.net/admin/comment/post?ref=addtabs" addtabs="341" url="/admin/comment/post" py="plgl" pinyin="pinglunguanli"><i class="fa fa-comment fa-fw"></i> <span>评论管理</span> <span class="pull-right-container"> </span></a> </li><li class=""><a href="https://demo.fastadmin.net/admin/comment/site?ref=addtabs" addtabs="347" url="/admin/comment/site" py="zdgl" pinyin="zhandianguanli"><i class="fa fa-list fa-fw"></i> <span>站点管理</span> <span class="pull-right-container"> </span></a> </li><li class=""><a href="https://demo.fastadmin.net/admin/comment/article?ref=addtabs" addtabs="353" url="/admin/comment/article" py="wzgl" pinyin="wenzhangguanli"><i class="fa fa-circle fa-fw"></i> <span>文章管理</span> <span class="pull-right-container"> </span></a> </li><li class=""><a href="https://demo.fastadmin.net/admin/comment/report?ref=addtabs" addtabs="359" url="/admin/comment/report" py="jbgl" pinyin="jubaoguanli"><i class="fa fa-circle fa-fw"></i> <span>举报管理</span> <span class="pull-right-container"> </span></a> </li><li class=""><a href="https://demo.fastadmin.net/admin/comment/statistics?ref=addtabs" addtabs="365" url="/admin/comment/statistics" py="tjgl" pinyin="tongjiguanli"><i class="fa fa-bar-chart fa-fw"></i> <span>统计管理</span> <span class="pull-right-container"> </span></a> </li></ul></li><li class="treeview"><a href="javascript:;" addtabs="92" url="javascript:;" py="slgl" pinyin="shiliguanli"><i class="fa fa-magic fa-fw"></i> <span>示例管理</span> <span class="pull-right-container"><i class="fa fa-angle-left"></i> </span></a> <ul class="treeview-menu"><li class=""><a href="https://demo.fastadmin.net/admin/example/customsearch?ref=addtabs" addtabs="277" url="/admin/example/customsearch" py="zdyss" pinyin="zidingyisousuo"><i class="fa fa-table fa-fw"></i> <span>自定义搜索</span> <span class="pull-right-container"> </span></a> </li><li class=""><a href="https://demo.fastadmin.net/admin/example/bootstraptable?ref=addtabs" addtabs="93" url="/admin/example/bootstraptable" py="bgwzsl" pinyin="biaogewanzhengshili"><i class="fa fa-table fa-fw"></i> <span>表格完整示例</span> <span class="pull-right-container"> </span></a> </li><li class=""><a href="https://demo.fastadmin.net/admin/example/colorbadge?ref=addtabs" addtabs="99" url="/admin/example/colorbadge" py="csjb" pinyin="caisejiaobiao"><i class="fa fa-table fa-fw"></i> <span>彩色角标</span> <span class="pull-right-container"> </span></a> </li><li class=""><a href="https://demo.fastadmin.net/admin/example/controllerjump?ref=addtabs" addtabs="103" url="/admin/example/controllerjump" py="kzqjtz" pinyin="kongzhiqijiantiaozhuan"><i class="fa fa-table fa-fw"></i> <span>控制器间跳转</span> <span class="pull-right-container"> </span></a> </li><li class=""><a href="https://demo.fastadmin.net/admin/example/cxselect?ref=addtabs" addtabs="107" url="/admin/example/cxselect" py="djld" pinyin="duojiliandong"><i class="fa fa-table fa-fw"></i> <span>多级联动</span> <span class="pull-right-container"> </span></a> </li><li class=""><a href="https://demo.fastadmin.net/admin/example/multitable?ref=addtabs" addtabs="111" url="/admin/example/multitable" py="dbgsl" pinyin="duobiaogeshili"><i class="fa fa-table fa-fw"></i> <span>多表格示例</span> <span class="pull-right-container"> </span></a> </li><li class=""><a href="https://demo.fastadmin.net/admin/example/relationmodel?ref=addtabs" addtabs="115" url="/admin/example/relationmodel" py="glmxsl" pinyin="guanlianmoxingshili"><i class="fa fa-table fa-fw"></i> <span>关联模型示例</span> <span class="pull-right-container"> </span></a> </li><li class=""><a href="https://demo.fastadmin.net/admin/example/tabletemplate?ref=addtabs" addtabs="119" url="/admin/example/tabletemplate" py="bgmbsl" pinyin="biaogemubanshili"><i class="fa fa-table fa-fw"></i> <span>表格模板示例</span> <span class="pull-right-container"> </span></a> </li><li class=""><a href="https://demo.fastadmin.net/admin/example/baidumap?ref=addtabs" addtabs="124" url="/admin/example/baidumap" py="bddtsl" pinyin="baiduditushili"><i class="fa fa-map-pin fa-fw"></i> <span>百度地图示例</span> <span class="pull-right-container"> </span></a> </li></ul></li><li class="treeview"><a href="javascript:;" addtabs="128" url="javascript:;" py="Cgl" pinyin="CMSguanli"><i class="fa fa-list fa-fw"></i> <span>CMS管理</span> <span class="pull-right-container"><i class="fa fa-angle-left"></i> </span></a> <ul class="treeview-menu"><li class=""><a href="https://demo.fastadmin.net/admin/cms/archives?ref=addtabs" addtabs="129" url="/admin/cms/archives" py="nrgl" pinyin="neirongguanli"><i class="fa fa-file-text-o fa-fw"></i> <span>内容管理</span> <span class="pull-right-container"> </span></a> </li><li class=""><a href="https://demo.fastadmin.net/admin/cms/channel?ref=addtabs" addtabs="135" url="/admin/cms/channel" py="lmgl" pinyin="lanmuguanli"><i class="fa fa-list fa-fw"></i> <span>栏目管理</span> <span class="pull-right-container"> </span></a> </li><li class=""><a href="https://demo.fastadmin.net/admin/cms/modelx?ref=addtabs" addtabs="141" url="/admin/cms/modelx" py="mxgl" pinyin="moxingguanli"><i class="fa fa-th fa-fw"></i> <span>模型管理</span> <span class="pull-right-container"> </span></a> </li><li class=""><a href="https://demo.fastadmin.net/admin/cms/tags?ref=addtabs" addtabs="153" url="/admin/cms/tags" py="bqgl" pinyin="biaoqianguanli"><i class="fa fa-tags fa-fw"></i> <span>标签管理</span> <span class="pull-right-container"> </span></a> </li><li class=""><a href="https://demo.fastadmin.net/admin/cms/block?ref=addtabs" addtabs="159" url="/admin/cms/block" py="qkgl" pinyin="qukuaiguanli"><i class="fa fa-th-large fa-fw"></i> <span>区块管理</span> <span class="pull-right-container"> </span></a> </li><li class=""><a href="https://demo.fastadmin.net/admin/cms/page?ref=addtabs" addtabs="165" url="/admin/cms/page" py="dygl" pinyin="danyeguanli"><i class="fa fa-file fa-fw"></i> <span>单页管理</span> <span class="pull-right-container"> </span></a> </li><li class=""><a href="https://demo.fastadmin.net/admin/cms/comment?ref=addtabs" addtabs="171" url="/admin/cms/comment" py="plgl" pinyin="pinglunguanli"><i class="fa fa-comment fa-fw"></i> <span>评论管理</span> <span class="pull-right-container"> </span></a> </li></ul></li><li class=""><a href="https://demo.fastadmin.net/admin/fileix?ref=addtabs" addtabs="177" url="/admin/fileix" py="wjgl" pinyin="wenjianguanli"><i class="fa fa-folder-o fa-fw"></i> <span>文件管理</span> <span class="pull-right-container"> </span></a> </li><li class=""><a href="https://demo.fastadmin.net/admin/calendar?ref=addtabs" addtabs="180" url="/admin/calendar" py="rlgl" pinyin="riliguanli"><i class="fa fa-calendar fa-fw"></i> <span>日历管理</span> <span class="pull-right-container"> </span></a> </li><li class="treeview"><a href="javascript:;" addtabs="188" url="javascript:;" py="wxgl" pinyin="weixinguanli"><i class="fa fa-wechat fa-fw"></i> <span>微信管理</span> <span class="pull-right-container"><i class="fa fa-angle-left"></i> </span></a> <ul class="treeview-menu"><li class=""><a href="https://demo.fastadmin.net/admin/wechat/autoreply?ref=addtabs" addtabs="189" url="/admin/wechat/autoreply" py="zdhfgl" pinyin="zidonghuifuguanli"><i class="fa fa-reply-all fa-fw"></i> <span>自动回复管理</span> <span class="pull-right-container"> </span></a> </li><li class=""><a href="https://demo.fastadmin.net/admin/wechat/config?ref=addtabs" addtabs="195" url="/admin/wechat/config" py="pzgl" pinyin="peizhiguanli"><i class="fa fa-cog fa-fw"></i> <span>配置管理</span> <span class="pull-right-container"> </span></a> </li><li class=""><a href="https://demo.fastadmin.net/admin/wechat/menu?ref=addtabs" addtabs="201" url="/admin/wechat/menu" py="cdgl" pinyin="caidanguanli"><i class="fa fa-list fa-fw"></i> <span>菜单管理</span> <span class="pull-right-container"> </span></a> </li><li class=""><a href="https://demo.fastadmin.net/admin/wechat/response?ref=addtabs" addtabs="208" url="/admin/wechat/response" py="zygl" pinyin="ziyuanguanli"><i class="fa fa-list-alt fa-fw"></i> <span>资源管理</span> <span class="pull-right-container"> </span></a> </li></ul></li>
+        <!--以下4行可以删除或改成自己的链接,但建议你在你的网站上添加一个FastAdmin的链接-->
+        <li class="header" data-rel="external">相关链接</li>
+        <li data-rel="external"><a href="https://doc.fastadmin.net/" target="_blank"><i class="fa fa-list text-red"></i> <span>官方文档</span></a></li>
+        <li data-rel="external"><a href="https://forum.fastadmin.net/" target="_blank"><i class="fa fa-comment text-yellow"></i> <span>交流社区</span></a></li>
+        <li data-rel="external"><a href="https://jq.qq.com/?_wv=1027&amp;k=487PNBb" target="_blank"><i class="fa fa-qq text-aqua"></i> <span>QQ交流群</span></a></li>
+    </ul>
+</section><div class="slimScrollBar" style="background: rgba(0, 0, 0, 0.2); width: 8px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 777.41px;"></div><div class="slimScrollRail" style="width: 8px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
+            </aside>
+
+            <!-- 主体内容区域 -->
+            <div class="content-wrapper tab-content tab-addtabs" style="min-height: 898px;">
+                                <div role="tabpanel" class="tab-pane" id="con_1">
+                    <iframe src="./附件管理_files/dashboard.html" width="100%" height="100%" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling-x="no" scrolling-y="auto" allowtransparency="yes"></iframe>
+                </div>
+                            <div role="tabpanel" class="tab-pane active" id="con_7"><iframe src="./附件管理_files/attachment.html" width="100%" height="100%" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling-x="no" scrolling-y="auto" allowtransparency="yes"></iframe></div><div role="tabpanel" class="tab-pane" id="con_4"><iframe src="./附件管理_files/addon.html" width="100%" height="100%" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling-x="no" scrolling-y="auto" allowtransparency="yes"></iframe></div><div role="tabpanel" class="tab-pane" id="con_6"><iframe src="./附件管理_files/config.html" width="100%" height="100%" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling-x="no" scrolling-y="auto" allowtransparency="yes"></iframe></div><div role="tabpanel" class="tab-pane" id="con_8"><iframe src="./附件管理_files/profile.html" width="100%" height="100%" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling-x="no" scrolling-y="auto" allowtransparency="yes"></iframe></div><div role="tabpanel" class="tab-pane" id="con_241"><iframe src="./附件管理_files/crontab.html" width="100%" height="100%" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling-x="no" scrolling-y="auto" allowtransparency="yes"></iframe></div><div role="tabpanel" class="tab-pane" id="con_3"><iframe src="./附件管理_files/category.html" width="100%" height="100%" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling-x="no" scrolling-y="auto" allowtransparency="yes"></iframe></div></div>
+
+            <!-- 底部链接,默认隐藏 -->
+            <footer class="main-footer hide" style="">
+                <div class="pull-right hidden-xs">
+                </div>
+                <strong>Copyright © 2017-2018 <a href="https://www.fastadmin.net/">Fastadmin</a>.</strong> All rights reserved.
+            </footer>
+
+            <!-- 右侧控制栏 -->
+            <div class="control-sidebar-bg" style="position: fixed; height: auto;"></div>
+            <style>
+    .skin-list li{
+        float:left; width: 33.33333%; padding: 5px;
+    }
+    .skin-list li a{
+        display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4);
+    }
+</style>
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark" style="position: fixed; max-height: 100%; overflow: auto;">
+    <!-- Create the tabs -->
+    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+        <li class="active"><a href="https://demo.fastadmin.net/admin/general/attachment?ref=addtabs#control-sidebar-setting-tab" data-toggle="tab" aria-expanded="true"><i class="fa fa-wrench"></i></a></li>
+        <li><a href="https://demo.fastadmin.net/admin/general/attachment?ref=addtabs#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+        <li><a href="https://demo.fastadmin.net/admin/general/attachment?ref=addtabs#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <!-- Home tab content -->
+        <div class="tab-pane active" id="control-sidebar-setting-tab">
+            <h4 class="control-sidebar-heading">布局设定</h4>
+            <div class="form-group"><label class="control-sidebar-subheading"><input type="checkbox" data-layout="fixed" class="pull-right" checked="checked"> 固定布局</label><p>盒子模型和固定布局不能同时启作用</p></div>
+            <div class="form-group"><label class="control-sidebar-subheading"><input type="checkbox" data-layout="layout-boxed" class="pull-right"> 盒子布局</label><p>盒子布局最大宽度将被限定为1250px</p></div>
+            <div class="form-group"><label class="control-sidebar-subheading"><input type="checkbox" data-layout="sidebar-collapse" class="pull-right"> 切换菜单栏</label><p>切换菜单栏的展示或收起</p></div>
+            <div class="form-group"><label class="control-sidebar-subheading"><input type="checkbox" data-enable="expandOnHover" class="pull-right"> 菜单栏自动展开</label><p>鼠标移到菜单栏自动展开</p></div>
+            <div class="form-group"><label class="control-sidebar-subheading"><input type="checkbox" data-menu="show-submenu" class="pull-right"> 显示菜单栏子菜单</label><p>菜单栏子菜单将始终显示</p></div>
+            <div class="form-group"><label class="control-sidebar-subheading"><input type="checkbox" data-menu="disable-top-badge" class="pull-right" checked="checked"> 禁用顶部彩色小角标</label><p>左边菜单栏的彩色小角标不受影响</p></div>
+            <div class="form-group"><label class="control-sidebar-subheading"><input type="checkbox" data-controlsidebar="control-sidebar-open" class="pull-right"> 切换右侧操作栏</label><p>切换右侧操作栏覆盖或独占</p></div>
+            <div class="form-group"><label class="control-sidebar-subheading"><input type="checkbox" data-sidebarskin="toggle" class="pull-right"> 切换右侧操作栏背景</label><p>将右侧操作栏背景亮色或深色切换</p></div>
+            <h4 class="control-sidebar-heading">皮肤</h4>
+            <ul class="list-unstyled clearfix skin-list">
+                <li><a href="javascript:;" data-skin="skin-blue" style="" class="clearfix full-opacity-hover"><div><span style="display:block; width: 20%; float: left; height: 7px; background: #367fa9;"></span><span class="bg-light-blue" style="display:block; width: 80%; float: left; height: 7px;"></span></div><div><span style="display:block; width: 20%; float: left; height: 20px; background: #222d32;"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span></div></a><p class="text-center no-margin">Blue</p></li>
+                <li><a href="javascript:;" data-skin="skin-white" class="clearfix full-opacity-hover"><div style="box-shadow: 0 0 2px rgba(0,0,0,0.1)" class="clearfix"><span style="display:block; width: 20%; float: left; height: 7px; background: #fefefe;"></span><span style="display:block; width: 80%; float: left; height: 7px; background: #fefefe;"></span></div><div><span style="display:block; width: 20%; float: left; height: 20px; background: #222;"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span></div></a><p class="text-center no-margin">White</p></li>
+                <li><a href="javascript:;" data-skin="skin-purple" class="clearfix full-opacity-hover"><div><span style="display:block; width: 20%; float: left; height: 7px;" class="bg-purple-active"></span><span class="bg-purple" style="display:block; width: 80%; float: left; height: 7px;"></span></div><div><span style="display:block; width: 20%; float: left; height: 20px; background: #222d32;"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span></div></a><p class="text-center no-margin">Purple</p></li>
+                <li><a href="javascript:;" data-skin="skin-green" class="clearfix full-opacity-hover"><div><span style="display:block; width: 20%; float: left; height: 7px;" class="bg-green-active"></span><span class="bg-green" style="display:block; width: 80%; float: left; height: 7px;"></span></div><div><span style="display:block; width: 20%; float: left; height: 20px; background: #222d32;"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span></div></a><p class="text-center no-margin">Green</p></li>
+                <li><a href="javascript:;" data-skin="skin-red" class="clearfix full-opacity-hover"><div><span style="display:block; width: 20%; float: left; height: 7px;" class="bg-red-active"></span><span class="bg-red" style="display:block; width: 80%; float: left; height: 7px;"></span></div><div><span style="display:block; width: 20%; float: left; height: 20px; background: #222d32;"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span></div></a><p class="text-center no-margin">Red</p></li>
+                <li><a href="javascript:;" data-skin="skin-yellow" class="clearfix full-opacity-hover"><div><span style="display:block; width: 20%; float: left; height: 7px;" class="bg-yellow-active"></span><span class="bg-yellow" style="display:block; width: 80%; float: left; height: 7px;"></span></div><div><span style="display:block; width: 20%; float: left; height: 20px; background: #222d32;"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span></div></a><p class="text-center no-margin">Yellow</p></li>
+                <li><a href="javascript:;" data-skin="skin-blue-light" class="clearfix full-opacity-hover"><div><span style="display:block; width: 20%; float: left; height: 7px; background: #367fa9;"></span><span class="bg-light-blue" style="display:block; width: 80%; float: left; height: 7px;"></span></div><div><span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc;"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span></div></a><p class="text-center no-margin" style="font-size: 12px">Blue Light</p></li>
+                <li><a href="javascript:;" data-skin="skin-white-light" class="clearfix full-opacity-hover"><div style="box-shadow: 0 0 2px rgba(0,0,0,0.1)" class="clearfix"><span style="display:block; width: 20%; float: left; height: 7px; background: #fefefe;"></span><span style="display:block; width: 80%; float: left; height: 7px; background: #fefefe;"></span></div><div><span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc;"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span></div></a><p class="text-center no-margin" style="font-size: 12px">White Light</p></li>
+                <li><a href="javascript:;" data-skin="skin-purple-light" class="clearfix full-opacity-hover"><div><span style="display:block; width: 20%; float: left; height: 7px;" class="bg-purple-active"></span><span class="bg-purple" style="display:block; width: 80%; float: left; height: 7px;"></span></div><div><span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc;"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span></div></a><p class="text-center no-margin" style="font-size: 12px">Purple Light</p></li>
+                <li><a href="javascript:;" data-skin="skin-green-light" class="clearfix full-opacity-hover"><div><span style="display:block; width: 20%; float: left; height: 7px;" class="bg-green-active"></span><span class="bg-green" style="display:block; width: 80%; float: left; height: 7px;"></span></div><div><span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc;"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span></div></a><p class="text-center no-margin" style="font-size: 12px">Green Light</p></li>
+                <li><a href="javascript:;" data-skin="skin-red-light" class="clearfix full-opacity-hover"><div><span style="display:block; width: 20%; float: left; height: 7px;" class="bg-red-active"></span><span class="bg-red" style="display:block; width: 80%; float: left; height: 7px;"></span></div><div><span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc;"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span></div></a><p class="text-center no-margin" style="font-size: 12px">Red Light</p></li>
+                <li><a href="javascript:;" data-skin="skin-yellow-light" class="clearfix full-opacity-hover"><div><span style="display:block; width: 20%; float: left; height: 7px;" class="bg-yellow-active"></span><span class="bg-yellow" style="display:block; width: 80%; float: left; height: 7px;"></span></div><div><span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc;"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span></div></a><p class="text-center no-margin" style="font-size: 12px;">Yellow Light</p></li>
+            </ul>
+        </div>
+        <!-- /.tab-pane -->
+        <!-- Home tab content -->
+        <div class="tab-pane" id="control-sidebar-home-tab">
+            <h4 class="control-sidebar-heading">主页</h4>
+        </div>
+        <!-- /.tab-pane -->
+        <!-- Settings tab content -->
+        <div class="tab-pane" id="control-sidebar-settings-tab">
+            <h4 class="control-sidebar-heading">配置</h4>
+        </div>
+        <!-- /.tab-pane -->
+    </div>
+</aside>
+<!-- /.control-sidebar -->
+        </div>
+
+        <!-- 加载JS脚本 -->
+        <script src="./附件管理_files/require.min.js.下载" data-main="https://cdn.demo.fastadmin.net/assets/js/require-backend.min.js?v=20180806"></script>
+    
+</body></html>

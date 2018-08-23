@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)https://demo.fastadmin.net/admin/category?addtabs=1 -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+<title></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="renderer" content="webkit">
+
+<link rel="shortcut icon" href="https://cdn.demo.fastadmin.net/assets/img/favicon.ico">
+<!-- Loading Bootstrap -->
+<link href="./backend.min.css" rel="stylesheet">
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+<!--[if lt IE 9]>
+  <script src="https://cdn.demo.fastadmin.net/assets/js/html5shiv.js"></script>
+  <script src="https://cdn.demo.fastadmin.net/assets/js/respond.min.js"></script>
+<![endif]-->
+<script src="./hm.js.下载"></script><script src="./hm.js(1).下载"></script><script type="text/javascript">
+    var require = {
+        config:  {"site":{"name":"FastAdmin","cdnurl":"https:\/\/cdn.demo.fastadmin.net","version":"20180806","timezone":"Asia\/Shanghai","languages":{"backend":"zh-cn","frontend":"zh-cn"}},"upload":{"cdnurl":"https:\/\/cdn.demo.fastadmin.net","uploadurl":"https:\/\/v0.api.upyun.com\/fastadmin-demo","bucket":"fastadmin-demo","maxsize":"10M","mimetype":"*","multipart":{"policy":"eyJidWNrZXQiOiJmYXN0YWRtaW4tZGVtbyIsInNhdmUta2V5IjoiXC91cGxvYWRzXC97eWVhcn17bW9ufXtkYXl9XC97ZmlsZW1kNX17LnN1ZmZpeH0iLCJleHBpcmF0aW9uIjoxNTM0OTk1MTQ2LCJub3RpZnktdXJsIjoiaHR0cHM6XC9cL2RlbW8uZmFzdGFkbWluLm5ldFwvYWRkb25zXC91cHl1blwvaW5kZXhcL25vdGlmeSJ9","signature":"08f89decfd4912cc6aab502bdecbd997","bucket":"fastadmin-demo","save-key":"\/uploads\/{year}{mon}{day}\/{filemd5}{.suffix}","expiration":1534995146,"notify-url":"https:\/\/demo.fastadmin.net\/addons\/upyun\/index\/notify","ext-param":"1_0"},"multiple":"0"},"modulename":"admin","controllername":"category","actionname":"index","jsname":"backend\/category","moduleurl":"\/admin","language":"zh-cn","fastadmin":{"usercenter":true,"login_captcha":false,"login_failure_retry":true,"login_unique":false,"login_background":"\/assets\/img\/loginbg.jpg","multiplenav":false,"checkupdate":false,"version":"1.0.0.20180806_beta","api_url":"https:\/\/api.fastadmin.net"},"referer":null,"__PUBLIC__":"\/","__ROOT__":"\/","__CDN__":"https:\/\/cdn.demo.fastadmin.net"}    };
+</script><style type="text/css" abt="234"></style>
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://cdn.demo.fastadmin.net/assets/js/require-backend.min.js?v=20180806" src="./require-backend.min.js.下载"></script><script>//remove 17173 video ad
+doAdblock();
+function doAdblock(){
+    (function() {
+        function A() {}
+        A.prototype = {
+            rules: {
+                '17173_in':{
+                    'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/PreloaderFile(Customer)?\.swf/,
+                    'replace':"http://swf.adtchrome.com/17173_in_20150522.swf"
+                },
+                '17173_out':{
+                    'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/PreloaderFileFirstpage\.swf/,
+                    'replace':"http://swf.adtchrome.com/17173_out_20150522.swf"
+                },
+                '17173_live':{
+                    'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/Player_stream(_firstpage)?\.swf/,
+                    'replace':"http://swf.adtchrome.com/17173_stream_20150522.swf"
+                },
+                '17173_live_out':{
+                    'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/Player_stream_(custom)?Out\.swf/,
+                    'replace':"http://swf.adtchrome.com/17173.out.Live.swf"
+                }
+            },
+            _done: null,
+            get done() {
+                if(!this._done) {
+                    this._done = new Array();
+                }
+                return this._done;
+            },
+            addAnimations: function() {
+                var style = document.createElement('style');
+                style.type = 'text/css';
+                style.innerHTML = 'object,embed{\
+                -webkit-animation-duration:.001s;-webkit-animation-name:playerInserted;\
+                -ms-animation-duration:.001s;-ms-animation-name:playerInserted;\
+                -o-animation-duration:.001s;-o-animation-name:playerInserted;\
+                animation-duration:.001s;animation-name:playerInserted;}\
+                @-webkit-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}\
+                @-ms-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}\
+                @-o-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}\
+                @keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}';
+                document.getElementsByTagName('head')[0].appendChild(style);
+            },
+            animationsHandler: function(e) {
+                if(e.animationName === 'playerInserted') {
+                    this.replace(e.target);
+                }
+            },
+            replace: function(elem) {
+                if(this.done.indexOf(elem) != -1) return;
+                this.done.push(elem);
+                var player = elem.data || elem.src;
+                if(!player) return;
+                var i, find, replace = false;
+                for(i in this.rules) {
+                    find = this.rules[i]['find'];
+                    if(find.test(player)) {
+                        replace = this.rules[i]['replace'];
+                        if('function' === typeof this.rules[i]['preHandle']) {
+                            this.rules[i]['preHandle'].bind(this, elem, find, replace, player)();
+                        }else{
+                            this.reallyReplace.bind(this, elem, find, replace)();
+                        }
+                        break;
+                    }
+                }
+            },
+            reallyReplace: function(elem, find, replace) {
+                elem.data && (elem.data = elem.data.replace(find, replace)) || elem.src && ((elem.src = elem.src.replace(find, replace)) && (elem.style.display = 'block'));
+                var b = elem.querySelector("param[name='movie']");
+                this.reloadPlugin(elem);
+            },
+            reloadPlugin: function(elem) {
+                var nextSibling = elem.nextSibling;
+                var parentNode = elem.parentNode;
+                parentNode.removeChild(elem);
+                var newElem = elem.cloneNode(true);
+                this.done.push(newElem);
+                if(nextSibling) {
+                    parentNode.insertBefore(newElem, nextSibling);
+                } else {
+                    parentNode.appendChild(newElem);
+                }
+            },
+            init: function() {
+                var handler = this.animationsHandler.bind(this);
+                document.body.addEventListener('webkitAnimationStart', handler, false);
+                document.body.addEventListener('msAnimationStart', handler, false);
+                document.body.addEventListener('oAnimationStart', handler, false);
+                document.body.addEventListener('animationstart', handler, false);
+                this.addAnimations();
+            }
+        };
+        new A().init();
+    })();
+}
+//remove baidu search ad
+if(document.URL.indexOf('www.baidu.com') >= 0){
+    if(document && document.getElementsByTagName && document.getElementById && document.body){
+        var aa = function(){
+            var all = document.body.querySelectorAll("#content_left div,#content_left table");
+            for(var i = 0; i < all.length; i++){
+                if(/display:\s?(table|block)\s!important/.test(all[i].getAttribute("style"))){all[i].style.display= "none";all[i].style.visibility='hidden';}
+            }
+            all = document.body.querySelectorAll('.result.c-container[id="1"]');
+            //if(all.length == 1) return;
+            for(var i = 0; i < all.length; i++){
+                if(all[i].innerHTML && all[i].innerHTML.indexOf('广告')>-1){
+                    all[i].style.display= "none";all[i].style.visibility='hidden';
+                }
+            }
+        }
+        aa();
+        document.getElementById('wrapper_wrapper').addEventListener('DOMSubtreeModified',aa)
+    };
+}
+//remove sohu video ad
+if (document.URL.indexOf("tv.sohu.com") >= 0){
+    if (document.cookie.indexOf("fee_status=true")==-1){document.cookie='fee_status=true'};
+}
+//remove 56.com video ad
+if (document.URL.indexOf("56.com") >= 0){
+    if (document.cookie.indexOf("fee_status=true")==-1){document.cookie='fee_status=true'};
+}
+//fore iqiyi enable html5 player function
+if (document.URL.indexOf("iqiyi.com") >= 0){
+    if (document.cookie.indexOf("player_forcedType=h5_VOD")==-1){
+        document.cookie='player_forcedType=h5_VOD'
+        if(localStorage.reloadTime && Date.now() - parseInt(localStorage.reloadTime)<60000){
+            console.log('no reload')
+        }else{
+            location.reload()
+            localStorage.reloadTime = Date.now();
+        }
+    }
+}
+</script><style type="text/css">object,embed{                -webkit-animation-duration:.001s;-webkit-animation-name:playerInserted;                -ms-animation-duration:.001s;-ms-animation-name:playerInserted;                -o-animation-duration:.001s;-o-animation-name:playerInserted;                animation-duration:.001s;animation-name:playerInserted;}                @-webkit-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @-ms-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @-o-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}</style><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="lang" src="./lang(7)"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="addons" src="./addons.js.下载"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="backend/category" src="./category.js.下载"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="umeditor.config" src="./umeditor.config.js.下载"></script><link type="text/css" rel="stylesheet" href="./umeditor.css"><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="umeditor" src="./umeditor.min.js.下载"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="umeditor.lang" src="./zh-cn.js.下载"></script></head>
+
+    <body class="inside-header inside-aside " marginwidth="0" marginheight="0">
+        <div id="main" role="main">
+            <div class="tab-content tab-addtabs">
+                <div id="content">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <section class="content-header hide">
+                                <h1>
+                                    控制台                                    <small>Control panel</small>
+                                </h1>
+                            </section>
+                                                        <!-- RIBBON -->
+                            <div id="ribbon">
+                                <ol class="breadcrumb pull-left">
+                                    <li><a href="https://demo.fastadmin.net/admin/dashboard" class="addtabsit"><i class="fa fa-dashboard"></i> 控制台</a></li>
+                                </ol>
+                                <ol class="breadcrumb pull-right">
+                                                                        <li><a href="javascript:;" data-url="/admin/category/category">分类管理</a></li>
+                                                                    </ol>
+                            </div>
+                            <!-- END RIBBON -->
+                                                        <div class="content">
+                                <div class="panel panel-default panel-intro">
+    <div class="panel-heading">
+        <div class="panel-lead"><em>分类管理</em>用于统一管理网站的所有分类,分类可进行无限级分类</div>        <ul class="nav nav-tabs">
+            <li class="active"><a href="https://demo.fastadmin.net/admin/category?addtabs=1#all" data-toggle="tab">全部</a></li>
+                            <li><a href="https://demo.fastadmin.net/admin/category?addtabs=1#default" data-toggle="tab">默认</a></li>
+                            <li><a href="https://demo.fastadmin.net/admin/category?addtabs=1#page" data-toggle="tab">单页</a></li>
+                            <li><a href="https://demo.fastadmin.net/admin/category?addtabs=1#article" data-toggle="tab">文章</a></li>
+                            <li><a href="https://demo.fastadmin.net/admin/category?addtabs=1#test" data-toggle="tab">Test</a></li>
+                    </ul>
+
+    </div>
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="one">
+                <div class="widget-body no-padding">
+                    
+                    <div class="bootstrap-table"><div class="fixed-table-toolbar"><div class="bs-bars pull-left"><div id="toolbar" class="toolbar">
+                        <a href="javascript:;" class="btn btn-primary btn-refresh" title="刷新"><i class="fa fa-refresh"></i> </a> <a href="javascript:;" class="btn btn-success btn-add" title="添加"><i class="fa fa-plus"></i> 添加</a> <a href="javascript:;" class="btn btn-success btn-edit btn-disabled disabled" title="编辑"><i class="fa fa-pencil"></i> 编辑</a> <a href="javascript:;" class="btn btn-danger btn-del btn-disabled disabled" title="删除"><i class="fa fa-trash"></i> 删除</a>                        <div class="dropdown btn-group ">
+                            <a class="btn btn-primary btn-more dropdown-toggle btn-disabled disabled" data-toggle="dropdown"><i class="fa fa-cog"></i> 更多</a>
+                            <ul class="dropdown-menu text-left" role="menu">
+                                <li><a class="btn btn-link btn-multi btn-disabled disabled" href="javascript:;" data-params="status=normal"><i class="fa fa-eye"></i> 设为正常</a></li>
+                                <li><a class="btn btn-link btn-multi btn-disabled disabled" href="javascript:;" data-params="status=hidden"><i class="fa fa-eye-slash"></i> 设为隐藏</a></li>
+                            </ul>
+                        </div>
+                    </div></div><div class="columns columns-right btn-group pull-right"><button class="btn btn-default" type="button" name="toggle" aria-label="toggle" title="切换"><i class="glyphicon glyphicon-list-alt icon-list-alt"></i></button><div class="keep-open btn-group" title="列"><button type="button" aria-label="columns" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-th icon-th"></i> <span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li role="menuitem"><label><input type="checkbox" data-field="id" value="1" checked="checked"> ID</label></li><li role="menuitem"><label><input type="checkbox" data-field="type" value="2" checked="checked"> 栏目类型</label></li><li role="menuitem"><label><input type="checkbox" data-field="name" value="3" checked="checked"> 名称</label></li><li role="menuitem"><label><input type="checkbox" data-field="nickname" value="4" checked="checked"> 昵称</label></li><li role="menuitem"><label><input type="checkbox" data-field="flag" value="5" checked="checked"> 标志</label></li><li role="menuitem"><label><input type="checkbox" data-field="image" value="6" checked="checked"> 图片</label></li><li role="menuitem"><label><input type="checkbox" data-field="weigh" value="7" checked="checked"> 权重</label></li><li role="menuitem"><label><input type="checkbox" data-field="status" value="8" checked="checked"> 状态</label></li><li role="menuitem"><label><input type="checkbox" data-field="operate" value="9" checked="checked"> 操作</label></li></ul></div><div class="export btn-group"><button class="btn btn-default dropdown-toggle" aria-label="export type" title="导出数据" data-toggle="dropdown" type="button"><i class="glyphicon glyphicon-export icon-share"></i> <span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li role="menuitem" data-type="json"><a href="javascript:void(0)">JSON</a></li><li role="menuitem" data-type="xml"><a href="javascript:void(0)">XML</a></li><li role="menuitem" data-type="csv"><a href="javascript:void(0)">CSV</a></li><li role="menuitem" data-type="txt"><a href="javascript:void(0)">TXT</a></li><li role="menuitem" data-type="doc"><a href="javascript:void(0)">MS-Word</a></li><li role="menuitem" data-type="excel"><a href="javascript:void(0)">MS-Excel</a></li></ul></div></div><div class="pull-right search"><input class="form-control" type="text" placeholder="搜索"></div></div><div class="fixed-table-container" style="padding-bottom: 0px;"><div class="fixed-table-header" style="display: none;"><table></table></div><div class="fixed-table-body"><div class="fixed-table-loading" style="top: 1px; display: none;">正在努力地加载数据中，请稍候……</div><table id="table" class="table table-striped table-bordered table-hover" data-operate-edit="1" data-operate-del="1" width="100%">
+                    <thead style=""><tr><th class="bs-checkbox " style="text-align: center; vertical-align: middle; width: 36px; " data-field="0"><div class="th-inner "><input name="btSelectAll" type="checkbox"></div><div class="fht-cell"></div></th><th style="text-align: center; vertical-align: middle; " data-field="id"><div class="th-inner ">ID</div><div class="fht-cell"></div></th><th style="text-align: center; vertical-align: middle; " data-field="type"><div class="th-inner ">栏目类型</div><div class="fht-cell"></div></th><th style="text-align: left; vertical-align: middle; " data-field="name"><div class="th-inner ">名称</div><div class="fht-cell"></div></th><th style="text-align: center; vertical-align: middle; " data-field="nickname"><div class="th-inner ">昵称</div><div class="fht-cell"></div></th><th style="text-align: center; vertical-align: middle; " data-field="flag"><div class="th-inner ">标志</div><div class="fht-cell"></div></th><th style="text-align: center; vertical-align: middle; " data-field="image"><div class="th-inner ">图片</div><div class="fht-cell"></div></th><th style="text-align: center; vertical-align: middle; " data-field="weigh"><div class="th-inner ">权重</div><div class="fht-cell"></div></th><th style="text-align: center; vertical-align: middle; " data-field="status"><div class="th-inner ">状态</div><div class="fht-cell"></div></th><th style="text-align: center; vertical-align: middle; " data-field="operate"><div class="th-inner ">操作</div><div class="fht-cell"></div></th></tr></thead><tbody data-listidx="0"><tr data-index="0"> <td class="bs-checkbox "><input data-index="0" name="btSelectItem" type="checkbox"></td> <td style="text-align: center; vertical-align: middle; ">13</td> <td style="text-align: center; vertical-align: middle; ">test</td> <td style="text-align: left; vertical-align: middle; "> 测试2</td> <td style="text-align: center; vertical-align: middle; ">test2</td> <td style="text-align: center; vertical-align: middle; "><a href="javascript:;" class="searchit" data-toggle="tooltip" title="点击搜索 推荐" data-field="flag" data-value="recommend"><span class="label label-danger">推荐</span></a></td> <td style="text-align: center; vertical-align: middle; "><a href="./qrcode.png" target="_blank"><img class="img-sm img-center" src="./qrcode.png"></a></td> <td style="text-align: center; vertical-align: middle; ">13</td> <td style="text-align: center; vertical-align: middle; "><span class="text-success"><i class="fa fa-circle"></i> 正常</span></td> <td style="text-align: center; vertical-align: middle; "><a href="javascript:;" class="btn btn-xs btn-primary btn-dragsort" data-toggle="tooltip" title="拖动进行排序" data-table-id="table" data-field-index="9" data-row-index="0" data-button-index="0"><i class="fa fa-arrows"></i></a> <a href="https://demo.fastadmin.net/admin/category/edit/ids/13" class="btn btn-xs btn-success btn-editone" data-toggle="tooltip" title="编辑" data-table-id="table" data-field-index="9" data-row-index="0" data-button-index="1"><i class="fa fa-pencil"></i></a> <a href="javascript:;" class="btn btn-xs btn-danger btn-delone" data-toggle="tooltip" title="删除" data-table-id="table" data-field-index="9" data-row-index="0" data-button-index="2"><i class="fa fa-trash"></i></a></td> </tr><tr data-index="1"> <td class="bs-checkbox "><input data-index="1" name="btSelectItem" type="checkbox"></td> <td style="text-align: center; vertical-align: middle; ">12</td> <td style="text-align: center; vertical-align: middle; ">test</td> <td style="text-align: left; vertical-align: middle; "> 测试1</td> <td style="text-align: center; vertical-align: middle; ">test1</td> <td style="text-align: center; vertical-align: middle; "><a href="javascript:;" class="searchit" data-toggle="tooltip" title="点击搜索 推荐" data-field="flag" data-value="recommend"><span class="label label-danger">推荐</span></a></td> <td style="text-align: center; vertical-align: middle; "><a href="./qrcode.png" target="_blank"><img class="img-sm img-center" src="./qrcode.png"></a></td> <td style="text-align: center; vertical-align: middle; ">12</td> <td style="text-align: center; vertical-align: middle; "><span class="text-success"><i class="fa fa-circle"></i> 正常</span></td> <td style="text-align: center; vertical-align: middle; "><a href="javascript:;" class="btn btn-xs btn-primary btn-dragsort" data-toggle="tooltip" title="拖动进行排序" data-table-id="table" data-field-index="9" data-row-index="1" data-button-index="0"><i class="fa fa-arrows"></i></a> <a href="https://demo.fastadmin.net/admin/category/edit/ids/12" class="btn btn-xs btn-success btn-editone" data-toggle="tooltip" title="编辑" data-table-id="table" data-field-index="9" data-row-index="1" data-button-index="1"><i class="fa fa-pencil"></i></a> <a href="javascript:;" class="btn btn-xs btn-danger btn-delone" data-toggle="tooltip" title="删除" data-table-id="table" data-field-index="9" data-row-index="1" data-button-index="2"><i class="fa fa-trash"></i></a></td> </tr><tr data-index="2"> <td class="bs-checkbox "><input data-index="2" name="btSelectItem" type="checkbox"></td> <td style="text-align: center; vertical-align: middle; ">5</td> <td style="text-align: center; vertical-align: middle; ">page</td> <td style="text-align: left; vertical-align: middle; "> 软件产品</td> <td style="text-align: center; vertical-align: middle; ">software</td> <td style="text-align: center; vertical-align: middle; "><a href="javascript:;" class="searchit" data-toggle="tooltip" title="点击搜索 推荐" data-field="flag" data-value="recommend"><span class="label label-danger">推荐</span></a></td> <td style="text-align: center; vertical-align: middle; "><a href="./qrcode.png" target="_blank"><img class="img-sm img-center" src="./qrcode.png"></a></td> <td style="text-align: center; vertical-align: middle; ">5</td> <td style="text-align: center; vertical-align: middle; "><span class="text-success"><i class="fa fa-circle"></i> 正常</span></td> <td style="text-align: center; vertical-align: middle; "><a href="javascript:;" class="btn btn-xs btn-primary btn-dragsort" data-toggle="tooltip" title="拖动进行排序" data-table-id="table" data-field-index="9" data-row-index="2" data-button-index="0"><i class="fa fa-arrows"></i></a> <a href="https://demo.fastadmin.net/admin/category/edit/ids/5" class="btn btn-xs btn-success btn-editone" data-toggle="tooltip" title="编辑" data-table-id="table" data-field-index="9" data-row-index="2" data-button-index="1"><i class="fa fa-pencil"></i></a> <a href="javascript:;" class="btn btn-xs btn-danger btn-delone" data-toggle="tooltip" title="删除" data-table-id="table" data-field-index="9" data-row-index="2" data-button-index="2"><i class="fa fa-trash"></i></a></td> </tr><tr data-index="3"> <td class="bs-checkbox "><input data-index="3" name="btSelectItem" type="checkbox"></td> <td style="text-align: center; vertical-align: middle; ">7</td> <td style="text-align: center; vertical-align: middle; ">page</td> <td style="text-align: left; vertical-align: middle; ">&nbsp;├ 企业管理软件</td> <td style="text-align: center; vertical-align: middle; ">company</td> <td style="text-align: center; vertical-align: middle; "><a href="javascript:;" class="searchit" data-toggle="tooltip" title="点击搜索 首页" data-field="flag" data-value="index"><span class="label label-success">首页</span></a></td> <td style="text-align: center; vertical-align: middle; "><a href="./qrcode.png" target="_blank"><img class="img-sm img-center" src="./qrcode.png"></a></td> <td style="text-align: center; vertical-align: middle; ">7</td> <td style="text-align: center; vertical-align: middle; "><span class="text-success"><i class="fa fa-circle"></i> 正常</span></td> <td style="text-align: center; vertical-align: middle; "><a href="javascript:;" class="btn btn-xs btn-primary btn-dragsort" data-toggle="tooltip" title="拖动进行排序" data-table-id="table" data-field-index="9" data-row-index="3" data-button-index="0"><i class="fa fa-arrows"></i></a> <a href="https://demo.fastadmin.net/admin/category/edit/ids/7" class="btn btn-xs btn-success btn-editone" data-toggle="tooltip" title="编辑" data-table-id="table" data-field-index="9" data-row-index="3" data-button-index="1"><i class="fa fa-pencil"></i></a> <a href="javascript:;" class="btn btn-xs btn-danger btn-delone" data-toggle="tooltip" title="删除" data-table-id="table" data-field-index="9" data-row-index="3" data-button-index="2"><i class="fa fa-trash"></i></a></td> </tr><tr data-index="4"> <td class="bs-checkbox "><input data-index="4" name="btSelectItem" type="checkbox"></td> <td style="text-align: center; vertical-align: middle; ">11</td> <td style="text-align: center; vertical-align: middle; ">page</td> <td style="text-align: left; vertical-align: middle; ">&nbsp;│&nbsp;├ SASS平台软件</td> <td style="text-align: center; vertical-align: middle; ">company-sass</td> <td style="text-align: center; vertical-align: middle; "><a href="javascript:;" class="searchit" data-toggle="tooltip" title="点击搜索 推荐" data-field="flag" data-value="recommend"><span class="label label-danger">推荐</span></a></td> <td style="text-align: center; vertical-align: middle; "><a href="./qrcode.png" target="_blank"><img class="img-sm img-center" src="./qrcode.png"></a></td> <td style="text-align: center; vertical-align: middle; ">11</td> <td style="text-align: center; vertical-align: middle; "><span class="text-success"><i class="fa fa-circle"></i> 正常</span></td> <td style="text-align: center; vertical-align: middle; "><a href="javascript:;" class="btn btn-xs btn-primary btn-dragsort" data-toggle="tooltip" title="拖动进行排序" data-table-id="table" data-field-index="9" data-row-index="4" data-button-index="0"><i class="fa fa-arrows"></i></a> <a href="https://demo.fastadmin.net/admin/category/edit/ids/11" class="btn btn-xs btn-success btn-editone" data-toggle="tooltip" title="编辑" data-table-id="table" data-field-index="9" data-row-index="4" data-button-index="1"><i class="fa fa-pencil"></i></a> <a href="javascript:;" class="btn btn-xs btn-danger btn-delone" data-toggle="tooltip" title="删除" data-table-id="table" data-field-index="9" data-row-index="4" data-button-index="2"><i class="fa fa-trash"></i></a></td> </tr><tr data-index="5"> <td class="bs-checkbox "><input data-index="5" name="btSelectItem" type="checkbox"></td> <td style="text-align: center; vertical-align: middle; ">10</td> <td style="text-align: center; vertical-align: middle; ">page</td> <td style="text-align: left; vertical-align: middle; ">&nbsp;│&nbsp;└ CRM系统 </td> <td style="text-align: center; vertical-align: middle; ">company-crm</td> <td style="text-align: center; vertical-align: middle; "><a href="javascript:;" class="searchit" data-toggle="tooltip" title="点击搜索 推荐" data-field="flag" data-value="recommend"><span class="label label-danger">推荐</span></a></td> <td style="text-align: center; vertical-align: middle; "><a href="./qrcode.png" target="_blank"><img class="img-sm img-center" src="./qrcode.png"></a></td> <td style="text-align: center; vertical-align: middle; ">10</td> <td style="text-align: center; vertical-align: middle; "><span class="text-success"><i class="fa fa-circle"></i> 正常</span></td> <td style="text-align: center; vertical-align: middle; "><a href="javascript:;" class="btn btn-xs btn-primary btn-dragsort" data-toggle="tooltip" title="拖动进行排序" data-table-id="table" data-field-index="9" data-row-index="5" data-button-index="0"><i class="fa fa-arrows"></i></a> <a href="https://demo.fastadmin.net/admin/category/edit/ids/10" class="btn btn-xs btn-success btn-editone" data-toggle="tooltip" title="编辑" data-table-id="table" data-field-index="9" data-row-index="5" data-button-index="1"><i class="fa fa-pencil"></i></a> <a href="javascript:;" class="btn btn-xs btn-danger btn-delone" data-toggle="tooltip" title="删除" data-table-id="table" data-field-index="9" data-row-index="5" data-button-index="2"><i class="fa fa-trash"></i></a></td> </tr><tr data-index="6"> <td class="bs-checkbox "><input data-index="6" name="btSelectItem" type="checkbox"></td> <td style="text-align: center; vertical-align: middle; ">6</td> <td style="text-align: center; vertical-align: middle; ">page</td> <td style="text-align: left; vertical-align: middle; ">&nbsp;└ 网站建站</td> <td style="text-align: center; vertical-align: middle; ">website</td> <td style="text-align: center; vertical-align: middle; "><a href="javascript:;" class="searchit" data-toggle="tooltip" title="点击搜索 推荐" data-field="flag" data-value="recommend"><span class="label label-danger">推荐</span></a></td> <td style="text-align: center; vertical-align: middle; "><a href="./qrcode.png" target="_blank"><img class="img-sm img-center" src="./qrcode.png"></a></td> <td style="text-align: center; vertical-align: middle; ">6</td> <td style="text-align: center; vertical-align: middle; "><span class="text-success"><i class="fa fa-circle"></i> 正常</span></td> <td style="text-align: center; vertical-align: middle; "><a href="javascript:;" class="btn btn-xs btn-primary btn-dragsort" data-toggle="tooltip" title="拖动进行排序" data-table-id="table" data-field-index="9" data-row-index="6" data-button-index="0"><i class="fa fa-arrows"></i></a> <a href="https://demo.fastadmin.net/admin/category/edit/ids/6" class="btn btn-xs btn-success btn-editone" data-toggle="tooltip" title="编辑" data-table-id="table" data-field-index="9" data-row-index="6" data-button-index="1"><i class="fa fa-pencil"></i></a> <a href="javascript:;" class="btn btn-xs btn-danger btn-delone" data-toggle="tooltip" title="删除" data-table-id="table" data-field-index="9" data-row-index="6" data-button-index="2"><i class="fa fa-trash"></i></a></td> </tr><tr data-index="7"> <td class="bs-checkbox "><input data-index="7" name="btSelectItem" type="checkbox"></td> <td style="text-align: center; vertical-align: middle; ">9</td> <td style="text-align: center; vertical-align: middle; ">page</td> <td style="text-align: left; vertical-align: middle; ">&nbsp;&nbsp;&nbsp;├ 移动端</td> <td style="text-align: center; vertical-align: middle; ">website-mobile</td> <td style="text-align: center; vertical-align: middle; "><a href="javascript:;" class="searchit" data-toggle="tooltip" title="点击搜索 推荐" data-field="flag" data-value="recommend"><span class="label label-danger">推荐</span></a></td> <td style="text-align: center; vertical-align: middle; "><a href="./qrcode.png" target="_blank"><img class="img-sm img-center" src="./qrcode.png"></a></td> <td style="text-align: center; vertical-align: middle; ">9</td> <td style="text-align: center; vertical-align: middle; "><span class="text-success"><i class="fa fa-circle"></i> 正常</span></td> <td style="text-align: center; vertical-align: middle; "><a href="javascript:;" class="btn btn-xs btn-primary btn-dragsort" data-toggle="tooltip" title="拖动进行排序" data-table-id="table" data-field-index="9" data-row-index="7" data-button-index="0"><i class="fa fa-arrows"></i></a> <a href="https://demo.fastadmin.net/admin/category/edit/ids/9" class="btn btn-xs btn-success btn-editone" data-toggle="tooltip" title="编辑" data-table-id="table" data-field-index="9" data-row-index="7" data-button-index="1"><i class="fa fa-pencil"></i></a> <a href="javascript:;" class="btn btn-xs btn-danger btn-delone" data-toggle="tooltip" title="删除" data-table-id="table" data-field-index="9" data-row-index="7" data-button-index="2"><i class="fa fa-trash"></i></a></td> </tr><tr data-index="8"> <td class="bs-checkbox "><input data-index="8" name="btSelectItem" type="checkbox"></td> <td style="text-align: center; vertical-align: middle; ">8</td> <td style="text-align: center; vertical-align: middle; ">page</td> <td style="text-align: left; vertical-align: middle; ">&nbsp;&nbsp;&nbsp;└ PC端</td> <td style="text-align: center; vertical-align: middle; ">website-pc</td> <td style="text-align: center; vertical-align: middle; "><a href="javascript:;" class="searchit" data-toggle="tooltip" title="点击搜索 推荐" data-field="flag" data-value="recommend"><span class="label label-danger">推荐</span></a></td> <td style="text-align: center; vertical-align: middle; "><a href="./qrcode.png" target="_blank"><img class="img-sm img-center" src="./qrcode.png"></a></td> <td style="text-align: center; vertical-align: middle; ">8</td> <td style="text-align: center; vertical-align: middle; "><span class="text-success"><i class="fa fa-circle"></i> 正常</span></td> <td style="text-align: center; vertical-align: middle; "><a href="javascript:;" class="btn btn-xs btn-primary btn-dragsort" data-toggle="tooltip" title="拖动进行排序" data-table-id="table" data-field-index="9" data-row-index="8" data-button-index="0"><i class="fa fa-arrows"></i></a> <a href="https://demo.fastadmin.net/admin/category/edit/ids/8" class="btn btn-xs btn-success btn-editone" data-toggle="tooltip" title="编辑" data-table-id="table" data-field-index="9" data-row-index="8" data-button-index="1"><i class="fa fa-pencil"></i></a> <a href="javascript:;" class="btn btn-xs btn-danger btn-delone" data-toggle="tooltip" title="删除" data-table-id="table" data-field-index="9" data-row-index="8" data-button-index="2"><i class="fa fa-trash"></i></a></td> </tr><tr data-index="9"> <td class="bs-checkbox "><input data-index="9" name="btSelectItem" type="checkbox"></td> <td style="text-align: center; vertical-align: middle; ">2</td> <td style="text-align: center; vertical-align: middle; ">page</td> <td style="text-align: left; vertical-align: middle; "> 移动应用</td> <td style="text-align: center; vertical-align: middle; ">mobileapp</td> <td style="text-align: center; vertical-align: middle; "><a href="javascript:;" class="searchit" data-toggle="tooltip" title="点击搜索 热门" data-field="flag" data-value="hot"><span class="label label-warning">热门</span></a></td> <td style="text-align: center; vertical-align: middle; "><a href="./qrcode.png" target="_blank"><img class="img-sm img-center" src="./qrcode.png"></a></td> <td style="text-align: center; vertical-align: middle; ">2</td> <td style="text-align: center; vertical-align: middle; "><span class="text-success"><i class="fa fa-circle"></i> 正常</span></td> <td style="text-align: center; vertical-align: middle; "><a href="javascript:;" class="btn btn-xs btn-primary btn-dragsort" data-toggle="tooltip" title="拖动进行排序" data-table-id="table" data-field-index="9" data-row-index="9" data-button-index="0"><i class="fa fa-arrows"></i></a> <a href="https://demo.fastadmin.net/admin/category/edit/ids/2" class="btn btn-xs btn-success btn-editone" data-toggle="tooltip" title="编辑" data-table-id="table" data-field-index="9" data-row-index="9" data-button-index="1"><i class="fa fa-pencil"></i></a> <a href="javascript:;" class="btn btn-xs btn-danger btn-delone" data-toggle="tooltip" title="删除" data-table-id="table" data-field-index="9" data-row-index="9" data-button-index="2"><i class="fa fa-trash"></i></a></td> </tr><tr data-index="10"> <td class="bs-checkbox "><input data-index="10" name="btSelectItem" type="checkbox"></td> <td style="text-align: center; vertical-align: middle; ">4</td> <td style="text-align: center; vertical-align: middle; ">page</td> <td style="text-align: left; vertical-align: middle; ">&nbsp;├ Android开发</td> <td style="text-align: center; vertical-align: middle; ">android</td> <td style="text-align: center; vertical-align: middle; "><a href="javascript:;" class="searchit" data-toggle="tooltip" title="点击搜索 推荐" data-field="flag" data-value="recommend"><span class="label label-danger">推荐</span></a></td> <td style="text-align: center; vertical-align: middle; "><a href="./qrcode.png" target="_blank"><img class="img-sm img-center" src="./qrcode.png"></a></td> <td style="text-align: center; vertical-align: middle; ">4</td> <td style="text-align: center; vertical-align: middle; "><span class="text-success"><i class="fa fa-circle"></i> 正常</span></td> <td style="text-align: center; vertical-align: middle; "><a href="javascript:;" class="btn btn-xs btn-primary btn-dragsort" data-toggle="tooltip" title="拖动进行排序" data-table-id="table" data-field-index="9" data-row-index="10" data-button-index="0"><i class="fa fa-arrows"></i></a> <a href="https://demo.fastadmin.net/admin/category/edit/ids/4" class="btn btn-xs btn-success btn-editone" data-toggle="tooltip" title="编辑" data-table-id="table" data-field-index="9" data-row-index="10" data-button-index="1"><i class="fa fa-pencil"></i></a> <a href="javascript:;" class="btn btn-xs btn-danger btn-delone" data-toggle="tooltip" title="删除" data-table-id="table" data-field-index="9" data-row-index="10" data-button-index="2"><i class="fa fa-trash"></i></a></td> </tr><tr data-index="11"> <td class="bs-checkbox "><input data-index="11" name="btSelectItem" type="checkbox"></td> <td style="text-align: center; vertical-align: middle; ">3</td> <td style="text-align: center; vertical-align: middle; ">page</td> <td style="text-align: left; vertical-align: middle; ">&nbsp;└ 微信公众号</td> <td style="text-align: center; vertical-align: middle; ">wechatpublic</td> <td style="text-align: center; vertical-align: middle; "><a href="javascript:;" class="searchit" data-toggle="tooltip" title="点击搜索 首页" data-field="flag" data-value="index"><span class="label label-success">首页</span></a></td> <td style="text-align: center; vertical-align: middle; "><a href="./qrcode.png" target="_blank"><img class="img-sm img-center" src="./qrcode.png"></a></td> <td style="text-align: center; vertical-align: middle; ">3</td> <td style="text-align: center; vertical-align: middle; "><span class="text-success"><i class="fa fa-circle"></i> 正常</span></td> <td style="text-align: center; vertical-align: middle; "><a href="javascript:;" class="btn btn-xs btn-primary btn-dragsort" data-toggle="tooltip" title="拖动进行排序" data-table-id="table" data-field-index="9" data-row-index="11" data-button-index="0"><i class="fa fa-arrows"></i></a> <a href="https://demo.fastadmin.net/admin/category/edit/ids/3" class="btn btn-xs btn-success btn-editone" data-toggle="tooltip" title="编辑" data-table-id="table" data-field-index="9" data-row-index="11" data-button-index="1"><i class="fa fa-pencil"></i></a> <a href="javascript:;" class="btn btn-xs btn-danger btn-delone" data-toggle="tooltip" title="删除" data-table-id="table" data-field-index="9" data-row-index="11" data-button-index="2"><i class="fa fa-trash"></i></a></td> </tr><tr data-index="12"> <td class="bs-checkbox "><input data-index="12" name="btSelectItem" type="checkbox"></td> <td style="text-align: center; vertical-align: middle; ">1</td> <td style="text-align: center; vertical-align: middle; ">page</td> <td style="text-align: left; vertical-align: middle; "> 官方新闻</td> <td style="text-align: center; vertical-align: middle; ">news</td> <td style="text-align: center; vertical-align: middle; "><a href="javascript:;" class="searchit" data-toggle="tooltip" title="点击搜索 推荐" data-field="flag" data-value="recommend"><span class="label label-danger">推荐</span></a></td> <td style="text-align: center; vertical-align: middle; "><a href="./qrcode.png" target="_blank"><img class="img-sm img-center" src="./qrcode.png"></a></td> <td style="text-align: center; vertical-align: middle; ">1</td> <td style="text-align: center; vertical-align: middle; "><span class="text-success"><i class="fa fa-circle"></i> 正常</span></td> <td style="text-align: center; vertical-align: middle; "><a href="javascript:;" class="btn btn-xs btn-primary btn-dragsort" data-toggle="tooltip" title="拖动进行排序" data-table-id="table" data-field-index="9" data-row-index="12" data-button-index="0"><i class="fa fa-arrows"></i></a> <a href="https://demo.fastadmin.net/admin/category/edit/ids/1" class="btn btn-xs btn-success btn-editone" data-toggle="tooltip" title="编辑" data-table-id="table" data-field-index="9" data-row-index="12" data-button-index="1"><i class="fa fa-pencil"></i></a> <a href="javascript:;" class="btn btn-xs btn-danger btn-delone" data-toggle="tooltip" title="删除" data-table-id="table" data-field-index="9" data-row-index="12" data-button-index="2"><i class="fa fa-trash"></i></a></td> </tr></tbody></table></div><div class="fixed-table-footer" style="display: none;"><table><tbody><tr></tr></tbody></table></div><div class="fixed-table-pagination" style="display: none;"></div></div></div><div class="clearfix"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="./require.min.js.下载" data-main="https://cdn.demo.fastadmin.net/assets/js/require-backend.min.js?v=20180806"></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?58347d769d009bcf6074e9a0ab7ba05e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+</body></html>
