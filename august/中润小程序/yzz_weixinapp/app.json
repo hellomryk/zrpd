@@ -1,0 +1,26 @@
+{
+  "pages": [
+    "pages/littlea/littlea",
+    "pages/asr/asr",
+    "pages/details/Word-details",
+    "pages/test/test",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/word/Word-list"
+  ],
+  "window": {
+    "backgroundTextStyle": "black",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "navigationBarTitleText": "小A同学小程序",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F8F8F8",
+    "disableScroll":true,
+    "enablePullDownRefresh": false
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  }
+}

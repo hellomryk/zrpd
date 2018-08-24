@@ -1,0 +1,13 @@
+<!--pages/word/Word-list.wxml-->
+<!-- 按住说话 -->
+<view class="word-dejp" style='margin-top:870rpx;'>
+    <image class="word-deimg" src="../../pics/word-delijp.png"></image>
+    <button class="word-deBtn" bindtouchstart='start' bindtouchend='stop'>按住说话</button>
+</view>
+
+<!-- 键盘输入 -->
+<view class="word-dejp">
+    <image class="word-deimg" src="../../pics/word-delijp.png"></image>
+    <input class="word-deTxt" type="text" />
+    <button class="word-deBtn2">发送</button>
+</view>
