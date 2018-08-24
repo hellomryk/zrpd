@@ -1,0 +1,136 @@
+
+#page-footer {
+	color: #9b9999;
+	background-color: #333
+}
+
+#page-footer a {
+	color: grey;
+}
+
+#page-footer a:hover {
+	color: #fff
+}
+
+#page-footer .container {
+	width: 62%;
+	height: 100%;
+	background-color: #333;
+	position: relative;
+	margin: 0 auto;
+}
+
+#page-footer .logo {
+	position: absolute;
+	top: 60px;
+	width: 151px;
+	height: 55px
+}
+
+#page-footer .logo img {
+	width: 117px;
+	border: 0 none
+}
+
+#page-footer .column,
+#page-footer .weixin {
+	display: inline-block;
+	margin: 0;
+	vertical-align: top
+}
+
+#page-footer .column dt,
+#page-footer .weixin dt {
+	margin-top: 18px;
+	margin-bottom: 13px;
+	font-size: 18px;
+	color: #fefefe;
+	font-weight: 400;
+	line-height: 36px;
+	height: 36px
+}
+
+#page-footer .column {
+	width: 210px
+}
+
+#page-footer .column dd {
+	line-height: 27px;
+	height: 27px
+}
+
+#page-footer .column dd a {
+	font-size: 14px
+}
+
+#page-footer .column dd a .icon {
+	display: inline-block;
+	margin-right: 3px;
+	width: 16px;
+	height: 16px;
+	vertical-align: sub;
+	background: 0 0;
+	background: url(../images/sprite_footer.png) no-repeat;
+}
+
+#page-footer .weixin img {
+	width: 79px;
+	height: 70px
+}
+
+#page-footer .line {
+	margin-top: 16px;
+	width: auto;
+	height: 1px;
+	overflow: hidden;
+	background-color: gray
+}
+
+#page-footer .copyright,
+#page-footer .record {
+	margin-top: 13px;
+	line-height: 18px;
+	height: 18px;
+}
+
+#page-footer .info {
+	float: left;
+	line-height: 18px;
+	height: 18px;
+	font-size: 14px;
+}
+.copyright .info2{
+	margin-left:402px;
+}
+.copyright .info3{
+	border-left:1px solid #707070;
+	height:20px;
+	margin:0 20px;
+}
+#page-footer .info .icon {
+	width: 20px;
+	height: 18px;
+	vertical-align: middle
+}
+
+#page-footer .info .weibo {
+	margin-left: 5px;
+	width: 16px;
+	height: 14px;
+	vertical-align: middle;
+	background: -16px 0
+}
+
+#page-footer .info .weibo:hover {
+	background: 0 -16px
+}
+.scroll_toTop {
+	position: fixed;
+	right: 80px;
+	bottom: 60px;
+	width: 42px;
+	height: 42px;
+	background: url(../images/scroll_toTop.png) no-repeat;
+	cursor: pointer;
+	display: none;
+}
