@@ -6,7 +6,8 @@
     "pages/test/test",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/word/Word-list"
+    "pages/word/Word-list",
+    "pages/foodlist/foodlist"
   ],
   "window": {
     "backgroundTextStyle": "black",
@@ -14,7 +15,7 @@
     "navigationBarTitleText": "小A同学小程序",
     "navigationBarTextStyle": "black",
     "backgroundColor": "#F8F8F8",
-    "disableScroll":true,
+    "disableScroll": true,
     "enablePullDownRefresh": false
   },
   "networkTimeout": {
