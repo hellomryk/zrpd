@@ -585,3 +585,40 @@
 .food_list_ul_div {
   padding-bottom:200rpx;
 }
+.share_img_btn {
+    float: right;
+  width:100rpx;
+  height:100rpx;
+  background:none;
+  border:none;
+  position:unset;
+  padding:0;
+}
+.share_img {
+  float: right;
+  width:45rpx;
+  height:45rpx;
+  margin-top:45rpx;
+  margin-right:30rpx;
+}
+.share_img1 {
+  animation:shake 1s;
+}
+@keyframes shake {
+  0%,100% {
+    -webkit-transform:translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform:translateX(-5px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    -webkit-transform:translateX(5px);
+  }
+}

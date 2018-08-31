@@ -1,104 +1,65 @@
-page{
-  background-color:beige;
-  background-image: url(http://img.blog.csdn.net/20170720105808995?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaGFwcHljeHo=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast);
-  background-size: cover;
-}
-
-.page-section{
+.animation-element-wrapper {
   display: flex;
-  flex-direction: column;
-  margin-bottom: 10rpx;
-}
-
-.page-center {
-  align-items: center;
-}
-
-.page-gap{
-  margin-top: 5rpx;
-}
-
-.button-selection {
-  display: flex;
-  flex-direction: column;
+  width: 100%;
+  padding-top: 150rpx;
+  padding-bottom: 150rpx;
   justify-content: center;
-  align-items: center;
-}
-
-.button-selection2 {
-  justify-content: space-between;
-  align-content: space-between;
-  flex-shrink:1;
-}
-
-.little-gap-top {
-  margin-top: 15rpx; 
-}
-
-.little-gap-left {
-  margin-left: 5rpx; 
-}
-
-.text-description{
-  color: #ff0000;
-  font-size: 28rpx;
-}
-
-.text-head{
-  color: #00BFFF;
-  font-size: 36rpx;
-}
-
-.common-disappear {
-  display: none
-}
-
-.button-show {
-  display: flex;
-  align-self: center;
-  justify-content: center;
-}
-
-.text-box{
-  margin-bottom: 0rpx;
-  margin-left: 50rpx;
-  margin-right: 50rpx;
-  padding: 40rpx 0;
-  display: flex;
-  min-height: 300rpx;
-  max-width: 600rpx;
-  width:600rpx;
+  overflow: hidden;
   background-color: #ffffff;
-  justify-content: center;
-  align-items: center;
-  text-align: left;
-  font-size: 30rpx;
-  color: #353535;
-  line-height: 2em;
-  word-wrap: break-word;
-  border: 1px solid cornflowerblue;
+}
+.animation-element {
+  width: 200rpx;
+  height: 200rpx;
+  background-color: #1AAD19;
+}
+.animation-buttons {
+  padding: 30rpx 50rpx 10rpx;
+  width: 100%;
+  height: 600rpx;
+  box-sizing: border-box;
+}
+.animation-button {
+  float: left;
+  line-height: 2;
+  width: 300rpx;
+  margin: 15rpx 12rpx;
 }
 
-.weui-cells {
-  position: relative;
-  margin-top: 1.17647059em;
-  background-color: #DCDCDC;
-  line-height: 1.41176471;
-  font-size: 14px;
+.animation-button-reset {
+  width: 620rpx;
 }
 
-.weui-cells_after-title {
-  margin-top: 0;
+
+
+
+
+
+
+
+  .dd {
+        width:200px;
+        height:200px;
+        background:red;
 }
 
-.weui-input {
-  height: 2.58823529em;
-  width: 17em;
-  min-height: 2.58823529em;
-  line-height: 2.58823529em;
+  .dd1{
+    animation: shake 1s;
 }
-
-.bottom-button {
-  justify-content: space-around;
-  flex-shrink:0;
+@keyframes shake {
+    0%, 100% {
+        -webkit-transform: translateX(0);
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        -webkit-transform: translateX(-5px);
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+        -webkit-transform: translateX(5px);
+    }
 }

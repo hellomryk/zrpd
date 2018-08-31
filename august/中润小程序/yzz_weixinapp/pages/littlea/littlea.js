@@ -76,12 +76,35 @@ Page({
     ytbt_icno_film:true,
     ytbt_icno_weather:true,
     ytbt_icno_chat:true,
-    ytbt_tip:"主人你可以这样问我:有啥好吃的",//上面小机器人提示语
+    ytbt_tip:"您可以说:有啥好吃的",//上面小机器人提示语
     numberstar:4,
+    isshake:true,
     array:[
     ]
   },
 
+// onready开始
+  onReady: function () {
+    // 加一个分享摇动
+    var circleCount = 0;
+    setInterval(function () {
+      if (circleCount % 2 == 0) {
+        this.setData({
+          isshake: true
+        })
+      } else {
+        this.setData({
+          isshake: false
+        })
+      }
+      circleCount++;
+      if (circleCount == 2000) {
+        circleCount = 0;
+      }
+    }.bind(this), 2000);
+    // shake结束
+  },
+// onready结束
   /**
    * 生命周期函数--监听页面加载
    */
@@ -92,6 +115,10 @@ Page({
     // wx.showshareMenu({
     //   withShareMenu: true
     // })
+    wx.showShareMenu({
+      // 要求小程序返回分享目标信息
+      withShareTicket: true
+    }); 
     // 设置转发结束
     // 获取用户地理位置开始
     wx.getLocation({
@@ -231,7 +258,7 @@ Page({
     })
     // 加载头部
     wx.request({
-      url: "https://robot.moxiai.com/applets/078f83e953444764ad893ae049b1a9c2/init",
+      url: "https://jqr.infobigdata.com/applets/f52024d75d4348f38cdad3670d209c1e/init",
       data: {},
       header: {
         'content-type': "application/json"//默认值
@@ -336,6 +363,38 @@ Page({
 //历史记录穿小程序id结束
   },
   // onload方法结束   
+  // 转发开始
+  /* 转发*/
+  onShareAppMessage: function (ops) {
+    if (ops.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(ops.target)
+    }
+    return {
+      title: '让机器像人类一样思考!',
+      path: `pages/littlea/littlea`,
+      success: function (res) {
+        // 转发成功
+        console.log("转发成功:" + JSON.stringify(res));
+        var shareTickets = res.shareTickets;
+        // if (shareTickets.length == 0) {
+        //   return false;
+        // }
+        // //可以获取群组信息
+        // wx.getShareInfo({
+        //   shareTicket: shareTickets[0],
+        //   success: function (res) {
+        //     console.log(res)
+        //   }
+        // })
+      },
+      fail: function (res) {
+        // 转发失败
+        console.log("转发失败:" + JSON.stringify(res));
+      }
+    }
+  },
+  // 转发结束
   //获取小程序openid
   onLaunch: function () {
     const pageSelf = this
@@ -401,7 +460,7 @@ Page({
       ytbt_icno_film: true,
       ytbt_icno_weather: true,
       ytbt_icno_chat: true,
-      ytbt_tip: "主人你可以这样问我:有啥好吃的",
+      ytbt_tip: "您可以说:有啥好吃的",
     }) 
     console.log(selfPage.data.openId)
   },
@@ -415,7 +474,7 @@ Page({
       ytbt_icno_film: true,
       ytbt_icno_weather: true,
       ytbt_icno_chat: true,
-      ytbt_tip: "主人你可以这样问我:我要定制旅行",
+      ytbt_tip: "您可以说:我要定制旅行",
     })
   },
   ytbt_tab3: function () {
@@ -428,7 +487,7 @@ Page({
       ytbt_icno_film: true,
       ytbt_icno_weather: true,
       ytbt_icno_chat: true,
-      ytbt_tip: "主人你可以这样问我:我要去土耳其",
+      ytbt_tip: "您可以说:我要去土耳其",
     })
   },
   ytbt_tab4: function () {
@@ -441,7 +500,7 @@ Page({
       ytbt_icno_film: true,
       ytbt_icno_weather: true,
       ytbt_icno_chat: true,
-      ytbt_tip: "主人你可以这样问我:火车票或者我想去拉萨",
+      ytbt_tip: "您可以说:火车票或者我想去拉萨",
     })
   },
   ytbt_tab5: function () {
@@ -454,7 +513,7 @@ Page({
       ytbt_icno_film: false,
       ytbt_icno_weather: true,
       ytbt_icno_chat: true,
-      ytbt_tip: "主人你可以这样问我:听音乐",
+      ytbt_tip: "您可以说:听音乐",
     })
   },
   ytbt_tab6: function () {
@@ -467,7 +526,7 @@ Page({
       ytbt_icno_film: true,
       ytbt_icno_weather:false,
       ytbt_icno_chat: true,
-      ytbt_tip: "主人你可以这样问我:天气",
+      ytbt_tip: "您可以说:天气",
     })
   },
   ytbt_tab7: function () {
@@ -542,39 +601,39 @@ Page({
       })
     }
     // 输入内容是联想
-    var value = e.detail.value;
-    const requestThink = wx.request({
-      url:'https://robot.moxiai.com/robot/think',
-      data:{
-        issue:value,
-        puserId:"4"
-      },
-      header: {
-        'content-type':"application/json"
-      },
-      success:function(data) {
-        if (data != "") {
-          if(data.data != "") {
-            var thinkarr = data.data;
-            for(var i = 0; i < thinkarr.length; i ++) {
-              // thinkarr[i].issueOld
-              thinkarr[i].issue = thinkarr[i].issue.replace(/font/g, "text");
-              console.log(thinkarr[i].issue.replace(/font/g,"view"));
-            } 
-            // console.log(12)
-            // console.log(thinkarr)
-            selfPage.setData({
-              arrayThink: data.data,
-              textThinkIsShow: false
-            })
-          } else {
-            selfPage.setData({
-              textThinkIsShow:false
-            })
-          }
-        } 
-      }
-    })
+    // var value = e.detail.value;
+    // const requestThink = wx.request({
+    //   url:'https://robot.moxiai.com/robot/think',
+    //   data:{
+    //     issue:value,
+    //     puserId:"4"
+    //   },
+    //   header: {
+    //     'content-type':"application/json"
+    //   },
+    //   success:function(data) {
+    //     if (data != "") {
+    //       if(data.data != "") {
+    //         var thinkarr = data.data;
+    //         for(var i = 0; i < thinkarr.length; i ++) {
+    //           // thinkarr[i].issueOld
+    //           thinkarr[i].issue = thinkarr[i].issue.replace(/font/g, "text");
+    //           console.log(thinkarr[i].issue.replace(/font/g,"view"));
+    //         } 
+    //         // console.log(12)
+    //         // console.log(thinkarr)
+    //         selfPage.setData({
+    //           arrayThink: data.data,
+    //           textThinkIsShow: false
+    //         })
+    //       } else {
+    //         selfPage.setData({
+    //           textThinkIsShow:false
+    //         })
+    //       }
+    //     } 
+    //   }
+    // })
     // console.log(value)
   },
   //点击联想的文字
@@ -702,7 +761,7 @@ Page({
                   if (result.historystat == 1) {
                     for (var i = 0; i < result.historytalk.length; i++) {
                       var objserver = {
-                        typeId: -1,
+                        typeId: -3,
                         message: result.historytalk[result.historytalk.length - 1 - i].server
                       }
                       var dataarray = selfPage.data.array;
@@ -893,11 +952,16 @@ function processFileUploadForAsr(filePath, _this) {
     success: function (res) {
       var resData = res.data;
       if (resData == '') {
-        wx.showToast({
-          title: '语音太短请重试~',
-          icon: 'none',
-          duration: 1000
-        })
+        // wx.showToast({
+        //   title: '语音太短请重试',
+        //   icon: 'none',
+        //   duration: 1000
+        // })
+        // wx.showToast({
+        //   title: '',
+        //   icon: 'none',
+        //   duration: 1000
+        // })
       };
       var jsonData = JSON.parse(resData);
       if (jsonData.code === '1') {
@@ -956,40 +1020,51 @@ function processFileUploadForAsr(filePath, _this) {
                   console.log("打印openid结束")
                   wx.setStorageSync('user', obj);//存储openid  
                   //点击发送事件开始
-                  wx.request({
-                    url: 'https://jqr.infobigdata.com/skillapplet/f52024d75d4348f38cdad3670d209c1e/wxskill',
-                    data: {
-                      issue: encodeURI(inputContent),
-                      openid: _this.data.openId
-                    },
-                    header: {
-                      'content-type': 'application/json;charset=utf-8'//默认值
-                    },
-                    success: function (res) {
-                      console.log(res);
-                      console.log(res.data);
-                      console.log(res.data.data);
-                      // 机器人说话朗读
-                      speckText(res.data.data)
-                      var obj = {
-                        typeId: res.data.showType,
-                        message: res.data.data
-                      };
-                      var dataarray = _this.data.array;
-                      dataarray.push(obj);
-                      _this.setData({
-                        array: dataarray
-                      });
-                      // 滚动到底部
-                      let query = wx.createSelectorQuery().in(_this)
-                      query.select('.container_innerHeight').boundingClientRect((res) => {
+                  console.log("语音发送前监测录入内容是否为空开始")
+                  //如果语音为空时小A就会不理你呦开始
+                  if (inputContent != '') {
+                    wx.request({
+                      url: 'https://jqr.infobigdata.com/skillapplet/f52024d75d4348f38cdad3670d209c1e/wxskill',
+                      data: {
+                        issue: encodeURI(inputContent),
+                        openid: _this.data.openId
+                      },
+                      header: {
+                        'content-type': 'application/json;charset=utf-8'//默认值
+                      },
+                      success: function (res) {
+                        console.log('语音录入发送开始')
+                        console.log(res);
+                        console.log(res.data);
+                        console.log(res.data.data);
+                        console.log('语音录入发送结束')
+                        // 机器人说话朗读
+                        speckText(res.data.data)
+                        var obj = {
+                          typeId: res.data.showType,
+                          message: res.data.data
+                        };
+                        // if()
+                        var dataarray = _this.data.array;
+                        dataarray.push(obj);
                         _this.setData({
-                          scrollTop: res.height
+                          array: dataarray
                         });
-                      }).exec()
-                    }
-                  })
+                        // 滚动到底部
+                        let query = wx.createSelectorQuery().in(_this)
+                        query.select('.container_innerHeight').boundingClientRect((res) => {
+                          _this.setData({
+                            scrollTop: res.height
+                          });
+                        }).exec()
+                      }
+                    })
                   //点击发送事件结束
+                  }
+                  //如果语音为空时小A就会不理你呦结束
+                  // console.log(encodeURI(inputContent))
+                  // console.log(inputContent)
+                  console.log("语音发送前监测录入内容是否为空结束") 
                 }
               });
             } else {
@@ -1048,9 +1123,9 @@ function speckText(str) {
   if (str.length > 510) {//文字超限处理
     voice = str.substring(510, str.length);
     str = str.substring(0, 510);
-    var voice = "https://tts.baidu.com/text2audio?idx=1&tex=" + encodeURI(voice) + "&cuid=baidu_speech_demo&cod=2&lan=zh&ctp=1&pdt=1&spd=5&vol=5&pit=5&per=4";
+    var voice = "https://tts.baidu.com/text2audio?idx=1&tex=" + encodeURI(voice) + "&cuid=baidu_speech_demo&cod=2&lan=zh&ctp=1&pdt=1&spd=5&vol=5&pit=5&per=0";
   }
-  var url = "https://tts.baidu.com/text2audio?idx=1&tex=" + encodeURI(str) + "&cuid=baidu_speech_demo&cod=2&lan=zh&ctp=1&pdt=1&spd=5&vol=5&pit=5&per=4";
+  var url = "https://tts.baidu.com/text2audio?idx=1&tex=" + encodeURI(str) + "&cuid=baidu_speech_demo&cod=2&lan=zh&ctp=1&pdt=1&spd=5&vol=5&pit=5&per=0";
   const innerAudioContext = wx.createInnerAudioContext()
   ner = innerAudioContext
   innerAudioContext.autoplay = true
