@@ -1,0 +1,14 @@
+<!--logs.wxml-->
+<view class="container ">
+    <image src='/images/login.png' class='login_img'></image>
+    <view class='login_content'>
+    <view  class='login_box'> 
+         <view class='login_name'>德贵</view>
+          <view class='login_text'>Hello!张德贵 </view>
+          <view class='login_text'>欢迎回来</view>
+          <input id="login_id" placeholder-style="color:#9D9D9E;font-size:36rpx;" placeholder="请输入账号" />
+          <input id="login_password" password="true" placeholder-style="color:#9D9D9E;font-size:36rpx;" placeholder="请输入密码" />
+          <button bindtap="setDisabled"  class='login_submit_no' disabled="">登录</button>
+</view>
+    </view>
+</view>

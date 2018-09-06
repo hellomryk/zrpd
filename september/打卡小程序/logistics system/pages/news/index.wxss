@@ -1,0 +1,117 @@
+/* pages/news/index.wxss */
+.container{ width: 100%;height: auto; background: #EEEEEE;}
+
+
+/* 底部 */
+.is_checked {
+    display: block;
+}
+
+.normal {
+    display: none;
+}
+
+.word-dejp {
+    height: 98rpx;
+    border-top: 1rpx solid #ddd;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+}
+.word-deimg {
+    width: 64rpx;
+    height: 64rpx;
+    float: left;
+    margin-top: 20rpx;
+    margin-left: 20rpx;
+}
+.word-deBtn {
+    width: 80%;
+    height: 64rpx;
+    display: inline-block;
+    font-size: 28rpx;
+    line-height: 64rpx;
+    color: #A2A2A2;
+    float: left;
+    margin-top: 20rpx;
+    margin-left: 25rpx;
+    background-color: #fff;
+}
+/* .word-deBtn1 {
+    width: 80%;
+    height: 64rpx;
+    display: inline-block;
+    font-size: 28rpx;
+    line-height: 64rpx;
+    color: #fff;
+    float: left;
+    margin-top: 20rpx;
+   margin-left: 25rpx;
+    background-color: #19a418;
+} */
+.word-deTxt {
+    display: inline-block;
+    border: 1px solid #eee;
+    width: 65%;
+    height: 64rpx;
+    color: #A2A2A2;
+    font-size: 30rpx;
+    float: left;
+    margin-top: 15rpx;
+    margin-left: 25rpx;
+    border-radius: 8rpx;
+    text-indent: 10rpx;
+}
+.word-deBtn2 {
+    float: left;
+    width: 100rpx;
+    height: 70rpx;
+    font-size: 28rpx;
+    line-height: 70rpx;
+    padding: 0;
+    background: #F89E34;
+    color: #fff;
+    border: none;
+    margin-top: 15rpx;
+    margin-left: 20rpx;
+}
+/* 弹出层样式开始 */
+.kk_voice_box {
+  width:300rpx;
+  height:300rpx;
+  background:rgba(0,0,0,0.6);
+  position:fixed;
+  left:32%;
+  top:30%;
+  border-radius:4rpx;
+}
+.kvbc_img {
+  display: block;
+  width:110rpx;
+  height:80rpx;
+  margin-left:90rpx;
+  margin-top:80rpx;
+}
+.kvbc_text {
+   display: block;
+   width:100%;
+   text-align: center;
+   font-size:23rpx;
+   color:#fff;
+   line-height:45rpx;
+}
+.kvbc_textred {
+  color:#f63b3b;
+  margin-top:40rpx;
+}
+.kk_voice_box_sure {
+  display:none;
+}
+.kk_voice_box_cancle {
+  display:none;
+}
+/* 弹出层样式结束 */

@@ -1,0 +1,97 @@
+<!--pages/news/index.wxml-->
+<view class="container ">
+    <view class="">
+       
+ 
+        <view class="y-talk-box-content clearfix">
+            <view class="y-talk-box-content-left">
+                <!-- o.scrollTop = o.scrollHeight; -->
+                <scroll-view scroll-y="true" scroll-top="{{scrollTop}}" class="y-talk-box-content-left-top" id="y-talk-box-content-left-top" style='height:{{windowHeight-220}}rpx;'>
+                    <view class="container_innerHeight">
+                        <text class="y-talk-box-content-left-topi {{loadhistoryisshow ? '' :'loadhistoryhide'}}" bindtap="loadhistoryMessage"></text>
+                        <!-- 百度搜索开始 -->
+                        <!-- 百度搜索结束 -->
+                        <!-- 天气信息 开始-->
+                        <!-- 天气信息结束-->
+                        <!-- 中间对话区域对话遍历开始 -->
+                        <view wx:for-items="{{array}}">
+                            <!-- 人类说话开始 -->
+                            <view class="customer-sen clearfix" wx:if="{{item.typeId ==0}}">
+                                <!-- <image src="../../pics/touxiang1.png"></image> -->
+                                <image src="{{userInfo.avatarUrl}}"></image>
+                                <view>
+                                    {{item.message}}
+                                    <image src=''></image>
+                                </view>
+                            </view>
+                            <!-- 人类说话结束 -->
+                            <!-- 机器人说话开始 -->
+                            <view class="robot-sen clearfix" wx:if="{{item.typeId == -1}}">
+                                <image src=""></image>
+                                <view>
+                                    {{item.message}}
+                                    <image src=""></image>
+                                </view>
+                            </view>
+                            <!-- 机器人说话结束 -->
+                            <!-- 机器人发图片开始 -->
+                            <view class="robot-sen clearfix" wx:if="{{item.typeId == 2}}">
+                                <image src=""></image>
+                                <view>
+                                    <image src="{{item.imageURL}}" class="img-robot"></image>
+                                    <image src=""></image>
+                                </view>
+                            </view>
+                            <!-- 机器人发图片结束 -->
+                            <!-- 机器人回答作诗开始 -->
+                            <view class="robot-sen clearfix" wx:if="{{item.typeId == 7}}">
+                                <image src=""></image>
+                                <view>
+                                    {{item.message}}
+                                    <image src=""></image>
+                                </view>
+                            </view>
+                            <!-- 机器人回答作诗结束 -->
+                        </view>
+                        <!-- 中间对话区域对话遍历结束 -->
+                    </view>
+                </scroll-view>
+               
+
+<!-- 按住说话 -->
+<view class="word-dejp {{isChecked_btn?'normal':'is_checked'}}">
+    <image class="word-deimg" src="/images/word-delijp.png" bindtap="Singleclick"></image>
+    <!-- <button class="{{isSpeaking?'word-deBtn1':'word-deBtn'}}" bindtouchstart="touchdown" bindtouchend="touchup">{{yuyin}}</button> -->
+    <button class="word-deBtn" bindtouchstart = "touchdown" bindtouchmove = "touchmove" bindtouchend = "touchup">{{yuyin}}</button>
+</view>
+<!-- 键盘输入 -->
+<view class="word-dejp {{isChecked_btn?'is_checked':'normal'}}">
+    <image class="word-deimg" src="/images/asr-yy.png" bindtap="Singleclick"></image>
+    <input class="word-deTxt" type="text" placeholder="" bindinput="listenerPhoneInput" />
+    <button class="word-deBtn2" bindtap="search_text">搜索</button>
+</view>
+
+
+
+
+
+
+      
+               
+            </view>
+        </view>
+    </view>
+</view>
+<!-- 语音弹框开始 -->
+<view class="kk_voice_box {{isSureVoiceShow ? 'kk_voice_box_sure' : ''}}">
+        <image src="../../images/voicewx.gif" class='kvbc_img'></image>
+        <text class='kvbc_text'>{{fenzhong}}:{{miaozhong}}</text>
+        <text class='kvbc_text'>手指上滑,取消发送</text>
+</view>
+<!-- 语音弹框结束 -->
+<!-- 取消语音弹框开始 -->
+<view class="kk_voice_box {{isCancleVoiceShow ? 'kk_voice_box_cancle' : ''}}">
+        <image src="../../images/voicecancle.png" class='kvbc_img'></image>
+        <text class='kvbc_text kvbc_textred'>手指上滑,取消发送</text>
+</view>
+<!-- 取消语音弹框结束 -->

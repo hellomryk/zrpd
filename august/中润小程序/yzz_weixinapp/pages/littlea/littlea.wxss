@@ -17,6 +17,8 @@
   float:left;
   margin-left:52rpx;
   margin-top:39rpx;
+  position:absolute;
+  z-index:1000;
 }
 .y-talk-box-title-a {
   float:right;
@@ -307,7 +309,7 @@
   display:none;
 }
 .word-deBtn1 {
-  background:#888;
+  background:#ddd;
 }
 .voicetowriteimg {
   float:left;
@@ -586,13 +588,15 @@
   padding-bottom:200rpx;
 }
 .share_img_btn {
-    float: right;
+  float: right;
   width:100rpx;
   height:100rpx;
   background:none;
   border:none;
   position:unset;
   padding:0;
+  z-index:-1;
+  overflow:hidden;
 }
 .share_img {
   float: right;
@@ -602,7 +606,10 @@
   margin-right:30rpx;
 }
 .share_img1 {
-  animation:shake 1s;
+  animation:shake 2s;
+  animation-iteration-count:2;
+  animation-delay:2s;
+  /* -webkit-animation-timing-function:ease-out; */
 }
 @keyframes shake {
   0%,100% {
@@ -622,3 +629,17 @@
     -webkit-transform:translateX(5px);
   }
 }
+/* @keyframes shake {
+  0%,100% {
+    -webkit-transform:translateX(0);
+  }
+  2%,6%,10%,14%,18% {
+    -webkit-transform:translateX(-15px);
+  }
+  4%,8%,12%,16%,20% {
+    -webkit-transform:translateX(15px);
+  }
+  20%,30%,40%,50%,60%,70%,80%,90%,100%{
+    -webkit-translate:translateX(0px);
+  }
+} */

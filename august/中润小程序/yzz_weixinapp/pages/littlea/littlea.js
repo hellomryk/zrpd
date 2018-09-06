@@ -5,6 +5,7 @@ var UTIL = require('../../utils/util.js');
 var GUID = require('../../utils/GUID.js');
 var NLI = require('../../utils/NLI.js');
 var md5 = require('../../utils/MD5.js');
+var bmap = require('../../utils/bmapwx.js');//百度地图搜索附近美食接口
 // var WXBizDataCrypt = require('../../utils/WXBizDataCrypt.js');
 var json = {};
 const appkey = 'wx00c96ec6fcfd168f'
@@ -25,6 +26,7 @@ var ner = null;
 var pageSelf = undefined;
 var timestamp = Date.parse(new Date()) / 1000;//当前时间秒数
 var voice = null;
+var wxMarkerData = [];//百度搜索附近美食
 Page({
   /**
    * 页面的初始数据
@@ -69,41 +71,47 @@ Page({
       }
     ],
     siginup:"true",//登陆框消息
-    ytbt_icno_restaurant:false,//美食图标到闲聊图标
+    ytbt_icno_restaurant:true,//美食图标到闲聊图标
     ytbt_icno_hotel:true,
     ytbt_icno_plane:true,
     ytbt_icno_train:true,
     ytbt_icno_film:true,
     ytbt_icno_weather:true,
-    ytbt_icno_chat:true,
-    ytbt_tip:"您可以说:有啥好吃的",//上面小机器人提示语
+    ytbt_icno_chat:false,
+    ytbt_tip:"您可以说:你是谁",//上面小机器人提示语
     numberstar:4,
-    isshake:true,
+    // isshake:true,
+    // 百度地图需要的数据开始
+    markers: [],
+    latitude: '',
+    longitude: '',
+    placeData: {},
+    // 百度地图需要的数据开始
+    deletevoice:'',
     array:[
     ]
   },
-
 // onready开始
-  onReady: function () {
-    // 加一个分享摇动
-    var circleCount = 0;
-    setInterval(function () {
-      if (circleCount % 2 == 0) {
-        this.setData({
-          isshake: true
-        })
-      } else {
-        this.setData({
-          isshake: false
-        })
-      }
-      circleCount++;
-      if (circleCount == 2000) {
-        circleCount = 0;
-      }
-    }.bind(this), 2000);
-    // shake结束
-  },
+  // onReady: function () {
+  //   // 加一个分享摇动
+  //   var circleCount = 0;
+  //   setInterval(function () {
+  //     if (circleCount % 2 == 0) {
+  //       this.setData({
+  //         isshake: true
+  //       })
+  //     } else {
+  //       this.setData({
+  //         isshake: false
+  //       })
+  //     }
+  //     circleCount++;
+  //     if (circleCount == 2000) {
+  //       circleCount = 0;
+  //     }
+  //   }.bind(this), 2000);
+  //   // shake结束
+  // },
 // onready结束
   /**
    * 生命周期函数--监听页面加载
@@ -111,6 +119,38 @@ Page({
 // onload方法开始
   onLoad: function (options) {
     const pageSelf = this;
+    //百度搜索附近美食开始
+    // 新建百度地图对象 
+    var BMap = new bmap.BMapWX({
+      ak: 'zG0qcmqsXdaWPhYxg5KHD67Q3m1ArhGV'
+    });
+    var fail = function (data) {
+      console.log(data)
+    };
+    var success = function (data) {
+      wxMarkerData = data.wxMarkerData;
+      console.log("探索data开始")
+      console.log(data)
+      console.log("探索data结束")
+      pageSelf.setData({
+        markers: wxMarkerData
+      });
+      pageSelf.setData({
+        latitude: wxMarkerData[0].latitude
+      });
+      pageSelf.setData({
+        longitude: wxMarkerData[0].longitude
+      });
+    }
+    // 发起POI检索请求 
+    BMap.search({
+      "query": '美食',
+      fail: fail,
+      success: success,
+      iconPath: '../../pics/marker_red.png',
+      iconTapPath: '../../pics/marker_red.png'
+    });
+    //百度搜索附近美食开始
     // 设置转发开始
     // wx.showshareMenu({
     //   withShareMenu: true
@@ -255,6 +295,7 @@ Page({
       const { tempFilePath } = res
       UTIL.log('mp3Recorder.onStop() tempFilePath:' + tempFilePath)
       processFileUploadForAsr(tempFilePath, this);
+      
     })
     // 加载头部
     wx.request({
@@ -364,7 +405,6 @@ Page({
   },
   // onload方法结束   
   // 转发开始
-  /* 转发*/
   onShareAppMessage: function (ops) {
     if (ops.from === 'button') {
       // 来自页面内转发按钮
@@ -539,7 +579,7 @@ Page({
       ytbt_icno_film: true,
       ytbt_icno_weather: true,
       ytbt_icno_chat: false,
-      ytbt_tip: "治咳川贝枇杷露里面加蛇胆川贝散有治疗咳嗽的作用吗？",
+      ytbt_tip: "您可以说:你是谁？",
     })
   },
   // 点击关闭返回上一页面
@@ -554,15 +594,6 @@ Page({
     })
   },
   //头像
-  // onGotUserInfo:function(res) {
-  //   console.log(res)
-  //   console.log(res.detail)
-  //   console.log(res.detail.rawData)
-  //   console.log(JSON.parse(res.detail.rawData).avatarUrl)
-  //   this.setData({
-  //     [avatarUrl]:JSON.parse(res.detail.rawData).avatarUrl
-  //   });
-  // },
   onGotUserInfo: function (res) {
     wx.getUserInfo({
       success: function (res) {
@@ -600,41 +631,6 @@ Page({
         inputValue: e.detail.value
       })
     }
-    // 输入内容是联想
-    // var value = e.detail.value;
-    // const requestThink = wx.request({
-    //   url:'https://robot.moxiai.com/robot/think',
-    //   data:{
-    //     issue:value,
-    //     puserId:"4"
-    //   },
-    //   header: {
-    //     'content-type':"application/json"
-    //   },
-    //   success:function(data) {
-    //     if (data != "") {
-    //       if(data.data != "") {
-    //         var thinkarr = data.data;
-    //         for(var i = 0; i < thinkarr.length; i ++) {
-    //           // thinkarr[i].issueOld
-    //           thinkarr[i].issue = thinkarr[i].issue.replace(/font/g, "text");
-    //           console.log(thinkarr[i].issue.replace(/font/g,"view"));
-    //         } 
-    //         // console.log(12)
-    //         // console.log(thinkarr)
-    //         selfPage.setData({
-    //           arrayThink: data.data,
-    //           textThinkIsShow: false
-    //         })
-    //       } else {
-    //         selfPage.setData({
-    //           textThinkIsShow:false
-    //         })
-    //       }
-    //     } 
-    //   }
-    // })
-    // console.log(value)
   },
   //点击联想的文字
   thinktab:function(e) {
@@ -801,7 +797,6 @@ Page({
                   scrollTop: res.height
                 });
               }).exec()
-
               //按钮的history结束
             }
           });
@@ -822,75 +817,25 @@ Page({
   },
   // 以下是调用新接口实现的录音，录出来的是 mp3
   touchdown: function () {
-    UTIL.log("mp3Recorder.start with" + mp3RecoderOptions)
+    // UTIL.log("mp3Recorder.start with" + mp3RecoderOptions)
+    console.log("mp3Recorder.start with" + mp3RecoderOptions)
     var _this = this;
-    speaking(_this);
+    // speaking(_this);
     this.setData({
       isSpeaking: true
     })
+    if (ner != null) {
+      ner.stop();
+    }
     mp3Recorder.start(mp3RecoderOptions);
   },
   touchup: function () {
-    UTIL.log("mp3Recorder.stop")
+    // UTIL.log("mp3Recorder.stop")
+    console.log("mp3Recorder.stop")
     this.setData({
       isSpeaking: false,
     })
     mp3Recorder.stop();
-  },
-  //切换到老版本
-  turnToOld: function () {
-    wx.navigateTo({
-      url: '../index/index',
-    })
-  },
-  // 以下是调用老接口实现的录音，录出来的是 silk_v3
-  //手指按下 
-  touchdown_silk: function () {
-    UTIL.log("手指按下了... new date : " + new Date)
-    var _this = this;
-    speaking.call(this);
-    this.setData({
-      isSpeaking: true
-    })
-    //开始录音 
-    wx.startRecord({
-      success: function (res) {
-        //临时路径,下次进入小程序时无法正常使用
-        var tempFilePath = res.tempFilePath;
-        UTIL.log('record SUCCESS file path:' + tempFilePath)
-        _this.setData({
-          recordPath: tempFilePath
-        })
-      },
-      fail: function (res) {
-        //录音失败 
-        wx.showModal({
-          title: '提示',
-          content: '录音的姿势不对!',
-          showCancel: false,
-          success: function (res) {
-            if (res.confirm) {
-              UTIL.log('用户点击确定')
-              return
-            }
-          }
-        })
-      }
-    })
-  },
-  //手指抬起 
-  touchup_silk: function () {
-    //touchup: function () {
-    UTIL.log("手指抬起了...")
-    this.setData({
-      isSpeaking: false,
-    })
-    clearInterval(this.timer)
-    wx.stopRecord();
-    var _this = this;
-    setTimeout(function () {
-      processFileUploadForAsr(_this.data.recordPath, _this);
-    }, 1000)
   },
   //文字、语音切换
   Singleclick: function () {
@@ -902,32 +847,6 @@ Page({
       this.setData({
         isChecked_btn: true
       })
-    }
-  },
-  // 问题列表搜索
-  // clickMe: function (e) {
-  //   var id = e.currentTarget.id, array = this.data.array;
-  //   for (var i = 0, len = array.length; i < len; ++i) {
-  //     if (array[i].id == id) {
-  //       search(array[i].message, 1)
-  //       //收回面板
-  //       this.animation.translate(wx.getSystemInfoSync().windowWidth).step({ duration: 600 })
-  //       this.setData({
-  //         animation: this.animation.export()
-  //       })
-  //       this.setData({
-  //         condition: true,
-  //       });
-  //     }
-  //   }
-  // },
-  //朗读声音暂停
-  notried: function () {
-    if (this.data.isChecked_img && ner != null) {
-      this.setData({
-        isChecked_img: false,
-      });
-      ner.stop()
     }
   },
   //打电话
@@ -980,6 +899,13 @@ function processFileUploadForAsr(filePath, _this) {
             inputValue: ""
           });
         // 把人语音的内容放进页面 - end
+        // 滚动到底部
+        let query = wx.createSelectorQuery().in(_this)
+        query.select('.container_innerHeight').boundingClientRect((res) => {
+          _this.setData({
+            scrollTop: res.height
+          });
+        }).exec()
           // 语音录入机器人回答开始
         // 点击发送
         // 获取小程序id开始(语音发送事件板块)
@@ -1038,8 +964,6 @@ function processFileUploadForAsr(filePath, _this) {
                         console.log(res.data);
                         console.log(res.data.data);
                         console.log('语音录入发送结束')
-                        // 机器人说话朗读
-                        speckText(res.data.data)
                         var obj = {
                           typeId: res.data.showType,
                           message: res.data.data
@@ -1048,8 +972,11 @@ function processFileUploadForAsr(filePath, _this) {
                         var dataarray = _this.data.array;
                         dataarray.push(obj);
                         _this.setData({
-                          array: dataarray
+                          array: dataarray,
+                          deletevoice: res.data.voice
                         });
+                        // 机器人说话朗读
+                        speckText(res.data.voice)
                         // 滚动到底部
                         let query = wx.createSelectorQuery().in(_this)
                         query.select('.container_innerHeight').boundingClientRect((res) => {
@@ -1104,112 +1031,101 @@ function getSttFromResult(res_data) {
   return res_data_result_json.asr.result;
 }
 //麦克风帧动画 
-function speaking(_this) {
-  //话筒帧动画 
-  var i = 1;
-  _this.timer = setInterval(function () {
-    i++;
-    i = i % 5;
-    _this.setData({
-      j: i
-    })
-  }, 200);
-}
-//搜索结果文字朗读
-function speckText(str) {
-  if (ner != null) {
-    ner.stop();
-  }
-  if (str.length > 510) {//文字超限处理
-    voice = str.substring(510, str.length);
-    str = str.substring(0, 510);
-    var voice = "https://tts.baidu.com/text2audio?idx=1&tex=" + encodeURI(voice) + "&cuid=baidu_speech_demo&cod=2&lan=zh&ctp=1&pdt=1&spd=5&vol=5&pit=5&per=0";
-  }
-  var url = "https://tts.baidu.com/text2audio?idx=1&tex=" + encodeURI(str) + "&cuid=baidu_speech_demo&cod=2&lan=zh&ctp=1&pdt=1&spd=5&vol=5&pit=5&per=0";
-  const innerAudioContext = wx.createInnerAudioContext()
-  ner = innerAudioContext
-  innerAudioContext.autoplay = true
-  innerAudioContext.src = url
-  innerAudioContext.onPlay(() => {
-    console.log(url)
-    console.log('开始播放')
-  })
-  innerAudioContext.onError((res) => {
-
-    console.log(res.errMsg)
-    console.log(res.errCode)
-  })
-  innerAudioContext.onStop((res) => {
-    console.log("播放停止了")
-    if (voice != null) {
-      voice = null;
-    };
-  })
-  innerAudioContext.onEnded((res) => {
-    console.log("自然播放完毕")
-    if (voice != null) {
-      innerAudioContext.src = voice;
-      voice = null;
-    };
-
-  })
-}
-//搜索接口
-// function search(str, level) {
-//   pageSelf.setData({
-//     hiddenLoading: false,
-//   });
-//   wx.request({
-//     url: 'https://jk.infobigdata.com/ask',
-//     data: {
-//       str: str,
-//       mode: level,
-//     },
-//     header: {
-//       'content-type': 'application/json' // 默认值
-//     },
-//     method: "POST",
-//     success: function (res) {
-//       console.log(res.data)
-//       console.log(res.data.result)
-//       if (res.data.result) {
-//         pageSelf.setData({
-//           isChecked_img: true,
-//         });
-//         if (!pageSelf.data.condition) {
-//           //平移收回
-//           pageSelf.animation.translate(wx.getSystemInfoSync().windowWidth).step({ duration: 600 })
-//           pageSelf.setData({
-//             //输出动画
-//             animation: pageSelf.animation.export()
-//           });
-//           pageSelf.setData({
-//             condition: true,
-//           });
-//         }
-//         pageSelf.setData({
-//           outputTxt: res.data.result,
-//         });
-//         // speckText(res.data.result)
-//       } else {
-//         if (ner != null) {
-//           pageSelf.setData({
-//             isChecked_img: false,
-//           });
-//           ner.stop()
-//         }
-//         // wx.showToast({
-//         //   title: '暂时没有您想要的数据！',
-//         //   icon: 'none',
-//         //   duration: 2000
-//         // })
-//       }
-//     }
-//   })
-//   pageSelf.setData({
-//     hiddenLoading: true,
-//   });
+// function speaking(_this) {
+//   //话筒帧动画 
+//   var i = 1;
+//   _this.timer = setInterval(function () {
+//     i++;
+//     i = i % 5;
+//     _this.setData({
+//       j: i
+//     })
+//   }, 200);
 // }
+//搜索结果文字朗读
+// function speckText(str) {
+//   if (ner != null) {
+//     ner.stop();
+//   }
+
+//   const innerAudioContext = wx.createInnerAudioContext()
+//   ner = innerAudioContext
+//   innerAudioContext.autoplay = true
+//   innerAudioContext.src = url
+//   innerAudioContext.src = 'http://jqr.infobigdata.com/upload/baiduvoice/407f56593fea412da430176dbff3a570.mp3'
+//   innerAudioContext.onPlay(() => {
+//     console.log(url)
+//     console.log('开始播放')
+//   })
+//   innerAudioContext.onError((res) => {
+
+//     console.log(res.errMsg)
+//     console.log(res.errCode)
+//   })
+//   innerAudioContext.onStop((res) => {
+//     console.log("播放停止了")
+//     if (voice != null) {
+//       voice = null;
+//     };
+//   })
+//   innerAudioContext.onEnded((res) => {
+//     console.log("自然播放完毕")
+//     if (voice != null) {
+//       innerAudioContext.src = voice;
+//       voice = null;
+//     };
+
+//   })
+// }
+function speckText(url) {
+    if (ner != null) {
+      ner.stop();
+    }
+      const innerAudioContext = wx.createInnerAudioContext()
+        ner = innerAudioContext
+        innerAudioContext.autoplay = true
+        // innerAudioContext.src = url
+    innerAudioContext.src = url
+        innerAudioContext.onPlay(() => {
+          console.log(url)
+          console.log('开始播放')
+        })
+        innerAudioContext.onError((res) => {
+
+          console.log(res.errMsg)
+          console.log(res.errCode)
+        })
+        innerAudioContext.onStop((res) => {
+          console.log("播放停止了")
+          if (voice != null) {
+            voice = null;
+          };
+        })
+        innerAudioContext.onEnded((res) => {
+          console.log("自然播放完毕")
+          if (voice != null) {
+            innerAudioContext.src = voice;
+            voice = null;
+          };
+              // 语音读完后删除语音开始
+          wx.request({
+            url: 'https://jqr.infobigdata.com/skillapplet/f52024d75d4348f38cdad3670d209c1e/wxgcvoice',
+            data: {
+              voiceurl: url
+            },
+            header: {
+              'content-type': 'application/json;charset=utf-8'
+            },
+            success: function (res) {
+              console.log("delete over")
+            }
+          })
+          // 语音读完后删除语音结束
+        })
+    // 设置与播放结束
+    // 滚动到底部
+   //获取小程序id结束(发送语音获取语音地址板块)
+}
 // 发送事件封装
 function sendmessage_pub(_this) {
   const selfPage = _this;

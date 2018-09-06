@@ -1,0 +1,20 @@
+<!--index.wxml-->
+<view class="container ">
+    <view class='list_box'>
+        <input id="list_search" placeholder-style="color:#CECECE;font-size:28rpx;  text-indent: 50rpx;" placeholder="搜索" />
+        <image src='/images/list_add.png' class='list_add_img'></image>
+        <image src='/images/search_logo.png' class='list_se_img'></image>
+
+        <view class="list_ul" >
+            <view class='list_li' wx:for="{{array}}">
+                <image src='{{item.imgurl}}' class='list_xinxi_img'></image>
+                <text class='list_time'>{{item.time}}</text>
+                <text class='list_num'>{{item.num}}</text>
+                <text class='list_title'>{{item.title}}</text>
+                <text  class='list_jj'>{{item.text}}</text>
+                <view class='clear'></view>
+            </view>
+        </view>
+
+    </view>
+</view>

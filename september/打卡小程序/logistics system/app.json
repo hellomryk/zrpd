@@ -1,0 +1,45 @@
+{
+    "pages": [
+        "pages/logs/logs",
+        "pages/list/index",
+        "pages/news/index"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "WeChat",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color": "#999999",
+        "selectedColor": "#F89E34",
+        "borderStyle": "#ddd",
+        "backgroundColor": "#fff",
+        "list": [
+            {
+                "pagePath": "pages/list/index",
+                "iconPath": "/images/xinxi.png",
+                "selectedIconPath": "/images/xinxi_1.png",
+                "text": "消息"
+            },
+            {
+                "pagePath": "pages/list/index",
+                "iconPath": "/images/gongzuo_1.png",
+                "selectedIconPath": "/images/gongzuo.png",
+                "text": "工作"
+            },
+            {
+                "pagePath": "pages/list/index",
+                "iconPath": "/images/tongxunlu_1.png",
+                "selectedIconPath": "/images/tongxunlu.png",
+                "text": "通讯录"
+            },
+            {
+                "pagePath": "pages/list/index",
+                "iconPath": "/images/wode_1.png",
+                "selectedIconPath": "/images/wode.png",
+                "text": "我的"
+            }
+        ]
+    }
+}
