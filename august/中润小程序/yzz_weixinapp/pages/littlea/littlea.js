@@ -5,7 +5,7 @@ var UTIL = require('../../utils/util.js');
 var GUID = require('../../utils/GUID.js');
 var NLI = require('../../utils/NLI.js');
 var md5 = require('../../utils/MD5.js');
-var bmap = require('../../utils/bmapwx.js');//百度地图搜索附近美食接口
+var bmap = require('../../utils/bmapwx.js'); //百度地图搜索附近美食接口
 // var WXBizDataCrypt = require('../../utils/WXBizDataCrypt.js');
 var json = {};
 const appkey = 'wx00c96ec6fcfd168f'
@@ -24,62 +24,61 @@ const mp3RecoderOptions = {
 var timer;
 var ner = null;
 var pageSelf = undefined;
-var timestamp = Date.parse(new Date()) / 1000;//当前时间秒数
+var timestamp = Date.parse(new Date()) / 1000; //当前时间秒数
 var voice = null;
-var wxMarkerData = [];//百度搜索附近美食
+var wxMarkerData = []; //百度搜索附近美食
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    inputValue:"",
-    j: 1,//帧动画初始图片 
-    isSpeaking: false,//是否正在说话
+    inputValue: "",
+    j: 1, //帧动画初始图片 
+    isSpeaking: false, //是否正在说话
     outputTxt: "", //输出识别结果
-    isChecked_btn: false,//录音输入与文本输入切换
-    value: "",//搜索结果
-    hiddenLoading: true,// loading
-    isChecked_img: true,//声音图标
+    isChecked_btn: false, //录音输入与文本输入切换
+    value: "", //搜索结果
+    hiddenLoading: true, // loading
+    isChecked_img: true, //声音图标
     condition: true, //问题列表
-    animation: '',//问题列表动画
-    icnicList: true,//疾病显示
-    voiceorwrite:true,//控制是语音录入还是文字录入
-    textThinkIsShow:false,//控制联想区域显示隐藏
-    loadhistoryisshow:true,//控制历史记录按钮是否显示
-    maintitle: "中润普达魔系AI",//主标题
-    littletitle: "24小时为您服务",//副标题
-    phoneswitch:1,//电话开关
-    phonenumber:"010-89561235",//电话号码
-    wheel_demo: "#1ba9c8",//颜色
-    thinkValue:"",//储存联想内容
-    windowHeight:"",//滚动区域高度
-    openId:"",//用户个人化的id
-    user:{},
+    animation: '', //问题列表动画
+    icnicList: true, //疾病显示
+    voiceorwrite: true, //控制是语音录入还是文字录入
+    textThinkIsShow: false, //控制联想区域显示隐藏
+    loadhistoryisshow: true, //控制历史记录按钮是否显示
+    maintitle: "中润普达魔系AI", //主标题
+    littletitle: "24小时为您服务", //副标题
+    phoneswitch: 1, //电话开关
+    phonenumber: "010-89561235", //电话号码
+    wheel_demo: "#1ba9c8", //颜色
+    thinkValue: "", //储存联想内容
+    windowHeight: "", //滚动区域高度
+    openId: "", //用户个人化的id
+    user: {},
     //用户个人信息
     userInfo: {
-      avatarUrl: "../../pics/peopleimg.png",//用户头像
-      nickName: "",//用户昵称
+      avatarUrl: "../../pics/peopleimg.png", //用户头像
+      nickName: "", //用户昵称
     },
-    arrayThink:[
-      {
-      id:"0",
-      issue:"文字1"
+    arrayThink: [{
+        id: "0",
+        issue: "文字1"
       },
       {
         id: "1",
         issue: "文字2"
       }
     ],
-    siginup:"true",//登陆框消息
-    ytbt_icno_restaurant:true,//美食图标到闲聊图标
-    ytbt_icno_hotel:true,
-    ytbt_icno_plane:true,
-    ytbt_icno_train:true,
-    ytbt_icno_film:true,
-    ytbt_icno_weather:true,
-    ytbt_icno_chat:false,
-    ytbt_tip:"您可以说:你是谁",//上面小机器人提示语
-    numberstar:4,
+    siginup: "true", //登陆框消息
+    ytbt_icno_restaurant: true, //美食图标到闲聊图标
+    ytbt_icno_hotel: true,
+    ytbt_icno_plane: true,
+    ytbt_icno_train: true,
+    ytbt_icno_film: true,
+    ytbt_icno_weather: true,
+    ytbt_icno_chat: false,
+    ytbt_tip: "您可以说:你是谁", //上面小机器人提示语
+    numberstar: 4,
     // isshake:true,
     // 百度地图需要的数据开始
     markers: [],
@@ -87,11 +86,12 @@ Page({
     longitude: '',
     placeData: {},
     // 百度地图需要的数据开始
-    deletevoice:'',
-    array:[
-    ]
+    deletevoice: '', //语音结束后删除音频文件
+    skillType: 0, //美食列表
+    arr: [], //美食列表中的信息
+    array: []
   },
-// onready开始
+  // onready开始
   // onReady: function () {
   //   // 加一个分享摇动
   //   var circleCount = 0;
@@ -112,45 +112,87 @@ Page({
   //   }.bind(this), 2000);
   //   // shake结束
   // },
-// onready结束
+  // onready结束
   /**
    * 生命周期函数--监听页面加载
    */
-// onload方法开始
-  onLoad: function (options) {
+  // onload方法开始
+  onLoad: function(options) {
     const pageSelf = this;
-    //百度搜索附近美食开始
-    // 新建百度地图对象 
-    var BMap = new bmap.BMapWX({
-      ak: 'zG0qcmqsXdaWPhYxg5KHD67Q3m1ArhGV'
-    });
-    var fail = function (data) {
-      console.log(data)
-    };
-    var success = function (data) {
-      wxMarkerData = data.wxMarkerData;
-      console.log("探索data开始")
-      console.log(data)
-      console.log("探索data结束")
-      pageSelf.setData({
-        markers: wxMarkerData
-      });
-      pageSelf.setData({
-        latitude: wxMarkerData[0].latitude
-      });
-      pageSelf.setData({
-        longitude: wxMarkerData[0].longitude
-      });
-    }
-    // 发起POI检索请求 
-    BMap.search({
-      "query": '美食',
-      fail: fail,
-      success: success,
-      iconPath: '../../pics/marker_red.png',
-      iconTapPath: '../../pics/marker_red.png'
-    });
-    //百度搜索附近美食开始
+    // 如果用户取消授权第二次扔弹出授权提示开始
+    console.log('授权结果')
+    // wx.openSetting({
+    //   success:(res) => {
+    //     console.log('授权结果')
+    //     console.log(res)
+    //     if (!res.authSetting["scope.userinfo"] || !res.authSetting["scope.userLocation"]) {
+    //       applyNotice()
+    //     }
+    //   }
+    // })
+    // wx.openSetting({
+    //   success: (res) => {
+    //     console.log('授权结果1')
+
+    //      res.authSetting = {
+    //        "scope.userInfo": true,
+    //        "scope.userLocation": true,
+    //        "scope.startRecord":true
+    //      }
+    //   }
+    // })
+
+    // wx.openSetting({
+    //   success: (res) => {
+    //     /*
+    //      * res.authSetting = {
+    //      *   "scope.userInfo": true,
+    //      *   "scope.userLocation": true
+    //      * }
+    //      */
+    //   }
+    // })
+    // if (!res.authSetting['scope.record']) {
+    //   //未设置录音授权
+    //   console.log("未设置录音授权");
+    //   wx.showModal({
+    //     title: '提示',
+    //     content: '您未授权录音，功能将无法使用',
+    //     showCancel: false,
+    //     success: function (res) {
+
+    //     },
+    // 如果用户取消授权第二次扔弹出授权提示结束
+    // //百度搜索附近美食开始
+    // // 新建百度地图对象 
+    // var BMap = new bmap.BMapWX({
+    //   ak: 'zG0qcmqsXdaWPhYxg5KHD67Q3m1ArhGV'
+    // });
+    // var fail = function (data) {
+    //   console.log(data)
+    // };
+    // var success = function (data) {
+    //   wxMarkerData = data.wxMarkerData;
+    //   console.log("探索data开始")
+    //   console.log(data)
+    //   console.log(data.originalData.array.results)
+    //   console.log("探索data结束")
+    //   pageSelf.setData({
+    //     arr: data.originalData.array.results,
+    //     markers: wxMarkerData,
+    //     latitude: wxMarkerData[0].latitude,
+    //     longitude: wxMarkerData[0].longitude
+    //   });
+    // }
+    // // 发起POI检索请求 
+    // BMap.search({
+    //   "query": '美食',
+    //   fail: fail,
+    //   success: success,
+    //   iconPath: '../../pics/marker_red.png',
+    //   iconTapPath: '../../pics/marker_red.png'
+    // });
+    // //百度搜索附近美食开始
     // 设置转发开始
     // wx.showshareMenu({
     //   withShareMenu: true
@@ -158,12 +200,12 @@ Page({
     wx.showShareMenu({
       // 要求小程序返回分享目标信息
       withShareTicket: true
-    }); 
+    });
     // 设置转发结束
     // 获取用户地理位置开始
     wx.getLocation({
-      type:'gcj02',//返回可以用于wx.openlocation的经纬度
-      success:function(res) {
+      type: 'gcj02', //返回可以用于wx.openlocation的经纬度
+      success: function(res) {
         var latitude = res.latitude
         var longitude = res.longitude
         console.log('地理位置开始')
@@ -181,7 +223,7 @@ Page({
     // 获取用户地理位置结束
     // 计算屏幕高度
     wx.getSystemInfo({
-      success: function (res) {
+      success: function(res) {
         let clientHeight = res.windowHeight,
           clientWidth = res.windowWidth,
           rpxR = 750 / clientWidth;
@@ -195,24 +237,31 @@ Page({
     // 判断是否授权然后把登陆框去掉
     //判断是否授权
     wx.getSetting({
-      success: function (res) {
+      success: function(res) {
         //已授权
         // pageSelf.setData({
         //    siginup:false
         // })
       },
       //未授权
-      fail: function (res) {
+      fail: function(res) {
         pageSelf.setData({
           siginup: true
         })
       }
     })
+  // 获取录音功能开始
+    // wx.startRecord({
+    //   success:function(res) {
+
+    //   }
+    // })
+  //获取录音共结束
     /**
-         * 获取用户信息
-         */
+     * 获取用户信息
+     */
     wx.getUserInfo({
-      success: function (res) {
+      success: function(res) {
         var avatarUrl = 'userInfo.avatarUrl';
         var nickName = 'userInfo.nickName';
         pageSelf.setData({
@@ -224,14 +273,14 @@ Page({
         var userInfo = wx.getStorageSync('userInfo') || {};
         console.log(123)
         wx.login({
-          success: function (res) {
+          success: function(res) {
             if (res.code) {
               wx.getUserInfo({
-                success: function (res) {
+                success: function(res) {
                   var objz = {};
                   objz.avatarUrl = res.userInfo.avatarUrl;
                   objz.nickName = res.userInfo.nickName;
-                  wx.setStorageSync('userInfo', objz);//存储userInfo
+                  wx.setStorageSync('userInfo', objz); //存储userInfo
                 }
               });
               const appkey = 'wx00c96ec6fcfd168f'
@@ -241,21 +290,21 @@ Page({
               wx.request({
                 url: l,
                 data: {
-                  code:res.code
+                  code: res.code
                 },
                 method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
                 // header: {}, // 设置请求的 header  
-                success: function (res) {
+                success: function(res) {
                   var obj = {};
                   obj.openid = res.data.openid;
                   obj.expires_in = Date.now() + res.data.expires_in;
                   console.log("打印openid开始")
                   console.log(obj.openid);
                   pageSelf.setData({
-                    openId:obj.openid
+                    openId: obj.openid
                   })
                   console.log("打印openid结束")
-                  wx.setStorageSync('user', obj);//存储openid  
+                  wx.setStorageSync('user', obj); //存储openid  
                 }
               });
             } else {
@@ -276,7 +325,7 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       method: "POST",
-      success: function (res) {
+      success: function(res) {
         console.log(res.data)
         json = res.data;
         //渲染问题列表
@@ -292,19 +341,21 @@ Page({
     })
     mp3Recorder.onStop((res) => {
       UTIL.log('mp3Recorder.onStop() ' + res)
-      const { tempFilePath } = res
+      const {
+        tempFilePath
+      } = res
       UTIL.log('mp3Recorder.onStop() tempFilePath:' + tempFilePath)
       processFileUploadForAsr(tempFilePath, this);
-      
+
     })
     // 加载头部
     wx.request({
       url: "https://jqr.infobigdata.com/applets/f52024d75d4348f38cdad3670d209c1e/init",
       data: {},
       header: {
-        'content-type': "application/json"//默认值
+        'content-type': "application/json" //默认值
       },
-      success: function (res) {
+      success: function(res) {
         pageSelf.setData({
           maintitle: res.data.maintitle,
           littletitle: res.data.littletitle,
@@ -328,14 +379,14 @@ Page({
     var userInfo = wx.getStorageSync('userInfo') || {};
     console.log(123)
     wx.login({
-      success: function (res) {
+      success: function(res) {
         if (res.code) {
           wx.getUserInfo({
-            success: function (res) {
+            success: function(res) {
               var objz = {};
               objz.avatarUrl = res.userInfo.avatarUrl;
               objz.nickName = res.userInfo.nickName;
-              wx.setStorageSync('userInfo', objz);//存储userInfo
+              wx.setStorageSync('userInfo', objz); //存储userInfo
             }
           });
           const appkey = 'wx00c96ec6fcfd168f'
@@ -345,11 +396,11 @@ Page({
           wx.request({
             url: l,
             data: {
-              code:res.code
+              code: res.code
             },
             method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
             // header: {}, // 设置请求的 header  
-            success: function (res) {
+            success: function(res) {
               var obj = {};
               obj.openid = res.data.openid;
               obj.expires_in = Date.now() + res.data.expires_in;
@@ -359,39 +410,39 @@ Page({
                 openId: obj.openid
               })
               console.log("打印openid结束")
-              wx.setStorageSync('user', obj);//存储openid  
+              wx.setStorageSync('user', obj); //存储openid  
               //history开始
-                wx.request({
-                  url: 'https://jqr.infobigdata.com/skillapplet/f52024d75d4348f38cdad3670d209c1e/wxskill',
-                  data: {
-                    issue: encodeURI("@历史记录"),
-                    openid: pageSelf.data.openId
-                  },
-                  header: {
-                    'content-type': 'application/json'//默认值
-                  },
-                  success: function (res) {
-                    console.log('判断是否有历史记录开始')
-                    console.log(res)
-                    console.log(res.data.data)
-                    console.log(typeof res.data.data)
-                    console.log(pageSelf.data.openId)
-                    console.log('判断是否有历史记录结束')
-                    console.log(pageSelf.data.openId)
-                    var result = JSON.parse(res.data.data);
-                    console.log(result.historytalk);
-                    console.log(result.historystat);
-                    if (result.historystat == 1) {
-                      pageSelf.setData({
-                        loadhistoryisshow: true
-                      })
-                    } else {
-                      pageSelf.setData({
-                        loadhistoryisshow: false
-                      })
-                    }
+              wx.request({
+                url: 'https://jqr.infobigdata.com/skillapplet/f52024d75d4348f38cdad3670d209c1e/wxskill',
+                data: {
+                  issue: encodeURI("@历史记录"),
+                  openid: pageSelf.data.openId
+                },
+                header: {
+                  'content-type': 'application/json' //默认值
+                },
+                success: function(res) {
+                  console.log('判断是否有历史记录开始')
+                  console.log(res)
+                  console.log(res.data.data)
+                  console.log(typeof res.data.data)
+                  console.log(pageSelf.data.openId)
+                  console.log('判断是否有历史记录结束')
+                  console.log(pageSelf.data.openId)
+                  var result = JSON.parse(res.data.data);
+                  console.log(result.historytalk);
+                  console.log(result.historystat);
+                  if (result.historystat == 1) {
+                    pageSelf.setData({
+                      loadhistoryisshow: true
+                    })
+                  } else {
+                    pageSelf.setData({
+                      loadhistoryisshow: false
+                    })
                   }
-                })
+                }
+              })
               //history结束
             }
           });
@@ -400,12 +451,12 @@ Page({
         }
       }
     });
-//获取小程序id结束
-//历史记录穿小程序id结束
+    //获取小程序id结束
+    //历史记录穿小程序id结束
   },
   // onload方法结束   
   // 转发开始
-  onShareAppMessage: function (ops) {
+  onShareAppMessage: function(ops) {
     if (ops.from === 'button') {
       // 来自页面内转发按钮
       console.log(ops.target)
@@ -413,7 +464,7 @@ Page({
     return {
       title: '让机器像人类一样思考!',
       path: `pages/littlea/littlea`,
-      success: function (res) {
+      success: function(res) {
         // 转发成功
         console.log("转发成功:" + JSON.stringify(res));
         var shareTickets = res.shareTickets;
@@ -428,7 +479,7 @@ Page({
         //   }
         // })
       },
-      fail: function (res) {
+      fail: function(res) {
         // 转发失败
         console.log("转发失败:" + JSON.stringify(res));
       }
@@ -436,64 +487,64 @@ Page({
   },
   // 转发结束
   //获取小程序openid
-  onLaunch: function () {
+  onLaunch: function() {
     const pageSelf = this
     var user = wx.getStorageSync('user') || {};
     var userInfo = wx.getStorageSync('userInfo') || {};
     // if ((!user.openid || (user.expires_in || Date.now()) < (Date.now() + 600)) && (!userInfo.nickName)) {
-      console.log(123)
-      wx.login({
-        success: function (res) {
-          if (res.code) {
-            wx.getUserInfo({
-              success: function (res) {
-                var objz = {};
-                objz.avatarUrl = res.userInfo.avatarUrl;
-                objz.nickName = res.userInfo.nickName;
-                wx.setStorageSync('userInfo', objz);//存储userInfo
-              }
-            });
-            const appkey = 'wx00c96ec6fcfd168f'
-            const appsecret = '7b6210dad9e1cf9f3ca937c8bc126703'
-            var d = pageSelf.globalData;//这里存储了appid、secret、token串  
-            var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo';
-            console.log(res)
-            console.log("12222")
-            console.log(res.code)
-            console.log(l)
-            wx.request({
-              url: l,
-              data: {
-                code:res.code
-              },
-              method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
-              // header: {}, // 设置请求的 header  
-              success: function (res) {
-                var obj = {};
-                obj.openid = res.data.openid;
-                obj.expires_in = Date.now() + res.data.expires_in;
-                console.log("打印openid开始")
-                console.log(obj.openid);
-                pageSelf.setData({
-                  openId: obj.openid
-                })
-                console.log(pageSelf.data.openId)
-                console.log("打印openid结束")
-                wx.setStorageSync('user', obj);//存储openid  
-              }
-            });
-          } else {
-            console.log('获取用户登录态失败！' + res.errMsg)
-          }
+    console.log(123)
+    wx.login({
+      success: function(res) {
+        if (res.code) {
+          wx.getUserInfo({
+            success: function(res) {
+              var objz = {};
+              objz.avatarUrl = res.userInfo.avatarUrl;
+              objz.nickName = res.userInfo.nickName;
+              wx.setStorageSync('userInfo', objz); //存储userInfo
+            }
+          });
+          const appkey = 'wx00c96ec6fcfd168f'
+          const appsecret = '7b6210dad9e1cf9f3ca937c8bc126703'
+          var d = pageSelf.globalData; //这里存储了appid、secret、token串  
+          var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo';
+          console.log(res)
+          console.log("12222")
+          console.log(res.code)
+          console.log(l)
+          wx.request({
+            url: l,
+            data: {
+              code: res.code
+            },
+            method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
+            // header: {}, // 设置请求的 header  
+            success: function(res) {
+              var obj = {};
+              obj.openid = res.data.openid;
+              obj.expires_in = Date.now() + res.data.expires_in;
+              console.log("打印openid开始")
+              console.log(obj.openid);
+              pageSelf.setData({
+                openId: obj.openid
+              })
+              console.log(pageSelf.data.openId)
+              console.log("打印openid结束")
+              wx.setStorageSync('user', obj); //存储openid  
+            }
+          });
+        } else {
+          console.log('获取用户登录态失败！' + res.errMsg)
         }
-      });
+      }
+    });
     // }
   },
   //美食酒店机票tab按钮:
-  ytbt_tab1:function() {
+  ytbt_tab1: function() {
     const selfPage = this;
     selfPage.setData({
-      ytbt_icno_restaurant:false,//美食图标到闲聊图标
+      ytbt_icno_restaurant: false, //美食图标到闲聊图标
       ytbt_icno_hotel: true,
       ytbt_icno_plane: true,
       ytbt_icno_train: true,
@@ -501,13 +552,13 @@ Page({
       ytbt_icno_weather: true,
       ytbt_icno_chat: true,
       ytbt_tip: "您可以说:有啥好吃的",
-    }) 
+    })
     console.log(selfPage.data.openId)
   },
-  ytbt_tab2: function () {
+  ytbt_tab2: function() {
     const selfPage = this;
     selfPage.setData({
-      ytbt_icno_restaurant:true,//美食图标到闲聊图标
+      ytbt_icno_restaurant: true, //美食图标到闲聊图标
       ytbt_icno_hotel: false,
       ytbt_icno_plane: true,
       ytbt_icno_train: true,
@@ -517,10 +568,10 @@ Page({
       ytbt_tip: "您可以说:我要定制旅行",
     })
   },
-  ytbt_tab3: function () {
+  ytbt_tab3: function() {
     const selfPage = this;
     selfPage.setData({
-      ytbt_icno_restaurant:true,//美食图标到闲聊图标
+      ytbt_icno_restaurant: true, //美食图标到闲聊图标
       ytbt_icno_hotel: true,
       ytbt_icno_plane: false,
       ytbt_icno_train: true,
@@ -530,10 +581,10 @@ Page({
       ytbt_tip: "您可以说:我要去土耳其",
     })
   },
-  ytbt_tab4: function () {
+  ytbt_tab4: function() {
     const selfPage = this;
     selfPage.setData({
-      ytbt_icno_restaurant:true,//美食图标到闲聊图标
+      ytbt_icno_restaurant: true, //美食图标到闲聊图标
       ytbt_icno_hotel: true,
       ytbt_icno_plane: true,
       ytbt_icno_train: false,
@@ -543,10 +594,10 @@ Page({
       ytbt_tip: "您可以说:火车票或者我想去拉萨",
     })
   },
-  ytbt_tab5: function () {
+  ytbt_tab5: function() {
     const selfPage = this;
     selfPage.setData({
-      ytbt_icno_restaurant:true,//美食图标到闲聊图标
+      ytbt_icno_restaurant: true, //美食图标到闲聊图标
       ytbt_icno_hotel: true,
       ytbt_icno_plane: true,
       ytbt_icno_train: true,
@@ -556,23 +607,23 @@ Page({
       ytbt_tip: "您可以说:听音乐",
     })
   },
-  ytbt_tab6: function () {
+  ytbt_tab6: function() {
     const selfPage = this;
     selfPage.setData({
-      ytbt_icno_restaurant:true,//美食图标到闲聊图标
+      ytbt_icno_restaurant: true, //美食图标到闲聊图标
       ytbt_icno_hotel: true,
       ytbt_icno_plane: true,
       ytbt_icno_train: true,
       ytbt_icno_film: true,
-      ytbt_icno_weather:false,
+      ytbt_icno_weather: false,
       ytbt_icno_chat: true,
       ytbt_tip: "您可以说:天气",
     })
   },
-  ytbt_tab7: function () {
+  ytbt_tab7: function() {
     const selfPage = this;
     selfPage.setData({
-      ytbt_icno_restaurant:true,//美食图标到闲聊图标
+      ytbt_icno_restaurant: true, //美食图标到闲聊图标
       ytbt_icno_hotel: true,
       ytbt_icno_plane: true,
       ytbt_icno_train: true,
@@ -583,57 +634,57 @@ Page({
     })
   },
   // 点击关闭返回上一页面
-  navigator_back:function() {
+  navigator_back: function() {
     wx.navigateBack()
   },
   //控制登录按钮开关
-  siginuptab:function() {
+  siginuptab: function() {
     const selfPage = this;
     selfPage.setData({
-      siginup:false
+      siginup: false
     })
   },
   //头像
-  onGotUserInfo: function (res) {
+  onGotUserInfo: function(res) {
     wx.getUserInfo({
-      success: function (res) {
+      success: function(res) {
         this.setData({
           [avatarUrl]: JSON.parse(res.detail.rawData).avatarUrl
         });
       },
-      fail: function () {
+      fail: function() {
 
       }
     })
   },
   // 确认键盘输入
-  submitMessage:function() {
+  submitMessage: function() {
     sendmessage_pub(this);
   },
   // 文字框转语音输入
-  voicetowrite:function() {
+  voicetowrite: function() {
     const selfPage = this;
     selfPage.setData({
-        voiceorwrite:false
+      voiceorwrite: false
     })
   },
-  writetovoice:function() {
+  writetovoice: function() {
     const selfPage = this;
     selfPage.setData({
       voiceorwrite: true
     })
   },
   // 存储input输入内容
-  catchMessage:function(e) {
+  catchMessage: function(e) {
     const selfPage = this;
-    if(e.detail.value != "") {
+    if (e.detail.value != "") {
       selfPage.setData({
         inputValue: e.detail.value
       })
     }
   },
   //点击联想的文字
-  thinktab:function(e) {
+  thinktab: function(e) {
     const selfPage = this;
     selfPage.setData({
       thinkValue: e.target.dataset.name
@@ -659,9 +710,9 @@ Page({
         issue: thinkContent
       },
       header: {
-        'content-type': 'application/json'//默认值
+        'content-type': 'application/json' //默认值
       },
-      success: function (res) {
+      success: function(res) {
         console.log(res);
         console.log(res.data);
         console.log(res.data.data);
@@ -694,11 +745,11 @@ Page({
     }).exec()
   },
   // 点击发送
-  sendMessage:function(e) {
+  sendMessage: function(e) {
     sendmessage_pub(this);
   },
   // 点击加载历史记录
-  loadhistoryMessage:function() {
+  loadhistoryMessage: function() {
     console.log(912)
     const selfPage = this;
     //历史记录传小城程序id开始
@@ -707,14 +758,14 @@ Page({
     var userInfo = wx.getStorageSync('userInfo') || {};
     console.log(123)
     wx.login({
-      success: function (res) {
+      success: function(res) {
         if (res.code) {
           wx.getUserInfo({
-            success: function (res) {
+            success: function(res) {
               var objz = {};
               objz.avatarUrl = res.userInfo.avatarUrl;
               objz.nickName = res.userInfo.nickName;
-              wx.setStorageSync('userInfo', objz);//存储userInfo
+              wx.setStorageSync('userInfo', objz); //存储userInfo
             }
           });
           const appkey = 'wx00c96ec6fcfd168f'
@@ -724,11 +775,11 @@ Page({
           wx.request({
             url: l,
             data: {
-              code:res.code
+              code: res.code
             },
             method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
             // header: {}, // 设置请求的 header  
-            success: function (res) {
+            success: function(res) {
               var obj = {};
               obj.openid = res.data.openid;
               obj.expires_in = Date.now() + res.data.expires_in;
@@ -738,7 +789,7 @@ Page({
                 openId: obj.openid
               })
               console.log("打印openid结束")
-              wx.setStorageSync('user', obj);//存储openid  
+              wx.setStorageSync('user', obj); //存储openid  
               //按钮的history开始
               wx.request({
                 url: 'https://jqr.infobigdata.com/skillapplet/f52024d75d4348f38cdad3670d209c1e/wxskill',
@@ -747,9 +798,9 @@ Page({
                   openid: selfPage.data.openId
                 },
                 header: {
-                  'content-type': 'application/json'//默认值
+                  'content-type': 'application/json' //默认值
                 },
-                success: function (res) {
+                success: function(res) {
                   console.log(914)
                   console.log(res)
                   var result = JSON.parse(res.data.data);
@@ -805,8 +856,8 @@ Page({
         }
       }
     });
-//获取小程序id结束
-//历史记录穿小程序id结束
+    //获取小程序id结束
+    //历史记录穿小程序id结束
     // 滚动到底部
     let query = wx.createSelectorQuery().in(this)
     query.select('.container_innerHeight').boundingClientRect((res) => {
@@ -816,8 +867,74 @@ Page({
     }).exec()
   },
   // 以下是调用新接口实现的录音，录出来的是 mp3
-  touchdown: function () {
-    // UTIL.log("mp3Recorder.start with" + mp3RecoderOptions)
+  touchdown: function() {
+    // 判断是否开启录音功能开始
+    // 可以通过 wx.getSetting 先查询一下用户是否授权了 "scope.record" 这个 scope
+    // wx.startRecord()
+    wx.getSetting({
+      success(res) {
+        if(!res.authSetting['scope.record']) {
+          wx.authorize({
+            scope:'scope.record',
+            success() {
+              // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
+              mp3Recorder.start(mp3RecoderOptions)
+            },
+            fail() {
+              // wx.startRecord()
+              //第二次授权开始
+              console.log("第一次录音授权失败");
+              wx.showModal({
+                title: '提示',
+                content: '您未授权录音，功能将无法使用',
+                showCancel: true,
+                confirmText: "授权",
+                confirmColor: "#52a2d8",
+                success: function (res) {
+                  if (res.confirm) {
+                    //确认则打开设置页面（重点）
+                    wx.openSetting({
+                      success: (res) => {
+                        console.log(res.authSetting);
+                        if (!res.authSetting['scope.record']) {
+                          //未设置录音授权
+                          console.log("未设置录音授权");
+                          wx.showModal({
+                            title: '提示',
+                            content: '您未授权录音，功能将无法使用',
+                            showCancel: false,
+                            success: function (res) {
+
+                            },
+                          })
+                        } else {
+                          //第二次才成功授权
+                          console.log("设置录音授权成功");
+                          // that.setData({
+                          //   status: 2,
+                          // })
+                          mp3Recorder.start(mp3RecoderOptions)
+                        }
+                      },
+                      fail: function () {
+                        console.log("授权设置录音失败");
+                      }
+                    })
+                  } else if (res.cancel) {
+                    console.log("cancel");
+                  }
+                },
+                fail: function () {
+                  console.log("openfail");
+                }
+              })
+              // 第二次授权结束
+            }
+          })
+        }
+      }
+    })
+    // 判断是否开启录音功能结束
     console.log("mp3Recorder.start with" + mp3RecoderOptions)
     var _this = this;
     // speaking(_this);
@@ -829,7 +946,7 @@ Page({
     }
     mp3Recorder.start(mp3RecoderOptions);
   },
-  touchup: function () {
+  touchup: function() {
     // UTIL.log("mp3Recorder.stop")
     console.log("mp3Recorder.stop")
     this.setData({
@@ -838,7 +955,7 @@ Page({
     mp3Recorder.stop();
   },
   //文字、语音切换
-  Singleclick: function () {
+  Singleclick: function() {
     if (this.data.isChecked_btn) {
       this.setData({
         isChecked_btn: false
@@ -868,7 +985,7 @@ function processFileUploadForAsr(filePath, _this) {
     formData: {
       'user': 'test'
     },
-    success: function (res) {
+    success: function(res) {
       var resData = res.data;
       if (resData == '') {
         // wx.showToast({
@@ -888,16 +1005,16 @@ function processFileUploadForAsr(filePath, _this) {
         console.log(jsonData.dataInfo)
         // 把人语音的内容放进页面-start
         var inputContent = jsonData.dataInfo;
-          var obj = {
-            typeId: 0,
-            message: inputContent
-          };
-          var dataarray = _this.data.array;
-          dataarray.push(obj);
-          _this.setData({
-            array: dataarray,
-            inputValue: ""
-          });
+        var obj = {
+          typeId: 0,
+          message: inputContent
+        };
+        var dataarray = _this.data.array;
+        dataarray.push(obj);
+        _this.setData({
+          array: dataarray,
+          inputValue: ""
+        });
         // 把人语音的内容放进页面 - end
         // 滚动到底部
         let query = wx.createSelectorQuery().in(_this)
@@ -906,21 +1023,21 @@ function processFileUploadForAsr(filePath, _this) {
             scrollTop: res.height
           });
         }).exec()
-          // 语音录入机器人回答开始
+        // 语音录入机器人回答开始
         // 点击发送
         // 获取小程序id开始(语音发送事件板块)
         var user = wx.getStorageSync('user') || {};
         var userInfo = wx.getStorageSync('userInfo') || {};
         console.log(123)
         wx.login({
-          success: function (res) {
+          success: function(res) {
             if (res.code) {
               wx.getUserInfo({
-                success: function (res) {
+                success: function(res) {
                   var objz = {};
                   objz.avatarUrl = res.userInfo.avatarUrl;
                   objz.nickName = res.userInfo.nickName;
-                  wx.setStorageSync('userInfo', objz);//存储userInfo
+                  wx.setStorageSync('userInfo', objz); //存储userInfo
                 }
               });
               const appkey = 'wx00c96ec6fcfd168f'
@@ -930,11 +1047,11 @@ function processFileUploadForAsr(filePath, _this) {
               wx.request({
                 url: l,
                 data: {
-                  code:res.code
+                  code: res.code
                 },
                 method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
                 // header: {}, // 设置请求的 header  
-                success: function (res) {
+                success: function(res) {
                   var obj = {};
                   obj.openid = res.data.openid;
                   obj.expires_in = Date.now() + res.data.expires_in;
@@ -944,7 +1061,7 @@ function processFileUploadForAsr(filePath, _this) {
                     openId: obj.openid
                   })
                   console.log("打印openid结束")
-                  wx.setStorageSync('user', obj);//存储openid  
+                  wx.setStorageSync('user', obj); //存储openid  
                   //点击发送事件开始
                   console.log("语音发送前监测录入内容是否为空开始")
                   //如果语音为空时小A就会不理你呦开始
@@ -956,9 +1073,9 @@ function processFileUploadForAsr(filePath, _this) {
                         openid: _this.data.openId
                       },
                       header: {
-                        'content-type': 'application/json;charset=utf-8'//默认值
+                        'content-type': 'application/json;charset=utf-8' //默认值
                       },
-                      success: function (res) {
+                      success: function(res) {
                         console.log('语音录入发送开始')
                         console.log(res);
                         console.log(res.data);
@@ -986,12 +1103,12 @@ function processFileUploadForAsr(filePath, _this) {
                         }).exec()
                       }
                     })
-                  //点击发送事件结束
+                    //点击发送事件结束
                   }
                   //如果语音为空时小A就会不理你呦结束
                   // console.log(encodeURI(inputContent))
                   // console.log(inputContent)
-                  console.log("语音发送前监测录入内容是否为空结束") 
+                  console.log("语音发送前监测录入内容是否为空结束")
                 }
               });
             } else {
@@ -999,7 +1116,7 @@ function processFileUploadForAsr(filePath, _this) {
             }
           }
         });
-   //获取小程序id结束(语音发送事件板块)
+        //获取小程序id结束(语音发送事件板块)
         // 跳转到分析结果页面
         if (jsonData.dataInfo != '') {
           // search(jsonData.dataInfo, 0)
@@ -1020,11 +1137,13 @@ function processFileUploadForAsr(filePath, _this) {
     }
   })
 }
+
 function getNliFromResult(res_data) {
   var res_data_json = JSON.parse(res_data);
   var res_data_result_json = JSON.parse(res_data_json.result);
   return res_data_result_json.nli;
 }
+
 function getSttFromResult(res_data) {
   var res_data_json = JSON.parse(res_data);
   var res_data_result_json = JSON.parse(res_data_json.result);
@@ -1078,53 +1197,53 @@ function getSttFromResult(res_data) {
 //   })
 // }
 function speckText(url) {
-    if (ner != null) {
-      ner.stop();
-    }
-      const innerAudioContext = wx.createInnerAudioContext()
-        ner = innerAudioContext
-        innerAudioContext.autoplay = true
-        // innerAudioContext.src = url
-    innerAudioContext.src = url
-        innerAudioContext.onPlay(() => {
-          console.log(url)
-          console.log('开始播放')
-        })
-        innerAudioContext.onError((res) => {
+  if (ner != null) {
+    ner.stop();
+  }
+  const innerAudioContext = wx.createInnerAudioContext()
+  ner = innerAudioContext
+  innerAudioContext.autoplay = true
+  // innerAudioContext.src = url
+  innerAudioContext.src = url
+  innerAudioContext.onPlay(() => {
+    console.log(url)
+    console.log('开始播放')
+  })
+  innerAudioContext.onError((res) => {
 
-          console.log(res.errMsg)
-          console.log(res.errCode)
-        })
-        innerAudioContext.onStop((res) => {
-          console.log("播放停止了")
-          if (voice != null) {
-            voice = null;
-          };
-        })
-        innerAudioContext.onEnded((res) => {
-          console.log("自然播放完毕")
-          if (voice != null) {
-            innerAudioContext.src = voice;
-            voice = null;
-          };
-              // 语音读完后删除语音开始
-          wx.request({
-            url: 'https://jqr.infobigdata.com/skillapplet/f52024d75d4348f38cdad3670d209c1e/wxgcvoice',
-            data: {
-              voiceurl: url
-            },
-            header: {
-              'content-type': 'application/json;charset=utf-8'
-            },
-            success: function (res) {
-              console.log("delete over")
-            }
-          })
-          // 语音读完后删除语音结束
-        })
-    // 设置与播放结束
-    // 滚动到底部
-   //获取小程序id结束(发送语音获取语音地址板块)
+    console.log(res.errMsg)
+    console.log(res.errCode)
+  })
+  innerAudioContext.onStop((res) => {
+    console.log("播放停止了")
+    if (voice != null) {
+      voice = null;
+    };
+  })
+  innerAudioContext.onEnded((res) => {
+    console.log("自然播放完毕")
+    if (voice != null) {
+      innerAudioContext.src = voice;
+      voice = null;
+    };
+    // 语音读完后删除语音开始
+    wx.request({
+      url: 'https://jqr.infobigdata.com/skillapplet/f52024d75d4348f38cdad3670d209c1e/wxgcvoice',
+      data: {
+        voiceurl: url
+      },
+      header: {
+        'content-type': 'application/json;charset=utf-8'
+      },
+      success: function(res) {
+        console.log("delete over")
+      }
+    })
+    // 语音读完后删除语音结束
+  })
+  // 设置与播放结束
+  // 滚动到底部
+  //获取小程序id结束(发送语音获取语音地址板块)
 }
 // 发送事件封装
 function sendmessage_pub(_this) {
@@ -1148,28 +1267,29 @@ function sendmessage_pub(_this) {
   var userInfo = wx.getStorageSync('userInfo') || {};
   console.log(123)
   wx.login({
-    success: function (res) {
+    success: function(res) {
       if (res.code) {
         wx.getUserInfo({
-          success: function (res) {
+          success: function(res) {
             var objz = {};
             objz.avatarUrl = res.userInfo.avatarUrl;
             objz.nickName = res.userInfo.nickName;
-            wx.setStorageSync('userInfo', objz);//存储userInfo
+            wx.setStorageSync('userInfo', objz); //存储userInfo
           }
         });
         const appkey = 'wx00c96ec6fcfd168f'
         const appsecret = '7b6210dad9e1cf9f3ca937c8bc126703'
-        var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
+         var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
+        // var l = 'http://192.168.1.111:8080/appletApi/getUserInfo'
         console.log(res)
         wx.request({
           url: l,
           data: {
-            code:res.code
+            code: res.code
           },
           method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
           // header: {}, // 设置请求的 header  
-          success: function (res) {
+          success: function(res) {
             var obj = {};
             obj.openid = res.data.openid;
             obj.expires_in = Date.now() + res.data.expires_in;
@@ -1179,29 +1299,82 @@ function sendmessage_pub(_this) {
               openId: obj.openid
             })
             console.log("打印openid结束")
-            wx.setStorageSync('user', obj);//存储openid  
+            wx.setStorageSync('user', obj); //存储openid  
             //点击发送事件开始
             wx.request({
               url: 'https://jqr.infobigdata.com/skillapplet/f52024d75d4348f38cdad3670d209c1e/wxskill',
+              //url: 'http://192.168.1.111:8080/skillapplet/f52024d75d4348f38cdad3670d209c1e/wxskill',
               data: {
                 issue: encodeURI(inputContent),
                 openid: selfPage.data.openId
               },
               header: {
-                'content-type': 'application/json'//默认值
+                'content-type': 'application/json' //默认值
               },
-              success: function (res) {
-                console.log("点击发送事件开始")
-                var obj = {
-                  typeId: res.data.showType,
-                  message: res.data.data
-                };
-                var dataarray = selfPage.data.array;
-                dataarray.push(obj);
-                selfPage.setData({
-                  array: dataarray,
-                  textThinkIsShow: false
-                });
+              success: function(res) {
+                console.log("探索小红花搞一搞开始")
+                // 美食列表开始
+                //百度搜索附近美食开始
+                // 新建百度地图对象 
+                // if (res.data.showType == 5) {
+                  var BMap = new bmap.BMapWX({
+                    ak: 'zG0qcmqsXdaWPhYxg5KHD67Q3m1ArhGV'
+                  });
+                  var fail = function(data) {
+                    console.log(data)
+                  };
+                  var success = function(data) {
+                    wxMarkerData = data.wxMarkerData;
+                    console.log("探索data开始")
+                    console.log(data)
+                    console.log(data.originalData.results)
+                    console.log("探索data结束")
+                    // pageSelf.setData({
+                    //   arr: data.originalData.array.results,
+                    //   markers: wxMarkerData,
+                    //   latitude: wxMarkerData[0].latitude,
+                    //   longitude: wxMarkerData[0].longitude
+                    // });
+                    var obj = {
+                      typeId: res.data.showType,
+                      skillType: res.data.skillType,
+                      message: res.data.data,
+                      pages: data.originalData.results
+                    };
+                    var dataarray = selfPage.data.array;
+                    dataarray.push(obj);
+                    selfPage.setData({
+                      array: dataarray,
+                      textThinkIsShow: false
+                    });
+                  }
+                  // 发起POI检索请求 
+                  BMap.search({
+                    "query": '美食',
+                    fail: fail,
+                    success: success,
+                    iconPath: '../../pics/marker_red.png',
+                    iconTapPath: '../../pics/marker_red.png'
+                  });
+                console.log("探索小红花搞一搞结束")
+                  // 美食列表结束
+
+                // else {
+                //   console.log("点击发送事件开始")
+                //   console.log(res)
+                //   var obj = {
+                //     typeId: res.data.showType,
+                //     skillType: res.data.skillType,
+                //     message: res.data.data
+                //   };
+                //   var dataarray = selfPage.data.array;
+                //   dataarray.push(obj);
+                //   selfPage.setData({
+                //     array: dataarray,
+                //     textThinkIsShow: false
+                //   });
+                // }
+   
                 // 滚动到底部
                 let query = wx.createSelectorQuery().in(selfPage)
                 query.select('.container_innerHeight').boundingClientRect((res) => {
@@ -1219,7 +1392,7 @@ function sendmessage_pub(_this) {
       }
     }
   });
-   //获取小程序id结束(发送事件板块)
+  //获取小程序id结束(发送事件板块)
   // 滚动到底部
   let query = wx.createSelectorQuery().in(_this)
   query.select('.container_innerHeight').boundingClientRect((res) => {
@@ -1230,52 +1403,52 @@ function sendmessage_pub(_this) {
 }
 //获取用户id
 function getId() {
-    /**
-        * 获取用户信息
-        */
-    // 获取小程序id开始
-    var user = wx.getStorageSync('user') || {};
-    var userInfo = wx.getStorageSync('userInfo') || {};
-    console.log(123)
-    wx.login({
-      success: function (res) {
-        if (res.code) {
-          wx.getUserInfo({
-            success: function (res) {
-              var objz = {};
-              objz.avatarUrl = res.userInfo.avatarUrl;
-              objz.nickName = res.userInfo.nickName;
-              wx.setStorageSync('userInfo', objz);//存储userInfo
-            }
-          });
-          const appkey = 'wx00c96ec6fcfd168f'
-          const appsecret = '7b6210dad9e1cf9f3ca937c8bc126703'
-          var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-          console.log(res)
-          wx.request({
-            url: l,
-            data: {
-              code:res.code
-            },
-            method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
-            // header: {}, // 设置请求的 header  
-            success: function (res) {
-              var obj = {};
-              obj.openid = res.data.openid;
-              obj.expires_in = Date.now() + res.data.expires_in;
-              console.log("打印openid开始")
-              console.log(obj.openid);
-              pageSelf.setData({
-                openId: obj.openid
-              })
-              console.log("打印openid结束")
-              wx.setStorageSync('user', obj);//存储openid  
-            }
-          });
-        } else {
-          console.log('获取用户登录态失败！' + res.errMsg)
-        }
+  /**
+   * 获取用户信息
+   */
+  // 获取小程序id开始
+  var user = wx.getStorageSync('user') || {};
+  var userInfo = wx.getStorageSync('userInfo') || {};
+  console.log(123)
+  wx.login({
+    success: function(res) {
+      if (res.code) {
+        wx.getUserInfo({
+          success: function(res) {
+            var objz = {};
+            objz.avatarUrl = res.userInfo.avatarUrl;
+            objz.nickName = res.userInfo.nickName;
+            wx.setStorageSync('userInfo', objz); //存储userInfo
+          }
+        });
+        const appkey = 'wx00c96ec6fcfd168f'
+        const appsecret = '7b6210dad9e1cf9f3ca937c8bc126703'
+        var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
+        console.log(res)
+        wx.request({
+          url: l,
+          data: {
+            code: res.code
+          },
+          method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
+          // header: {}, // 设置请求的 header  
+          success: function(res) {
+            var obj = {};
+            obj.openid = res.data.openid;
+            obj.expires_in = Date.now() + res.data.expires_in;
+            console.log("打印openid开始")
+            console.log(obj.openid);
+            pageSelf.setData({
+              openId: obj.openid
+            })
+            console.log("打印openid结束")
+            wx.setStorageSync('user', obj); //存储openid  
+          }
+        });
+      } else {
+        console.log('获取用户登录态失败！' + res.errMsg)
       }
-    });
-   //获取小程序id结束
+    }
+  });
+  //获取小程序id结束
 }
