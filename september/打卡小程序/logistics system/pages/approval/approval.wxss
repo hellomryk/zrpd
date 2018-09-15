@@ -1,0 +1,84 @@
+/* pages/approval/approval.wxss */
+/*  内外勤管理开始  */
+.instide_job_attendance_img {
+      position: absolute;
+      left:0;
+      top:0;
+      right:0;
+      bottom:0;
+      margin:auto;
+      width:51rpx;
+      height:51rpx;
+}
+.instide_job_attendance {
+    width:100rpx;
+    height:100rpx;
+    position:relative;
+    border-radius:6rpx;
+}
+.instide_job_attendance_examine {
+  width:100%;
+  line-height:31rpx;
+  position: absolute;
+  left:0;
+  bottom:0;
+  font-size:18rpx;
+  color:#fff;
+  text-align: center;
+  background:rgba(0,0,0,0.3);
+}
+.instide_job_leave {
+  font-size:22rpx;
+  color:#141414;
+  line-height:60rpx;
+  width:110rpx;
+  text-align:center;
+  display: block;
+}
+.thin_small{
+  width:39rpx;
+}
+.thin {
+  width:43rpx;
+}
+.red {
+    background:#fb615d;
+}
+.yellow {
+    background:#f89e34;
+}
+.blue {
+    background:#479ef1;
+}
+.green {
+    background:#3bcc7f;
+}
+.instide_job>navigator{
+  margin-right:90rpx;
+  float:left;
+}
+.instide_job>navigator:nth-child(4n){
+  margin-right:0rpx;
+}
+.instide_job>navigator:nth-child(4n+1){
+  margin-left:40rpx;
+}
+.instide_job_top_title {
+  font-size:32rpx;
+  color:#141414;
+  line-height:89rpx;
+  margin-left:40rpx;
+  letter-spacing:1rpx;
+}
+.instide_job_bottom_line {
+  width:670rpx;
+  height:1rpx;
+  margin:0 auto;
+  background:#eeeeee;
+}
+.clearfix::after{
+  content:"";
+  display: block;
+  clear:both;
+}
+ /* 内外勤管理结束 */

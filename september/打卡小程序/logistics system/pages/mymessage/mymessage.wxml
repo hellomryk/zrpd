@@ -1,0 +1,7 @@
+<!--pages/mymessage/mymessage.wxml-->
+<text>pages/mymessage/mymessage.wxml</text>
+<view class='mymessage_top'>
+  <view class='mymessage_top_list'>
+      <view class='mymessage_top_list_sculpture'></view>
+  </view>
+</view>

@@ -583,10 +583,11 @@
     color:#888;
     text-align: center;
     display:block;
+    line-height:90rpx;
 }
-.food_list_ul_div {
+/* .food_list_ul_div {
   padding-bottom:200rpx;
-}
+} */
 .share_img_btn {
   float: right;
   width:100rpx;

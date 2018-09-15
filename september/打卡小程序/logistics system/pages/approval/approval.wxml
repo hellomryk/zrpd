@@ -1,0 +1,103 @@
+<!--pages/approval/approval.wxml-->
+<!-- 内外勤管理开始 -->
+<view class='instide_job_top_title'>内外勤管理</view>
+<view class='instide_job clearfix'>
+    <navigator src="###">
+        <view class='instide_job_attendance red'>
+            <image src='../../images/kaoqindaka.png' class='instide_job_attendance_img'></image>
+            <text class='instide_job_attendance_examine'></text>
+        </view>
+        <text class='instide_job_leave'>考勤打卡</text>
+    </navigator>
+        <navigator src="###">
+        <view class='instide_job_attendance blue'>
+            <image src='../../images/qingjia.png' class='instide_job_attendance_img'></image>
+            <text class='instide_job_attendance_examine'>审批</text>
+        </view>
+        <text class='instide_job_leave'>请假</text>
+    </navigator>
+        <navigator src="###">
+        <view class='instide_job_attendance blue'>
+            <image src='../../images/waichu.png' class='instide_job_attendance_img'></image>
+            <text class='instide_job_attendance_examine'>审批</text>
+        </view>
+        <text class='instide_job_leave'>外出</text>
+    </navigator>
+        <navigator src="###">
+        <view class='instide_job_attendance blue'>
+            <image src='../../images/chuchai.png' class='instide_job_attendance_img'></image>
+            <text class='instide_job_attendance_examine'>审批</text>
+        </view>
+        <text class='instide_job_leave'>出差</text>
+    </navigator>
+        <navigator src="###">
+        <view class='instide_job_attendance yellow'>
+            <image src='../../images/jiaban.png' class='instide_job_attendance_img'></image>
+            <text class='instide_job_attendance_examine'>审批</text>
+        </view>
+        <text class='instide_job_leave'>加班</text>
+    </navigator>
+</view>
+<view class='instide_job_bottom_line'></view>
+<!-- 内外勤管理结束 -->
+<!-- 内外勤管理开始 -->
+<view class='instide_job_top_title'>业务汇报</view>
+<view class='instide_job clearfix'>
+    <navigator src="###">
+        <view class='instide_job_attendance green'>
+            <image src='../../images/ribao.png' class='instide_job_attendance_img thin_small'></image>
+            <text class='instide_job_attendance_examine'>日志</text>
+        </view>
+        <text class='instide_job_leave'>日报</text>
+    </navigator>
+        <navigator src="###">
+        <view class='instide_job_attendance red'>
+            <image src='../../images/zhoubao.png' class='instide_job_attendance_img thin'></image>
+            <text class='instide_job_attendance_examine'>日志</text>
+        </view>
+        <text class='instide_job_leave'>周报</text>
+    </navigator>
+        <navigator src="###">
+        <view class='instide_job_attendance blue'>
+            <image src='../../images/yuebao.png' class='instide_job_attendance_img thin_small'></image>
+            <text class='instide_job_attendance_examine'>日志</text>
+        </view>
+        <text class='instide_job_leave'>月报</text>
+    </navigator>
+        <navigator src="###">
+        <view class='instide_job_attendance yellow'>
+            <image src='../../images/jixiaoziping.png' class='instide_job_attendance_img'></image>
+            <text class='instide_job_attendance_examine'>审批</text>
+        </view>
+        <text class='instide_job_leave'>绩效自评</text>
+    </navigator>
+</view>
+<view class='instide_job_bottom_line'></view>
+<!-- 内外勤管理结束 -->
+<!-- 内外勤管理开始 -->
+<view class='instide_job_top_title'>内外勤管理</view>
+<view class='instide_job clearfix'>
+    <navigator src="###">
+        <view class='instide_job_attendance yellow'>
+            <image src='../../images/baoxiao.png' class='instide_job_attendance_img'></image>
+            <text class='instide_job_attendance_examine'>审批</text>
+        </view>
+        <text class='instide_job_leave'>报销</text>
+    </navigator>
+        <navigator src="###">
+        <view class='instide_job_attendance blue'>
+            <image src='../../images/fukuanshenqing.png' class='instide_job_attendance_img'></image>
+            <text class='instide_job_attendance_examine'>审批</text>
+        </view>
+        <text class='instide_job_leave'>付款申请</text>
+    </navigator>
+        <navigator src="###">
+        <view class='instide_job_attendance yellow'>
+            <image src='../../images/byzjsq.png' class='instide_job_attendance_img'></image>
+            <text class='instide_job_attendance_examine'>审批</text>
+        </view>
+        <text class='instide_job_leave'>备用金申请</text>
+    </navigator>
+</view>
+<view class='instide_job_bottom_line'></view>
+<!-- 内外勤管理结束 -->

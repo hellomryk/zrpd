@@ -1,0 +1,16 @@
+<!--pages/word/Word-list.wxml-->
+<view class="wlist-tit">{{question}}</view>
+<view class="wlist-cont">
+    <view class="wlist-cbox">
+        <view class="wlist-ch2">【症状】</view>
+        <view class="wlist-p">可口服补充钙剂、维生素D或其活性代谢物如碳酸钙维生素D3等，适当户外运动，增加日晒以促进钙质吸收。</view>
+    </view>
+    <view class="wlist-cbox">
+        <view class="wlist-ch2">【症状】</view>
+        <view class="wlist-p">可口服补充钙剂、维生素D或其活性代谢物如碳酸钙维生素D3等，适当户外运动，增加日晒以促进钙质吸收。</view>
+    </view>
+    <view class="wlist-cbox">
+        <view class="wlist-ch2">【症状】</view>
+        <view class="wlist-p">可口服补充钙剂、维生素D或其活性代谢物如碳酸钙维生素D3等，适当户外运动，增加日晒以促进钙质吸收。</view>
+    </view>
+</view>

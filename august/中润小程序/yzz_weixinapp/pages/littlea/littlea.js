@@ -20,13 +20,13 @@ const mp3RecoderOptions = {
   encodeBitRate: 48000,
   format: 'mp3',
 }
-//弹幕定时器
-var timer;
-var ner = null;
+//弹var ner = null;
 var pageSelf = undefined;
 var timestamp = Date.parse(new Date()) / 1000; //当前时间秒数
 var voice = null;
 var wxMarkerData = []; //百度搜索附近美食
+var liflagstr,
+    liflagarr;//美食的给后台的数据
 Page({
   /**
    * 页面的初始数据
@@ -89,6 +89,13 @@ Page({
     deletevoice: '', //语音结束后删除音频文件
     skillType: 0, //美食列表
     arr: [], //美食列表中的信息
+    numberstar: '4', //美食评分
+    liflagstr:"",//美食列表传给后台数据
+    liflagarr: [],//存储附近美食列表
+    pagestwoarr:[],//,美食列表第二句存储的一个列表
+    wordtwostr:'',//第二句上面的回答
+    jing1: 39.91231,
+    wei1: 116.36611,
     array: []
   },
   // onready开始
@@ -250,13 +257,13 @@ Page({
         })
       }
     })
-  // 获取录音功能开始
+    // 获取录音功能开始
     // wx.startRecord({
     //   success:function(res) {
 
     //   }
     // })
-  //获取录音共结束
+    //获取录音共结束
     /**
      * 获取用户信息
      */
@@ -455,6 +462,18 @@ Page({
     //历史记录穿小程序id结束
   },
   // onload方法结束   
+  //点击跳转地图页面开始
+toMapPage() {
+  const pageSelf = this;
+  var jingdu = pageSelf.data.jing1
+  var weidu = pageSelf.data.wei1
+  var pagecan = 1;
+   //这一步是为了把模板语言转化成js语言
+  wx.navigateTo({
+    url:'/pages/mappage/mappage?jingdu='+jingdu+'&weidu='+weidu+'&pagecan='+pagecan
+  })
+},
+  //点击跳转地图页面结束
   // 转发开始
   onShareAppMessage: function(ops) {
     if (ops.from === 'button') {
@@ -551,7 +570,7 @@ Page({
       ytbt_icno_film: true,
       ytbt_icno_weather: true,
       ytbt_icno_chat: true,
-      ytbt_tip: "您可以说:有啥好吃的",
+      ytbt_tip: "您可以说:附近有啥好吃的?",
     })
     console.log(selfPage.data.openId)
   },
@@ -873,9 +892,9 @@ Page({
     // wx.startRecord()
     wx.getSetting({
       success(res) {
-        if(!res.authSetting['scope.record']) {
+        if (!res.authSetting['scope.record']) {
           wx.authorize({
-            scope:'scope.record',
+            scope: 'scope.record',
             success() {
               // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
               mp3Recorder.start(mp3RecoderOptions)
@@ -890,7 +909,7 @@ Page({
                 showCancel: true,
                 confirmText: "授权",
                 confirmColor: "#52a2d8",
-                success: function (res) {
+                success: function(res) {
                   if (res.confirm) {
                     //确认则打开设置页面（重点）
                     wx.openSetting({
@@ -903,7 +922,7 @@ Page({
                             title: '提示',
                             content: '您未授权录音，功能将无法使用',
                             showCancel: false,
-                            success: function (res) {
+                            success: function(res) {
 
                             },
                           })
@@ -916,7 +935,7 @@ Page({
                           mp3Recorder.start(mp3RecoderOptions)
                         }
                       },
-                      fail: function () {
+                      fail: function() {
                         console.log("授权设置录音失败");
                       }
                     })
@@ -924,7 +943,7 @@ Page({
                     console.log("cancel");
                   }
                 },
-                fail: function () {
+                fail: function() {
                   console.log("openfail");
                 }
               })
@@ -1279,7 +1298,7 @@ function sendmessage_pub(_this) {
         });
         const appkey = 'wx00c96ec6fcfd168f'
         const appsecret = '7b6210dad9e1cf9f3ca937c8bc126703'
-         var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
+        var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
         // var l = 'http://192.168.1.111:8080/appletApi/getUserInfo'
         console.log(res)
         wx.request({
@@ -1300,81 +1319,82 @@ function sendmessage_pub(_this) {
             })
             console.log("打印openid结束")
             wx.setStorageSync('user', obj); //存储openid  
+            //获取百度的美食列表信息并处理城字符串开始
+            console.log("探索小红花搞一搞开始2")
+            // 美食列表开始
+            //百度搜索附近美食开始
+            // 新建百度地图对象 
+            // if (res.data.showType == 5) {
+            var BMap = new bmap.BMapWX({
+              ak: 'zG0qcmqsXdaWPhYxg5KHD67Q3m1ArhGV'
+            });
+            var fail = function(data) {
+              console.log(data)
+            };
+            var success = function(data) {
+              wxMarkerData = data.wxMarkerData;
+              console.log("探索data开始2")
+              console.log(data)
+              console.log(data.originalData.results)
+              liflagarr = data.originalData.results
+              liflagstr = JSON.stringify(data.originalData.results)
+              console.log(liflagstr)
+              selfPage.setData({
+                liflagstr: liflagstr,
+                liflagarr: liflagarr
+              })
+              console.log("探索data结束2")
+            }
+            // 发起POI检索请求 
+            BMap.search({
+              "query": '美食',
+              fail: fail,
+              success: success,
+              iconPath: '../../pics/marker_red.png',
+              iconTapPath: '../../pics/marker_red.png'
+            });
+            console.log("探索小红花搞一搞结束2")
+            // 美食列表结束
+            //获取百度美食列表的数据并处理成字符串
             //点击发送事件开始
             wx.request({
               url: 'https://jqr.infobigdata.com/skillapplet/f52024d75d4348f38cdad3670d209c1e/wxskill',
               //url: 'http://192.168.1.111:8080/skillapplet/f52024d75d4348f38cdad3670d209c1e/wxskill',
               data: {
                 issue: encodeURI(inputContent),
-                openid: selfPage.data.openId
+                openid: selfPage.data.openId,
+                foodli:selfPage.data.liflagstr
               },
               header: {
                 'content-type': 'application/json' //默认值
               },
               success: function(res) {
                 console.log("探索小红花搞一搞开始")
-                // 美食列表开始
-                //百度搜索附近美食开始
-                // 新建百度地图对象 
-                // if (res.data.showType == 5) {
-                  var BMap = new bmap.BMapWX({
-                    ak: 'zG0qcmqsXdaWPhYxg5KHD67Q3m1ArhGV'
-                  });
-                  var fail = function(data) {
-                    console.log(data)
-                  };
-                  var success = function(data) {
-                    wxMarkerData = data.wxMarkerData;
-                    console.log("探索data开始")
-                    console.log(data)
-                    console.log(data.originalData.results)
-                    console.log("探索data结束")
-                    // pageSelf.setData({
-                    //   arr: data.originalData.array.results,
-                    //   markers: wxMarkerData,
-                    //   latitude: wxMarkerData[0].latitude,
-                    //   longitude: wxMarkerData[0].longitude
-                    // });
-                    var obj = {
-                      typeId: res.data.showType,
-                      skillType: res.data.skillType,
-                      message: res.data.data,
-                      pages: data.originalData.results
-                    };
-                    var dataarray = selfPage.data.array;
-                    dataarray.push(obj);
-                    selfPage.setData({
-                      array: dataarray,
-                      textThinkIsShow: false
-                    });
-                  }
-                  // 发起POI检索请求 
-                  BMap.search({
-                    "query": '美食',
-                    fail: fail,
-                    success: success,
-                    iconPath: '../../pics/marker_red.png',
-                    iconTapPath: '../../pics/marker_red.png'
-                  });
+                console.log(res)
+                console.log(res.data.source)
+                console.log(JSON.parse(res.data.source))
+                if(res.data.showType == 6) {
+                  selfPage.setData({
+                    pagestwoarr:JSON.parse(res.data.source),
+                    wordtwostr: res.data.data
+                  })
+                }
+                var obj = {
+                  typeId: res.data.showType,
+                  skillType: res.data.skillType,
+                  message: res.data.data,
+                  pages: selfPage.data.liflagarr,
+                  pagestwos: selfPage.data.pagestwoarr,
+                  // wordtwo: selfPage.data.wordtwostr
+                };
+                var dataarray = selfPage.data.array;
+                dataarray.push(obj);
+                selfPage.setData({
+                  array: dataarray,
+                  textThinkIsShow: false
+                });
                 console.log("探索小红花搞一搞结束")
-                  // 美食列表结束
-
-                // else {
-                //   console.log("点击发送事件开始")
-                //   console.log(res)
-                //   var obj = {
-                //     typeId: res.data.showType,
-                //     skillType: res.data.skillType,
-                //     message: res.data.data
-                //   };
-                //   var dataarray = selfPage.data.array;
-                //   dataarray.push(obj);
-                //   selfPage.setData({
-                //     array: dataarray,
-                //     textThinkIsShow: false
-                //   });
-                // }
-   
+                // 美食列表结束
                 // 滚动到底部
                 let query = wx.createSelectorQuery().in(selfPage)
                 query.select('.container_innerHeight').boundingClientRect((res) => {
