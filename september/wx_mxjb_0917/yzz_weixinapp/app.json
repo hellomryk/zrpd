@@ -1,0 +1,30 @@
+{
+  "pages": [
+    "pages/mxjb/mxjb",
+    "pages/asr/asr",
+    "pages/details/Word-details",
+    "pages/test/test",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/word/Word-list",
+    "pages/mappage/mappage",
+    "pages/symptomlist/symptomlist",
+    "pages/desiselist/desiselist",
+    "pages/desiselistson/desiselistson"
+  ],
+  "window": {
+    "backgroundTextStyle": "black",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "navigationBarTitleText": "北京中润普达",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F8F8F8",
+    "disableScroll": true,
+    "enablePullDownRefresh": false
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  }
+}

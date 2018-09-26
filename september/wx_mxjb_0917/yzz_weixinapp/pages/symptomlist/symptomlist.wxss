@@ -1,0 +1,121 @@
+/* pages/symptomlist/symptomlist.wxss */
+.symptomlist_left_zong {
+  width:250rpx;
+}
+.symptomlist_left {
+  font-size:29rpx;
+  line-height: 98rpx;
+  color:#9a9a9a;
+  text-align: center; 
+}
+.symptomlist_left_list {
+  border-bottom:1rpx solid #eaebed;
+  border-right:1rpx solid #eaebed;
+}
+.symptomlist_left_list_title_active {
+    border-right:none;
+    color:#15c86c;
+}
+.symptomlist_left_list_con {
+  display: none;
+}
+.symptomlist_left_list_con_active {
+  display:block;
+}
+.symptomlist_left_zong_out {
+  /* position: relative;
+  width:100%;
+  border:1px purple solid; */
+}
+.symptomlist_left_list_con {
+  position:fixed;
+  left:251rpx;
+  top:0;
+  width:500rpx;
+  /* background: green; */
+}
+.sllc_right_text {
+  width:199rpx;
+  height:74rpx;
+  float:left;
+  box-sizing:border-box;
+  font-size:30rpx;
+  line-height: 74rpx;
+  color:#999;
+  margin-left:40rpx;
+  margin-top:40rpx;
+  border-radius:37rpx;
+}
+.sllc_right_text_active {
+  color:#15c86c;
+  border:1rpx solid #15c86c;
+}
+.clearfix::after{
+  content:'';
+  display:block;
+  clear: both;
+}
+.popup_bottom {
+  width:100%;
+  height:249rpx;
+  position: fixed;
+  bottom:-149rpx;
+  left:0;
+  z-index:100;
+  background:rgba(0,0,0,0.8);
+  transition:all linear 0.5s;
+  overflow-y:scroll; 
+}
+.popup_bottom_list_img {
+  float:left;
+  width:24rpx;
+  height:24rpx;
+  margin-left:25rpx;
+  margin-top:2rpx;
+}
+.popup_bottom_list_title {
+  float:left;
+  font-size:28rpx;
+  line-height: 30rpx;
+  color:#15c86c;
+}
+.popup_bottom_list {
+  float:left;
+  background:#fff;
+  padding:21rpx 30rpx;
+  border-radius:35rpx;
+  margin-left:35rpx;
+  margin-top:25rpx;
+}
+.complete_bottom {
+   width:100%;
+   background:#15c86c;
+   height:100rpx;
+   color:#fff;
+   position:fixed;
+   left:0;
+   bottom:0;
+   text-align: center;
+  font-size:33rpx;
+  line-height: 100rpx;
+  z-index:101;
+}
+.popup_bottom_active {
+  bottom:100rpx;
+  transition:all 0.5s;
+}
+/* .symptomlist_left_zong {
+  overflow: visible;
+}
+.symptomlist_left {
+  overflow: visible;
+}
+.symptomlist_left_list {
+  overflow: visible;
+}
+.symptomlist_left_zong {
+  overflow: visible;
+}
+.symptomlist_left_zong {
+  overflow: visible;
+} */
