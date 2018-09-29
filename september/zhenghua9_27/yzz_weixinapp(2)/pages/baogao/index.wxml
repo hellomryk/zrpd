@@ -1,0 +1,196 @@
+<!--pages/baogao/index.wxml-->
+<view class='container'>
+
+    <view class='box_head'>
+        <view style="text-align:center; font-size:38rpx;font-weight: 600; "> 慢性病健康评估报告</view>
+        <view style="margin-top:30rpx;"> 尊敬的
+            <text>王振华</text>:</view>
+        <view style="text-indent:2em;"> 感谢您使用魔系AI慢性病智能自诊系统，通过本报告，可以帮助您全面及时准确研判慢性病自测的症状和病情，进而通过健康指导、风险干预等方式进行健康管理。由于疾病发生发展进而演变为慢性病有一个渐进的过程，建议您7天为一检测周期。</view>
+        <view style="text-indent:2em;">本报告内容不作为医学诊断依据，仅作为慢性病健康管理参考。</view>
+    </view>
+
+
+    <view class='box_content'>
+
+        <view class='box_list'>
+            <view class='list_head'>基本信息</view>
+            <view class='list_table'>
+                <view class='list_th'>
+                    <view class='list_td'>名称</view>
+                    <view class='list_td'>备注</view>
+                    <view style="clear:both;"></view>
+                </view>
+
+                <view class='list_tr'>
+                    <view class='list_td'>姓名：</view>
+                    <view class='list_td'> 王振华</view>
+                    <view style="clear:both;"></view>
+                </view>
+                <view class='list_tr'>
+                    <view class='list_td'>性别：</view>
+                    <view class='list_td'> 男</view>
+                    <view style="clear:both;"></view>
+                </view>
+                <view class='list_tr'>
+                    <view class='list_td'>年龄：</view>
+                    <view class='list_td'> 27</view>
+                    <view style="clear:both;"></view>
+                </view>
+                <view class='list_tr'>
+                    <view class='list_td'>自选症状：</view>
+                    <view class='list_td'> 咳痰（特征：黏痰，程度：少量咳痰，颜色：白色，频率：间歇性咳痰）</view>
+                    <view style="clear:both;"></view>
+                </view>
+            </view>
+        </view>
+
+
+
+                <view class='box_list'>
+            <view class='list_head'>症状趋势</view>
+            <view class='list_table'>
+                <view class='list_th'>
+                    <view class='list_td'>症状</view>
+                    <view class='list_td'>指数</view>
+                    <view class='list_td'>程度</view>
+                    <view class='list_td'>趋势</view>
+                    <view style="clear:both;"></view>
+                </view>
+                <view class='list_tr'>
+                    <view class='list_td'>咳痰</view>
+                    <view class='list_td'> 9.5</view>
+                    <view class='list_td'>严重</view>
+                    <view class='list_td'> ↑</view>
+                    <view style="clear:both;"></view>
+                </view>
+                 <view class='list_tr'>
+                    <view class='list_td'>咳痰</view>
+                    <view class='list_td'> 9.5</view>
+                    <view class='list_td'>严重</view>
+                    <view class='list_td'> ↑</view>
+                    <view style="clear:both;"></view>
+                </view>
+                 <view class='list_tr'>
+                    <view class='list_td'>咳痰</view>
+                    <view class='list_td'> 9.5</view>
+                    <view class='list_td'>严重</view>
+                    <view class='list_td'> ↑</view>
+                    <view style="clear:both;"></view>
+                </view>
+                 <view class='list_tr'>
+                    <view class='list_td'>咳痰</view>
+                    <view class='list_td'> 9.5</view>
+                    <view class='list_td'>严重</view>
+                    <view class='list_td'> ↑</view>
+                    <view style="clear:both;"></view>
+                </view>
+            </view>
+        </view>
+
+
+
+         <view class='box_list'>
+            <view class='list_head'>并发趋势</view>
+            <view class='list_table'>
+                <view class='list_th'>
+                    <view class='list_td'>症状</view>
+                    <view class='list_td'>指数</view>
+                    <view class='list_td'>程度</view>
+                    <view class='list_td'>趋势</view>
+                    <view style="clear:both;"></view>
+                </view>
+                <view class='list_tr'>
+                    <view class='list_td'>咳痰</view>
+                    <view class='list_td'> 9.5</view>
+                    <view class='list_td'>严重</view>
+                    <view class='list_td'> ↑</view>
+                    <view style="clear:both;"></view>
+                </view>
+            </view>
+        </view>
+
+
+
+        <view class='box_list'>
+            <view class='list_head'>研判结果</view>
+            <view class='list_table'>
+                <view class='list_th'>
+                    <view class='list_td'>名称</view>
+                    <view class='list_td'>百分比</view>
+                    <view class='list_td'>评估</view>
+                    <view class='list_td'>趋势</view>
+                    <view style="clear:both;"></view>
+                </view>
+                <view class='list_tr'>
+                    <view class='list_td'>急性支气管炎</view>
+                    <view class='list_td'> 88.7%</view>
+                    <view class='list_td'>严重+</view>
+                    <view class='list_td'> ↑</view>
+                    <view style="clear:both;"></view>
+                </view>
+            </view>
+        </view>
+
+
+
+              <view class='box_list'>
+            <view class='list_head'>支气管扩张</view>
+            <view class='list_table'>
+                <view class='list_th'>
+                    <view class='list_td'>名称</view>
+                    <view class='list_td'>备注</view>
+                    <view style="clear:both;"></view>
+                </view>
+                <view class='list_tr'>
+                    <view class='list_td'>挂什么科：</view>
+                    <view class='list_td'> 呼吸内科</view>
+                    <view style="clear:both;"></view>
+                </view>
+                   <view class='list_tr'>
+                    <view class='list_td'>需做检查：</view>
+                    <view class='list_td'> 肺功能检查、胸部平片、胸部CT检查、经胸壁针刺肺活检、经支气管镜肺活检</view>
+                    <view style="clear:both;"></view>
+                </view>
+                <view class='list_tr'>
+                    <view class='list_td'>常见药物：</view>
+                    <view class='list_td'> 溴己新、氨溴索、磺胺甲噁唑、甲氧苄啶、克拉霉素</view>
+                    <view style="clear:both;"></view>
+                </view>
+                <view class='list_tr'>
+                    <view class='list_td'>治疗费用：</view>
+                    <view class='list_td'> 根据不同医院，收费标准不一致，市三甲医院约（3000-5000元）</view>
+                    <view style="clear:both;"></view>
+                </view>
+                <view class='list_tr'>
+                    <view class='list_td'>哪些症状：</view>
+                    <view class='list_td'> 慢性咳嗽、大量脓痰、反复咯血</view>
+                    <view style="clear:both;"></view>
+                </view>
+                <view class='list_tr'>
+                    <view class='list_td'>引发疾病：</view>
+                    <view class='list_td'> 肺脓肿、肺炎、肺动脉高压、心脏病、脓胸</view>
+                    <view style="clear:both;"></view>
+                </view>
+                <view class='list_tr'>
+                    <view class='list_td'>治疗方法：</view>
+                    <view class='list_td'> 药物治疗</view>
+                    <view style="clear:both;"></view>
+                </view>
+                <view class='list_tr'>
+                    <view class='list_td'>好发人群：</view>
+                    <view class='list_td'> 儿童和青年</view>
+                    <view style="clear:both;"></view>
+                </view>
+                <view class='list_tr'>
+                    <view class='list_td'>是否传染：</view>
+                    <view class='list_td'> 否</view>
+                    <view style="clear:both;"></view>
+                </view>
+            </view>
+        </view>
+
+
+    </view>
+
+
+</view>

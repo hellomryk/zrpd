@@ -1,0 +1,67 @@
+/* pages/historylist/historylist.wxss */
+.clearfix::after{
+  content:"";
+  display:block;
+  clear: both;
+}
+.history {
+  margin-bottom:50rpx;
+}
+.history_left {
+  width:107rpx;
+  height:107rpx;
+  border-radius: 50% 50%;
+  color:#fff;
+  /* background: green; */
+  float:left;
+	background:-webkit-linear-gradient(left,#fff,#15c86c);
+  margin-left: 28rpx;
+}
+.history_left_day {
+  display:block;
+  text-align: center;
+  font-size: 37rpx;
+  line-height: 65rpx;
+}
+.history_left_month {
+  display:block;
+  text-align: center;
+   font-size: 25rpx;
+}
+.history_right {
+  float:left;
+  width:545rpx;
+  height:210rpx;
+  border-radius: 32rpx;
+  background:#eff1ef;
+  margin-left:40rpx;
+  position: relative;
+}
+.history_right_title {
+  font-size: 28rpx;
+  line-height: 66rpx;
+  color:#333333;
+  margin-top:20rpx;
+  margin-left:32rpx;
+}
+.history_right_content {
+  margin-left:32rpx;
+  margin-right:32rpx;
+  font-size: 27rpx;
+  line-height: 37rpx;
+  color:#999999;
+  display: block;
+  text-indent: 20rpx;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:3;
+  overflow:hidden;
+}
+.history_right_time {
+  position: absolute;
+  font-size: 27rpx;
+  line-height: 37rpx;
+  color:#999999;
+  right:20rpx;
+  bottom:30rpx;
+}

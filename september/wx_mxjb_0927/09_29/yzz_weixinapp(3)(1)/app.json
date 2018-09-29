@@ -1,0 +1,74 @@
+{
+  "pages": [
+    "pages/mxjb/mxjb",
+    "pages/asr/asr",
+    "pages/details/Word-details",
+    "pages/test/test",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/word/Word-list",
+    "pages/mappage/mappage",
+    "pages/symptomlist/symptomlist",
+    "pages/desiselist/desiselist",
+    "pages/desiselistson/desiselistson",
+    "pages/shouye/shouye",
+    "pages/manyslowdesise/manyslowdesise",
+    "pages/manyslowdesiseson/manyslowdesiseson",
+    "pages/historylist/historylist",
+    "pages/znpgresult/znpgresult",
+    "pages/baogao/baogao"
+  ],
+  "window": {
+    "backgroundTextStyle": "black",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "navigationBarTitleText": "北京中润普达",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F8F8F8",
+    "disableScroll": true,
+    "enablePullDownRefresh": false
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#14C86C",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/shouye/shouye",
+        "iconPath": "/pics/home1.png",
+        "selectedIconPath": "/pics/home_1.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/shouye/shouye",
+        "iconPath": "/pics/home2.png",
+        "selectedIconPath": "/pics/home_2.png",
+        "text": "饮食"
+      },
+      {
+        "pagePath": "pages/shouye/shouye",
+        "iconPath": "/pics/home5.png",
+        "selectedIconPath": "/pics/home_5.png",
+        "text": "运动"
+      },
+      {
+        "pagePath": "pages/shouye/shouye",
+        "iconPath": "/pics/home3.png",
+        "selectedIconPath": "/pics/home_3.png",
+        "text": "习惯"
+      },
+      {
+        "pagePath": "pages/shouye/shouye",
+        "iconPath": "/pics/home4.png",
+        "selectedIconPath": "/pics/home_4.png",
+        "text": "我的"
+      }
+    ]
+  }
+}

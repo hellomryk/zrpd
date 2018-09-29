@@ -1,0 +1,159 @@
+<!--pages/mxjb/mxjb.wxml-->
+
+  <!-- 外窗结束 -->
+  <view class="y-talk-box-content clearfix">
+    <view class="y-talk-box-content-left">
+      <!-- o.scrollTop = o.scrollHeight; -->
+      <scroll-view scroll-y="true" scroll-top="{{scrollTop}}" class="y-talk-box-content-left-top" id="y-talk-box-content-left-top" style='height:{{windowHeight-400}}rpx;'>
+        <view class="container_innerHeight">
+          <text class="y-talk-box-content-left-topi {{loadhistoryisshow ? '' :'loadhistoryhide'}}" bindtap="loadhistoryMessage">加载历史消息</text>
+          <!-- 百度搜索开始 -->
+          <!-- 百度搜索结束 -->
+          <!-- 天气信息 开始-->
+          <!-- 天气信息结束-->
+          <!-- 中间对话区域对话遍历开始 -->
+          <view wx:for-items="{{array}}">
+            <!-- <view wx:if="{{true  && false}}">
+                  1222222222222222222
+              </view> -->
+            <!-- 人类说话开始 -->
+            <view class="customer-sen clearfix" wx:if="{{item.typeId ==0}}">
+              <!-- <image src="../../pics/touxiang1.png"></image> -->
+              <image src="{{userInfo.avatarUrl}}"></image>
+              <view>
+                {{item.message}}
+                <image src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAICAMAAADtGH4KAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkFBMEUyMTRCNzM5NDExRThCNzgwQkY1MjVDOTExRjMzIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkFBMEUyMTRDNzM5NDExRThCNzgwQkY1MjVDOTExRjMzIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QUEwRTIxNDk3Mzk0MTFFOEI3ODBCRjUyNUM5MTFGMzMiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QUEwRTIxNEE3Mzk0MTFFOEI3ODBCRjUyNUM5MTFGMzMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7HeH3KAAAAGFBMVEX+/v75+fn29vb9/f36+vr19fX////09PRx3dzOAAAAJklEQVR42mJgZWEDAgZ2diZmMMXOzsgApthZkSmwIFgJRANAgAEAHYsBC0EEtDMAAAAASUVORK5CYII="></image>
+              </view>
+            </view>
+            <!-- 人类说话结束 -->
+            <!-- 机器人说话开始 -->
+            <view class="robot-sen clearfix" wx:if="{{item.typeId == -1}}">
+              <image src="../../pics/zrpdrobot.png"></image>
+              <view>
+                {{item.message}}
+                <image src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAICAMAAADtGH4KAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjE5MjI3QzI1NzM5NjExRTg4NkU2QTgxOTc3QkVFQzZFIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjE5MjI3QzI2NzM5NjExRTg4NkU2QTgxOTc3QkVFQzZFIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MTkyMjdDMjM3Mzk2MTFFODg2RTZBODE5NzdCRUVDNkUiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MTkyMjdDMjQ3Mzk2MTFFODg2RTZBODE5NzdCRUVDNkUiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5MAdJLAAAAG1BMVEXr9v7p9f36/f/x+P7o9P3+///1+v7////n8/2zCbYIAAAAJ0lEQVR42mJgBwI2FgZ2diYGDg4GVmYOIGBg5ECmoIJQJRANAAEGACELAS+QM4J8AAAAAElFTkSuQmCC"></image>
+              </view>
+            </view>
+            <!-- 机器人说话历史记录结束 -->
+            <!-- 跳转地图页面开始 -->
+            
+                        <view class="robot-sen clearfix" wx:if="{{item.typeId == -1}}">
+              <image src="../../pics/zrpdrobot.png"></image>
+              <view>
+                <view bindtap="toMapPage">
+                点我跳转呦 →.→
+                </view>
+                <image src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAICAMAAADtGH4KAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjE5MjI3QzI1NzM5NjExRTg4NkU2QTgxOTc3QkVFQzZFIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjE5MjI3QzI2NzM5NjExRTg4NkU2QTgxOTc3QkVFQzZFIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MTkyMjdDMjM3Mzk2MTFFODg2RTZBODE5NzdCRUVDNkUiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MTkyMjdDMjQ3Mzk2MTFFODg2RTZBODE5NzdCRUVDNkUiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5MAdJLAAAAG1BMVEXr9v7p9f36/f/x+P7o9P3+///1+v7////n8/2zCbYIAAAAJ0lEQVR42mJgBwI2FgZ2diYGDg4GVmYOIGBg5ECmoIJQJRANAAEGACELAS+QM4J8AAAAAElFTkSuQmCC"></image>
+              </view>
+            </view>
+            <!-- 跳转地图页面结束 -->
+            <view class="robot-sen clearfix" wx:if="{{item.typeId == -3}}">
+              <image src="../../pics/zrpdrobot.png"></image>
+              <view>
+                {{item.message}}
+                <image src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAICAMAAADtGH4KAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjE5MjI3QzI1NzM5NjExRTg4NkU2QTgxOTc3QkVFQzZFIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjE5MjI3QzI2NzM5NjExRTg4NkU2QTgxOTc3QkVFQzZFIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MTkyMjdDMjM3Mzk2MTFFODg2RTZBODE5NzdCRUVDNkUiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MTkyMjdDMjQ3Mzk2MTFFODg2RTZBODE5NzdCRUVDNkUiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5MAdJLAAAAG1BMVEXr9v7p9f36/f/x+P7o9P3+///1+v7////n8/2zCbYIAAAAJ0lEQVR42mJgBwI2FgZ2diYGDg4GVmYOIGBg5ECmoIJQJRANAAEGACELAS+QM4J8AAAAAElFTkSuQmCC"></image>
+              </view>
+            </view>
+            <!-- 机器人说话历史记录结束 -->
+            <!-- 机器人发回答美食列表某一具体美食开始 -->
+            <view class="robot-sen clearfix" wx:if="{{item.typeId == 6}}">
+              <image src="../../pics/zrpdrobot.png"></image>
+              <view>
+              {{wordtwostr}}
+                <image
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAICAMAAADtGH4KAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjE5MjI3QzI1NzM5NjExRTg4NkU2QTgxOTc3QkVFQzZFIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjE5MjI3QzI2NzM5NjExRTg4NkU2QTgxOTc3QkVFQzZFIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MTkyMjdDMjM3Mzk2MTFFODg2RTZBODE5NzdCRUVDNkUiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MTkyMjdDMjQ3Mzk2MTFFODg2RTZBODE5NzdCRUVDNkUiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5MAdJLAAAAG1BMVEXr9v7p9f36/f/x+P7o9P3+///1+v7////n8/2zCbYIAAAAJ0lEQVR42mJgBwI2FgZ2diYGDg4GVmYOIGBg5ECmoIJQJRANAAEGACELAS+QM4J8AAAAAElFTkSuQmCC"></image>
+              </view>
+            </view>
+            <!-- 附近吃饭列表内容开始 -->
+            <view class='food_list_ul_div' wx:if="{{item.typeId == 6}}">
+              <view class='food_list_ul'>
+                <!-- <view class='food_list clearfix' wx:for-pages='{{arr}}'> -->
+                <view class='food_list clearfix' wx:for-items="{{item.pagestwos}}" wx:for-item="pagestwo">
+                  <image src='../../pics/babeduck.png' class='food_list_img'></image>
+                  <view class='food_list_right'>
+                    <view class='food_list_right_title'>{{pagestwo.name}}</view>
+                    <view>
+                      <view class="rating {{numberstar <=4 ?(numberstar <=3 ?(numberstar <=2?(numberstar <=1?(numberstar <=1?'rating0':'rating1'):'rating2'):'rating3'):'rating4'):'rating5'}}">
+                        <text>☆</text>
+                        <text>☆</text>
+                        <text>☆</text>
+                        <text>☆</text>
+                        <text>☆</text>
+                      </view>
+                      <!-- <text class='food_list_right_score'>{{numberstar}}</text> -->
+                    </view>
+                    <view style='clear:both;'></view>
+                    <view class='food_list_right_money'>电话:{{pagestwo.telephone}}</view>
+                  </view>
+                </view>
+              </view>
+              <navigator class='food_list_ul_findmore' url="/pages/foodlist/foodlist">发现更多</navigator>
+            </view>
+            <!-- 附近吃饭列表内容结束 -->
+
+          <!--机器人发回答美食列表某一具体美食结束 -->
+          <!-- 机器人美食开始 -->
+          <view class="robot-sen clearfix" wx:if="{{item.typeId == -8}}">
+            <image src="../../pics/zrpdrobot.png"></image>
+            <view>
+              附近有很多好吃的呀!
+              <image src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAICAMAAADtGH4KAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjE5MjI3QzI1NzM5NjExRTg4NkU2QTgxOTc3QkVFQzZFIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjE5MjI3QzI2NzM5NjExRTg4NkU2QTgxOTc3QkVFQzZFIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MTkyMjdDMjM3Mzk2MTFFODg2RTZBODE5NzdCRUVDNkUiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MTkyMjdDMjQ3Mzk2MTFFODg2RTZBODE5NzdCRUVDNkUiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5MAdJLAAAAG1BMVEXr9v7p9f36/f/x+P7o9P3+///1+v7////n8/2zCbYIAAAAJ0lEQVR42mJgBwI2FgZ2diYGDg4GVmYOIGBg5ECmoIJQJRANAAEGACELAS+QM4J8AAAAAElFTkSuQmCC"></image>
+            </view>
+          </view>
+          <!-- 附近吃饭列表内容开始 -->
+          <view class='food_list_ul_div' wx:if="{{item.typeId == 5}}">
+            <view class='food_list_ul'>
+              <!-- <view class='food_list clearfix' wx:for-pages='{{arr}}'> -->
+              <view class='food_list clearfix' wx:for-items="{{item.pages}}" wx:for-item="page">
+                <image src='../../pics/babeduck.png' class='food_list_img'></image>
+                <view class='food_list_right'>
+                  <view class='food_list_right_title'>{{page.name}}</view>
+                  <view>
+                    <view class="rating {{numberstar <=4 ?(numberstar <=3 ?(numberstar <=2?(numberstar <=1?(numberstar <=1?'rating0':'rating1'):'rating2'):'rating3'):'rating4'):'rating5'}}">
+                      <text>☆</text>
+                      <text>☆</text>
+                      <text>☆</text>
+                      <text>☆</text>
+                      <text>☆</text>
+                    </view>
+                    <!-- <text class='food_list_right_score'>{{numberstar}}</text> -->
+                  </view>
+                  <view style='clear:both;'></view>
+                  <view class='food_list_right_money'>电话:{{page.telephone}}</view>
+                </view>
+              </view>
+            </view>
+            <navigator class='food_list_ul_findmore' url="/pages/foodlist/foodlist">发现更多</navigator>
+          </view>
+          <!-- 附近吃饭列表内容结束 -->
+        </view>
+
+        <!-- 机器人美食结束 -->
+        <!-- 中间对话区域对话遍历结束 -->
+    </view>
+    </scroll-view>
+    <!-- 语音说话时动画 -->
+    <view wx:if="{{isSpeaking}}" class="speak-style">
+      <image class="sound-style" src="../../pics/voice_icon_speech_sound.gif"></image>
+    </view>
+    <!-- 语音输入 -->
+
+    <!-- 文字输入 -->
+  </view>
+</view>
+<!-- 显示登陆框 -->
+<!-- <view style="width:100%;height:10000rpx;background:rgba(0,0,0,0.4);position: absolute;left: 0;top: 0; z-index:9999;" class="{{siginup ? '':'siginup_active'}}">
+  <view style="width:80%;height:350rpx;background:#fff;border-radius: 4px;margin:40% auto;">
+    <view style="width:100%;text-align: center;padding-top:40rpx;font-size:35rpx;">提示 </view>
+    <view style="width:100%;text-align: center;padding-top:50rpx;font-size:30rpx;color:#999;">为了您更好的体验,请先同意授权</view>
+    <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo" style='width:35%;height:80rpx;text-align: center;margin-top:60rpx;font-size:35rpx;' bindtap="siginuptab">登陆</button>
+  </view>
+</view> -->
+<view class='slide_select'>
+  <picker-view indicator-style="height: 30px;" style="width: 100%; height: 150px;" value="{{value}}"  bindchange="bindChange">
+    <picker-view-column>
+      <view wx:for="{{years}}" style="line-height: 30px;font-size:20rpx;text-align:center;">{{item}}年</view>
+    </picker-view-column>
+  </picker-view>
+  <view class='slide_select_confim'>确认</view>
+</view>

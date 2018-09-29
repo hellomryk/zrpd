@@ -1,0 +1,146 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.3.0",
+	"appid": "wx84cae8ce6e9453d4",
+	"projectname": "%E5%A4%A7%E5%81%A5%E5%BA%B70929",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 17,
+			"list": [
+				{
+					"id": 0,
+					"name": "小A同学",
+					"pathName": "pages/littlea/littlea",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": -1,
+					"name": "index",
+					"pathName": "pages/index/index",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "logs",
+					"pathName": "pages/logs/logs",
+					"query": ""
+				},
+				{
+					"id": 2,
+					"name": "asr",
+					"pathName": "pages/asr/asr",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "text",
+					"pathName": "pages/test/test",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "details",
+					"pathName": "pages/details/Word-details",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "word",
+					"pathName": "pages/word/Word-list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "foodlist",
+					"pathName": "pages/foodlist/foodlist",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "慢性疾病",
+					"pathName": "pages/mxjb/mxjb",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "用药方案",
+					"pathName": "pages/fangan/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "疾病预测排行",
+					"pathName": "pages/yuce/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "药方",
+					"pathName": "pages/yaofang/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "主症",
+					"pathName": "pages/zhuzheng/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "首页",
+					"pathName": "pages/box/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "症别百分比",
+					"pathName": "pages/xinzheng/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "症别百分比1",
+					"pathName": "pages/xinzheng1/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "健康评估报告",
+					"pathName": "pages/baogao/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "维度",
+					"pathName": "pages/weidu/index"
+				}
+			]
+		}
+	}
+}

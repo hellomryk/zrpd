@@ -1,0 +1,25 @@
+/* pages/manyslowdesise/manyslowdesise.wxss */
+@import '/pages/index/index.wxss';
+.food_list_right_money {
+  max-width:400rpx;
+  display: -webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+.food_list_right_title {
+  padding-top:10rpx;
+  color:#000;
+  font-size:26rpx;
+}
+.food_list {
+  padding-bottom: 20rpx;
+  border-bottom:2rpx #888 dashed;
+}
+page {
+  overflow-y: visible!important;
+}
+.center {
+  text-align: center;
+  line-height: 60rpx;
+}

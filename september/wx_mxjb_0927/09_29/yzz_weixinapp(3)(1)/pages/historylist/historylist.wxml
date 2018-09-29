@@ -1,0 +1,12 @@
+<!--pages/historylist/historylist.wxml-->
+<!-- <text>pages/historylist/historylist.wxml</text> -->
+<view class='history clearfix' wx:for-items= "{{array}}">
+    <view class='history_left'>
+        <text class='history_left_day'>{{item.day}}</text>
+        <text class='history_left_month'>{{item.month}}月</text>
+    </view>
+    <view class="history_right">
+        <view class="history_right_title">{{item.basicinfo}}</view>
+        <text class="history_right_content">{{item.qsymptoms}}</text>
+    </view>
+</view>

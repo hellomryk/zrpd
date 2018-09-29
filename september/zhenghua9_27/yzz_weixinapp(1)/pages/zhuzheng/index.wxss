@@ -1,0 +1,51 @@
+/* pages/zhuzheng/index.wxss */
+page {
+overflow-y:visible!important;
+}
+.zhuzheng_head{
+    width: 100%;
+    padding: 40rpx;
+    box-sizing: border-box;
+    text-align: left;
+    /* font-weight: 600; */
+    font-size: 36rpx;
+     padding-bottom: 0;
+}
+.service_selection{
+    width: 100%;
+    padding: 40rpx;
+    box-sizing: border-box;
+   
+}
+.checkbox {
+    float: left;
+    border:1rpx solid #ccc;
+    border-radius: 8rpx;
+    height:65rpx;
+    padding: 10rpx 20rpx;
+    font-size:30rpx; 
+    box-sizing: border-box;
+}
+    
+.service_selection .back{
+    background: #15C86C;
+    color: #fff;
+    border: 1rpx solid #15C86C;
+}
+.service_selection .item{
+   float: left;
+   margin: 0 20rpx 20rpx 0;
+}
+
+.but{
+    width: 90%;
+    height: 80rpx;
+    line-height: 80rpx;
+    background: #15C86C;
+    margin: 0 auto;
+    color: #fff;
+    margin-top: 10%;
+    margin-bottom: 30rpx;
+}
+
+

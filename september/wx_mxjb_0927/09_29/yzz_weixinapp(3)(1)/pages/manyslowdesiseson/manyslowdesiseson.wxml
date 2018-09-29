@@ -1,0 +1,33 @@
+<!--pages/fangan/index.wxml-->
+<view class='container'>
+
+    <view class='fangan_header'>
+        <image src='/pics/djk_lb.png' class='fangan_lb'></image>
+        <text>为了您更好的康复，需要针对疾病和疾病引发的症状同时用药才能达到更好的疗效哦！ </text>
+        <view class='clear'></view>
+    </view>
+
+    <view class='fangan_cont'>
+        <text class='fangan_cont_head'>{{nametitle}} </text>
+
+        <view class='fangan_cont_continer'>
+            <view class='fangan_cont_continer_h'>
+                <text class='bingyin'>要点</text>
+                <text class='bingyin_text'></text>
+                <text class='bingyin_num'></text>
+                <view class='clear'></view>
+            </view>
+            <view class='fangan_cont_list' >          
+                <view class='fangan_cont_ps'> <text class='ps_ai'>{{nametitle}}</text> {{nametext}}</view>
+            </view>
+        </view>
+
+
+
+
+
+
+
+    </view>
+
+</view>

@@ -1,0 +1,39 @@
+<!--pages/xinzheng/index.wxml-->
+<view class='container'>
+
+<view class='zhuzheng_head'>{{num}}症状:</view>
+
+<checkbox-group bindchange="serviceValChange" class="group">
+        <view class="service_selection ">
+          <block wx:for="{{allGoodsFilte}}">
+            <view class=" item" bindtap="submit">
+ 
+              <label class="checkbox {{item.checked?'back':''}}">
+                <checkbox value="{{item.value}}" checked="{{item.checked}}" hidden="false" />{{item.label}}
+              </label>
+            </view>
+          </block>
+        </view>
+</checkbox-group>
+
+
+
+<view class='yuce_gailv'> 
+<image src='/pics/yuce_jiangxu.png'></image><text>概率疑似疾病</text>
+</view>
+
+<view class='yuce_gailv_head'> 
+<text class='baifenbi'>{{diseasepro}}</text>
+<text class='name_ci'>{{diseasename}}</text>
+</view>
+
+<view class='yuce_gailv_head'>
+<navigator hover-class="none" url=""  class='yuce_gailv_con'>ps:  为了您更好的康复，需要针对疾病症状同时用药才能达到更好的疗效哦！</navigator>
+<!-- <image src='/pics/gaoxueya.jpg'></image> -->
+</view>
+
+<view class="contai">
+<ec-canvas bindtap='name' id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+</view>
+
+</view>

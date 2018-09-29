@@ -1,0 +1,50 @@
+<!--pages/fangan/index.wxml-->
+<view class='container'>
+
+    <view class='fangan_header'>
+        <image src='/pics/djk_lb.png' class='fangan_lb'></image>
+        <text>为了您更好的康复，需要针对疾病和疾病引发的症状同时用药才能达到更好的疗效哦！ </text>
+        <view class='clear'></view>
+    </view>
+
+    <view class='fangan_cont'>
+        <text class='fangan_cont_head'>{{name}} </text>
+
+        <view class='fangan_cont_continer'>
+            <view class='fangan_cont_continer_h'>
+                <text class='bingyin'>病因</text>
+                <text class='bingyin_text'>治疗</text>
+                <text class='bingyin_num'>(共{{bingyin.length}}个)</text>
+                <view class='clear'></view>
+            </view>
+
+            <view class='fangan_cont_list' wx:for="{{bingyin}}">
+                <view class='fangan_cont_name'>{{item.name}}</view>
+                <view class='fangan_cont_ps'>适用病因： {{item.yin}}</view>
+                <view class='fangan_cont_ps'>针对症状： {{item.zheng}}</view>
+            </view>
+        </view>
+
+
+   <view class='fangan_cont_continer'>
+            <view class='fangan_cont_continer_h'>
+                <text class='bingyin' style="background:#4F81B4;">病症</text>
+                <text class='bingyin_text'>治疗</text>
+                <text class='bingyin_num'></text>
+                <view class='clear'></view>
+            </view>
+
+          <view class='fangan_cont_list' wx:for="{{bingzheng}}">
+                <view class='fangan_cont_name'>{{item.name}}</view>
+                <view class='fangan_cont_ps'>适用病因： {{item.yin}}</view>
+                <view class='fangan_cont_ps'>针对症状： {{item.zheng}}</view>
+            </view>
+
+        </view>
+
+
+
+
+    </view>
+
+</view>

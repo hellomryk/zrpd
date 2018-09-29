@@ -1,0 +1,18 @@
+<!--pages/znpgresult/znpgresult.wxml-->
+<view class='result'>
+  <view class='result_title clearfix'>
+      <view bindtap='showbox1' class='showbox1 {{pinggu_box_show?"showbox1_active":""}}'>自测记录</view>
+      <view bindtap='showbox2' class='showbox2 {{pinggu_box_show?"":"showbox2_active"}}'>自诊记录</view>
+  </view>
+  <view class='pinggu_box {{pinggu_box_show?"pinggu_box1_active":""}}'>
+      <view class='pinggu_box_li' wx:for-items = "{{array}}" id="{{item.id}}" bindtap='gobaogao'>
+           <view class='pinggu_box_li_title'>{{item.basicInfo}}</view>
+           <view class='pinggu_box_li_content'>{{item.questioningSymptoms}}</view>
+           <view class='pinggu_box_li_time'>{{item.time}}</view>
+      </view>
+       <image src='../../pics/nohistory.png' wx:if="{{array.length == 0}}" class='nohistory'></image>
+  </view>
+  <view class='pinggu_box {{pinggu_box_show?"":"pinggu_box2_active"}}'>
+    <image src='../../pics/nohistory.png' wx:if="{{zzhen.length == 0}}" class='nohistory'></image>
+  </view>
+</view>

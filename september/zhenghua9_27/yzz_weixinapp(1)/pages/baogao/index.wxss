@@ -1,0 +1,66 @@
+/* pages/baogao/index.wxss */
+page{
+    overflow-y:visible!important;
+       -webkit-overflow-scrolling: touch;
+        overflow-scrolling: touch;
+       margin-bottom: 25rpx;
+}
+.box_head{
+    width:100%;
+    height: 430rpx;
+    background: #14C86C;
+    font-size: 28rpx;
+    color: #fff;
+    padding: 15rpx 30rpx;
+    box-sizing: border-box;
+}
+.box_content{
+    width:100%;
+     padding: 30rpx 30rpx;
+    box-sizing: border-box;
+}
+.box_list{
+    width: 100%;
+    float: left;
+    margin-bottom: 30rpx;
+}
+.box_list .list_head{
+    width: 100%;
+    height: 90rpx;
+     background: #14C86C;
+     border-radius: 10rpx 10rpx 0 0;
+     line-height: 90rpx;
+     font-size:34rpx;
+     font-weight: 600; 
+     color: #fff;
+     text-indent: 15rpx;
+     border:1rpx solid #14C86C;
+
+}
+.list_table{
+        width: 100%;
+        color: #000;
+        border:1rpx solid #14C86C;
+        border-top:none;
+}
+.list_th,.list_tr{
+    width: 100%;
+     border-bottom:1rpx solid #ddd;
+}
+.list_td{
+    min-width: 22%;
+    max-width: 73%;
+    min-height: 60rpx;
+    line-height: 60rpx;
+    float: left;
+        text-align: left;
+        padding-left: 15rpx;
+        font-size: 28rpx;
+        color: #333;
+}
+.list_th .list_td{
+    font-weight: 600; 
+}
+.list_tr .list_td{
+    color: #333;
+}

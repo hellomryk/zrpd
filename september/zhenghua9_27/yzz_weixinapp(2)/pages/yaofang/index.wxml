@@ -1,0 +1,43 @@
+<!--pages/fangan/index.wxml-->
+<view class='container'>
+
+    <view class='fangan_header'>
+        <image src='/pics/djk_lb.png' class='fangan_lb'></image>
+        <text>为了您更好的康复，需要针对疾病和疾病引发的症状同时用药才能达到更好的疗效哦！ </text>
+        <view class='clear'></view>
+    </view>
+
+    <view class='fangan_cont'>
+        <text class='fangan_cont_head'>{{bingyin.name}} </text>
+
+        <view class='fangan_cont_continer'>
+            <view class='fangan_cont_continer_h'>
+                <text class='bingyin'>要点</text>
+                <text class='bingyin_text'></text>
+                <text class='bingyin_num'></text>
+                <view class='clear'></view>
+            </view>
+
+            <view class='fangan_cont_list' >
+                
+                <view class='fangan_cont_ps'> <text class='ps_ai'>挂什么科：</text> {{bingyin.dep}}</view>
+                <!-- <view class='fangan_cont_ps'><text class='ps_ai'>需做检查：</text> {{bingyin.check}}</view>
+                <view class='fangan_cont_ps'><text class='ps_ai'>常见药物：</text> {{bingyin.med}}</view>
+                <view class='fangan_cont_ps'><text class='ps_ai'>治疗费用： </text>{{bingyin.cost}}</view>
+                <view class='fangan_cont_ps'><text class='ps_ai'>哪些症状：</text> {{bingyin.sym}}</view>
+                <view class='fangan_cont_ps'><text class='ps_ai'>引发疾病： </text>{{bingyin.conse}}</view>
+                <view class='fangan_cont_ps'><text class='ps_ai'>治疗方法：</text> {{bingyin.method}}</view>
+                <view class='fangan_cont_ps'><text class='ps_ai'>好发人群： </text>{{bingyin.sus}}</view>
+                <view class='fangan_cont_ps'><text class='ps_ai'>是否传染： </text>{{bingyin.infect}}</view> -->
+            </view>
+        </view>
+
+
+
+
+
+
+
+    </view>
+
+</view>

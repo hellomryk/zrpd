@@ -1,0 +1,28 @@
+/* pages/word/Word-list.wxss */
+.wlist-tit{
+  font-size:28rpx;
+  line-height:48rpx;
+  color:#040404;
+  padding:27rpx 40rpx 105rpx;
+  border-top:1rpx solid #ddd;
+  border-bottom:20px solid #f2f2f2;
+}
+.wlist-cont{
+    padding:40px;
+}
+.wlist-ch2{
+    font-size:22rpx;
+    color:#040404;
+    margin-bottom:28rpx;
+}
+.wlist-p{
+    padding:0 10rpx;
+    font-size:22rpx;
+    line-height:38rpx;
+    color:#5c5c5c;
+}
+.wlist-cbox{
+    margin-bottom:35rpx;
+}
+
+

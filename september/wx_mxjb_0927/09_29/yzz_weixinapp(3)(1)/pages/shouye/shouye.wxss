@@ -1,0 +1,39 @@
+/* pages/box/index.wxss */
+.box_cont{
+    width: 100%;
+    padding: 0 20rpx;
+    box-sizing: border-box;
+}
+.banner,.banner1,.banner2,.banner3,.banner4,.banner5,.banner6{
+  float: left;
+}
+.banner{
+    width: 100%;
+    height: 280rpx;
+    margin: 20rpx 0;
+}
+.banner1{
+    width: 345rpx;
+    height: 380rpx;
+    margin-bottom: 20rpx ;
+}
+.banner2,.banner3{
+    width: 345rpx;
+    height: 180rpx;
+    margin-bottom: 20rpx ;
+    margin-left: 20rpx;
+}
+.banner4,.banner5{
+    width: 345rpx;
+    height: 180rpx;
+    margin-bottom: 20rpx ;
+   
+} 
+.banner5{
+     margin-left: 20rpx;
+}
+.banner6{
+    width: 100%;
+    height: 180rpx;
+   
+}

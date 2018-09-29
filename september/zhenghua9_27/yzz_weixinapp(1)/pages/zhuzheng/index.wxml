@@ -1,0 +1,20 @@
+<!--pages/zhuzheng/index.wxml-->
+<view class='container'>
+<view class='zhuzheng_head'>{{num}}症状:</view>
+
+<checkbox-group bindchange="serviceValChange">
+        <view class="service_selection ">
+          <block wx:for="{{allGoodsFilte}}">
+            <view class=" item">
+ 
+              <label class="checkbox {{item.checked?'back':''}}">
+                <checkbox value="{{item.value}}" checked="{{item.checked}}" hidden="false" />{{item.label}}
+              </label>
+            </view>
+          </block>
+        </view>
+</checkbox-group>
+
+<button  bindtap="submit" class='but'>完成 </button>
+
+</view>

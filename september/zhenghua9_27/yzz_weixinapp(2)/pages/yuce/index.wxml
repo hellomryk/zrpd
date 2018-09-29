@@ -1,0 +1,41 @@
+<!--pages/yuce/index.wxml-->
+<view class='container'>
+<view class='yuce_head'>
+<navigator hover-class="none" url="../fangan/index?id='{{item.id}}'" class='yuce_name'>牙周病  <image src='/pics/yuce_dayu.png'></image></navigator>
+<view>82.5%</view>
+<view>
+<view class='yuce_tuijian'>推荐: 儿科门诊    (1号楼2楼)</view>
+</view>
+
+<view  class='yuce_wiki'>wiki:   牙周病是指发生在牙支持组织（牙周组织）的疾病，包括仅累及牙龈组织的牙龈病...</view>
+</view>
+
+<view class='yuce_gailv'> 
+<image src='/pics/yuce_jiangxu.png'></image><text>其他低概率疑似疾病</text>
+</view>
+
+<view class='yuce_gailv_head'> 
+<text class='baifenbi'>1.5%</text>
+<text class='name_ci'>龈炎</text>
+</view>
+
+<view class='yuce_gailv_head'>
+<navigator hover-class="none" url="../fangan/index?id='{{item.id}}'"  class='yuce_gailv_con'>wiki:   牙周病是指发生在牙支持组织（牙周组织）的疾病...</navigator><image src='/pics/ceyan_dayuhei.png'></image>
+</view>
+
+
+
+<view class='yuce_gailv_head'> 
+<text class='baifenbi'>1.5%</text>
+<text class='name_ci'>龈炎</text>
+</view>
+
+<view class='yuce_gailv_head'>
+<navigator hover-class="none" url="../fangan/index?id='{{item.id}}'"  class='yuce_gailv_con'>wiki:   牙周病是指发生在牙支持组织（牙周组织）的疾病...</navigator><image src='/pics/ceyan_dayuhei.png'></image>
+</view>
+
+<view style="font-size:26rpx;color:#ddd;margin-top:120rpx;">
+ 所有AI技术由中润普达提供
+</view>
+    
+</view>

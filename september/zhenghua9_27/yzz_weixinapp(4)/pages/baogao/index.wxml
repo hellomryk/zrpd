@@ -1,0 +1,39 @@
+<!--pages/baogao/index.wxml-->
+<view class='container'>
+
+    <view class='box_head'>
+        <view style="text-align:center; font-size:38rpx;font-weight: 600; "> 慢性病健康评估报告</view>
+        <view style="margin-top:30rpx;"> 尊敬的
+            <text>{{name_yy}}</text>:</view>
+        <view style="text-indent:2em;"> 感谢您使用魔系AI慢性病智能自诊系统，通过本报告，可以帮助您全面及时准确研判慢性病自测的症状和病情，进而通过健康指导、风险干预等方式进行健康管理。由于疾病发生发展进而演变为慢性病有一个渐进的过程，建议您7天为一检测周期。</view>
+        <view style="text-indent:2em;">本报告内容不作为医学诊断依据，仅作为慢性病健康管理参考。</view>
+    </view>
+    <view class='box_content'>
+
+        <block wx:for-items="{{list}}" wx:key="{{item.id}}">
+            <view class='box_list'>
+                <view class='list_head' id="{{item.id}}" bindtap="kindToggle">{{item.name}}
+                    <image class="kind-list-img" src="/pics/{{item.open ? 'anniu_box1.png' : 'anniu_box.png'}}"></image>
+                </view>
+                <view class="list_table {{item.open ? 'kind-list-item-bd-show' : ''}}">
+                    <view class='list_th'>
+                        <block wx:for-items="{{item.page}}">
+                            <view class='list_td'>{{item.name}}</view>
+                        </block>
+                        <view style="clear:both;"></view>
+                    </view>
+                    <block wx:for-items="{{item.pages}}">
+                        <view class='list_tr'>
+                            <block wx:for-items="{{item.name}}">
+                                <view class='list_td'>{{item}}</view>
+                            </block>
+                            <view style="clear:both;"></view>
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </block>
+    </view>
+
+
+</view>

@@ -1,0 +1,18 @@
+/* pages/foodlist/foodlist.wxss */
+@import "/pages/littlea/littlea.wxss";
+.food_list_right_money {
+  max-width:400rpx;
+}
+.food_list_right_title {
+  padding-top:10rpx;
+}
+.food_list {
+  border-bottom:2rpx solid #888 dashed;
+}
+page {
+  overflow-y: visible!important;
+}
+.center {
+  text-align: center;
+  line-height: 60rpx;
+}

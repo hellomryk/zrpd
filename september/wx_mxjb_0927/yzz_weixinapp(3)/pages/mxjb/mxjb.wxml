@@ -1,0 +1,92 @@
+<!--pages/mxjb/mxjb.wxml-->
+<!-- 外窗结束 -->
+<view class="y-talk-box-content clearfix">
+  <view class="y-talk-box-content-left">
+    <scroll-view scroll-y="true" scroll-top="{{scrollTop}}" class="y-talk-box-content-left-top" id="y-talk-box-content-left-top" style='height:{{windowHeight-windowHeightChange-85}}rpx;'>
+      <view class="container_innerHeight">
+        <!-- 中间对话区域对话遍历开始 -->
+        <view wx:for-items="{{array}}">
+          <!-- 人类说话开始 -->
+          <!-- <view class="customer-sen clearfix" wx:if="{{item.typeId ==0}}">
+            <image src="{{userInfo.avatarUrl}}"></image>
+            <view>
+              {{item.message}}
+            </view>
+          </view> -->
+          <!-- 人类说话结束 -->
+          <!-- mxjb初始1开始 -->
+          <view class="robot-sen clearfix" wx:if="{{item.typeId == -1}}">
+            <image src="../../pics/zrpdrobot.png"></image>
+            <view class='mxjb_robot_public'>
+              {{item.firstprompt}}
+            </view>
+          </view>
+          <view style="clear:both;"></view>
+          <!-- mxjb初始1结束 -->
+          <!-- mxjb初始2开始 -->
+          <view class="robot-sen clearfix" wx:if="{{item.typeId == -1}}">
+            <image src="../../pics/zrpdrobot.png"></image>
+            <view class='mxjb_robot_starttest'>
+              <text class='mxjb_robot_starttest_text'>{{item.welcomeuser}}</text>
+              <view class='starttest startborder' bindtap="starttest">→{{item.starttest}}</view>
+              <view class='starttest'>→{{item.lookhistory}}</view>
+            </view>
+          </view>
+          <view style="clear:both;"></view>
+          <!-- mxjb初始2结束 -->
+          <!-- mxjb初始3开始 -->
+          <view class="robot-sen mxjb_people clearfix" wx:if="{{item.typeId == 0}}">
+            <view class='mxjb_robot_public'>
+              {{item.message}}
+            </view>
+          </view>
+          <view style="clear:both;"></view>
+          <!-- mxjb初始3结束 -->
+          <!-- mxjb初始4开始 -->
+          <view class="robot-sen clearfix" wx:if="{{item.typeId == 1}}">
+            <image src="../../pics/zrpdrobot.png"></image>
+            <view class='mxjb_robot_public'>
+              {{item.robotsay}}
+            </view>
+          </view>
+          <view style="clear:both;"></view>
+          <!-- mxjb初始4结束 -->
+          <!-- mxjb初始5开始 -->
+          <view class="robot-sen clearfix" wx:if="{{item.typeId == 2}}">
+            <image src="../../pics/zrpdrobot.png"></image>
+            <view class='mxjb_robot_starttest'>
+              <text class='mxjb_robot_starttest_text'>{{item.welcomeuserlist}}</text>
+              <view class='starttest startborder starttestlistborder' bindtap="gotozhengzhuang">→{{item.starttestlist}}</view>
+            </view>
+          </view>
+          <view style="clear:both;"></view>
+          <!-- mxjb初始5结束 -->
+        </view>
+        <!-- 中间对话区域对话遍历结束 -->
+      </view>
+    </scroll-view>
+    <!-- 语音输入 -->
+    <!-- 文字输入 -->
+  </view>
+</view>
+<!--显示登陆框 -->
+<view style="width:100%;height:10000rpx;background:rgba(0,0,0,0.4);position: absolute;left: 0;top: 0; z-index:9999;" class="{{siginup ? '':'siginup_active'}}">
+  <view style="width:80%;height:350rpx;background:#fff;border-radius: 4px;margin:40% auto;">
+    <view style="width:100%;text-align: center;padding-top:40rpx;font-size:35rpx;">提示 </view>
+    <view style="width:100%;text-align: center;padding-top:50rpx;font-size:30rpx;color:#999;">为了您更好的体验,请先同意授权</view>
+    <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo" style='width:35%;height:80rpx;text-align: center;margin-top:60rpx;font-size:35rpx;' bindtap="siginuptab">登陆</button>
+  </view>
+</view>
+<view class='slide_select' wx:if="{{inputShow ==0}}">
+  <picker-view indicator-style="height: 30px;" style="width: 100%; height: 150px;" value="{{value}}" bindchange="bindChange">
+    <picker-view-column>
+      <view wx:for="{{years}}" style="line-height: 30px;font-size:20rpx;text-align:center;color:#15c86c;">{{item}}</view>
+    </picker-view-column>
+  </picker-view>
+  <view class='slide_select_confim' bindtap="confirmbtn">确认</view>
+</view>
+<view class='mxjb_text_write' wx:if="{{inputShow == 1}}">
+  <input type='text' placeholder="请输入您的症状,譬如头晕,恶心,发热..." class='mxjb_text_write_input' value="{{inputValue}}" name="shuru" bindinput='catchMessage' bindconfirm="submitMessage" cursor-spacing='20'></input>
+</view>
+<!-- <input value='发送' bindtap="sendmsg" type="button"></input> -->
+<button  bindtap="sendmsg">发送</button>

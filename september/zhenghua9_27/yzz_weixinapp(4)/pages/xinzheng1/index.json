@@ -1,0 +1,9 @@
+{   "navigationBarTitleText": "疾病预测",
+    "navigationBarBackgroundColor": "#15c86c",
+    "navigationBarTextStyle": "#ffffff",
+    "backgroundColor": "#ffffff",
+    "backgroundTextStyle": "light",
+    "usingComponents": {
+        "ec-canvas": "../../ec-canvas/ec-canvas"
+    }
+    }

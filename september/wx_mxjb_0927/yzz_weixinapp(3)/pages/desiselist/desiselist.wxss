@@ -1,0 +1,33 @@
+/* pages/desiselist/desiselist.wxss */
+.desiselistbg {
+  background:#f6f6f6;
+  height:1100rpx;
+  overflow-y: scroll;
+}
+.desiselistbg_list {
+  background: #fff;
+  width:202rpx;
+  height:181rpx;
+  margin-left: 40rpx;
+  margin-top:30rpx;
+  float: left;
+}
+.desiselistbg_list_img {
+  width:60rpx;
+  height:56rpx;
+  display:block;
+  margin:0rpx auto 0;
+  padding-top:36rpx;
+}
+.desiselistbg_list_text {
+  font-size: 26rpx;
+  line-height:86rpx;
+  text-align: center;
+  color:#141414; 
+  display: block;
+}
+.clearfix::after{
+  content:"";
+  display:block;
+  clear:both;
+}

@@ -16,7 +16,6 @@ const days = []
 //   days.push(i)
 // }
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -230,10 +229,6 @@ Page({
                 method: 'GET',
                 success: function (data) {
                   console.log("测试支气管炎开始")
-                  console.log(data)
-                  console.log(data.data.prompt)
-                  // console.log(data.data.prompt.split('['))
-                  // console.log(JSON.parse("{'key':122}"))
                   if (data.data.inputShow == 0) {
                     var arr = data.data.prompt.split('[')
                     var arr2 = arr[1].split("]")
@@ -349,8 +344,6 @@ Page({
                 success: function (data) {
                   console.log(data)
                   console.log(data.data.prompt)
-                  // console.log(data.data.prompt.split('['))
-                  // console.log(JSON.parse("{'key':122}"))
                   if (data.data.inputShow == 0) {
                     var arr = data.data.prompt.split('[')
                     var arr2 = arr[1].split("]")

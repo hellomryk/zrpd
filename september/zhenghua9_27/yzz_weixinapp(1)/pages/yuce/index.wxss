@@ -1,0 +1,77 @@
+/* pages/yuce/index.wxss */
+.yuce_head{
+    width: 100%;
+    background: linear-gradient(90deg,rgb(173, 241, 199), #15c86c);
+    margin-top:40rpx;
+    padding: 30rpx ;
+    box-sizing: border-box;
+    color: #fff;
+}
+.yuce_name{
+    width: 100%;
+   font-size: 50rpx;
+   margin: 5rpx 0 15rpx;
+}
+.yuce_name image{
+    width: 40rpx;
+    height: 40rpx;
+    vertical-align: middle;
+ margin-left: 30%;
+}
+.yuce_tuijian{
+    width: 60%;
+    background: rgba(100,100,100,0.1);
+    border-radius: 100rpx;
+    font-size: 28rpx;
+    padding: 10rpx 20rpx;
+}
+.yuce_wiki{
+    width: 100%;
+    font-size: 28rpx;
+}
+.yuce_gailv{
+    width: 100%;
+   margin:100rpx 0;
+   font-size: 30rpx;
+   padding: 0 30rpx;
+   color: #999;
+    box-sizing: border-box;
+
+}
+.yuce_gailv image{
+    width: 30rpx;
+    height: 30rpx;
+    vertical-align: middle;
+    margin-right: 15rpx;
+}
+.yuce_gailv_head{
+        width: 100%;
+   padding: 0 30rpx;
+    box-sizing: border-box;
+    margin-bottom: 15rpx;
+}
+.baifenbi{
+    padding:5rpx 15rpx;
+border:1px solid rgb(130, 180, 137);
+border-radius:100rpx;
+font-size:24rpx;
+color:#15c86c;
+
+}
+.name_ci{
+    margin-left: 20rpx;
+      font-size: 30rpx;
+      color:#15c86c;
+}
+.yuce_gailv_con{
+        width: 80%;
+    font-size: 30rpx;
+    color:#919AA4;
+    float:left;
+
+}
+.yuce_gailv_head image{
+    width: 40rpx;
+    height: 40rpx;
+     float: right;
+}

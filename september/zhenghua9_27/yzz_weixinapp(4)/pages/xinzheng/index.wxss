@@ -1,0 +1,110 @@
+/* pages/xinzheng/index.wxss */
+page {
+overflow-y:visible!important;
+}
+.container {
+margin-top: -270rpx;
+}
+
+.yuce_gailv{
+    width: 100%;
+   margin:30rpx 0;
+   font-size: 30rpx;
+   padding: 0 30rpx;
+   color: #999;
+    box-sizing: border-box;
+
+}
+.yuce_gailv image{
+    width: 30rpx;
+    height: 30rpx;
+    vertical-align: middle;
+    margin-right: 15rpx;
+}
+.yuce_gailv_head{
+        width: 100%;
+   padding: 0 30rpx;
+    box-sizing: border-box;
+    margin-bottom: 15rpx;
+}
+.baifenbi{
+    padding:5rpx 15rpx;
+border:1px solid rgb(130, 180, 137);
+border-radius:100rpx;
+font-size:24rpx;
+color:#15c86c;
+
+}
+.name_ci{
+    margin-left: 20rpx;
+      font-size: 30rpx;
+      color:#15c86c;
+}
+.yuce_gailv_con{
+        width: 80%;
+    font-size: 30rpx;
+    color:#919AA4;
+    float:left;
+
+}
+.yuce_gailv_head image{
+    width: 40rpx;
+    height: 40rpx;
+     float: right;
+}
+
+
+
+
+
+.zhuzheng_head{
+    width: 100%;
+    padding: 40rpx;
+    box-sizing: border-box;
+    text-align: left;
+    /* font-weight: 600; */
+    font-size: 30rpx;
+     padding-bottom: 0;
+       color: #919AA4;
+       border-top:1px solid #ddd;
+
+}
+.service_selection{
+    width: 100%;
+    padding: 40rpx;
+    box-sizing: border-box;
+   
+}
+.checkbox {
+    float: left;
+    border:1rpx solid #ccc;
+    border-radius: 8rpx;
+    height:65rpx;
+    padding: 10rpx 20rpx;
+    font-size:30rpx; 
+    box-sizing: border-box;
+    color: #919AA4;
+}
+    
+.service_selection .back{
+    background: #15C86C;
+    color: #fff;
+    border: 1rpx solid #15C86C;
+}
+.service_selection .item{
+   float: left;
+   margin: 0 20rpx 20rpx 0;
+}
+
+.but{
+    width: 90%;
+    height: 80rpx;
+    line-height: 80rpx;
+    background: #15C86C;
+    margin: 0 auto;
+    color: #fff;
+    margin-top: 10%;
+    margin-bottom: 30rpx;
+}
+
+

@@ -1,0 +1,88 @@
+/* pages/fangan/index.wxss */
+page {
+overflow-y:visible!important;
+}
+.fangan_header {
+    width: 100%;
+    padding: 20rpx 40rpx;
+    box-sizing: border-box;
+    background: #fcf4ea;
+}
+
+.fangan_lb {
+    width: 50rpx;
+    height: 50rpx;
+    float: left;
+    margin-top: 8rpx;
+}
+
+.fangan_header text {
+    width: 600rpx;
+    font-size: 24rpx;
+    color: #e68f3c;
+    float: left;
+    margin-left: 15rpx;
+}
+
+.clear {
+    clear: both;
+}
+
+.fangan_cont {
+    width: 100%;
+    padding: 40rpx 40rpx;
+    box-sizing: border-box;
+    background: #fff;
+}
+
+.fangan_cont_head {
+    width: 100%;
+    font-size: 45rpx;
+    float: left;
+    margin-bottom: 30rpx;
+    color: #777777;
+}
+.fangan_cont_continer_h{
+    width: 100%;
+}
+.bingyin {
+    padding: 10rpx 20rpx;
+    background: #15c86c;
+    border-radius: 10rpx;
+    color: #fff;
+    font-size: 30rpx;
+    float: left;
+}
+.bingyin_text {
+    font-size: 35rpx;
+    margin-left: 15rpx;
+    float: left;
+}
+
+.bingyin_num {
+    color: #ccc;
+    font-size: 26rpx;
+    float: right;
+}
+.fangan_cont_list{
+    width: 100%;
+    padding: 10rpx 15rpx;
+    box-sizing: border-box;
+    margin: 30rpx 0;
+    background: #F5F8FB;
+    
+}
+.fangan_cont_name{
+    font-size: 35rpx;
+    font-weight: 600;
+    color: #516B84;
+}
+.fangan_cont_ps{
+    font-size: 28rpx;
+    margin: 20rpx 0;
+      color: #516B84;
+}
+.ps_ai{
+    font-weight:600;
+    line-height: 60rpx;
+}
