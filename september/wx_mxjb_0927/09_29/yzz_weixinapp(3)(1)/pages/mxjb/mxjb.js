@@ -98,7 +98,7 @@ Page({
                 username: res.userInfo.nickName
               })
               wx.request({
-                url: 'http://192.168.1.111:8080/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorinit',
+                url: 'https://chronic.infobigdata.com/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorinit',
                 header: {
                   'content-type': "application/json"
                 },
@@ -142,7 +142,7 @@ Page({
       }
     })
 
-    // http://192.168.1.111:8080/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorinit
+    // https://chronic.infobigdata.com/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorinit
 
    
   },
@@ -202,7 +202,7 @@ starttest() {
           }
         });
         // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-        var l = 'http://192.168.1.111:8080/appletApi/getUserInfo'
+        var l = 'https://chronic.infobigdata.com/appletApi/getUserInfo'
         // console.log(res)
         wx.request({
           url: l,
@@ -225,7 +225,7 @@ starttest() {
             wx.setStorageSync('user', obj); //存储openid 
             //发送输入信息开始
             wx.request({
-              url: 'http://192.168.1.111:8080/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorqs',
+              url: 'https://chronic.infobigdata.com/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorqs',
               data: {
                 openid: obj.openid,
                 issue: encodeURI(selfPage.data.year)
@@ -258,7 +258,8 @@ starttest() {
                     array: dataarray
                   })
                   console.log(arr2[0].split(','))
-                } else {
+                } 
+                else if (data.data.inputShow == 1){
                   var obj2 = {
                     typeId: 0,
                     message: selfPage.data.year
@@ -277,6 +278,37 @@ starttest() {
                     array: dataarray
                   })
                   // console.log(JSON.parse(data.data.prompt))
+                } else {
+                  if (data.data.showtype == 3) {
+                    console.log("保存")
+                    console.log(JSON.parse(data.data).diseaseName)
+                    var obj3 = {
+                      typeId: 3,
+                      welcomeuserlist: JSON.parse(data.data).diseaseName,
+                      starttestlist: JSON.parse(data.data).diseaseProbability
+                    }
+                    var dataarray = selfPage.data.array;
+                    dataarray.push(obj3)
+                    selfPage.setData({
+                      windowHeightChange: 200,
+                      inputShow: data.data.inputShow,
+                      array: dataarray
+                    })
+                  } 
+                  if (data.data.showtype == 4) {
+                    var obj3 = {
+                      typeId: 4,
+                      welcomeuserlist: JSON.parse(data.data).diseaseName,
+                      starttestlist: JSON.parse(data.data).diseaseProbability
+                    }
+                    var dataarray = selfPage.data.array;
+                    dataarray.push(obj3)
+                    selfPage.setData({
+                      windowHeightChange: 200,
+                      inputShow: data.data.inputShow,
+                      array: dataarray
+                    })
+                  }
                 }
                 //滚动到底部
                 let query = wx.createSelectorQuery().in(selfPage);
@@ -319,7 +351,7 @@ confirmbtn () {
           }
         });
         // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-        var l = 'http://192.168.1.111:8080/appletApi/getUserInfo'
+        var l = 'https://chronic.infobigdata.com/appletApi/getUserInfo'
         // console.log(res)
         wx.request({
           url: l,
@@ -342,7 +374,7 @@ confirmbtn () {
             wx.setStorageSync('user', obj); //存储openid 
             //发送输入信息开始
             wx.request({
-              url: 'http://192.168.1.111:8080/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorqs',
+              url: 'https://chronic.infobigdata.com/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorqs',
               data: {
                 openid: obj.openid,
                 issue: encodeURI(selfPage.data.year)
@@ -555,7 +587,7 @@ function sendmessage_pubId(selfPage) {
         const appkey = 'wx84cae8ce6e9453d4'
         const appsecret = '39e817b148c512cde7ead6c4b3cde98a'
         // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-        var l ='http://192.168.1.111:8080/appletApi/getUserInfo'
+        var l ='https://chronic.infobigdata.com/appletApi/getUserInfo'
         // console.log(res)
         wx.request({
           url: l,
@@ -578,7 +610,7 @@ function sendmessage_pubId(selfPage) {
             wx.setStorageSync('user', obj); //存储openid 
             //发送输入信息开始
             wx.request({
-              url: 'http://192.168.1.111:8080/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorqs',
+              url: 'https://chronic.infobigdata.com/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorqs',
               data:{
                 openid: obj.openid,
                 issue: encodeURI(selfPage.data.inputValue)

@@ -19,19 +19,18 @@
     </view>
   </view> -->
   <view class='symptomlist_left_zong_out'>
-      <scroll-view class='symptomlist_left_zong' scroll-y="{{true}}" scroll-top="{{scrollTop}}" style='height:{{windowHeight - windowHeightChange}}rpx'>
+      <view class='symptomlist_left_zong' style='height:{{windowHeight - windowHeightChange}}rpx'>
         <view class='symptomlist_left'>
             <view id='{{item.id}}' class='symptomlist_left_list {{item.open ?"symptomlist_left_list_title_active":""}}' wx:for-items="{{array}}" wx:key="{{item.id}}" bindtap="kindToggle">
                 <text class='symptomlist_left_list_title'>{{item.mainCategory}}</text>
-                <scroll-view scroll-y="true" scroll-top="{{scrollTop}}" style='height:{{windowHeight - windowHeightChange}}rpx;' class='symptomlist_left_list_con {{item.open ?"symptomlist_left_list_con_active":""}}'>
+                <scroll-view scroll-y="true" scroll-top="{{scrollTop}}" style='height:{{windowHeight - windowHeightChange}}rpx;' class='symptomlist_left_list_con {{item.open ?"symptomlist_left_list_con_active":""}}' id='sc_right'>
                     <view class='sllc_right clearfix'>
                         <text id='{{smallClassification.pid}}' wx:for-items="{{item.smallClassification}}" wx:for-item="smallClassification" wx:key="*key" catchtap="kindToggleSon" class="sllc_right_text {{smallClassification.skillopen?'sllc_right_text_active':''}}">{{smallClassification.skillname}}</text>
-                        <!-- <text>并二</text> -->
                     </view>
                 </scroll-view>
             </view>
         </view>
-      </scroll-view>
+      </view>
   </view>
        <!-- 底部弹出框 -->
   <view class='popup_bottom {{ispopup_bottom ? "popup_bottom_active":""}}'>
@@ -40,7 +39,7 @@
           <image src="../../pics/bottom_shutdown.png" class='popup_bottom_list_img'></image>
       </view>
   </view>
-  <view class='complete_bottom'>
+  <view class='complete_bottom' bindtap='wancheng'>
       完成({{ispopup_num}}个症状)
   </view>
 

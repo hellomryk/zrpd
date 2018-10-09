@@ -5,6 +5,7 @@
   <navigator hover-class="none" url="/pages/mxjb/mxjb" ><image src='/pics/box_img1.jpg'  class='banner1'></image></navigator>
   <navigator hover-class="none" url="/pages/desiselist/desiselist" ><image src='/pics/box_img2.jpg'  class='banner2'></image></navigator>
   <navigator hover-class="none" url="/pages/historylist/historylist" ><image src='/pics/box_img3.jpg'  class='banner3'></image></navigator>
+  <view style="clear:both;"></view>
   <navigator hover-class="none" url="/pages/box/index" ><image src='/pics/box_img4.jpg'  class='banner4'></image></navigator>
   <navigator hover-class="none" url="/pages/manyslowdesise/manyslowdesise" ><image src='/pics/box_img5.jpg'  class='banner5'></image></navigator>
   <navigator hover-class="none" url="/pages/znpgresult/znpgresult" ><image src='/pics/box_img6.jpg'  class='banner6'></image></navigator>

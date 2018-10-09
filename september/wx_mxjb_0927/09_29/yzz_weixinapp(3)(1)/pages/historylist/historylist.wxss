@@ -1,4 +1,8 @@
 /* pages/historylist/historylist.wxss */
+page {
+  overflow-y:scroll;
+}
+
 .clearfix::after{
   content:"";
   display:block;

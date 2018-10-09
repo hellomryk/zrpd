@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/shouye/shouye",
     "pages/mxjb/mxjb",
     "pages/asr/asr",
     "pages/details/Word-details",
@@ -11,7 +12,6 @@
     "pages/symptomlist/symptomlist",
     "pages/desiselist/desiselist",
     "pages/desiselistson/desiselistson",
-    "pages/shouye/shouye",
     "pages/manyslowdesise/manyslowdesise",
     "pages/manyslowdesiseson/manyslowdesiseson",
     "pages/historylist/historylist",

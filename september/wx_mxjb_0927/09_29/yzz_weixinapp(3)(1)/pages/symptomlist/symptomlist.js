@@ -1,4 +1,5 @@
 // pages/symptomlist/symptomlist.js
+var _this=null;
 Page({
 
   /**
@@ -45,7 +46,7 @@ Page({
     ispopup_bottom:false,
     ispopup_num:0,
     ispopup_arr:[],
-    windowHeightChange:0,
+    windowHeightChange:100,
     array:[]
   },
   kindToggle: function (e) {
@@ -166,6 +167,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    _this=this;
     const selfPage = this;
     //计算屏幕高度
     wx.getSystemInfo({
@@ -197,7 +199,7 @@ Page({
             }
           });
           // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-          var l = 'http://192.168.1.111:8080/appletApi/getUserInfo'
+          var l = 'https://chronic.infobigdata.com/appletApi/getUserInfo'
           // console.log(res)
           wx.request({
             url: l,
@@ -220,7 +222,7 @@ Page({
               wx.setStorageSync('user', obj); //存储openid 
               //发送输入信息开始
               wx.request({
-                url: 'http://192.168.1.111:8080/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorqs',
+                url: 'https://chronic.infobigdata.com/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorqs',
                 data: {
                   openid: obj.openid,
                   issue: encodeURI("通过症状列表选择")
@@ -232,6 +234,95 @@ Page({
                   selfPage.setData({
                     array: JSON.parse(data.data.data)
                   })
+                  // console.log(data.data.prompt.split('['))
+                  // console.log(JSON.parse("{'key':122}"))
+
+                  //滚动到底部
+
+                }
+              })
+              // 发送输入信息结束
+            }
+          });
+        } else {
+          console.log('获取用户登录态失败！' + res.errMsg)
+        }
+      }
+    });
+  //获取小程序id结束
+  },
+  wancheng() {
+  
+    const selfPage = this;
+    console.log(selfPage.data.ispopup_arr)
+    console.log(JSON.stringify(selfPage.data.ispopup_arr))
+    var arr = []
+    for (var i = 0; i < selfPage.data.ispopup_arr; i ++) {
+      arr.push(selfPage.data.ispopup_arr[i].selectdesize)
+    }
+    console.log(arr)
+
+    // 获取小程序id开始
+    var user = wx.getStorageSync('user') || {};
+    var userInfo = wx.getStorageSync('userInfo') || {};
+    console.log(123)
+    wx.login({
+      success: function (res) {
+        console.log(res)
+        if (res.code) {
+          wx.getUserInfo({
+            success: function (res) {
+              var objz = {};
+              objz.avatarUrl = res.userInfo.avatarUrl;
+              objz.nickName = res.userInfo.nickName;
+              wx.setStorageSync('userInfo', objz); //存储userInfo
+            }
+          });
+          // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
+          var l = 'https://chronic.infobigdata.com/appletApi/getUserInfo'
+          // console.log(res)
+          wx.request({
+            url: l,
+            data: {
+              code: res.code
+            },
+            method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
+            // header: {}, // 设置请求的 header  
+            success: function (res) {
+              var obj = {};
+              console.log(res)
+              obj.openid = res.data.openid;
+              obj.expires_in = Date.now() + res.data.expires_in;
+              console.log("打印openid开始")
+              console.log(obj.openid);
+              selfPage.setData({
+                openId: obj.openid
+              })
+              console.log("打印openid结束")
+              wx.setStorageSync('user', obj); //存储openid 
+              console.log(123344444)
+              console.log(_this.data.ispopup_arr)
+              //zhenghuawrite
+              var w_ar = '';//选中数据发送储存
+              for (var s = 0; s < _this.data.ispopup_arr.length;s++){
+                w_ar+=_this.data.ispopup_arr[s].selectdesize+','
+              }
+             
+              w_ar = w_ar.substring(0, w_ar.length-1);
+               console.log(w_ar)
+              console.log(123344444)
+              //zhenghuawrite
+              //发送输入信息开始
+              wx.request({
+                url: 'https://chronic.infobigdata.com/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorqs',
+                data: {
+                  openid: obj.openid,
+                  issue: encodeURI(w_ar),
+                  clazzstep:"3"
+                },
+                method: 'GET',
+                success: function (data) {
+                 
                   // console.log(data.data.prompt.split('['))
                   // console.log(JSON.parse("{'key':122}"))
 

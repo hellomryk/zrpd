@@ -13,7 +13,7 @@ Page({
    */
   onLoad: function (options) {
     // wx.request({
-    //   url: 'http://192.168.1.111:8080/appletApi/getUserInfo',
+    //   url: 'https://chronic.infobigdata.com/appletApi/getUserInfo',
     //   data:{
 
     //   }
@@ -25,6 +25,7 @@ Page({
     console.log(123)
     wx.login({
       success: function (res) {
+        console.log("开始11111111111111")
         console.log(res)
         if (res.code) {
           wx.getUserInfo({
@@ -36,7 +37,7 @@ Page({
             }
           });
           // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-          var l = 'http://192.168.1.111:8080/appletApi/getUserInfo'
+          var l = 'https://chronic.infobigdata.com/appletApi/getUserInfo'
           // console.log(res)
           wx.request({
             url: l,
@@ -59,7 +60,7 @@ Page({
               wx.setStorageSync('user', obj); //存储openid 
               //发送输入信息开始
               wx.request({
-                url: 'http://192.168.1.111:8080/doctorapplet/f52024d75d4348f38cdad3670d209c1e/selftest',
+                url: 'https://chronic.infobigdata.com/doctorapplet/f52024d75d4348f38cdad3670d209c1e/selftest',
                 data: {
                   openid: obj.openid,
                   issue: encodeURI("慢病自测")

@@ -18,7 +18,7 @@ Page({
     console.log(options.selectid)
     const selfPage = this;
     wx.request({
-      url: 'http://192.168.1.111:8080/doctorapplet/f52024d75d4348f38cdad3670d209c1e/wiki',
+      url: 'https://chronic.infobigdata.com/doctorapplet/f52024d75d4348f38cdad3670d209c1e/wiki',
       data: {
         wikiid: options.selectid,//0代表查列表，具体某一个id表示查具体某一条
       },

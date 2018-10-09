@@ -4,7 +4,7 @@
 }
 .result {
   background:#f6f6f6;
-  height:1100rpx;
+  height:1200rpx;
 }
 .pinggu_box1_active {
   display: block;

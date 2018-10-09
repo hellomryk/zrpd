@@ -61,6 +61,26 @@
           </view>
           <view style="clear:both;"></view>
           <!-- mxjb初始5结束 -->
+                    <!-- mxjb初始6开始 -->
+          <view class="robot-sen clearfix" wx:if="{{item.typeId == 3}}">
+            <image src="../../pics/zrpdrobot.png"></image>
+            <view class='mxjb_robot_starttest'>
+              <text class='mxjb_robot_starttest_text'>{{item.welcomeuserlist}}</text>
+              <view class='starttest startborder starttestlistborder' bindtap="gotozhengzhuang">→{{item.starttestlist}}</view>
+            </view>
+          </view>
+          <view style="clear:both;"></view>
+          <!-- mxjb初始6结束 -->
+          <!-- mxjb初始7开始 -->
+          <view class="robot-sen clearfix" wx:if="{{item.typeId == 4}}">
+            <image src="../../pics/zrpdrobot.png"></image>
+            <view class='mxjb_robot_starttest'>
+              <text class='mxjb_robot_starttest_text'>{{item.welcomeuserlist}}</text>
+              <view class='starttest startborder starttestlistborder' bindtap="gotozhengzhuang">→{{item.starttestlist}}</view>
+            </view>
+          </view>
+          <view style="clear:both;"></view>
+          <!-- mxjb初始7结束 -->
         </view>
         <!-- 中间对话区域对话遍历结束 -->
       </view>
@@ -89,4 +109,4 @@
   <input type='text' placeholder="请输入您的症状,譬如头晕,恶心,发热..." class='mxjb_text_write_input' value="{{inputValue}}" name="shuru" bindinput='catchMessage' bindconfirm="submitMessage" cursor-spacing='20'></input>
 </view>
 <!-- <input value='发送' bindtap="sendmsg" type="button"></input> -->
-<button  bindtap="sendmsg">发送</button>
+<button  bindtap="sendmsg" style='display:none;'>发送</button>
