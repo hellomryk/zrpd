@@ -1,0 +1,40 @@
+<!--pages/shangcheng_head_list/index.wxml-->
+ <scroll-view scroll-y bindscrolltolower="loadMore" style="height: 600px;">
+
+<scroll-view scroll-x="true" class='shangcheng_head_list'>
+    <block wx:for-items="{{list}}" wx:key="{{item.categoryId}}">
+        <view class="shangcheng_head_li {{item.checked ? 'li_y' : ''}} " id="{{item.categoryId}}" bindtap="kindToggle">{{item.name}}</view>
+    </block>
+</scroll-view>
+
+<view class='shangcheng_move'>
+    <block wx:for-items="{{list1}}" wx:key="{{item.id}}">
+        <view class="shangcheng_move_li {{item.checked ? 'li_o' : ''}} " id="{{item.id}}" bindtap="kindToggle1">{{item.label}}</view>
+    </block>
+</view>
+
+
+
+<view class='shangcheng_cont'>
+    <view class='shangcheng_cont_list'>
+    <block wx:for-items="{{listbox}}" >
+        <view class='shangcheng_cont_li' id="{{item.id}}" bindtap='toDetailPage'>
+            <image src='{{item.url}}'></image>
+            <view>
+                <text class='xianjia'>¥{{item.xianjia}}</text>
+                <text class='yuanjia'>¥{{item.yuanjia}}</text>
+                <text class='baoyou' wx:if="{{item.baoyou}}">包邮</text>
+            </view>
+            <view class='shengcheng_name'>{{item.name}}</view>
+            <view class='shengcheng_ps'>{{item.ps}}</view>
+        </view>
+    </block>
+ <view style="clear:both;"></view>
+        <view style="text-align: center;color: #999;font-size:28rpx;" wx:if="{{bottom}}">滑动加载更多...</view>
+        <view style="clear:both;"></view>
+    </view>
+
+</view>
+
+
+</scroll-view>
