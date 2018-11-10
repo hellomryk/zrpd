@@ -16,6 +16,8 @@
     "pages/manyslowdesiseson/manyslowdesiseson",
     "pages/historylist/historylist",
     "pages/znpgresult/znpgresult",
+    "pages/shopingps/index",
+    "pages/shangcheng_list/index",
     "pages/baogao/baogao"
   ],
   "window": {
@@ -24,7 +26,6 @@
     "navigationBarTitleText": "北京中润普达",
     "navigationBarTextStyle": "black",
     "backgroundColor": "#F8F8F8",
-    "disableScroll": true,
     "enablePullDownRefresh": false
   },
   "networkTimeout": {

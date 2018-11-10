@@ -1,4 +1,6 @@
 // pages/desiselist/desiselist.js
+//const hostlocal = "http://192.168.1.111:8080"
+const hostlocal = "https://chronic.infobigdata.com"
 Page({
 
   /**
@@ -37,7 +39,7 @@ Page({
             }
           });
           // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-          var l = 'https://chronic.infobigdata.com/appletApi/getUserInfo'
+          var l = hostlocal+'/appletApi/getUserInfo'
           // console.log(res)
           wx.request({
             url: l,
@@ -60,7 +62,7 @@ Page({
               wx.setStorageSync('user', obj); //存储openid 
               //发送输入信息开始
               wx.request({
-                url: 'https://chronic.infobigdata.com/doctorapplet/f52024d75d4348f38cdad3670d209c1e/selftest',
+                url: hostlocal+'/doctorapplet/f52024d75d4348f38cdad3670d209c1e/selftest',
                 data: {
                   openid: obj.openid,
                   issue: encodeURI("慢病自测")

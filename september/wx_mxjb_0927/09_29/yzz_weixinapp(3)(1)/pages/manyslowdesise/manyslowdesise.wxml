@@ -1,7 +1,7 @@
 <!--pages/manyslowdesise/manyslowdesise.wxml-->
 <view class='food_list_ul'>
     <view class='food_list clearfix' wx:for-items = "{{foodlistarr}}" bindtap="gotoart" id='{{item.id}}'>
-        <image src='../../pics/babeduck.png' class='food_list_img'></image>
+        <image src='../../pics/banner.png' class='food_list_img'></image>
         <view class='food_list_right'>
             <view class='food_list_right_title'>{{item.wikipediName}}</view>
             <view style='clear:both;'></view>

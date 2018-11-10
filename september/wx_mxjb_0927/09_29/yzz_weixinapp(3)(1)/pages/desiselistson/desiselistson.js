@@ -3,7 +3,8 @@ const date = new Date()
 const years = []
 const months = []
 const days = []
-
+// const hostlocal = "http://192.168.1.111:8080"
+const hostlocal = "https://chronic.infobigdata.com"
 // for (let i = 1990; i <= date.getFullYear(); i++) {
 //   years.push(i)
 // }
@@ -40,6 +41,7 @@ Page({
     scrollTop: '', //滚动的高度
     desisename: '',
     clazzstep: '', //小红记录步骤的参数
+    whichnum:0,//默认时候是哪一个
     array: []
   },
   bindChange: function(e) {
@@ -47,8 +49,8 @@ Page({
     console.log(val)
     console.log(e.detail)
     this.setData({
-      year: this.data.years[val[0]]
-      // year: this.data.years[2]
+      year: this.data.years[val[0]],
+      whichnum: val[0]
     })
   },
 
@@ -102,7 +104,7 @@ Page({
                 username: res.userInfo.nickName
               })
               wx.request({
-                url: 'https://chronic.infobigdata.com/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorinit',
+                url: hostlocal+'/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorinit',
                 header: {
                   'content-type': "application/json"
                 },
@@ -197,7 +199,7 @@ Page({
             }
           });
           // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-          var l = 'https://chronic.infobigdata.com/appletApi/getUserInfo'
+          var l = hostlocal+'/appletApi/getUserInfo'
           // console.log(res)
           wx.request({
             url: l,
@@ -220,7 +222,7 @@ Page({
               wx.setStorageSync('user', obj); //存储openid 
               //发送输入信息开始
               wx.request({
-                url: 'https://chronic.infobigdata.com/doctorapplet/f52024d75d4348f38cdad3670d209c1e/selftest',
+                url: hostlocal+'/doctorapplet/f52024d75d4348f38cdad3670d209c1e/selftest',
                 data: {
                   openid: obj.openid,
                   issue: encodeURI(selfPage.data.desisename)
@@ -349,7 +351,7 @@ Page({
             }
           });
           // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-          var l = 'https://chronic.infobigdata.com/appletApi/getUserInfo'
+          var l = hostlocal+'/appletApi/getUserInfo'
           // console.log(res)
           wx.request({
             url: l,
@@ -372,7 +374,7 @@ Page({
               wx.setStorageSync('user', obj); //存储openid 
               //发送输入信息开始
               wx.request({
-                url: 'https://chronic.infobigdata.com/doctorapplet/f52024d75d4348f38cdad3670d209c1e/selftest',
+                url: hostlocal+'/doctorapplet/f52024d75d4348f38cdad3670d209c1e/selftest',
                 data: {
                   openid: obj.openid,
                   issue: encodeURI(selfPage.data.year),
@@ -403,9 +405,12 @@ Page({
                     var dataarray = selfPage.data.array;
                     dataarray.push(obj2)
                     dataarray.push(obj1)
+                    var numindex = selfPage.data.whichnum;
+                    console.log("ykkkkkkkkkkkkkkkkkk")
+                    console.log(numindex)
                     selfPage.setData({
                       years: arr2[0].split(','),
-                      year: arr2[0].split(',')[0],
+                      year: arr2[0].split(',')[numindex],
                       inputShow: data.data.inputShow,
                       windowHeightChange: 400,
                       array: dataarray
@@ -458,14 +463,19 @@ Page({
                    
                   } else {
                       if (data.data.showType == 4) {
+                        var obj2 = {
+                          typeId: 0,
+                          message: data.data.data
+                        }
                         var obj1 = {
-                          typeId: -1,
+                          typeId: 4,
                           welcomeuser:"此时无结果,欢迎继续测评",
                           starttest: "开始测评",
                           lookhistory: "测评历史",
                           // firstprompt: ""
                         }
                         var dataarray = selfPage.data.array;
+                        dataarray.push(obj2)
                         dataarray.push(obj1)
                         selfPage.setData({
                           windowHeightChange: 0,
@@ -519,7 +529,7 @@ Page({
             }
           });
           // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-          var l = 'https://chronic.infobigdata.com/appletApi/getUserInfo'
+          var l = hostlocal+'/appletApi/getUserInfo'
           // console.log(res)
           wx.request({
             url: l,
@@ -542,7 +552,7 @@ Page({
               wx.setStorageSync('user', obj); //存储openid 
               //发送输入信息开始
               wx.request({
-                url: 'https://chronic.infobigdata.com/doctorapplet/f52024d75d4348f38cdad3670d209c1e/selftest',
+                url: hostlocal+'/doctorapplet/f52024d75d4348f38cdad3670d209c1e/selftest',
                 data: {
                   openid: obj.openid,
                   issue: encodeURI("不保存"),
@@ -550,8 +560,9 @@ Page({
                 },
                 method: 'GET',
                 success: function (data) {
-
-
+                  wx.switchTab({
+                    url:'/pages/shouye/shouye'
+                  })
                 }
                 //滚动到底部
               })
@@ -565,8 +576,14 @@ Page({
     });
     //获取小程序id结束
   },
-  baocun() {
+  baocun:function()  {
     const selfPage = this;
+    // wx.navigateTo({
+    //   url: '/pages/shouye/shouye'
+    // })
+    wx.switchTab({
+      url: '/pages/shouye/shouye',
+    })
     // 获取小程序id开始
     var user = wx.getStorageSync('user') || {};
     var userInfo = wx.getStorageSync('userInfo') || {};
@@ -584,7 +601,7 @@ Page({
             }
           });
           // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-          var l = 'https://chronic.infobigdata.com/appletApi/getUserInfo'
+          var l = hostlocal+'/appletApi/getUserInfo'
           // console.log(res)
           wx.request({
             url: l,
@@ -607,16 +624,18 @@ Page({
               wx.setStorageSync('user', obj); //存储openid 
               //发送输入信息开始
               wx.request({
-                url: 'https://chronic.infobigdata.com/doctorapplet/f52024d75d4348f38cdad3670d209c1e/selftest',
+                url: hostlocal+'/doctorapplet/f52024d75d4348f38cdad3670d209c1e/selftest',
                 data: {
                   openid: obj.openid,
                   issue: encodeURI("保存测评记录"),
+                  uname:encodeURI(selfPage.data.username),
                   clazzstep: encodeURI(selfPage.data.clazzstep)
                 },
                 method: 'GET',
                 success: function (data) {
-
-                 
+                    wx.switchTab({
+                      url: '/pages/shouye/shouye',
+                    })
                   }
                   //滚动到底部
               })
@@ -635,7 +654,7 @@ Page({
   //     selfPage.setData({
   //       siginup: false
   //     })
-  //   },
+  //   }
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -813,9 +832,13 @@ function sendmessage_pubId(selfPage) {
                   var dataarray = selfPage.data.array;
                   dataarray.push(obj2)
                   dataarray.push(obj1)
+                  var num1 = selfPage.data.whichnum
+                  console.log("ykkkkkkkkkkkk")
+                  console.log(num1)
+                  console.log(arr2[0].split(',')[num1])
                   selfPage.setData({
                     years: arr2[0].split(','),
-                    year: arr2[0].split(',')[0],
+                    year: arr2[0].split(',')[num1],
                     inputShow: data.data.inputShow,
                     windowHeightChange: 400,
                     array: dataarray
